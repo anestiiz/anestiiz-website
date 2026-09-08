@@ -103,18 +103,15 @@
       .case-cta h3{font-size:34px}
     }
 
-    html[lang="ru"] .case-head h2{font-size:clamp(52px,6.5vw,104px)}
-    html[lang="ru"] .case-lead{font-size:clamp(17px,1.65vw,25px)}
-    html[lang="ru"] .case-cta h3{font-size:clamp(28px,3.4vw,56px)}
-    @media(max-width:640px){html[lang="ru"] .case-head h2{font-size:44px}}
+                @media(max-width:640px){}
   </style>
 </head>
 <body>
   <header>
     <div class="wrap header-row">
       <a class="logo" href="index.html"><span class="logo-text">anestiiz</span><img class="logo-a" src="assets/anestiiz-mark.svg" alt=""></a>
-      <a class="back-link" href="index.html#work" data-en="<img class='icon-arrow-left' src='Icons/Arrow Left.svg' alt=''> All work" data-ru="<img class='icon-arrow-left' src='Icons/Arrow Left.svg' alt=''> Все работы"><img class="icon-arrow-left" src="Icons/Arrow Left.svg" alt=""> All work</a>
-      <div class="header-right" data-en="Case 03 / Mobile app design" data-ru="Кейс 03 / Мобильный дизайн">Case 03 / Mobile app design</div>
+      <a class="back-link" href="index.html#work"><img class='icon-arrow-left' src='Icons/Arrow Left.svg' alt=''> All work</a>
+      <div class="header-right">Case 03 / Mobile app design</div>
     </div>
   </header>
 
@@ -122,13 +119,13 @@
     <section class="case-hero wrap">
       <div class="case-head reveal">
         <div>
-          <div class="case-index" data-en="03 / Mobile app design" data-ru="03 / Мобильный дизайн">03 / Mobile app design</div>
-          <h2 data-en="Greekly.<br><span class='orange'>Real news,</span><br>real learning." data-ru="Greekly.<br><span class='orange'>Реальные новости,</span><br>реальное обучение.">Greekly.<br><span class="orange">Real news,</span><br>real learning.</h2>
+          <div class="case-index">03 / Mobile app design</div>
+          <h2>Greekly.<br><span class='orange'>Real news,</span><br>real learning.</h2>
         </div>
         <div class="case-side">
           <img class="case-logo" src="assets/greekly/Logo.png" alt="Greekly visual identity character logo">
-          <div class="case-lead" data-en="A language-learning experience built around real content, interactive vocabulary and short reinforcement quizzes." data-ru="Языковое обучение, построенное на реальном контенте, интерактивной лексике и коротких квизах на закрепление.">A language-learning experience built around real content, interactive vocabulary and short reinforcement quizzes.</div>
-          <div class="case-facts"><span>UX / UI</span><span>EdTech</span><span data-en="Mobile product" data-ru="Мобильный продукт">Mobile product</span><span data-en="Character system" data-ru="Персонаж">Character system</span></div>
+          <div class="case-lead">A language-learning experience built around real content, interactive vocabulary and short reinforcement quizzes.</div>
+          <div class="case-facts"><span>UX / UI</span><span>EdTech</span><span>Mobile product</span><span>Character system</span></div>
         </div>
       </div>
 
@@ -142,18 +139,18 @@
 
       <div class="case-notes reveal">
         <div>
-          <h3 data-en="News as the lesson." data-ru="Новости как урок.">News as the lesson.</h3>
-          <p data-en="Instead of textbook drills, learners pick real articles that match their level. Vocabulary lives inside the story, so context comes before translation." data-ru="Вместо упражнений из учебника — реальные статьи под ваш уровень. Лексика живёт внутри истории, контекст важнее перевода.">Instead of textbook drills, learners pick real articles that match their level. Vocabulary lives inside the story, so context comes before translation.</p>
+          <h3>News as the lesson.</h3>
+          <p>Instead of textbook drills, learners pick real articles that match their level. Vocabulary lives inside the story, so context comes before translation.</p>
         </div>
         <div>
-          <h3 data-en="Warm character system." data-ru="Тёплая система персонажа.">Warm character system.</h3>
-          <p data-en="A friendly mascot carries tone across onboarding, feedback and errors — turning progress into a personal, low-pressure journey." data-ru="Дружелюбный маскот держит интонацию во всём — от онбординга до ошибок, превращая прогресс в личный путь без давления.">A friendly mascot carries tone across onboarding, feedback and errors — turning progress into a personal, low-pressure journey.</p>
+          <h3>Warm character system.</h3>
+          <p>A friendly mascot carries tone across onboarding, feedback and errors — turning progress into a personal, low-pressure journey.</p>
         </div>
       </div>
 
       <div class="case-cta reveal">
-        <h3 data-en="Have a mobile product in mind? <em>Let’s make it.</em>" data-ru="Есть идея мобильного продукта? <em>Давайте сделаем.</em>">Have a mobile product in mind? <em>Let’s make it.</em></h3>
-        <a class="cta-btn" href="index.html#contact" data-en="Get in touch <img class='icon-arrow-up light' src='Icons/Arrow Right Up.svg' alt=''>" data-ru="Написать <img class='icon-arrow-up light' src='Icons/Arrow Right Up.svg' alt=''>">Get in touch <img class="icon-arrow-up light" src="Icons/Arrow Right Up.svg" alt=""></a>
+        <h3>Have a mobile product in mind? <em>Let’s make it.</em></h3>
+        <a class="cta-btn" href="index.html#contact">Get in touch <img class='icon-arrow-up light' src='Icons/Arrow Right Up.svg' alt=''></a>
       </div>
     </section>
   </main>
@@ -171,14 +168,6 @@
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // Apply saved language preference from index.html if present
-    const savedLang = localStorage.getItem('site-lang') || 'en';
-    const applyLang = lang => {
-      document.documentElement.lang = lang;
-      document.querySelectorAll('[data-en][data-ru]').forEach(el => {
-        const value = el.dataset[lang];
-        if (value != null) el.innerHTML = value;
-      });
-    };
     applyLang(savedLang);
   </script>
 </body>
