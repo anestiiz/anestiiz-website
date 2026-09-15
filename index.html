@@ -141,7 +141,7 @@
     .filters button{border:0;background:transparent;color:var(--muted);padding:16px 2px;font-family:"Manrope",sans-serif;font-size:14px;font-weight:600;letter-spacing:-.5px;cursor:pointer;border-radius:999px;transition:.2s ease}
     .filters button.active{padding:12px 24px;color:#fff;background:var(--pill-bg);border:var(--pill-border);box-shadow:var(--pill-shadow);line-height:18px}
     .filters button:not(.active):hover{color:#fff}
-    .projects{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
     .project.hidden{display:none}
     .project a.card-link{display:block}
     .media{position:relative;width:100%;aspect-ratio:1.08/1;border-radius:8px;overflow:hidden;background:#111}
@@ -274,7 +274,7 @@
 
     /* Expanded portfolio grid */
     .work{padding-bottom:clamp(110px,11vw,170px)}
-    .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 24px}
+    .projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 24px}
     .project{min-width:0}
     .project.hidden{display:none}
     .project-card{display:block}
@@ -333,14 +333,15 @@
     .project[data-type="ai"] .meta-title{max-width:85%}
     .meta-num{font-size:14px;padding-top:6px}
 
-    @media(max-width:1120px){.projects{grid-template-columns:1fr}}
+    @media(max-width:1120px){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:700px){.projects{grid-template-columns:1fr}}
 
     @media(max-width:1120px){
       .hero-grid{grid-template-columns:1fr}
       .hero-aside{justify-content:flex-start;align-self:start;padding-top:20px}
       .scroll-circle{width:76px;height:76px}
       .scroll-circle .icon-arrow-down{width:30px;height:30px}
-      .projects{grid-template-columns:1fr}
+      .projects{grid-template-columns:repeat(2,minmax(0,1fr))}
       .work-top{grid-template-columns:1fr}
       .filters{justify-content:flex-start}
       .about-intro{grid-template-columns:1fr}
@@ -455,7 +456,7 @@
     .greekly-card-title{margin-top:24px;font-size:clamp(34px,3.4vw,56px);line-height:.98;letter-spacing:-.03em;font-weight:520;}
     .greekly-card-title em{font-style:normal;color:#ed9200}
     .greekly-card-sub{margin-top:20px;font-size:14px;line-height:1.45;color:#786d63;max-width:310px}
-    .greekly-card-shot{position:absolute;right:0;top:0;width:46%;height:100%;overflow:hidden;background:#ee9200}
+    .greekly-card-shot{position:absolute;inset:0;overflow:hidden;background:#ee9200}
     .greekly-card-shot img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top}
     .greekly-open-fixed{display:none}
     .greekly-open-fixed .icon-arrow-up{width:16px;height:16px}
@@ -471,7 +472,7 @@
     .lume-card-title{margin-top:24px;font-size:clamp(34px,3.4vw,56px);line-height:.98;letter-spacing:-.03em;font-weight:520;}
     .lume-card-title em{font-style:normal;color:#2b6cf4}
     .lume-card-sub{margin-top:20px;font-size:14px;line-height:1.45;color:#5b6d8c;max-width:310px}
-    .lume-card-shot{position:absolute;right:0;top:0;width:46%;height:100%;overflow:hidden;background:#c9d9f5}
+    .lume-card-shot{position:absolute;inset:0;overflow:hidden;background:#c9d9f5}
     .lume-card-shot img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top}
     .lume-open-fixed{display:none}
     .lume-open-fixed .icon-arrow-up{width:16px;height:16px}
@@ -487,7 +488,7 @@
     .bloat-card-title{margin-top:24px;font-size:clamp(34px,3.4vw,56px);line-height:.98;letter-spacing:-.03em;font-weight:520;color:#fff}
     .bloat-card-title em{font-style:normal;color:#dbeeff}
     .bloat-card-sub{margin-top:20px;font-size:14px;line-height:1.45;color:rgba(255,255,255,.78);max-width:315px}
-    .bloat-card-shot{position:absolute;right:0;top:0;width:46%;height:100%;overflow:hidden;background:#7fbeff}
+    .bloat-card-shot{position:absolute;inset:0;overflow:hidden;background:#7fbeff}
     .bloat-card-shot img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top}
     .bloat-logo-chip{position:absolute;left:clamp(24px,3vw,46px);bottom:clamp(22px,2.4vw,34px);z-index:4;width:clamp(100px,10vw,140px);height:auto;object-fit:contain}
     .bloat-open-fixed{display:none}
@@ -505,7 +506,7 @@
     .flux-card-title em{font-style:normal;color:#a3ff12;font-family:"FreeSerif",Georgia,serif}
     .flux-card-sub{margin-top:20px;font-size:14px;line-height:1.45;color:#9598a2;max-width:340px}
     .flux-open-fixed{display:none}
-    .flux-card-mini{position:absolute;right:0;top:0;width:46%;height:100%;overflow:hidden}
+    .flux-card-mini{position:absolute;inset:0;overflow:hidden}
     .flux-card-mini svg{position:absolute;right:-6%;top:50%;transform:translateY(-50%);width:120%;height:88%;opacity:.95;filter:drop-shadow(0 20px 40px rgba(163,255,18,.18))}
     .flux-card-mini .mini-glow{position:absolute;right:-40px;top:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(163,255,18,.22),transparent 60%);pointer-events:none}
     .flux-card-mini .mini-kpi{position:absolute;background:rgba(17,18,23,.85);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:8px 12px;font-family:"Manrope",sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.4)}
@@ -532,13 +533,13 @@
       .greekly-case-head{grid-template-columns:1fr}
       .greekly-logo-image{width:160px}
       .greekly-card-copy{width:56%}
-      .greekly-card-shot{width:46%}
+      .greekly-card-shot{inset:0}
     }
     @media(max-width:640px){
       .greekly-card-copy{left:20px;top:22px;width:62%}
       .greekly-card-title{font-size:36px;margin-top:20px}
       .greekly-card-sub{display:none}
-      .greekly-card-shot{width:47%;opacity:.92}
+      .greekly-card-shot{inset:0;opacity:.92}
       .greekly-open-fixed{top:auto;bottom:18px;font-size:12px;padding:12px 16px}
       .case-greekly-fixed{padding-top:88px}
       .greekly-case-head h2{font-size:58px}
@@ -549,13 +550,13 @@
 
     @media(max-width:980px){
       .bloat-card-copy{width:56%}
-      .bloat-card-shot{width:46%}
+      .bloat-card-shot{inset:0}
     }
     @media(max-width:640px){
       .bloat-card-copy{left:20px;top:22px;width:62%}
       .bloat-card-title{font-size:36px;margin-top:20px}
       .bloat-card-sub{display:none}
-      .bloat-card-shot{width:47%;opacity:.94}
+      .bloat-card-shot{inset:0;opacity:.94}
       .bloat-logo-chip{width:76px;height:auto;left:20px;bottom:18px}
     }
 
@@ -763,9 +764,6 @@
             <div class="media feel-cover project-slot">
               <span class="project-badge">Пак AI-креативов</span>
               <video src="assets/feel-the-sound/1.mp4" autoplay muted loop playsinline preload="metadata" poster="assets/feel-the-sound/1.png"></video>
-              <div class="feel-overlay">
-                <div class="echo-word">PRODUCT<br>CREATIVES</div>
-              </div>
             </div>
           </a>
           <div class="meta"><div><div class="meta-title">ПАК ПРОДУКТОВЫХ КРЕАТИВОВ — Реклама разных брендов</div><div class="meta-sub">AI-реклама · Разные бренды · Кинематографично</div></div><div class="meta-num">01</div></div>
@@ -776,10 +774,6 @@
             <div class="media promo-cover project-slot">
               <span class="project-badge">AI-промо пак</span>
               <video src="assets/greekly-promo/1.mp4" autoplay muted loop playsinline preload="metadata"></video>
-              <div class="promo-overlay">
-                <div class="promo-pack-count">4 видео</div>
-                <div class="echo-word">GREEKLY<br>PROMO&nbsp;PACK</div>
-              </div>
             </div>
           </a>
           <div class="meta"><div><div class="meta-title">GREEKLY PROMO PACK — Видео для продвижения приложения</div><div class="meta-sub">AI-видео · Продвижение приложения · Реклама в соцсетях</div></div><div class="meta-num">01</div></div>
@@ -792,11 +786,6 @@
               <div class="neuro-panel"><img src="assets/neuro/main/1.png" alt="Нейрофотосессия — главная съёмка" loading="lazy"></div>
               <div class="neuro-panel"><img src="assets/neuro/1/4.png" alt="Нейрофотосессия — портрет" loading="lazy"></div>
               <div class="neuro-panel"><img src="assets/neuro/2/2.png" alt="Нейрофотосессия — стилизация" loading="lazy"></div>
-              <div class="neuro-overlay">
-                <div class="neuro-pack-count">5 съёмок · 20 кадров</div>
-                <div class="echo-word">NEURO<br>SHOOTS</div>
-                <div class="neuro-open">Смотреть кейс <img class='icon-arrow-up' src='Icons/Arrow Right Up.svg' alt=''></div>
-              </div>
             </div>
           </a>
           <div class="meta"><div><div class="meta-title">НЕЙРОФОТОСЕССИИ — Пять генеративных съёмок</div><div class="meta-sub">AI-фотография · Портреты · Стилизация · Свет</div></div><div class="meta-num">02</div></div>
@@ -806,12 +795,6 @@
           <a class="project-card" href="greekly.html" aria-label="Open Greekly mobile app case">
             <div class="media project-slot greekly-card-fixed">
               <span class="project-badge badge-mobile">Мобильный дизайн</span>
-              <div class="greekly-card-copy">
-                <div class="greekly-eyebrow">Мобильный дизайн</div>
-                <div class="greekly-card-title">Учись через<br><em>реальные истории.</em></div>
-                <div class="greekly-card-sub">Языковое обучение по реальным новостям с тёплой системой персонажей.</div>
-                <div class="greekly-open-fixed">Смотреть кейс <img class='icon-arrow-up' src='Icons/Arrow Right Up.svg' alt=''></div>
-              </div>
               <div class="greekly-card-shot"><img src="assets/greekly/1.png" alt="Greekly mobile app design"></div>
             </div>
           </a>
@@ -822,29 +805,16 @@
           <a class="project-card" href="lume.html" aria-label="Open Lumé mobile app case">
             <div class="media project-slot lume-card-fixed">
               <span class="project-badge badge-mobile">Мобильный дизайн</span>
-              <div class="lume-card-copy">
-                <div class="lume-eyebrow">Мобильный дизайн</div>
-                <div class="lume-card-title">Французская красота,<br><em>встречает AI.</em></div>
-                <div class="lume-card-sub">AI-анализ кожи и питания в мягкой сине-клинической спокойной палитре.</div>
-                <div class="lume-open-fixed">Смотреть кейс <img class='icon-arrow-up' src='Icons/Arrow Right Up.svg' alt=''></div>
-              </div>
               <div class="lume-card-shot"><img src="assets/lume/1.png" alt="Lumé mobile app design"></div>
             </div>
           </a>
-          <div class="meta"><div><div class="meta-title">Lumé — Где французская красота встречает AI</div><div class="meta-sub">Мобильный UX/UI · AI-продукт · Здоровье и красота</div></div><div class="meta-num">04</div></div>
+          <div class="meta"><div><div class="meta-title">Lumé — AI-спутник для кожи</div><div class="meta-sub">Мобильный UX/UI · AI-продукт · Здоровье и красота</div></div><div class="meta-num">04</div></div>
         </article>
 
         <article class="project reveal" data-type="mobile">
           <a class="project-card" href="bloat-down.html" aria-label="Open Bloat Down mobile app case">
             <div class="media project-slot bloat-card-fixed">
               <span class="project-badge badge-mobile">Мобильный дизайн</span>
-              <div class="bloat-card-copy">
-                <div class="bloat-eyebrow">Мобильный дизайн</div>
-                <div class="bloat-card-title">Bloat Down.<br><em>Легче каждый день.</em></div>
-                <div class="bloat-card-sub">Трекинг пищеварения с яркой и поддерживающей айдентикой приложения.</div>
-                <div class="bloat-open-fixed">Смотреть кейс <img class='icon-arrow-up' src='Icons/Arrow Right Up.svg' alt=''></div>
-              </div>
-              <img class="bloat-logo-chip" src="assets/bloat-down/Logo.png" alt="">
               <div class="bloat-card-shot"><img src="assets/bloat-down/1.webp" alt="Bloat Down mobile app design"></div>
             </div>
           </a>
@@ -855,12 +825,6 @@
           <a class="project-card" href="fluxframe.html" aria-label="Open Fluxframe SaaS dashboard case">
             <div class="media project-slot flux-card-fixed">
               <span class="project-badge">SaaS дашборд</span>
-              <div class="flux-card-copy">
-                <div class="flux-eyebrow">Финансовая платформа для SaaS</div>
-                <div class="flux-card-title">Fluxframe.<br>Финансы <em>в реальном времени.</em></div>
-                <div class="flux-card-sub">Живая выручка, runway и AI-прогнозы — единая панель для SaaS-команд, которые двигаются быстро.</div>
-                <div class="flux-open-fixed">Смотреть кейс <img class='icon-arrow-up' src='Icons/Arrow Right Up.svg' alt=''></div>
-              </div>
               <div class="flux-card-mini" aria-hidden="true">
                 <div class="mini-glow"></div>
                 <svg viewBox="0 0 400 260" preserveAspectRatio="none">
@@ -879,16 +843,6 @@
                   <path class="flux-line" fill="none" stroke="#6c70ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M0,150 L40,160 L80,140 L120,150 L160,120 L200,130 L240,105 L280,115 L320,90 L360,100 L400,80"/>
                   <path class="flux-line" fill="none" stroke="#a3ff12" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M0,120 L40,110 L80,130 L120,90 L160,100 L200,70 L240,80 L280,55 L320,65 L360,40 L400,50" style="filter:drop-shadow(0 0 6px rgba(163,255,18,.5))"/>
                 </svg>
-                <div class="mini-kpi k1">
-                  <div class="l">Выручка</div>
-                  <div class="v">$482K</div>
-                  <div class="d">↑ 12.4%</div>
-                </div>
-                <div class="mini-kpi k2">
-                  <div class="l">Runway</div>
-                  <div class="v">18 mo</div>
-                  <div class="d">↑ 2 mo</div>
-                </div>
               </div>
             </div>
           </a>
