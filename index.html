@@ -171,6 +171,17 @@
     .promo-overlay .echo-word{font-weight:500;letter-spacing:.02em;font-size:clamp(46px,5vw,80px)}
     .promo-pack-count{position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:rgba(19,11,18,.42);border:1px solid rgba(255,255,255,.28);color:#fff;font-family:"Manrope",sans-serif;font-size:11px;line-height:1;font-weight:600;letter-spacing:.02em;backdrop-filter:blur(10px)}
     .promo-pack-count::before{content:"▶";font-size:9px;line-height:1}
+    .neuro-cover{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:#0a0806}
+    .neuro-cover .neuro-panel{position:relative;overflow:hidden;background:#111}
+    .neuro-cover .neuro-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;filter:saturate(1.02) contrast(1.02)}
+    .project-card:hover .neuro-cover .neuro-panel img{transform:scale(1.04)}
+    .neuro-overlay{position:absolute;inset:0;padding:32px 32px 28px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.06) 40%,rgba(0,0,0,.62) 100%);pointer-events:none}
+    .neuro-overlay .echo-word{font-weight:500;letter-spacing:.02em;font-size:clamp(46px,5vw,80px);margin-bottom:18px}
+    .neuro-open{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(10px);color:#fff;font-family:"Manrope",sans-serif;font-size:13px;line-height:1;font-weight:600;letter-spacing:-.2px;transition:background .25s ease}
+    .project-card:hover .neuro-open{background:rgba(255,255,255,.2)}
+    .neuro-open .icon-arrow-up{width:14px;height:14px;filter:brightness(0) invert(1)}
+    .neuro-pack-count{position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:rgba(19,11,18,.42);border:1px solid rgba(255,255,255,.28);color:#fff;font-family:"Manrope",sans-serif;font-size:11px;line-height:1;font-weight:600;letter-spacing:.02em;backdrop-filter:blur(10px);z-index:2}
+    .neuro-pack-count::before{content:"◐";font-size:11px;line-height:1}
     .echo-word{font-size:clamp(56px,6.2vw,98px);line-height:.88;letter-spacing:.08em;font-weight:300}
     .echo-sub{margin-top:16px;font-size:13px;letter-spacing:.34em;text-transform:uppercase}
     .echo-vert{position:absolute;right:18px;top:26px;font-size:12px;letter-spacing:.25em;writing-mode:vertical-rl;text-transform:uppercase;color:rgba(255,255,255,.9)}
@@ -363,6 +374,7 @@
       .echo-overlay{padding:24px 24px 20px}.echo-word{font-size:62px}.echo-sub{font-size:11px;letter-spacing:.28em}.echo-vert{right:10px;top:18px;font-size:10px}
       .feel-overlay{padding:64px 24px 20px}.feel-overlay .echo-word{font-size:clamp(34px,11vw,52px);letter-spacing:.01em}
       .promo-overlay{padding:64px 24px 20px}.promo-overlay .echo-word{font-size:clamp(30px,9vw,44px);letter-spacing:.01em}
+      .neuro-overlay{padding:64px 24px 20px}.neuro-overlay .echo-word{font-size:clamp(30px,9vw,44px);letter-spacing:.01em}
       .meta-title{font-size:26px}.meta-num{font-size:18px}
       .about h2{font-size:56px}.about-copy{font-size:18px}
       .service{grid-template-columns:1fr;gap:12px}.service>div:last-child{grid-column:auto}
@@ -746,7 +758,7 @@
       </div>
 
       <div class="projects">
-        <article class="project reveal" data-type="ai">
+        <article class="project reveal" data-type="ai" style="display:none">
           <a class="project-card" href="#" aria-label="Product creatives pack — AI product ads">
             <div class="media feel-cover project-slot">
               <span class="project-badge">Пак AI-креативов</span>
@@ -770,7 +782,24 @@
               </div>
             </div>
           </a>
-          <div class="meta"><div><div class="meta-title">GREEKLY PROMO PACK — Видео для продвижения приложения</div><div class="meta-sub">AI-видео · Продвижение приложения · Реклама в соцсетях</div></div><div class="meta-num">02</div></div>
+          <div class="meta"><div><div class="meta-title">GREEKLY PROMO PACK — Видео для продвижения приложения</div><div class="meta-sub">AI-видео · Продвижение приложения · Реклама в соцсетях</div></div><div class="meta-num">01</div></div>
+        </article>
+
+        <article class="project reveal" data-type="ai">
+          <a class="project-card" href="neuro.html" aria-label="Открыть кейс: пять нейрофотосессий">
+            <div class="media neuro-cover project-slot">
+              <span class="project-badge">Нейрофотосессия</span>
+              <div class="neuro-panel"><img src="assets/neuro/main/1.png" alt="Нейрофотосессия — главная съёмка" loading="lazy"></div>
+              <div class="neuro-panel"><img src="assets/neuro/1/4.png" alt="Нейрофотосессия — портрет" loading="lazy"></div>
+              <div class="neuro-panel"><img src="assets/neuro/2/2.png" alt="Нейрофотосессия — стилизация" loading="lazy"></div>
+              <div class="neuro-overlay">
+                <div class="neuro-pack-count">5 съёмок · 20 кадров</div>
+                <div class="echo-word">NEURO<br>SHOOTS</div>
+                <div class="neuro-open">Смотреть кейс <img class='icon-arrow-up' src='Icons/Arrow Right Up.svg' alt=''></div>
+              </div>
+            </div>
+          </a>
+          <div class="meta"><div><div class="meta-title">НЕЙРОФОТОСЕССИИ — Пять генеративных съёмок</div><div class="meta-sub">AI-фотография · Портреты · Стилизация · Свет</div></div><div class="meta-num">02</div></div>
         </article>
 
         <article class="project reveal" data-type="mobile">
