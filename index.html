@@ -106,7 +106,7 @@
     .lang-pill button.active{background:var(--pill-bg);border:var(--pill-border);color:#fff;box-shadow:var(--pill-shadow);line-height:18px;font-weight:600}
     .lang-pill button:not(.active):hover{color:var(--ink)}
 
-    .hero{padding-top:42px;position:relative;overflow:hidden}
+    .hero{padding-top:96px;position:relative;overflow:hidden}
     .hero-line{margin-top:0;position:relative;z-index:2}
     .hero-bg{position:absolute;left:50%;top:0;transform:translateX(-50%);width:100vw;height:100%;overflow:hidden;pointer-events:none;z-index:0}
     .hero-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:.55}
@@ -118,7 +118,7 @@
     .hero-me video{width:100%;height:100%;object-fit:cover;display:block;border-radius:1000px}
     .hero-desc-row{display:flex;align-items:flex-start;gap:250px;margin-top:64px;flex-wrap:wrap}
     .hero-desc-row .hero-desc{margin-top:0}
-    .hero-grid{position:relative;z-index:2;min-height:calc(100svh - 110px);padding-top:clamp(64px,8vw,120px);display:grid;grid-template-columns:minmax(0,1fr) 110px;gap:32px;align-items:start}
+    .hero-grid{position:relative;z-index:2;min-height:calc(100svh - 110px);padding-top:clamp(110px,12vw,180px);display:grid;grid-template-columns:minmax(0,1fr) 110px;gap:32px;align-items:start}
     .kicker{display:inline-flex;align-items:center;gap:16px;font-family:"Manrope",sans-serif;font-size:12px;font-weight:700;line-height:16px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
     .kicker-break{display:none}
     .kicker-dot{width:9px;height:9px;border-radius:50%;background:var(--pink);box-shadow:0 0 12px rgba(255,0,106,.95),0 0 22px rgba(255,0,106,.55)}
@@ -993,6 +993,8 @@
   <a class="floating-ai" href="ai.html"><span class="star">✳</span><span>Как я использую AI в дизайне</span><span class="arr"><img class="icon-arrow-up light" src="Icons/Arrow Right Up.svg" alt=""></span></a>
 
   <script>
+    document.querySelectorAll('.hero-bg video').forEach(v => { v.playbackRate = 1.35; });
+
     const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, {threshold:0, rootMargin:'0px 0px -8% 0px'});
