@@ -94,11 +94,16 @@
     .reveal.visible{opacity:1;transform:none}
 
     /* Lightbox */
-    .lightbox{position:fixed;inset:0;background:rgba(6,4,10,.92);backdrop-filter:blur(14px);z-index:100;display:none;align-items:center;justify-content:center;padding:32px;cursor:zoom-out}
+    .lightbox{position:fixed;inset:0;background:rgba(6,4,10,.92);backdrop-filter:blur(14px);z-index:100;display:none;align-items:center;justify-content:center;padding:32px;cursor:zoom-out;touch-action:pan-y}
     .lightbox.open{display:flex}
-    .lightbox img{max-width:min(96vw,1400px);max-height:92vh;width:auto;height:auto;object-fit:contain;border-radius:12px;box-shadow:0 40px 120px rgba(0,0,0,.6)}
+    .lightbox img{max-width:min(96vw,1400px);max-height:92vh;width:auto;height:auto;object-fit:contain;border-radius:12px;box-shadow:0 40px 120px rgba(0,0,0,.6);user-select:none;-webkit-user-drag:none}
     .lightbox-close{position:absolute;top:20px;right:24px;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.04);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
     .lightbox-close:hover{background:rgba(255,255,255,.08)}
+    .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:999px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.05);color:#fff;font-size:24px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .2s ease}
+    .lightbox-nav:hover{background:rgba(255,255,255,.12)}
+    .lightbox-nav.prev{left:24px}
+    .lightbox-nav.next{right:24px}
+    @media(max-width:640px){.lightbox-nav{display:none}}
     .gallery figure{cursor:zoom-in}
 
     @media(max-width:1120px){
@@ -152,7 +157,6 @@
         <span class="shoot-idx">Съёмка 01</span>
         <div class="shoot-head">
           <h3>Liquid Chrome — <em>Жидкий хром</em></h3>
-          <p>Серебряное платье и металлические формы.</p>
         </div>
         <span class="shoot-count">5 кадров</span>
       </div>
@@ -168,7 +172,6 @@
         <span class="shoot-idx">Съёмка 02</span>
         <div class="shoot-head">
           <h3>Obsidian Tide — <em>Обсидиановый прилив</em></h3>
-          <p>Тёмная вулканическая съёмка со стеклянными обсидиановыми поверхностями.</p>
         </div>
         <span class="shoot-count">4 кадра</span>
       </div>
@@ -183,7 +186,6 @@
         <span class="shoot-idx">Съёмка 03</span>
         <div class="shoot-head">
           <h3>Crimson Gravity — <em>Багровая гравитация</em></h3>
-          <p>Красная ткань, пустыня и бруталистская архитектура.</p>
         </div>
         <span class="shoot-count">4 кадра</span>
       </div>
@@ -198,7 +200,6 @@
         <span class="shoot-idx">Съёмка 04</span>
         <div class="shoot-head">
           <h3>Frozen Bloom — <em>Застывшее цветение</em></h3>
-          <p>Ледяное платье с цветами в зимней оранжерее.</p>
         </div>
         <span class="shoot-count">4 кадра</span>
       </div>
@@ -213,7 +214,6 @@
         <span class="shoot-idx">Съёмка 05</span>
         <div class="shoot-head">
           <h3>Cobalt Sculpture — <em>Кобальтовая скульптура</em></h3>
-          <p>Синяя фотосессия со стеклом и водой.</p>
         </div>
         <span class="shoot-count">3 кадра</span>
       </div>
@@ -238,6 +238,8 @@
 
   <div class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
     <button class="lightbox-close" type="button" aria-label="Закрыть">×</button>
+    <button class="lightbox-nav prev" type="button" aria-label="Предыдущее">‹</button>
+    <button class="lightbox-nav next" type="button" aria-label="Следующее">›</button>
     <img alt="">
   </div>
 
@@ -250,20 +252,56 @@
     const lb = document.querySelector('.lightbox');
     const lbImg = lb.querySelector('img');
     const lbClose = lb.querySelector('.lightbox-close');
-    document.querySelectorAll('.gallery figure').forEach(fig => {
-      fig.addEventListener('click', () => {
-        const img = fig.querySelector('img');
-        lbImg.src = img.src;
-        lbImg.alt = img.alt || '';
-        lb.classList.add('open');
-        lb.setAttribute('aria-hidden','false');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-    const closeLb = () => { lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; lbImg.src=''; };
+    const lbPrev = lb.querySelector('.lightbox-nav.prev');
+    const lbNext = lb.querySelector('.lightbox-nav.next');
+    const allFigs = Array.from(document.querySelectorAll('.gallery figure'));
+    let currentIdx = -1;
+
+    const showAt = (idx) => {
+      if (idx < 0 || idx >= allFigs.length) return;
+      currentIdx = idx;
+      const img = allFigs[idx].querySelector('img');
+      lbImg.src = img.src;
+      lbImg.alt = img.alt || '';
+    };
+    const openLb = (idx) => {
+      showAt(idx);
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeLb = () => { lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; lbImg.src=''; currentIdx=-1; };
+    const nextLb = () => { if (currentIdx>=0) showAt((currentIdx+1) % allFigs.length); };
+    const prevLb = () => { if (currentIdx>=0) showAt((currentIdx-1+allFigs.length) % allFigs.length); };
+
+    allFigs.forEach((fig, i) => fig.addEventListener('click', () => openLb(i)));
     lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
     lbClose.addEventListener('click', closeLb);
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) closeLb(); });
+    lbPrev.addEventListener('click', e => { e.stopPropagation(); prevLb(); });
+    lbNext.addEventListener('click', e => { e.stopPropagation(); nextLb(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      else if (e.key === 'ArrowRight') nextLb();
+      else if (e.key === 'ArrowLeft') prevLb();
+    });
+
+    let touchStartX = 0, touchStartY = 0;
+    lb.addEventListener('touchstart', e => {
+      if (e.touches.length !== 1) return;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, {passive:true});
+    lb.addEventListener('touchend', e => {
+      if (touchStartX === 0) return;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - touchStartX;
+      const dy = t.clientY - touchStartY;
+      touchStartX = 0;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) nextLb(); else prevLb();
+      }
+    }, {passive:true});
   </script>
 </body>
 </html>
