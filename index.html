@@ -118,20 +118,19 @@
     .hero-me::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid rgba(255,255,255,.5);pointer-events:none;z-index:1}
     .hero-me:hover{transform:rotate(0deg) scale(1.04)}
     .hero-me video{width:100%;height:100%;object-fit:cover;display:block;border-radius:1000px}
-    .hero-desc-row{display:flex;align-items:flex-start;gap:250px;margin-top:64px;flex-wrap:wrap}
-    .hero-desc-row .hero-desc{margin-top:0}
+    .hero-copy{display:flex;flex-direction:column;gap:clamp(24px,3vw,48px)}
+    .hero-copy h1{margin:0}
+    .hero-copy .hero-desc{margin-top:0}
     .hero-grid{position:relative;z-index:2;min-height:calc(100svh - 200px);padding-top:clamp(220px,22vw,340px);display:grid;grid-template-columns:minmax(0,1fr);gap:32px;align-items:start}
     .kicker{display:inline-flex;align-items:center;gap:16px;font-family:"Manrope",sans-serif;font-size:12px;font-weight:700;line-height:16px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
-    .kicker-break{display:none}
     .kicker-dot{width:9px;height:9px;border-radius:50%;background:var(--pink);box-shadow:0 0 12px rgba(255,0,106,.95),0 0 22px rgba(255,0,106,.55)}
-    h1{margin:48px 0 0;max-width:980px;font-size:clamp(68px,8.5vw,148px);line-height:.92;letter-spacing:-.06em;font-weight:600}
+    h1{margin:48px 0 0;max-width:980px;font-size:clamp(68px,8.5vw,148px);line-height:.92;letter-spacing:-.06em;font-weight:500}
     h1 span{display:block}
     .accent-square{display:inline-block;width:.13em;height:.13em;vertical-align:baseline;background:var(--pink);margin-left:.06em;box-shadow:0 0 18px rgba(255,0,106,.95),0 0 34px rgba(255,0,106,.4)}
     .icon-arrow-up{display:inline-block;width:1em;height:1em;object-fit:contain;vertical-align:-.13em;flex:0 0 auto}
     .icon-arrow-up.light{filter:invert(98%) sepia(8%) saturate(530%) hue-rotate(283deg) brightness(102%) contrast(92%)}
     .icon-arrow-up.pink{filter:invert(16%) sepia(96%) saturate(7479%) hue-rotate(326deg) brightness(102%) contrast(104%) drop-shadow(0 0 16px rgba(255,0,106,.32))}
     .hero-desc{margin-top:64px;max-width:480px;font-family:"Manrope",sans-serif;font-size:17px;font-weight:400;line-height:21px;letter-spacing:-.5px;color:var(--muted)}
-    .hero-desc-mobile{display:none}
     .hero-aside{display:flex;justify-content:flex-end;align-self:start;padding-top:clamp(64px,4vw,84px)}
     .scroll-circle{width:92px;height:92px;border-radius:50%;border:1px solid rgba(255,255,255,.22);display:grid;place-items:center;background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.018));box-shadow:0 0 0 1px rgba(255,255,255,.035) inset, 0 18px 50px rgba(0,0,0,.24), 0 0 34px rgba(255,0,106,.08);backdrop-filter:blur(8px);transition:transform .22s ease,border-color .22s ease, box-shadow .22s ease, background .22s ease}
     .scroll-circle .icon-arrow-down{width:34px;height:34px;display:block;filter:invert(16%) sepia(96%) saturate(7479%) hue-rotate(326deg) brightness(102%) contrast(104%) drop-shadow(0 0 13px rgba(255,0,106,.34));opacity:1;transition:transform .22s ease,opacity .22s ease,filter .22s ease}
@@ -368,11 +367,8 @@
       .hero{padding-top:24px}
       .hero-grid{min-height:auto;padding-top:64px}
       h1{margin-top:42px;font-size:clamp(50px,16.5vw,78px)}
-      .kicker{align-items:flex-start}.kicker .kicker-dot{margin-top:4px}.kicker-break{display:inline}
-      .hero-desc-row{gap:40px;margin-top:4px}
-      .hero-desc{margin-top:48px;font-size:17px;max-width:340px}
-      .hero-desc-desktop{display:none}
-      .hero-desc-mobile{display:inline}
+      .kicker{align-items:flex-start}.kicker .kicker-dot{margin-top:4px}
+      .hero-desc{margin-top:0;font-size:17px;max-width:340px}
       .section-title h2{font-size:42px}.section-title span{font-size:18px;padding-bottom:4px}
       .filters{gap:12px}.filters button{font-size:16px}.filters button.active{padding:12px 24px}
       .media{aspect-ratio:.95/1}
@@ -627,6 +623,7 @@
 
     /* RU: controlled vertical rhythm — do not stretch hero to viewport height */
     html[lang="ru"] .hero{padding-top:32px}
+    @media(min-width:1440px){html[lang="ru"] .hero{padding-top:300px}}
     html[lang="ru"] .hero-grid{
       min-height:auto;
       grid-template-columns:minmax(0,1fr) 96px;
@@ -736,13 +733,13 @@
       </div>
       <div class="hero-grid">
         <div>
-          <div class="kicker reveal">anestiiz — независимый дизайнер<br class='kicker-break'>и AI-креатор</div>
-          <h1 class="reveal">
-            <span>Проектирую интерфейсы.</span>
-            <span><span class='soft'>Генерирую</span> невозможное<span class='accent-square'></span></span>
-          </h1>
-          <div class="hero-desc-row reveal">
-            <div class="hero-desc"><span class='hero-desc-desktop'>AI-видео. Дизайн мобильных приложений. Веб-дизайн.<br>Три способа воплотить ваши идеи в&nbsp;жизнь.</span><span class='hero-desc-mobile'>AI-видео. Дизайн мобильных приложений. Веб&nbsp;-&nbsp;дизайн. Три способа воплотить ваши идеи в&nbsp;жизнь.</span></div>
+          <div class="hero-copy reveal">
+            <div class="kicker">anestiiz — независимый дизайнер и AI-креатор</div>
+            <h1>
+              <span>Проектирую интерфейсы.</span>
+              <span><span class='soft'>Генерирую</span> невозможное<span class='accent-square'></span></span>
+            </h1>
+            <div class="hero-desc">AI-видео. Дизайн мобильных приложений. Веб-дизайн. Три способа воплотить ваши идеи в&nbsp;жизнь.</div>
           </div>
         </div>
       </div>
