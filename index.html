@@ -143,6 +143,11 @@
     .trophy-card-shot{position:absolute;inset:0;overflow:hidden}
     .trophy-card-shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
     .project-card:hover .trophy-card-shot img{transform:scale(1.04)}
+    .raduga-card-fixed{position:relative;overflow:hidden;background:#dff3ff!important;color:#14213d;border:1px solid rgba(37,71,217,.18)!important}
+    .raduga-card-shot{position:absolute;inset:0;overflow:hidden}
+    .raduga-card-shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+    .project-card:hover .raduga-card-shot img{transform:scale(1.04)}
+    .badge-web::before{background:#2547d9!important;box-shadow:0 0 8px rgba(37,71,217,.6)!important}
     .flux-card-fixed{
       position:relative; overflow:hidden; background:#0b0c10!important; color:#f5f7f2;
       border:1px solid rgba(163,255,18,.22)!important;
@@ -341,6 +346,16 @@
 
       <div class="projects">
         <article class="project reveal" data-type="web">
+          <a class="project-card" href="sites/raduga-detskiy-center/index.html" target="_blank" rel="noopener" aria-label="Открыть сайт детского центра «Радуга»">
+            <div class="media project-slot raduga-card-fixed">
+              <span class="project-badge badge-web">Сайт</span>
+              <div class="raduga-card-shot"><img src="sites/raduga-detskiy-center/hero.webp" alt="Дети играют в развивающем центре «Радуга»" loading="lazy"></div>
+            </div>
+          </a>
+          <div class="meta"><div><div class="meta-title">Радуга</div><div class="meta-sub">Веб UX/UI · Детский центр · Лендинг с записью</div></div><div class="meta-num">06</div></div>
+        </article>
+
+        <article class="project reveal" data-type="web">
           <a class="project-card" href="fluxframe.html" aria-label="Open Fluxframe SaaS dashboard case">
             <div class="media project-slot flux-card-fixed">
               <span class="project-badge">SaaS дашборд</span>
@@ -365,7 +380,7 @@
               </div>
             </div>
           </a>
-          <div class="meta"><div><div class="meta-title">Fluxframe</div><div class="meta-sub">Веб UX/UI · SaaS-продукт · Data viz и моушен</div></div><div class="meta-num">06</div></div>
+          <div class="meta"><div><div class="meta-title">Fluxframe</div><div class="meta-sub">Веб UX/UI · SaaS-продукт · Data viz и моушен</div></div><div class="meta-num">07</div></div>
         </article>
       </div>
     </section>
