@@ -107,8 +107,24 @@
       border:1px solid rgba(43,141,255,.28)!important;
     }.bloat-card-fixed:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 28% 20%,rgba(255,255,255,.38),transparent 28%), radial-gradient(circle at 72% 78%,rgba(15,72,158,.30),transparent 38%), linear-gradient(135deg,#7fbeff 0%,#2b8dff 48%,#1465c8 100%)}.bloat-card-shot{position:absolute;inset:0;overflow:hidden;background:transparent;display:grid;place-items:center}.bloat-card-shot img{width:auto;max-width:56%;max-height:72%;display:block;object-fit:contain}.bloat-open-fixed .icon-arrow-up{width:16px;height:16px}/* Fluxframe preview card (dark surface,lime accent) */
     .projects-section{padding-top:120px;padding-bottom:60px}
-    .projects-section:first-of-type{padding-top:340px}
+    .projects-section:first-of-type{padding-top:120px}
     .projects-section:last-of-type{padding-bottom:300px}
+    .hero-menu{padding:clamp(60px,7vw,120px) 0 clamp(28px,4vw,56px);display:flex;justify-content:center;position:relative;z-index:5}
+    .hero-menu-inner{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;padding-inline:var(--pad);max-width:100%}
+    .hero-menu-eyebrow{font-family:"Manrope",sans-serif;font-size:14px;line-height:28px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
+    .hero-tabs{position:relative;display:inline-flex;align-items:center;gap:2px;padding:8px;border-radius:999px;background:rgba(18,15,22,.62);border:1px solid rgba(255,255,255,.10);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04) inset,0 1px 0 rgba(255,255,255,.12) inset;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);max-width:100%}
+    .hero-tabs a{position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:center;padding:14px 26px;border-radius:999px;font-family:"Manrope",sans-serif;font-size:17px;line-height:20px;font-weight:600;letter-spacing:-.2px;color:var(--muted);white-space:nowrap;transition:color .25s ease}
+    .hero-tabs a:hover{color:#fff}
+    .hero-tabs a.active{color:#fff}
+    .hero-tabs-pill{position:absolute;top:8px;bottom:8px;left:8px;width:120px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.30),rgba(255,255,255,.12));box-shadow:0 12px 26px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(0,0,0,.20);transition:transform .38s cubic-bezier(.4,.0,.2,1),width .38s cubic-bezier(.4,.0,.2,1);z-index:1}
+    @media(max-width:760px){.hero-menu{padding:clamp(36px,6vw,72px) 0 clamp(20px,3vw,36px)}.hero-tabs{padding:6px;gap:0}.hero-tabs a{padding:10px 14px;font-size:14px;line-height:20px}.hero-tabs-pill{top:6px;bottom:6px;left:6px}}
+    @media(max-width:560px){
+      .hero-tabs{flex-wrap:wrap;justify-content:center;gap:4px;padding:8px;border-radius:22px;max-width:calc(100vw - 40px)}
+      .hero-tabs a{padding:9px 14px;font-size:13px;line-height:18px;flex:0 0 auto}
+      .hero-tabs a.active{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(0,0,0,.20)}
+      .hero-tabs-pill{display:none}
+      .hero-menu-eyebrow{font-size:12px}
+    }
     .projects-section .work-top{display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;margin-bottom:32px}
     .tabs-nav{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(12px);z-index:55;display:inline-flex;align-items:center;gap:2px;padding:6px;border-radius:999px;background:rgba(18,15,22,.55);border:1px solid rgba(255,255,255,.10);box-shadow:0 24px 60px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04) inset,0 1px 0 rgba(255,255,255,.10) inset;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);opacity:0;pointer-events:none;transition:opacity .35s ease,transform .35s ease}
     .tabs-nav.is-visible{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
@@ -281,6 +297,19 @@
         <img class="hero-bg" src="assets/media/hero-first-screen.png" alt="Проектирую интерфейсы. Генерирую невозможное. anestiiz — независимый дизайнер и AI-креатор">
       </picture>
       <a class="scroll-circle hero-scroll" href="#ai" aria-label="Scroll down"><img class="icon-arrow-down" src="Icons/Arrow Down.svg" alt=""></a>
+    </section>
+
+    <section class="hero-menu reveal" aria-label="Разделы работ">
+      <div class="hero-menu-inner">
+        <div class="hero-menu-eyebrow">Работы · 4 раздела</div>
+        <nav class="hero-tabs" aria-label="Выбор раздела">
+          <a href="#ai" data-target="ai" class="active"><span class="lbl">AI-креатив</span></a>
+          <a href="#apps" data-target="apps"><span class="lbl">Приложения</span></a>
+          <a href="#websites" data-target="websites"><span class="lbl">Сайты</span></a>
+          <a href="#presentations" data-target="presentations"><span class="lbl">Презентации</span></a>
+          <span class="hero-tabs-pill" aria-hidden="true"></span>
+        </nav>
+      </div>
     </section>
 
     <section id="ai" class="wrap projects-section">
@@ -585,19 +614,21 @@
       heroObserver.observe(heroEl);
     }
 
-    const tabsNav = document.querySelector('.tabs-nav');
-    if (tabsNav) {
+    const navBars = [
+      {el: document.querySelector('.tabs-nav'), pillSel: '.tabs-pill', pad: 6, isFixed: true},
+      {el: document.querySelector('.hero-tabs'), pillSel: '.hero-tabs-pill', pad: 8, isFixed: false}
+    ].filter(b => b.el);
+    if (navBars.length) {
       const sectionIds = ['ai','apps','websites','presentations'];
       const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-      const links = Array.from(tabsNav.querySelectorAll('a[data-target]'));
-      const pill = tabsNav.querySelector('.tabs-pill');
       const heroForTabs = document.querySelector('.hero');
-      const movePill = link => {
+      const movePill = (bar, link) => {
+        const pill = bar.el.querySelector(bar.pillSel);
         if (!link || !pill) return;
-        const nav = tabsNav.getBoundingClientRect();
+        const nav = bar.el.getBoundingClientRect();
         const r = link.getBoundingClientRect();
         pill.style.width = r.width + 'px';
-        pill.style.transform = 'translateX(' + (r.left - nav.left - 6) + 'px)';
+        pill.style.transform = 'translateX(' + (r.left - nav.left - bar.pad) + 'px)';
       };
       const updateNav = () => {
         const vh = window.innerHeight;
@@ -612,13 +643,17 @@
           const dist = Math.abs(midY - centerY);
           if (dist < bestDist) { bestDist = dist; bestId = s.id; }
         });
-        tabsNav.classList.toggle('is-visible', heroPast);
-        if (bestId) {
-          links.forEach(l => l.classList.toggle('active', l.dataset.target === bestId));
-          movePill(links.find(l => l.dataset.target === bestId));
-        } else {
-          links.forEach(l => l.classList.remove('active'));
-        }
+        navBars.forEach(bar => {
+          if (bar.isFixed) bar.el.classList.toggle('is-visible', heroPast);
+          const links = Array.from(bar.el.querySelectorAll('a[data-target]'));
+          const activeId = bestId || (bar.isFixed ? null : 'ai');
+          if (activeId) {
+            links.forEach(l => l.classList.toggle('active', l.dataset.target === activeId));
+            movePill(bar, links.find(l => l.dataset.target === activeId));
+          } else {
+            links.forEach(l => l.classList.remove('active'));
+          }
+        });
       };
       let ticking = false;
       const onScroll = () => {
