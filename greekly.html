@@ -169,9 +169,6 @@
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, {threshold:0, rootMargin:'0px 0px -8% 0px'});
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    // Apply saved language preference from index.html if present
-    applyLang(savedLang);
   </script>
 </body>
 </html>

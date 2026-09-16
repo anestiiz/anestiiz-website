@@ -170,6 +170,7 @@
       langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
       localStorage.setItem('anestiiz-lang', lang);
     }
+    const savedLang = localStorage.getItem('anestiiz-lang') || 'ru';
     applyLang(savedLang);
     langButtons.forEach(btn => btn.addEventListener('click', () => applyLang(btn.dataset.lang)));
 
