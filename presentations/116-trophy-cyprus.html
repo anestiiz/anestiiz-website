@@ -26,10 +26,10 @@
     .wrap{width:min(100%,var(--max));margin:auto;padding-inline:var(--pad)}
 
     header{position:sticky;top:0;z-index:60;background:rgba(0,0,0,.6);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .header-row{height:74px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
-    .back-link{justify-self:start;display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);transition:.2s ease}
-    .back-link:hover{color:var(--ink)}
-    .back-link .icon-arrow-left{width:18px;height:18px;filter:invert(98%) sepia(8%) saturate(530%) hue-rotate(283deg) brightness(102%) contrast(92%);opacity:.78}
+    .header-row{height:74px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px}
+    .back-link{justify-self:start;display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.20);background:rgba(255,255,255,.05);font-size:14px;line-height:20px;font-weight:600;letter-spacing:-.02em;color:var(--ink);transition:.2s ease}
+    .back-link:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.34);transform:translateX(-2px)}
+    .back-link .icon-arrow-left{width:14px;height:14px;filter:invert(98%) sepia(8%) saturate(530%) hue-rotate(283deg) brightness(102%) contrast(92%);opacity:1}
     .logo{justify-self:center;font-size:20px;font-weight:700;letter-spacing:-.04em}
     .header-right{justify-self:end;font-size:14px;color:var(--soft)}
 
@@ -56,7 +56,6 @@
   <header>
     <div class="wrap header-row">
       <a class="back-link" href="../index.html#presentations"><img class="icon-arrow-left" src="../Icons/Arrow Down.svg" alt="" style="transform:rotate(90deg)">К работам</a>
-      <div class="logo">anestiiz</div>
       <div class="header-right">Презентация</div>
     </div>
   </header>

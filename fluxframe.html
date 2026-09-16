@@ -43,12 +43,13 @@
     ::selection{background:var(--case-accent);color:#0b1005}
 
     header{position:sticky;top:0;z-index:60;background:linear-gradient(180deg, rgba(9,7,13,.96), rgba(9,7,13,.78) 72%, rgba(9,7,13,0));backdrop-filter:blur(10px)}
-    .header-row{height:86px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
+    .header-row{height:86px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px}
     .logo{font-size:24px;font-weight:700;letter-spacing:-.05em;display:inline-flex;align-items:center;gap:12px}
     .logo-text{line-height:1;color:var(--ink)}
     .logo-a{display:inline-block;height:22px;width:auto;filter:drop-shadow(0 0 8px rgba(255,0,106,.9)) drop-shadow(0 0 20px rgba(255,0,106,.72)) drop-shadow(0 0 48px rgba(255,0,106,.48)) drop-shadow(0 0 96px rgba(255,0,106,.28));transform:translateY(-1px)}
-    .back-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);transition:.2s ease}
-    .back-link:hover{color:var(--ink)}
+    .back-link{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.20);background:rgba(255,255,255,.05);font-size:14px;line-height:20px;font-weight:600;letter-spacing:-.02em;color:var(--ink);transition:.2s ease}
+    .back-link:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.34);transform:translateX(-2px)}
+    .back-link .icon-arrow-left{opacity:1;width:14px;height:14px}
     .icon-arrow-left{display:inline-block;width:18px;height:18px;object-fit:contain;vertical-align:-4px;flex:0 0 auto;filter:invert(98%) sepia(8%) saturate(530%) hue-rotate(283deg) brightness(102%) contrast(92%);opacity:.78}
     .header-right{justify-self:end;font-size:14px;color:var(--soft)}
 
@@ -610,8 +611,7 @@
 <body>
   <header>
     <div class="wrap header-row">
-      <a class="logo" href="index.html"><span class="logo-text">anestiiz</span><img class="logo-a" src="assets/anestiiz-mark.svg" alt=""></a>
-      <a class="back-link" href="index.html#work"><img class="icon-arrow-left" src="Icons/Arrow Left.svg" alt=""> All work</a>
+      <a class="back-link" href="index.html#work"><img class="icon-arrow-left" src="Icons/Arrow Left.svg" alt=""> Все работы</a>
       <div class="header-right">Case 06 / SaaS dashboard</div>
     </div>
   </header>
