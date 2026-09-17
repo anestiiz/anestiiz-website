@@ -93,6 +93,13 @@
     .form-success p{margin:0;font-size:17px;line-height:24px;color:var(--muted);letter-spacing:-.01em;max-width:44ch}
     .form-success p a{color:var(--pink);border-bottom:1px solid rgba(255,0,106,.5)}
     .request-form.is-hidden{display:none}
+    .form-field[hidden]{display:none}
+    .direct-cta{display:none;flex-direction:column;gap:10px;padding:18px;border:1px dashed rgba(255,255,255,.18);border-radius:14px;background:rgba(255,255,255,.02)}
+    .direct-cta.is-visible{display:flex}
+    .direct-cta-note{margin:0;color:var(--soft);font-size:13px;line-height:18px;letter-spacing:.02em}
+    .direct-cta-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.20);background:rgba(255,255,255,.05);color:var(--ink);font-family:"Manrope",sans-serif;font-size:14px;line-height:20px;font-weight:600;letter-spacing:-.15px;transition:.2s ease}
+    .direct-cta-btn:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.34);transform:translateY(-1px)}
+    .direct-cta-btn .icon-arrow-up{width:16px;height:16px;filter:brightness(0) invert(1)}
 
     footer{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;padding:20px var(--pad) 24px;font-size:12px;border-top:1px solid var(--line);color:var(--soft)}
     footer .top{justify-self:center}
@@ -181,13 +188,20 @@
             <span id="contactLabel">Ваш email</span>
             <input id="contactInput" name="contact" type="email" autocomplete="email" required placeholder="you@example.com">
           </label>
+          <div class="direct-cta" id="directCta">
+            <p class="direct-cta-note" id="directCtaNote">Напиши мне напрямую — отвечу быстрее.</p>
+            <a class="direct-cta-btn" id="directCtaBtn" href="https://t.me/anestiiz" target="_blank" rel="noopener">
+              <span id="directCtaLabel">Написать в Telegram</span>
+              <img class="icon-arrow-up" src="Icons/Arrow Right Up.svg" alt="">
+            </a>
+          </div>
           <button class="form-submit" type="submit">Отправить заявку <img class='icon-arrow-up' src='Icons/Arrow Right Up.svg' alt=''></button>
           <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
         </form>
         <div class="form-success" id="formSuccess" role="status" aria-live="polite">
           <span class="badge">Заявка отправлена</span>
-          <h2>Отвечу в ближайшие 15 минут.</h2>
-          <p>Если срочно — напиши в телеграм <a href="https://t.me/anestiiz" target="_blank" rel="noopener">@anestiiz</a>.</p>
+          <h2 id="formSuccessTitle">Отвечу в ближайшие 15 минут.</h2>
+          <p id="formSuccessNote">Если срочно — напиши в телеграм <a href="https://t.me/anestiiz" target="_blank" rel="noopener">@anestiiz</a>.</p>
         </div>
       </div>
     </section>
@@ -215,25 +229,38 @@
     const formStatus = document.getElementById('formStatus');
     const formSuccess = document.getElementById('formSuccess');
     const submitBtn = requestForm ? requestForm.querySelector('.form-submit') : null;
-    const contactLabel = document.getElementById('contactLabel');
+    const contactField = document.getElementById('contactField');
     const contactInput = document.getElementById('contactInput');
+    const directCta = document.getElementById('directCta');
+    const directCtaBtn = document.getElementById('directCtaBtn');
+    const directCtaLabel = document.getElementById('directCtaLabel');
+    const directCtaNote = document.getElementById('directCtaNote');
 
-    const contactPresets = {
-      'Email':    { label: 'Ваш email',            placeholder: 'you@example.com',       type: 'email', autocomplete: 'email' },
-      'Telegram': { label: 'Ваш @username',        placeholder: '@username',              type: 'text',  autocomplete: 'username' },
-      'WhatsApp': { label: 'Ваш телефон',          placeholder: '+7 XXX XXX XX XX',       type: 'tel',   autocomplete: 'tel' },
-      'Биржа':    { label: 'Ссылка или ник',        placeholder: 'Ссылка на профиль или @username', type: 'text', autocomplete: 'username' }
+    const directChannels = {
+      'Telegram': { href: 'https://t.me/anestiiz', label: 'Написать в Telegram — @anestiiz', note: 'Напиши мне в Telegram — так быстрее всего.' },
+      'WhatsApp': { href: 'https://t.me/anestiiz', label: 'Написать мне в Telegram',         note: 'WhatsApp у меня не публичный — напиши в Telegram, дам номер там.' },
+      'Биржа':    { href: 'https://t.me/anestiiz', label: 'Написать в Telegram',             note: 'Отправь бриф — я напишу тебе на бирже. Или напиши сразу в Telegram.' }
     };
 
     const updateContactField = () => {
-      if (!requestForm || !contactInput || !contactLabel) return;
+      if (!requestForm || !contactField || !contactInput) return;
       const selected = requestForm.querySelector('input[name="contactMethod"]:checked');
       const key = selected ? selected.value : 'Email';
-      const preset = contactPresets[key] || contactPresets['Email'];
-      contactLabel.textContent = preset.label;
-      contactInput.type = preset.type;
-      contactInput.placeholder = preset.placeholder;
-      contactInput.autocomplete = preset.autocomplete;
+      const isEmail = key === 'Email';
+      contactField.hidden = !isEmail;
+      if (isEmail) contactInput.setAttribute('required', 'required');
+      else { contactInput.removeAttribute('required'); contactInput.value = ''; }
+
+      if (!directCta) return;
+      const channel = directChannels[key];
+      if (channel) {
+        directCta.classList.add('is-visible');
+        directCtaBtn.href = channel.href;
+        directCtaLabel.textContent = channel.label;
+        directCtaNote.textContent = channel.note;
+      } else {
+        directCta.classList.remove('is-visible');
+      }
     };
 
     const toggleMarketplace = () => {
@@ -254,26 +281,43 @@
       if (kind) formStatus.classList.add('is-' + kind);
     };
 
-    const showSuccess = () => {
+    const successPresets = {
+      'Email':    { title: 'Отвечу на почту в ближайшие 15 минут.', note: 'Если срочно — напиши в телеграм <a href="https://t.me/anestiiz" target="_blank" rel="noopener">@anestiiz</a>.' },
+      'Telegram': { title: 'Жду тебя в Telegram.',                  note: 'Напиши мне <a href="https://t.me/anestiiz" target="_blank" rel="noopener">@anestiiz</a> — отвечу в ближайшие 15 минут.' },
+      'WhatsApp': { title: 'Жду сообщения в Telegram.',             note: 'WhatsApp у меня не публичный — напиши в <a href="https://t.me/anestiiz" target="_blank" rel="noopener">@anestiiz</a>, дам номер там.' },
+      'Биржа':    { title: 'Напишу тебе на бирже в ближайшие 15 минут.', note: 'Если срочно — сразу пиши в телеграм <a href="https://t.me/anestiiz" target="_blank" rel="noopener">@anestiiz</a>.' }
+    };
+
+    const showSuccess = (method) => {
       if (!formSuccess || !requestForm) return;
+      const preset = successPresets[method] || successPresets['Email'];
+      const titleEl = document.getElementById('formSuccessTitle');
+      const noteEl  = document.getElementById('formSuccessNote');
+      if (titleEl) titleEl.textContent = preset.title;
+      if (noteEl)  noteEl.innerHTML     = preset.note;
       requestForm.classList.add('is-hidden');
       formSuccess.classList.add('is-visible');
       formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
     };
 
     const buildMessage = (data) => {
+      const method = data.get('contactMethod') || '—';
       const lines = [
         '🎯 <b>Новая заявка с anestiiz.ru</b>',
         '',
         `<b>Тип проекта:</b> ${data.get('projectType') || '—'}`,
         `<b>Бюджет:</b> ${data.get('budget') || '—'}`,
         `<b>Сроки:</b> ${data.get('timeline') || '—'}`,
-        `<b>Способ связи:</b> ${data.get('contactMethod') || '—'}`
+        `<b>Способ связи:</b> ${method}`
       ];
-      if (data.get('contactMethod') === 'Биржа' && data.get('marketplace')) {
+      if (method === 'Биржа' && data.get('marketplace')) {
         lines.push(`<b>Биржа:</b> ${data.get('marketplace')}`);
       }
-      lines.push(`<b>Контакт:</b> ${data.get('contact') || '—'}`);
+      if (method === 'Email') {
+        lines.push(`<b>Email:</b> ${data.get('contact') || '—'}`);
+      } else {
+        lines.push(`<i>Клиент напишет сам через ${method}.</i>`);
+      }
       lines.push('', `<i>${new Date().toLocaleString('ru-RU')}</i>`);
       return lines.join('\n');
     };
@@ -291,6 +335,7 @@
         if (!requestForm.reportValidity()) return;
 
         const data = new FormData(requestForm);
+        const method = data.get('contactMethod') || 'Email';
         const text = buildMessage(data);
 
         if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
@@ -313,7 +358,7 @@
           requestForm.reset();
           toggleMarketplace();
           updateContactField();
-          showSuccess();
+          showSuccess(method);
           if (window.ym) window.ym(window.__ymId, 'reachGoal', 'brief_submitted');
         } catch (err) {
           console.error(err);
