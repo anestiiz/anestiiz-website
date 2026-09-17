@@ -6,254 +6,17 @@
   <title>anestiiz — Portfolio</title>
   <meta name="description" content="anestiiz portfolio — independent designer and AI creator.">
   <link rel="icon" type="image/png" href="assets/favicon/favicon.png"><link rel="apple-touch-icon" href="assets/favicon/favicon.png">
-  <style>/* Fonts */
-    @font-face{font-family:"AkzidenzGroteskPro";src:url("assets/fonts/akzidenzgroteskpro-regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:"AkzidenzGroteskPro";src:url("assets/fonts/akzidenzgroteskpro-md.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:"AkzidenzGroteskPro";src:url("assets/fonts/akzidenzgroteskpro-bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}@font-face{font-family:"FreeSerif";src:url("assets/fonts/FreeSerifItalic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}@font-face{font-family:"Manrope";src:url("assets/fonts/Manrope-Light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}@font-face{font-family:"Manrope";src:url("assets/fonts/Manrope-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:"Manrope";src:url("assets/fonts/Manrope-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:"Manrope";src:url("assets/fonts/Manrope-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}@font-face{font-family:"Manrope";src:url("assets/fonts/Manrope-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}@font-face{font-family:"Manrope";src:url("assets/fonts/Manrope-ExtraBold.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}:root{
-      --bg:#000000;
-      --bg-2:#0d0a12;
-      --ink:#f4edf2;
-      --muted:#bbaeb4;
-      --soft:#8d8090;
-      --line:rgba(255,255,255,.14);
-      --card-line:rgba(255,255,255,.08);
-      --pink:#ff006a;
-      --pink-2:#d30058;
-      --pink-soft:rgba(255,0,106,.14);
-      --glow:0 0 0 1px rgba(255,255,255,.12) inset, 0 0 24px rgba(255,0,106,.42), 0 0 56px rgba(255,0,106,.18);
-      --pill-shadow:
-        inset -4px -4px 4px rgba(0,0,0,.16),
-        inset 4px 4px 4px rgba(255,255,255,.25),
-        0 1px 1px rgba(255,0,106,.12),
-        0 4px 2px rgba(255,0,106,.10),
-        0 8px 2.5px rgba(255,0,106,.06),
-        0 15px 3px rgba(255,0,106,.02);
-      --pill-bg:radial-gradient(ellipse 110% 240% at 50% 50%, #ff006a 0%, #d30058 100%);
-      --pill-border:1px solid rgba(255,255,255,.32);
-      --pill-bg-light:linear-gradient(180deg, #ffffff 0%, #f2eee5 100%);
-      --pill-border-light:1px solid rgba(0,0,0,.08);
-      --pill-shadow-light:
-        inset -4px -4px 4px rgba(0,0,0,.08),
-        inset 4px 4px 4px rgba(255,255,255,.9),
-        0 1px 1px rgba(0,0,0,.08),
-        0 4px 2px rgba(0,0,0,.06),
-        0 8px 2.5px rgba(0,0,0,.04),
-        0 15px 3px rgba(0,0,0,.02);
-      --panel:#000000;
-      --pad:64px;
-      --max:1680px;
-      --radius:18px;
-    }*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;background:#000;color:var(--ink);font-family:"Manrope","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden;color-scheme:dark}/* Headings use Akzidenz Grotesk Pro */
-    h1,h2,h3,h4,.meta-title,.section-title h2,.about h2,.service h3,.contact h2{
-      font-family:"AkzidenzGroteskPro","Helvetica Neue",Helvetica,Arial,sans-serif;
-    }/* Accent words inside headings — FreeSerif Italic */
-    h1 em,h2 em,h3 em{
-      font-family:"FreeSerif",Georgia,serif;
-      font-style:italic;
-      font-weight:400;
-    }body:before{content:"";position:fixed;inset:-20% -10%;pointer-events:none;background:radial-gradient(circle at 88% 92%, rgba(255,0,106,.14), transparent 14%);z-index:-1}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(100%,var(--max));margin:auto;padding-inline:var(--pad)}header{position:sticky;top:0;z-index:60;background:rgba(9,7,13,.42);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.06)}.header-row{height:86px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}.logo{font-size:24px;line-height:28px;font-weight:700;letter-spacing:-.05em;display:inline-flex;align-items:center;gap:12px}.logo-text{line-height:1;color:var(--ink)}.logo-a{display:inline-block;height:22px;width:auto;filter:drop-shadow(0 0 8px rgba(255,0,106,.9)) drop-shadow(0 0 20px rgba(255,0,106,.72)) drop-shadow(0 0 48px rgba(255,0,106,.48)) drop-shadow(0 0 96px rgba(255,0,106,.28));transform:translateY(-1px)}nav{display:flex;align-items:center;gap:42px;font-size:17px;line-height:20px;font-weight:600;white-space:nowrap}nav a{color:var(--ink);opacity:.92;transition:opacity .2s ease, color .2s ease}nav a:hover{opacity:1;color:#fff}nav a{position:relative;padding-bottom:6px}nav a.active{opacity:1;color:#fff}header nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:var(--pink);box-shadow:0 0 12px rgba(255,0,106,.55)}.talk-link{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;background:var(--pill-bg);border:var(--pill-border);box-shadow:var(--pill-shadow);color:#fff;font-size:14px;line-height:20px;font-weight:600;letter-spacing:-.2px;transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}.talk-link:hover{transform:translateY(-1px);filter:brightness(1.06);box-shadow:0 16px 40px rgba(255,0,106,.42)}.talk-link .icon-arrow-up{display:flex;width:18px;height:18px;filter:brightness(0) invert(1)}.header-right{justify-self:end;display:flex;align-items:center;gap:24px;font-size:14px;line-height:28px}.lang-pill button.active{background:var(--pill-bg);border:var(--pill-border);color:#fff;box-shadow:var(--pill-shadow);line-height:18px;font-weight:600}.lang-pill button:not(.active):hover{color:var(--ink)}.hero{position:relative;overflow:hidden;width:100%;padding:0;background:#000}.hero-picture{display:block;width:100%}.hero-bg{display:block;width:100%;height:auto;object-fit:cover}.hero-scroll{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:3}.kicker{display:inline-flex;align-items:center;gap:16px;font-family:"Manrope",sans-serif;font-size:14px;font-weight:700;line-height:28px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}h1{margin:48px 0 0;max-width:980px;font-size:72px;line-height:72px;letter-spacing:-.04em;font-weight:500}h1 span{display:block}.icon-arrow-up{display:inline-block;width:1em;height:1em;object-fit:contain;vertical-align:-.13em;flex:0 0 auto}.icon-arrow-up.light{filter:invert(98%) sepia(8%) saturate(530%) hue-rotate(283deg) brightness(102%) contrast(92%)}.icon-arrow-up.pink{filter:invert(16%) sepia(96%) saturate(7479%) hue-rotate(326deg) brightness(102%) contrast(104%) drop-shadow(0 0 16px rgba(255,0,106,.32))}.hero-desc{margin-top:64px;max-width:480px;font-family:"Manrope",sans-serif;font-size:17px;font-weight:400;line-height:20px;letter-spacing:-.5px;color:var(--muted)}.hero-scroll{display:inline-grid;place-items:center;background:transparent;border:0;box-shadow:none;backdrop-filter:none;transition:transform .22s ease}.hero-scroll .icon-arrow-down{width:44px;height:44px;display:block;filter:invert(16%) sepia(96%) saturate(7479%) hue-rotate(326deg) brightness(102%) contrast(104%) drop-shadow(0 0 16px rgba(255,0,106,.5));transition:transform .22s ease}.hero-scroll:hover{transform:translateX(-50%) translateY(3px)}.scroll-circle:not(.hero-scroll){width:92px;height:92px;border-radius:50%;border:1px solid rgba(255,255,255,.22);display:grid;place-items:center;background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.018));box-shadow:0 0 0 1px rgba(255,255,255,.035) inset, 0 18px 50px rgba(0,0,0,.24), 0 0 34px rgba(255,0,106,.08);backdrop-filter:blur(8px);transition:transform .22s ease,border-color .22s ease, box-shadow .22s ease, background .22s ease}.scroll-circle:not(.hero-scroll) .icon-arrow-down{width:34px;height:34px;display:block;filter:invert(16%) sepia(96%) saturate(7479%) hue-rotate(326deg) brightness(102%) contrast(104%) drop-shadow(0 0 13px rgba(255,0,106,.34));opacity:1;transition:transform .22s ease,opacity .22s ease,filter .22s ease}.scroll-circle:not(.hero-scroll):hover{transform:translateY(3px);border-color:rgba(255,255,255,.42);background:linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,0,106,.035));box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 0 32px rgba(255,0,106,.18),0 18px 50px rgba(0,0,0,.24)}.scroll-circle:not(.hero-scroll):hover .icon-arrow-down{transform:translateY(2px);opacity:1;filter:invert(16%) sepia(96%) saturate(7479%) hue-rotate(326deg) brightness(112%) contrast(110%) drop-shadow(0 0 16px rgba(255,0,106,.46))}.work{padding-top:340px;padding-bottom:300px}.work-top{display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;margin-bottom:32px}.section-title{display:flex;align-items:flex-end;gap:20px}.section-title h2{margin:0;font-size:56px;line-height:56px;letter-spacing:-.035em;font-weight:500}.section-title span{font-size:24px;line-height:28px;color:var(--soft);padding-bottom:6px}.filters{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:20px}.filters button{border:0;background:transparent;color:var(--muted);padding:16px 2px;font-family:"Manrope",sans-serif;font-size:14px;line-height:28px;font-weight:600;letter-spacing:-.5px;cursor:pointer;border-radius:999px;transition:.2s ease}.filters button.active{padding:4px 24px;color:#fff;background:var(--pill-bg);border:var(--pill-border);box-shadow:var(--pill-shadow)}.filters button:not(.active):hover{color:#fff}.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.project.hidden{display:none}.project a.card-link{display:block}.media{position:relative;width:100%;aspect-ratio:1.08/1;border-radius:8px;overflow:hidden;background:#111}.feel-cover{background:#0a0806}.feel-cover > img,.feel-cover > video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.02) contrast(1.02)}.promo-cover{background:#0b0708}.promo-cover > video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}.neuro-cover{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:#0a0806}.neuro-cover .neuro-panel{position:relative;overflow:hidden;background:#111}.neuro-cover .neuro-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;filter:saturate(1.02) contrast(1.02)}.project-card:hover .neuro-cover .neuro-panel img{transform:scale(1.04)}.project-card:hover .neuro-open{background:rgba(255,255,255,.2)}.neuro-open .icon-arrow-up{width:14px;height:14px;filter:brightness(0) invert(1)}.echo-btn .icon-arrow-up{width:16px;height:16px}.meta{display:grid;grid-template-columns:1fr;gap:20px;padding-top:20px;align-items:start}.meta-sub,.meta-num{display:none}.meta-title{font-size:44px;line-height:44px;letter-spacing:-.025em;font-weight:500}.meta-sub{margin-top:12px;font-size:14px;line-height:28px;color:var(--soft)}.meta-num{font-size:32px;line-height:36px;color:var(--soft);padding-top:4px}.marquee{margin-top:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;background:rgba(255,255,255,.015);padding:12px 0}.track{display:flex;width:max-content;animation:marquee 24s linear infinite;font-size:56px;font-weight:500;line-height:56px;letter-spacing:-.05em;color:var(--ink)}.track span{padding-right:32px}.track b{color:var(--pink);text-shadow:0 0 16px rgba(255,0,106,.35)}@keyframes marquee{to{transform:translateX(-50%)}}.about{padding-top:130px;padding-bottom:300px}.about-intro{display:grid;grid-template-columns:1.15fr .85fr;gap:120px;align-items:start}.about h2{margin:0;font-size:72px;line-height:72px;letter-spacing:-.045em;font-weight:500}.about-copy{margin-top:48px;max-width:640px;font-size:24px;line-height:28px;letter-spacing:-.03em;color:var(--muted)}.about-copy p{margin:0 0 24px}.about-media{margin-top:0}.carousel{position:relative;border-radius:24px;overflow:hidden;background:#121016;aspect-ratio:4/5;box-shadow:0 20px 60px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.06)}.carousel-track{position:absolute;inset:0}.carousel .slide{position:absolute;inset:0;opacity:0;transition:opacity .55s ease;pointer-events:none}.carousel .slide.active{opacity:1;pointer-events:auto}.carousel .slide video,.carousel .slide img{width:100%;height:100%;object-fit:cover;display:block}.carousel .slide:nth-child(1) video,.carousel .slide:nth-child(2) video{object-position:center top}.carousel-nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(10,8,14,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:3;transition:background .2s, transform .2s;padding:0}.carousel-nav svg{width:20px;height:20px;display:block;stroke:#fff}.carousel-nav:hover{background:rgba(10,8,14,.75);transform:translateY(-50%) scale(1.06)}.carousel-nav.prev{left:12px}.carousel-nav.next{right:12px}.carousel-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3;padding:6px 12px;border-radius:999px;background:rgba(10,8,14,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}.carousel-dots .dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;transition:all .3s;padding:0}.carousel-dots .dot.active{background:#fff;width:22px;border-radius:999px}.services{margin-top:240px;border-top:1px solid var(--line)}.service{display:grid;grid-template-columns:190px .85fr 1.15fr;gap:32px;border-bottom:1px solid var(--line);padding:32px 0 32px}.service-num{font-size:14px;line-height:28px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}.service h3{margin:0;font-size:44px;line-height:44px;letter-spacing:-.025em;font-weight:500}.service p{margin:0 0 16px;font-size:17px;line-height:20px;color:var(--muted);max-width:580px}.service ul{list-style:none;margin:0;padding:0;color:var(--soft);font-size:14px;line-height:28px}.contact{padding-top:300px;padding-bottom:96px}.contact-box{border-top:1px solid var(--line);padding-top:24px}.contact .kicker{margin-bottom:24px}.contact h2{margin:0;max-width:1240px;font-size:72px;line-height:72px;letter-spacing:-.045em;font-weight:500}.contact h2 span{display:block}.contact .arrow{width:.78em;height:.78em;margin-left:.03em;vertical-align:-.08em}.contact-panel{display:grid;grid-template-columns:minmax(0,.82fr) minmax(360px,.52fr);gap:72px;align-items:start;border-top:1px solid var(--line);padding-top:28px;margin-top:48px}.contact-foot{display:grid;grid-template-columns:1fr;align-items:end;gap:20px}.contact-copy{font-size:20px;line-height:24px;max-width:560px;color:var(--muted)}.capabilities{font-size:14px;line-height:28px;color:var(--soft);white-space:nowrap}.request-form{display:grid;gap:18px;padding:22px;border:1px solid rgba(255,255,255,.12);border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));box-shadow:0 18px 60px rgba(0,0,0,.24),0 0 0 1px rgba(255,255,255,.03) inset}.form-group{display:grid;gap:10px}.form-label{font-size:14px;line-height:28px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--soft)}.form-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.form-options.contact-methods{grid-template-columns:repeat(4,minmax(0,1fr))}.option-pill{position:relative;min-width:0}.option-pill input{position:absolute;opacity:0;pointer-events:none}.option-pill span{display:flex;align-items:center;justify-content:center;min-height:44px;padding:11px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.025);color:var(--muted);font-size:14px;line-height:28px;font-weight:600;letter-spacing:-.2px;text-align:center;cursor:pointer;transition:color .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease}.option-pill input:focus-visible + span{outline:2px solid rgba(255,0,106,.7);outline-offset:2px}.option-pill input:checked + span{color:#fff;border-color:rgba(255,255,255,.34);background:var(--pill-bg);box-shadow:var(--pill-shadow)}.form-field{display:grid;gap:8px}.form-field span{font-size:14px;line-height:28px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--soft)}.form-field input,.form-field textarea{width:100%;border:1px solid rgba(255,255,255,.14);border-radius:8px;background:rgba(255,255,255,.035);color:var(--ink);font-family:"Manrope",sans-serif;font-size:17px;line-height:20px;letter-spacing:-.2px;padding:14px 15px;outline:0;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}.form-field textarea{min-height:112px;resize:vertical}.form-field input::placeholder,.form-field textarea::placeholder{color:rgba(187,174,180,.58)}.form-field input:focus,.form-field textarea:focus{border-color:rgba(255,0,106,.62);background:rgba(255,255,255,.05);box-shadow:0 0 0 3px rgba(255,0,106,.12)}.form-submit{justify-self:start;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;border:var(--pill-border);background:var(--pill-bg);box-shadow:var(--pill-shadow);color:#fff;font-family:"Manrope",sans-serif;font-size:14px;line-height:28px;font-weight:600;letter-spacing:-.5px;cursor:pointer;transition:transform .2s ease}.form-submit:hover{transform:translateY(-1px)}.form-submit .icon-arrow-up{width:16px;height:16px}.form-note{margin:0;color:var(--soft);font-size:14px;line-height:28px}footer{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;padding:20px var(--pad) 24px;font-size:14px;line-height:28px;border-top:1px solid var(--line);color:var(--soft)}footer .top{justify-self:center}footer .ai{justify-self:end}footer .ai .icon-arrow-up{width:13px;height:13px;margin-left:2px;vertical-align:-2px}.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:none}::selection{background:var(--pink);color:#1b0610}/* Expanded portfolio grid */
-    .work{padding-bottom:320px}.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 24px}.project{min-width:0}.project.hidden{display:none}.project-card{display:block}.project-badge{position:absolute;top:14px;right:14px;z-index:6;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(9,7,13,.28);border:1px solid rgba(255,255,255,.18);box-shadow:none;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;font-family:"Manrope",sans-serif;font-size:14px;line-height:28px;letter-spacing:-.2px;font-weight:600;white-space:nowrap;pointer-events:none}.project-badge::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--pink);box-shadow:0 0 8px rgba(255,0,106,.7)}.project-badge.badge-mobile::before{background:#3d7dfa;box-shadow:0 0 8px rgba(61,125,250,.7)}.project-badge.badge-design::before{background:#ef9200;box-shadow:0 0 8px rgba(239,146,0,.7)}@media(max-width:640px){.project-badge{top:10px;right:10px;padding:4px 10px;font-size:14px;line-height:28px;gap:8px}}.media.project-slot{aspect-ratio:1.08/1;border:1px solid var(--card-line);transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}.project-card:hover .media.project-slot{transform:translateY(-3px);border-color:rgba(255,0,106,.26);box-shadow:0 18px 56px rgba(0,0,0,.28)}.slot-open .icon-arrow-up{width:22px;height:22px}.slot-impossible .slot-open .icon-arrow-up{filter:none}.project[data-type="ai"] .meta-title{max-width:100%}.meta-num{font-size:14px;line-height:28px;padding-top:6px}@media(max-width:1120px){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:900px){.projects{grid-template-columns:1fr}}@media(max-width:1120px){
-      .scroll-circle:not(.hero-scroll){width:76px;height:76px}
-      .scroll-circle:not(.hero-scroll) .icon-arrow-down{width:30px;height:30px}
-      .work-top{grid-template-columns:1fr}
-      .filters{justify-content:flex-start}
-      .about-intro{grid-template-columns:1fr}
-      .about-media{max-width:520px}
-      .service{grid-template-columns:150px 1fr;gap:24px}
-      .service>div:last-child{grid-column:2}
-    }@media(max-width:900px){
-      .header-row{grid-template-columns:1fr auto}.header-row nav{display:none}.header-right{grid-column:2}.talk-link{display:none}
-      footer{grid-template-columns:1fr 1fr}.top{display:none}.ai{justify-self:end!important}
-    }@media(max-width:640px){
-      .logo{font-size:20px;line-height:24px;gap:8px}.logo-a{height:22px}
-      .header-row{height:74px}
-      .lang-pill{gap:2px;padding:4px;border-radius:999px}
-      .lang-pill button{padding:8px 12px;font-size:14px;line-height:28px;border-radius:999px}
-      .lang-pill button.active{background:var(--pill-bg);border:var(--pill-border);color:#fff;box-shadow:var(--pill-shadow);line-height:28px;font-weight:600}
-      .hero{padding:0 0 60px}
-      .section-title h2{font-size:44px;line-height:44px}.section-title span{font-size:17px;line-height:20px;padding-bottom:4px}
-      .filters{gap:12px}.filters button{font-size:17px;line-height:20px}.filters button.active{padding:4px 20px}
-      .media{aspect-ratio:.95/1}
-      .niko-cover{padding:32px 20px 24px}.niko-title{margin-top:32px;font-size:44px;line-height:44px}.niko-sub{font-size:17px;line-height:20px}.phone{width:46%;right:3%;bottom:-8%;min-width:180px;border-width:6px;border-radius:32px}.phone iframe{transform:translate(-50%,-50%) scale(.53)}
-      .echo-overlay{padding:24px 24px 20px}.echo-word{font-size:56px;line-height:56px}.echo-sub{font-size:14px;line-height:28px;letter-spacing:.28em}.echo-vert{right:10px;top:18px;font-size:14px;line-height:28px}
-      .feel-overlay{padding:64px 24px 20px}.feel-overlay .echo-word{font-size:56px;line-height:56px;letter-spacing:.01em}
-      .promo-overlay{padding:64px 24px 20px}.promo-overlay .echo-word{font-size:44px;line-height:44px;letter-spacing:.01em}
-      .neuro-overlay{padding:64px 24px 20px}.neuro-overlay .echo-word{font-size:44px;line-height:44px;letter-spacing:.01em}
-      .meta-title{font-size:24px;line-height:28px}.meta-num{font-size:17px;line-height:20px}
-      .about h2{font-size:56px;line-height:56px}.about-copy{font-size:17px;line-height:20px}
-      .service{grid-template-columns:1fr;gap:12px}.service>div:last-child{grid-column:auto}
-      .contact h2{font-size:56px;line-height:56px}.contact-panel{grid-template-columns:1fr}.contact-foot{grid-template-columns:1fr}.capabilities{white-space:normal}.form-options,.form-options.contact-methods{grid-template-columns:1fr 1fr}.request-form{padding:18px}
-    }.project-card:hover .greekly-device{transform:rotate(-4deg) translateY(-8px)}@media(max-width:980px){
-      .case-head{grid-template-columns:1fr}
-      .greekly-grid{grid-template-columns:1fr}
-      .greekly-panel.hero-shot{grid-row:auto;aspect-ratio:1.35/1}
-      .greekly-panel.hero-shot img{object-position:center 11%}
-    }@media(max-width:640px){
-      .greekly-preview-copy{width:62%}.greekly-preview-title{font-size:36px;line-height:40px}.greekly-preview-sub{display:none}.greekly-device{right:-4%;width:49%;bottom:-20%;height:106%}.greekly-mini{display:none}
-      .case-greekly{padding-top:92px}.case-head h2{font-size:56px;line-height:56px}.case-lead{font-size:17px;line-height:20px}.greekly-showcase{border-radius:20px;padding:12px}
-      .greekly-grid{gap:12px}.greekly-panel{border-radius:16px}.greekly-panel.hero-shot{aspect-ratio:.82/1}.greekly-panel.copy-shot{aspect-ratio:auto;padding:32px 24px}.greekly-panel.copy-shot strong{font-size:44px;line-height:44px}.greekly-strip{grid-template-columns:1fr;gap:12px}.greekly-strip .greekly-panel{aspect-ratio:.76/1}.case-note{grid-template-columns:1fr}
-    }/* Greekly fixed: embedded assets + exact vertical sequence */
-    .greekly-card-fixed{
-      position:relative; overflow:hidden; background:#f6ecd5!important; color:#181512;
-      border:1px solid rgba(239,146,0,.2)!important;
-    }.greekly-card-shot{position:absolute;inset:0;overflow:hidden;background:transparent;display:grid;place-items:center}.greekly-card-shot img{width:auto;max-width:56%;max-height:72%;display:block;object-fit:contain}.greekly-open-fixed .icon-arrow-up{width:16px;height:16px}/* Lumé preview card (mirrors Greekly card shape,cool palette) */
-    .lume-card-fixed{
-      position:relative; overflow:hidden; background:#d9e6ff!important; color:#0e1a2e;
-      border:1px solid rgba(61,125,250,.22)!important;
-    }.lume-card-fixed:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#eef3ff 0%,#d5e2ff 55%,#b6cbff 100%)}.lume-card-shot{position:absolute;inset:0;overflow:hidden;background:transparent;display:grid;place-items:center}.lume-card-shot img{width:auto;max-width:56%;max-height:72%;display:block;object-fit:contain}.lume-open-fixed .icon-arrow-up{width:16px;height:16px}/* Bloat Down preview card (Figma icon palette,mobile health product) */
-    .bloat-card-fixed{
-      position:relative; overflow:hidden; background:#2b8dff!important; color:#fff;
-      border:1px solid rgba(43,141,255,.28)!important;
-    }.bloat-card-fixed:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 28% 20%,rgba(255,255,255,.38),transparent 28%), radial-gradient(circle at 72% 78%,rgba(15,72,158,.30),transparent 38%), linear-gradient(135deg,#7fbeff 0%,#2b8dff 48%,#1465c8 100%)}.bloat-card-shot{position:absolute;inset:0;overflow:hidden;background:transparent;display:grid;place-items:center}.bloat-card-shot img{width:auto;max-width:56%;max-height:72%;display:block;object-fit:contain}.bloat-open-fixed .icon-arrow-up{width:16px;height:16px}/* Fluxframe preview card (dark surface,lime accent) */
-    .projects-section{padding-top:120px;padding-bottom:60px}
-    .projects-section:first-of-type{padding-top:120px}
-    .projects-section:last-of-type{padding-bottom:300px}
-    .hero-menu{position:absolute;left:0;right:0;bottom:clamp(12px,2vw,28px);display:flex;justify-content:center;z-index:5;padding:0;pointer-events:none}
-    .hero-menu-inner{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;padding-inline:var(--pad);max-width:100%;pointer-events:auto}
-    .hero-menu-eyebrow{font-family:"Manrope",sans-serif;font-size:14px;line-height:28px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
-    .hero-tabs{position:relative;display:inline-flex;align-items:center;gap:2px;padding:8px;border-radius:999px;background:rgba(18,15,22,.62);border:1px solid rgba(255,255,255,.10);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04) inset,0 1px 0 rgba(255,255,255,.12) inset;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);max-width:100%}
-    .hero-tabs a{position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:center;padding:14px 26px;border-radius:999px;font-family:"Manrope",sans-serif;font-size:17px;line-height:20px;font-weight:600;letter-spacing:-.2px;color:var(--muted);white-space:nowrap;transition:color .25s ease}
-    .hero-tabs a:hover{color:#fff}
-    .hero-tabs a.active{color:#fff}
-    .hero-tabs-pill{position:absolute;top:8px;bottom:8px;left:8px;width:120px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.30),rgba(255,255,255,.12));box-shadow:0 12px 26px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(0,0,0,.20);transition:transform .38s cubic-bezier(.4,.0,.2,1),width .38s cubic-bezier(.4,.0,.2,1);z-index:1}
-    @media(max-width:760px){.hero-menu{bottom:clamp(10px,2vw,20px)}.hero-tabs{padding:6px;gap:0}.hero-tabs a{padding:10px 14px;font-size:14px;line-height:20px}.hero-tabs-pill{top:6px;bottom:6px;left:6px}}
-    @media(max-width:560px){
-      .hero-tabs{gap:0;padding:5px;max-width:calc(100vw - 24px)}
-      .hero-tabs a{padding:9px 10px;font-size:12px;line-height:16px}
-      .hero-tabs-pill{top:5px;bottom:5px;left:5px}
-      .hero-menu-eyebrow{font-size:12px}
-      .hero-menu-inner{gap:12px;padding-inline:12px}
-    }
-    .projects-section .work-top{display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;margin-bottom:32px}
-    .tabs-nav{position:fixed;left:50%;bottom:48px;transform:translateX(-50%) translateY(12px);z-index:55;display:inline-flex;align-items:center;gap:2px;padding:8px;border-radius:999px;background:rgba(18,15,22,.62);border:1px solid rgba(255,255,255,.10);box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.04) inset,0 1px 0 rgba(255,255,255,.12) inset;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);opacity:0;pointer-events:none;transition:opacity .35s ease,transform .35s ease}
-    .tabs-nav.is-visible{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
-    .tabs-nav a{position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:center;padding:13px 24px;border-radius:999px;font-family:"Manrope",sans-serif;font-size:16px;line-height:20px;font-weight:600;letter-spacing:-.2px;color:var(--muted);white-space:nowrap;transition:color .25s ease}
-    .tabs-nav a:hover{color:#fff}
-    .tabs-nav a.active{color:#fff}
-    .tabs-pill{position:absolute;top:8px;bottom:8px;left:8px;width:100px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.30),rgba(255,255,255,.12));box-shadow:0 12px 26px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(0,0,0,.20);transition:transform .38s cubic-bezier(.4,.0,.2,1),width .38s cubic-bezier(.4,.0,.2,1),opacity .25s ease;opacity:0;pointer-events:none;z-index:1}
-    .tabs-nav.is-visible .tabs-pill{opacity:1}
-    @media(max-width:640px){.tabs-nav{bottom:calc(16px + env(safe-area-inset-bottom,0px));padding:5px;gap:0;max-width:calc(100vw - 24px)}.tabs-nav a{padding:9px 12px;font-size:12px;line-height:16px}.tabs-pill{top:5px;bottom:5px;left:5px}}
-    .hamburger{display:none;position:relative;width:44px;height:44px;border:0;background:transparent;padding:0;cursor:pointer;color:#fff}
-    .hamburger span{position:absolute;left:12px;right:12px;height:2px;background:currentColor;border-radius:2px;transition:transform .3s ease,top .3s ease,opacity .2s ease}
-    .hamburger span:nth-child(1){top:16px}
-    .hamburger span:nth-child(2){top:26px}
-    .hamburger.is-open span:nth-child(1){top:21px;transform:rotate(45deg)}
-    .hamburger.is-open span:nth-child(2){top:21px;transform:rotate(-45deg)}
-    .drawer{position:fixed;inset:0;z-index:90;visibility:hidden;pointer-events:none}
-    .drawer.is-open{visibility:visible;pointer-events:auto}
-    .drawer-scrim{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;transition:opacity .3s ease}
-    .drawer.is-open .drawer-scrim{opacity:1}
-    .drawer-panel{position:absolute;top:0;right:0;bottom:0;width:min(88vw,360px);background:rgba(14,10,18,.98);border-left:1px solid rgba(255,255,255,.08);box-shadow:-30px 0 80px rgba(0,0,0,.5);padding:80px 24px 32px;display:flex;flex-direction:column;gap:6px;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
-    .drawer.is-open .drawer-panel{transform:none}
-    .drawer-panel a{font-family:"Manrope",sans-serif;font-size:20px;line-height:24px;font-weight:600;letter-spacing:-.02em;color:var(--ink);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .2s ease,padding-left .2s ease}
-    .drawer-panel a:hover{color:var(--pink);padding-left:6px}
-    .drawer-panel .drawer-group-label{font-size:14px;line-height:28px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-top:22px;padding-bottom:4px}
-    .drawer-panel .drawer-ai{margin-top:22px;background:var(--pink);color:#fff;border:0;padding:16px 20px;border-radius:14px;text-align:center;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:17px;line-height:20px;box-shadow:0 12px 32px rgba(255,0,106,.35)}
-    .drawer-panel .drawer-ai:hover{color:#fff;padding-left:20px}
-    .drawer-close{position:absolute;top:20px;right:20px;width:44px;height:44px;border:0;background:transparent;color:#fff;font-size:28px;line-height:1;cursor:pointer;padding:0}
-    @media(max-width:640px){.hamburger{display:block}}
-    body.is-drawer-open{overflow:hidden}
-    .badge-presentation::before{background:#c084fc!important;box-shadow:0 0 8px rgba(192,132,252,.7)!important}
-    .trophy-card-fixed{position:relative;overflow:hidden;background:#0a0410!important;color:#fff;border:1px solid rgba(192,132,252,.22)!important;aspect-ratio:16/9!important}
-    .trophy-card-shot{position:absolute;inset:0;overflow:hidden}
-    .trophy-card-shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
-    .project-card:hover .trophy-card-shot img{transform:scale(1.04)}
-    .raduga-card-fixed{position:relative;overflow:hidden;background:#dff3ff!important;color:#14213d;border:1px solid rgba(37,71,217,.18)!important}
-    .raduga-card-shot{position:absolute;inset:0;overflow:hidden}
-    .raduga-card-shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
-    .project-card:hover .raduga-card-shot img{transform:scale(1.04)}
-    .badge-web::before{background:#2547d9!important;box-shadow:0 0 8px rgba(37,71,217,.6)!important}
-    .flux-card-fixed{
-      position:relative; overflow:hidden; background:#0b0c10!important; color:#f5f7f2;
-      border:1px solid rgba(163,255,18,.22)!important;
-    }.flux-card-fixed:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% 22%, rgba(163,255,18,.14), transparent 45%), radial-gradient(circle at 20% 80%, rgba(108,112,255,.10), transparent 40%), linear-gradient(180deg,#0d0e13 0%,#08090c 100%)}.flux-card-mini{position:absolute;inset:0;overflow:hidden}.flux-card-mini svg{position:absolute;left:0;right:0;bottom:0;top:38%;width:100%;height:62%;opacity:.95;filter:drop-shadow(0 20px 40px rgba(163,255,18,.18))}.flux-card-mini .mini-glow{position:absolute;right:-40px;top:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(163,255,18,.22),transparent 60%);pointer-events:none}
-    .flux-card-mini .mini-header{position:absolute;top:18px;left:20px;display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:rgba(17,18,23,.72);border:1px solid rgba(255,255,255,.10);backdrop-filter:blur(10px);z-index:3;box-shadow:0 8px 20px rgba(0,0,0,.35)}
-    .flux-card-mini .mini-dot{width:7px;height:7px;border-radius:50%;background:#a3ff12;box-shadow:0 0 10px rgba(163,255,18,.85);animation:flux-dot 1.6s ease-in-out infinite}
-    .flux-card-mini .mini-label{font-family:"Manrope",sans-serif;font-size:12px;line-height:1;font-weight:600;color:#e6ecdd;letter-spacing:-.01em}
-    .flux-card-mini .mini-live{font-family:"Manrope",sans-serif;font-size:10px;line-height:1;font-weight:800;color:#a3ff12;letter-spacing:.14em;text-transform:uppercase}
-    @keyframes flux-dot{0%,100%{opacity:1}50%{opacity:.35}}
-    .flux-card-mini .mini-kpi{position:absolute;background:rgba(17,18,23,.82);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.10);border-radius:12px;padding:10px 14px;font-family:"Manrope",sans-serif;box-shadow:0 12px 30px rgba(0,0,0,.45);z-index:3}
-    .flux-card-mini .mini-kpi .l{font-size:10px;line-height:1;font-weight:600;color:#8d8f99;letter-spacing:.14em;text-transform:uppercase}
-    .flux-card-mini .mini-kpi .v{font-family:"AkzidenzGroteskPro",Helvetica,sans-serif;font-weight:500;font-size:20px;line-height:1;letter-spacing:-.03em;color:#f5f7f2;margin-top:6px}
-    .flux-card-mini .mini-kpi .d{font-size:11px;line-height:1;font-weight:700;color:#a3ff12;margin-top:6px;letter-spacing:-.01em}
-    .flux-card-mini .mini-kpi.k1{top:16%;right:20px}
-    .flux-card-mini .mini-kpi.k2{bottom:22%;right:20px}
-    .flux-card-mini .mini-bars{position:absolute;left:20px;bottom:20px;display:flex;align-items:end;gap:6px;height:44px;z-index:3;padding:8px 10px;border-radius:12px;background:rgba(17,18,23,.6);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(8px)}
-    .flux-card-mini .mini-bars span{display:block;width:8px;border-radius:3px;background:linear-gradient(180deg,#a3ff12,#6c70ff);box-shadow:0 4px 10px rgba(163,255,18,.18)}
-    .flux-card-mini .mini-bars span:nth-child(1){height:14px}
-    .flux-card-mini .mini-bars span:nth-child(2){height:22px}
-    .flux-card-mini .mini-bars span:nth-child(3){height:12px}
-    .flux-card-mini .mini-bars span:nth-child(4){height:28px}
-    .flux-card-mini .mini-bars span:nth-child(5){height:20px}
-    .flux-card-mini .mini-bars span:nth-child(6){height:32px}
-    .flux-card-mini .mini-bars span:nth-child(7){height:26px}
-    @keyframes flux-line{to{stroke-dashoffset:0}}.flux-card-fixed:hover .flux-line{animation:flux-line 1.6s ease forwards}.flux-line{stroke-dasharray:600;stroke-dashoffset:0}
-    @media(max-width:640px){.flux-card-mini .mini-kpi{padding:8px 10px;border-radius:10px}.flux-card-mini .mini-kpi .v{font-size:17px}.flux-card-mini .mini-bars{height:36px;padding:6px 8px;gap:5px}.flux-card-mini .mini-bars span{width:6px}.flux-card-mini .mini-header{padding:6px 10px;top:14px;left:14px}.flux-card-mini .mini-label{font-size:11px}}@media(max-width:980px){
-      .greekly-case-head{grid-template-columns:1fr}
-      .greekly-logo-image{width:160px}
-      .greekly-card-copy{width:56%}
-      .greekly-card-shot{inset:0}
-    }@media(max-width:640px){
-      .greekly-card-copy{left:20px;top:22px;width:62%}
-      .greekly-card-title{font-size:36px;line-height:40px;margin-top:20px}
-      .greekly-card-sub{display:none}
-      .greekly-card-shot{inset:0;opacity:.92}
-      .greekly-open-fixed{top:auto;bottom:18px;font-size:14px;line-height:28px;padding:12px 16px}
-      .case-greekly-fixed{padding-top:88px}
-      .greekly-case-head h2{font-size:56px;line-height:56px}
-      .greekly-logo-image{width:132px;border-radius:20px}
-      .greekly-sequence{--gs-gap:12px;padding:6px 0 16px}
-      .greekly-sequence img{flex:0 0 62%;border-radius:24px}
-    }@media(max-width:980px){
-      .bloat-card-copy{width:56%}
-      .bloat-card-shot{inset:0}
-    }@media(max-width:640px){
-      .bloat-card-copy{left:20px;top:22px;width:62%}
-      .bloat-card-title{font-size:36px;margin-top:20px}
-      .bloat-card-sub{display:none}
-      .bloat-card-shot{inset:0;opacity:.94}
-      .bloat-logo-chip{width:76px;height:auto;left:20px;bottom:18px}
-    }/* Russian typography — Cyrillic copy is longer,so RU gets a tighter scale */
-    html[lang="ru"] nav{font-size:17px;line-height:20px;font-weight:600}html[lang="ru"] .header-right{font-size:14px;line-height:28px}html[lang="ru"] .section-title h2{font-size:56px;line-height:56px}html[lang="ru"] .section-title span{font-size:17px;line-height:20px}html[lang="ru"] .filters button{font-size:14px;line-height:28px}html[lang="ru"] .filters button.active{padding:6px 24px}html[lang="ru"] .meta-title{font-size:36px;line-height:40px;letter-spacing:-.02em}html[lang="ru"] .meta-sub{font-size:14px;line-height:28px}html[lang="ru"] .about h2{font-size:72px;line-height:64px;letter-spacing:-.035em}html[lang="ru"] .about-copy{font-size:20px;line-height:24px}html[lang="ru"] .service h3{font-size:36px;line-height:40px}html[lang="ru"] .service p{font-size:14px;line-height:28px}html[lang="ru"] .service ul{font-size:14px;line-height:28px}html[lang="ru"] .contact h2{font-size:72px;line-height:72px;letter-spacing:-.04em;max-width:1400px}html[lang="ru"] .contact-copy{font-size:20px;line-height:24px}@media(max-width:900px){
-      html[lang="ru"] .about h2{font-size:72px;line-height:72px}
-      html[lang="ru"] .contact h2{font-size:72px;line-height:72px}
-    }@media(max-width:640px){
-      html[lang="ru"] .section-title h2{font-size:44px;line-height:44px}
-      html[lang="ru"] .section-title span{font-size:17px;line-height:20px}
-      html[lang="ru"] .filters button{font-size:17px;line-height:20px}
-      html[lang="ru"] .filters button.active{padding:4px 20px}
-      html[lang="ru"] .meta-title{font-size:24px;line-height:28px}
-      html[lang="ru"] .about h2{font-size:44px;line-height:44px}
-      html[lang="ru"] .about-copy{font-size:17px;line-height:20px}
-      html[lang="ru"] .service h3{font-size:24px;line-height:28px}
-      html[lang="ru"] .contact h2{font-size:44px;line-height:44px}
-      html[lang="ru"] .contact-copy{font-size:17px;line-height:20px}
-      html[lang="ru"] .greekly-preview-title{font-size:36px;line-height:40px}
-      html[lang="ru"] .case-head h2{font-size:44px;line-height:44px}
-      html[lang="ru"] .case-lead{font-size:17px;line-height:20px}
-    }/* Layout safety + RU hero spacing fix */
-    html,body{width:100%;max-width:100%;overflow-x:clip}.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-left:var(--pad);padding-right:var(--pad)}.hero-grid,.work-top,.projects,.about-intro,.contact-foot{min-width:0}.hero-grid>*,.work-top>*,.projects>*,.about-intro>*,.contact-foot>*{min-width:0}h1>span{display:block}/* RU: controlled vertical rhythm — do not stretch hero to viewport height */
-    html[lang="ru"] .hero{padding:0}html[lang="ru"] .work{padding-top:0}html[lang="ru"] .work-top{margin-bottom:32px}@media(max-width:640px){
-      .wrap{padding-left:20px;padding-right:20px}
-      html[lang="ru"] .hero{padding:0}
-    }@media(min-width:1600px){
-      main .work{padding-top:120px !important}
-      html[lang="ru"] main .work{padding-top:128px !important}
-    }@media(max-width:900px){
-      main .work{padding-top:64px !important}
-      html[lang="ru"] main .work{padding-top:72px !important}
-    }@media(max-width:640px){
-      main .work{padding-top:48px !important}
-      html[lang="ru"] main .work{padding-top:48px !important}
-    }
-
-  </style>
+  <link rel="stylesheet" href="assets/css/site.css?v=tools5">
+  <script defer src="assets/js/analytics.js"></script>
 </head>
 <body>
   <header>
     <div class="wrap header-row">
       <a class="logo" href="#top"><span class="logo-text">anestiiz</span><img class="logo-a" src="assets/anestiiz-mark.svg" alt=""></a>
       <nav aria-label="Primary">
+        <a href="#experience" data-nav="experience">Мой опыт</a>
         <a href="#about" data-nav="about">Обо мне</a>
-        <a href="ai.html" data-nav="ai-page">Я и AI</a>
+        <a href="#ai" data-nav="ai-page">Я и AI</a>
       </nav>
       <div class="header-right">
         <a class="talk-link" href="brief.html">Заполнить бриф <img class='icon-arrow-up light' src='Icons/Arrow Right Up.svg' alt=''></a>
@@ -267,26 +30,19 @@
     <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Меню">
       <button class="drawer-close" type="button" aria-label="Закрыть меню" data-drawer-close>×</button>
       <div class="drawer-group-label">Работы</div>
-      <a href="#ai" data-drawer-link>AI-креатив</a>
-      <a href="#apps" data-drawer-link>Приложения</a>
-      <a href="#websites" data-drawer-link>Сайты</a>
-      <a href="#presentations" data-drawer-link>Презентации</a>
+      <a href="ai-creative.html" data-drawer-link>AI-креатив</a>
+      <a href="apps.html" data-drawer-link>Приложения</a>
+      <a href="websites.html" data-drawer-link>Сайты</a>
+      <a href="presentations.html" data-drawer-link>Презентации</a>
       <div class="drawer-group-label">Ещё</div>
+      <a href="#experience" data-drawer-link>Мой опыт</a>
       <a href="#about" data-drawer-link>Обо мне</a>
       <a href="brief.html" data-drawer-link>Заполнить бриф</a>
-      <a href="ai.html" class="drawer-ai" data-drawer-link><span>✳</span>Как я использую AI в дизайне</a>
+      <a href="#ai" class="drawer-ai" data-drawer-link><span>✳</span>Как я использую AI в дизайне</a>
     </aside>
   </div>
 
   <main id="top">
-    <nav class="tabs-nav" aria-label="Разделы работ">
-      <a href="#ai" data-target="ai"><span class="lbl">AI-креатив</span></a>
-      <a href="#apps" data-target="apps"><span class="lbl">Приложения</span></a>
-      <a href="#websites" data-target="websites"><span class="lbl">Сайты</span></a>
-      <a href="#presentations" data-target="presentations"><span class="lbl">Презентации</span></a>
-      <span class="tabs-pill" aria-hidden="true"></span>
-    </nav>
-
     <section class="hero">
       <picture class="hero-picture">
         <source media="(max-width: 1024px)" srcset="assets/media/hero-first-screen-mobile.png">
@@ -294,163 +50,21 @@
       </picture>
       <div class="hero-menu reveal" aria-label="Разделы работ">
         <div class="hero-menu-inner">
-          <div class="hero-menu-eyebrow">Работы · 4 раздела</div>
+          <div class="hero-menu-eyebrow">Мои работы</div>
           <nav class="hero-tabs" aria-label="Выбор раздела">
-            <a href="#ai" data-target="ai" class="active"><span class="lbl">AI-креатив</span></a>
-            <a href="#apps" data-target="apps"><span class="lbl">Приложения</span></a>
-            <a href="#websites" data-target="websites"><span class="lbl">Сайты</span></a>
-            <a href="#presentations" data-target="presentations"><span class="lbl">Презентации</span></a>
+            <a href="ai-creative.html" data-target="ai" class="active"><span class="lbl">AI-креатив</span></a>
+            <a href="apps.html" data-target="apps"><span class="lbl">Приложения</span></a>
+            <a href="websites.html" data-target="websites"><span class="lbl">Сайты</span></a>
+            <a href="presentations.html" data-target="presentations"><span class="lbl">Презентации</span></a>
             <span class="hero-tabs-pill" aria-hidden="true"></span>
           </nav>
         </div>
       </div>
     </section>
 
-    <section id="ai" class="wrap projects-section">
-      <div class="work-top reveal">
-        <div class="section-title"><h2>AI-креатив</h2></div>
-      </div>
 
-      <div class="projects">
-        <article class="project reveal" data-type="ai" style="display:none">
-          <a class="project-card" href="#" aria-label="Product creatives pack — AI product ads">
-            <div class="media feel-cover project-slot">
-              <span class="project-badge">Пак AI-креативов</span>
-              <video src="assets/feel-the-sound/1.mp4" autoplay muted loop playsinline preload="metadata" poster="assets/feel-the-sound/1.png"></video>
-            </div>
-          </a>
-          <div class="meta"><div><div class="meta-title">ПАК ПРОДУКТОВЫХ КРЕАТИВОВ</div><div class="meta-sub">AI-реклама · Разные бренды · Кинематографично</div></div><div class="meta-num">01</div></div>
-        </article>
 
-        <article class="project reveal" data-type="ai">
-          <a class="project-card" href="greekly-promo.html" aria-label="Open Greekly promo video pack case">
-            <div class="media promo-cover project-slot">
-              <span class="project-badge">AI-промо пак</span>
-              <video src="assets/greekly-promo/1.mp4" autoplay muted loop playsinline preload="metadata"></video>
-            </div>
-          </a>
-          <div class="meta"><div><div class="meta-title">GREEKLY PROMO PACK</div><div class="meta-sub">AI-видео · Продвижение приложения · Реклама в соцсетях</div></div><div class="meta-num">01</div></div>
-        </article>
 
-        <article class="project reveal" data-type="ai">
-          <a class="project-card" href="neuro.html" aria-label="Открыть кейс: пять нейрофотосессий">
-            <div class="media neuro-cover project-slot">
-              <span class="project-badge">Нейрофотосессия</span>
-              <div class="neuro-panel"><img src="assets/neuro/main/1.png" alt="Нейрофотосессия — главная съёмка" loading="lazy"></div>
-              <div class="neuro-panel"><img src="assets/neuro/1/4.png" alt="Нейрофотосессия — портрет" loading="lazy"></div>
-              <div class="neuro-panel"><img src="assets/neuro/2/2.png" alt="Нейрофотосессия — стилизация" loading="lazy"></div>
-            </div>
-          </a>
-          <div class="meta"><div><div class="meta-title">НЕЙРОФОТОСЕССИИ</div><div class="meta-sub">AI-фотография · Портреты · Стилизация · Свет</div></div><div class="meta-num">02</div></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="apps" class="wrap projects-section">
-      <div class="work-top reveal">
-        <div class="section-title"><h2>Приложения</h2></div>
-      </div>
-
-      <div class="projects">
-        <article class="project reveal" data-type="mobile">
-          <a class="project-card" href="greekly.html" aria-label="Open Greekly mobile app case">
-            <div class="media project-slot greekly-card-fixed">
-              <span class="project-badge badge-mobile">Мобильный дизайн</span>
-              <div class="greekly-card-shot"><img src="assets/greekly/Logo.png" alt="Greekly app icon"></div>
-            </div>
-          </a>
-          <div class="meta"><div><div class="meta-title">Greekly</div><div class="meta-sub">Мобильный UX/UI · EdTech · Продуктовый сторителлинг</div></div><div class="meta-num">03</div></div>
-        </article>
-
-        <article class="project reveal" data-type="mobile">
-          <a class="project-card" href="lume.html" aria-label="Open Lumé mobile app case">
-            <div class="media project-slot lume-card-fixed">
-              <span class="project-badge badge-mobile">Мобильный дизайн</span>
-              <div class="lume-card-shot"><img src="assets/lume/Logo.png" alt="Lumé app icon"></div>
-            </div>
-          </a>
-          <div class="meta"><div><div class="meta-title">Lumé</div><div class="meta-sub">Мобильный UX/UI · AI-продукт · Здоровье и красота</div></div><div class="meta-num">04</div></div>
-        </article>
-
-        <article class="project reveal" data-type="mobile">
-          <a class="project-card" href="bloat-down.html" aria-label="Open Bloat Down mobile app case">
-            <div class="media project-slot bloat-card-fixed">
-              <span class="project-badge badge-mobile">Мобильный дизайн</span>
-              <div class="bloat-card-shot"><img src="assets/bloat-down/Logo.png" alt="Bloat Down app icon"></div>
-            </div>
-          </a>
-          <div class="meta"><div><div class="meta-title">Bloat Down</div><div class="meta-sub">Мобильный UX/UI · Health app · Трекинг привычек</div></div><div class="meta-num">05</div></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="websites" class="wrap projects-section">
-      <div class="work-top reveal">
-        <div class="section-title"><h2>Сайты</h2></div>
-      </div>
-
-      <div class="projects">
-        <article class="project reveal" data-type="web">
-          <a class="project-card" href="sites/raduga-detskiy-center/index.html" target="_blank" rel="noopener" aria-label="Открыть сайт детского центра «Радуга»">
-            <div class="media project-slot raduga-card-fixed">
-              <span class="project-badge badge-web">Сайт</span>
-              <div class="raduga-card-shot"><img src="sites/raduga-detskiy-center/hero.webp" alt="Дети играют в развивающем центре «Радуга»" loading="lazy"></div>
-            </div>
-          </a>
-          <div class="meta"><div><div class="meta-title">Радуга</div><div class="meta-sub">Веб UX/UI · Детский центр · Лендинг с записью</div></div><div class="meta-num">06</div></div>
-        </article>
-
-        <article class="project reveal" data-type="web">
-          <a class="project-card" href="fluxframe.html" aria-label="Open Fluxframe SaaS dashboard case">
-            <div class="media project-slot flux-card-fixed">
-              <span class="project-badge">SaaS дашборд</span>
-              <div class="flux-card-mini" aria-hidden="true">
-                <div class="mini-glow"></div>
-                <div class="mini-header"><span class="mini-dot"></span><span class="mini-label">Fluxframe · Overview</span><span class="mini-live">Live</span></div>
-                <div class="mini-kpi k1"><div class="l">MRR</div><div class="v">$284.6k</div><div class="d">+18.4%</div></div>
-                <div class="mini-kpi k2"><div class="l">Retention</div><div class="v">92.1%</div><div class="d">+3.2 pt</div></div>
-                <div class="mini-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                <svg viewBox="0 0 400 260" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="flxA" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#a3ff12" stop-opacity=".45"/>
-                      <stop offset="100%" stop-color="#a3ff12" stop-opacity="0"/>
-                    </linearGradient>
-                    <linearGradient id="flxB" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#6c70ff" stop-opacity=".28"/>
-                      <stop offset="100%" stop-color="#6c70ff" stop-opacity="0"/>
-                    </linearGradient>
-                  </defs>
-                  <path fill="url(#flxB)" d="M0,190 L0,150 L40,160 L80,140 L120,150 L160,120 L200,130 L240,105 L280,115 L320,90 L360,100 L400,80 L400,260 L0,260 Z"/>
-                  <path fill="url(#flxA)" d="M0,190 L0,120 L40,110 L80,130 L120,90 L160,100 L200,70 L240,80 L280,55 L320,65 L360,40 L400,50 L400,260 L0,260 Z"/>
-                  <path class="flux-line" fill="none" stroke="#6c70ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M0,150 L40,160 L80,140 L120,150 L160,120 L200,130 L240,105 L280,115 L320,90 L360,100 L400,80"/>
-                  <path class="flux-line" fill="none" stroke="#a3ff12" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M0,120 L40,110 L80,130 L120,90 L160,100 L200,70 L240,80 L280,55 L320,65 L360,40 L400,50" style="filter:drop-shadow(0 0 6px rgba(163,255,18,.5))"/>
-                </svg>
-              </div>
-            </div>
-          </a>
-          <div class="meta"><div><div class="meta-title">Fluxframe</div><div class="meta-sub">Веб UX/UI · SaaS-продукт · Data viz и моушен</div></div><div class="meta-num">07</div></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="presentations" class="wrap projects-section">
-      <div class="work-top reveal">
-        <div class="section-title"><h2>Презентации</h2></div>
-      </div>
-
-      <div class="projects">
-        <article class="project reveal" data-type="presentation">
-          <a class="project-card" href="presentations/116-trophy-cyprus.html" aria-label="Открыть презентацию 116 Trophy Cyprus LTD">
-            <div class="media project-slot trophy-card-fixed">
-              <span class="project-badge badge-presentation">Презентация</span>
-              <div class="trophy-card-shot"><img src="assets/media/presentations/116-trophy-cyprus/1.png" alt="116 Trophy Cyprus LTD" loading="lazy"></div>
-            </div>
-          </a>
-          <div class="meta"><div><div class="meta-title">116 TROPHY CYPRUS LTD</div></div></div>
-        </article>
-      </div>
-    </section>
 
     <div class="marquee" aria-hidden="true">
       <div class="track">
@@ -461,12 +75,204 @@
       </div>
     </div>
 
+    <section id="experience" class="experience wrap">
+      <div class="exp-head reveal">
+        <div class="hero-menu-eyebrow">Опыт · с 2021</div>
+        <h2>Мой <em>опыт</em></h2>
+        <p class="exp-lead">Работаю в дизайне с 2021 года. Совмещаю продуктовые интерфейсы, руководство командой и AI-креатив — от пользовательского сценария до финального кадра.</p>
+      </div>
+
+      <ol class="exp-list" role="list">
+        <li class="exp-role reveal">
+          <details>
+            <summary>
+              <div class="exp-when">
+                <div class="exp-when-range">2023 — сейчас</div>
+                <div class="exp-when-dur">3 года</div>
+              </div>
+              <div class="exp-what">
+                <div class="exp-place">МТС · CVM</div>
+                <div class="exp-title">Руководитель направления дизайна</div>
+                <div class="exp-sub">С августа 2024. Ранее — UX/UI-дизайнер: октябрь 2023 — август 2024.</div>
+              </div>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p>Развитие отношений с клиентами и персонализированные предложения. С 2024 года веду команду дизайнеров и продолжаю работать руками.</p>
+              <ul class="exp-tasks">
+                <li>Организация работы команды, обсуждение решений и проверка макетов.</li>
+                <li>Проектирование персонализированных страниц, лендингов и продуктовых сценариев.</li>
+                <li>Проработка логики, состояний, ошибок и адаптивных версий.</li>
+                <li>Единообразие интерфейсов и работа с компонентами.</li>
+                <li>Взаимодействие с продуктом, маркетингом, продажами, поддержкой и разработкой.</li>
+                <li>Передача макетов в разработку через Figma DevMode.</li>
+                <li>Регулярные внутренние демонстрации дизайн-решений.</li>
+              </ul>
+              <div class="exp-projects">
+                <div class="exp-projects-label">Из проектов</div>
+                <ul class="exp-projects-list">
+                  <li>Внутренние платформы — запуск маркетинговых кампаний и публикация лендингов.</li>
+                  <li>Страницы персонализированных предложений тарифов, услуг, подписок и устройств.</li>
+                  <li>Путь перехода со своим номером — от ввода номера до выбора магазина на карте.</li>
+                  <li>Виджет NBA для операторов — сценарии подключения, обработки ошибок и аналитики продаж.</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li class="exp-role reveal">
+          <details>
+            <summary>
+              <div class="exp-when">
+                <div class="exp-when-range">2023 — 2025</div>
+                <div class="exp-when-dur">2 года</div>
+              </div>
+              <div class="exp-what">
+                <div class="exp-place">CodeAxolot</div>
+                <div class="exp-title">Проджект-менеджер · Дизайнер · AI-креатор</div>
+                <div class="exp-sub">Совмещение трёх ролей на одном этапе. После Flying Gekko.</div>
+              </div>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p>В CodeAxolot я два года совмещала три роли: проджект-менеджера, дизайнера и AI-креатора. Мой опыт здесь объединял управление проектами, работу над дизайном и создание контента с использованием искусственного интеллекта.</p>
+              <ul class="exp-tasks">
+                <li><strong>Управление проектами</strong> — роль проджект-менеджера.</li>
+                <li><strong>Дизайн</strong> — работа над дизайн-задачами проектов.</li>
+                <li><strong>AI-креативы</strong> — создание контента с использованием ИИ.</li>
+              </ul>
+            </div>
+          </details>
+        </li>
+
+        <li class="exp-role reveal">
+          <details>
+            <summary>
+              <div class="exp-when">
+                <div class="exp-when-range">2022 — 2023</div>
+                <div class="exp-when-dur">1 год</div>
+              </div>
+              <div class="exp-what">
+                <div class="exp-place">Flying Gekko</div>
+                <div class="exp-title">UX/UI-дизайнер</div>
+                <div class="exp-sub">Сентябрь 2022 — июль 2023</div>
+              </div>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p>Работа над пользовательскими интерфейсами и сценариями — развитие практики UX/UI и цифровых продуктов.</p>
+              <ul class="exp-tasks">
+                <li>Сбор и уточнение требований.</li>
+                <li>Проработка пользовательских сценариев.</li>
+                <li>Создание интерфейсов.</li>
+                <li>Сопровождение реализации.</li>
+                <li>Тестирование и оптимизация решений.</li>
+              </ul>
+            </div>
+          </details>
+        </li>
+
+        <li class="exp-role reveal">
+          <details>
+            <summary>
+              <div class="exp-when">
+                <div class="exp-when-range">2021 — 2023</div>
+                <div class="exp-when-dur">2 года</div>
+              </div>
+              <div class="exp-what">
+                <div class="exp-place">Hi-Tech Interior</div>
+                <div class="exp-title">Графический дизайнер</div>
+                <div class="exp-sub">Март 2021 — апрель 2023</div>
+              </div>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p>Начало профессионального пути. Работа с графическими материалами и печатными носителями.</p>
+            </div>
+          </details>
+        </li>
+      </ol>
+
+      <div class="exp-tools reveal">
+        <div class="hero-menu-eyebrow">Инструменты и AI-стек</div>
+        <div class="tools-stack">
+          <div class="tool-cat-block">
+            <div class="tool-cat">Дизайн интерфейсов</div>
+            <div class="tool-tags">
+              <span class="tool-tag">Figma</span>
+              <span class="tool-tag">Figma DevMode</span>
+            </div>
+          </div>
+          <div class="tool-cat-block">
+            <div class="tool-cat">Веб</div>
+            <div class="tool-tags">
+              <span class="tool-tag">Tilda</span>
+              <span class="tool-tag">HTML</span>
+              <span class="tool-tag">CSS</span>
+              <span class="tool-tag">JavaScript</span>
+            </div>
+          </div>
+          <div class="tool-cat-block">
+            <div class="tool-cat">Монтаж и пост</div>
+            <div class="tool-tags">
+              <span class="tool-tag">Final Cut Pro</span>
+              <span class="tool-tag">After Effects</span>
+            </div>
+          </div>
+          <div class="tool-cat-block">
+            <div class="tool-cat">AI-видео</div>
+            <div class="tool-tags">
+              <span class="tool-tag">Kling</span>
+              <span class="tool-tag">Runway</span>
+              <span class="tool-tag">Sora</span>
+              <span class="tool-tag">Veo</span>
+              <span class="tool-tag">Pika</span>
+              <span class="tool-tag">Luma</span>
+              <span class="tool-tag">Hailuo</span>
+              <span class="tool-tag">Minimax</span>
+            </div>
+          </div>
+          <div class="tool-cat-block">
+            <div class="tool-cat">AI-графика</div>
+            <div class="tool-tags">
+              <span class="tool-tag">Midjourney</span>
+              <span class="tool-tag">Flux</span>
+              <span class="tool-tag">Recraft</span>
+              <span class="tool-tag">Ideogram</span>
+              <span class="tool-tag">DALL·E</span>
+              <span class="tool-tag">Stable Diffusion</span>
+              <span class="tool-tag">Krea</span>
+            </div>
+          </div>
+          <div class="tool-cat-block">
+            <div class="tool-cat">AI-аудио</div>
+            <div class="tool-tags">
+              <span class="tool-tag">ElevenLabs</span>
+              <span class="tool-tag">Suno</span>
+              <span class="tool-tag">Udio</span>
+            </div>
+          </div>
+          <div class="tool-cat-block">
+            <div class="tool-cat">AI-текст и сценарии</div>
+            <div class="tool-tags">
+              <span class="tool-tag">ChatGPT</span>
+              <span class="tool-tag">Claude</span>
+              <span class="tool-tag">Gemini</span>
+              <span class="tool-tag">Perplexity</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="about" class="about wrap">
       <div class="about-intro">
         <div>
           <h2 class="reveal">Хороший дизайн делает понятным.<br>Сильный креатив заставляет почувствовать.</h2>
           <div class="about-copy reveal">
-            <p>Я anestiiz, UX/UI-дизайнер и AI-креатор. Соединяю продуктовое мышление с визуальным сторителлингом, а сильную айдентику — с цифровыми продуктами.</p>
+            <p>Я anestiiz, UX/UI-дизайнер, руководитель направления дизайна и AI-креатор.</p>
+            <p>Мой опыт объединяет продуктовый дизайн, руководство командой, управление проектами и создание AI-контента. В МТС я выросла от UX/UI-дизайнера до руководителя направления дизайна, а в CodeAxolot два года совмещала роли проджект-менеджера, дизайнера и AI-креатора.</p>
             <p>От первого пользовательского сценария до последнего кадра мне важно, как весь опыт складывается в одно целое.</p>
           </div>
         </div>
@@ -538,12 +344,58 @@
       </div>
     </section>
 
+    <section id="ai" class="ai-section wrap">
+      <div class="ai-head reveal">
+        <div class="ai-eyebrow">✳ Manifesto · AI &amp; design</div>
+        <h2>Как я использую <em>AI в дизайне</em> — и почему это важно.</h2>
+        <p class="ai-lead">AI — это не замена дизайнеру, а усилитель. Опыт задаёт направление, AI ускоряет путь. На выходе — продукт, который сам клиент собрать не сможет: не хватит ни чутья, ни инструментов, ни времени.</p>
+        <div class="ai-facts">
+          <span>AI + Design</span>
+          <span>Product thinking</span>
+          <span>Motion &amp; UI</span>
+          <span>Copy &amp; tone</span>
+        </div>
+      </div>
+
+      <div class="ai-manifesto reveal">
+        <p>Мы живём в моменте, когда <em>скорость идеи важнее её объёма</em>. Раньше между «придумал» и «показал» стояли недели — сегодня хороший дизайнер с AI закрывает этот путь за один вечер, без потери качества. Кто не умеет собирать этот стек — остаётся на шаг позади.</p>
+      </div>
+
+      <div class="ai-notes reveal">
+        <div>
+          <h3>Почему AI важен именно сейчас.</h3>
+          <p>Рынок ускорился в разы: пользователи ждут продукт, который выглядит и работает как топовое приложение из App Store, а не как «первый MVP». Без AI такой уровень раньше стоил команды из 5 человек и трёх месяцев.</p>
+          <p>Сегодня один дизайнер с правильно собранным AI-стеком закрывает исследование, копирайт, айдентику, UI-кит, прототип и моушен — за срок, в который команда только пишет ТЗ.</p>
+        </div>
+        <div>
+          <h3>Опыт + AI = продукт, а не картинки.</h3>
+          <p>AI без опыта — это красивые слайды без логики. Опыт без AI — это медленно и дорого. Ценность на стыке: я знаю, как устроен продукт, что продаёт, где ломается пользователь — и направляю AI туда, где он реально усиливает.</p>
+          <p>AI генерирует варианты, я отсекаю мусор, оставляю то, что работает на задачу клиента, и собираю в цельный продукт с единой интонацией.</p>
+        </div>
+        <div>
+          <h3>Почему клиент так не сможет сам.</h3>
+          <p>Клиенту доступны те же AI-инструменты — но не доступен вкус, насмотренность и продуктовое мышление. AI даёт много «правильно», но не отличает «правильно» от «точно».</p>
+          <p>Без насмотренности выходит средний продукт с AI-налётом. Со мной — продукт, у которого есть характер, логика и уверенность в каждом пикселе.</p>
+        </div>
+        <div>
+          <h3>Как это выглядит в работе.</h3>
+          <p>Исследование ускоряется в 3–5 раз, айдентика собирается за день, тексты и интонация — сразу под аудиторию. Моушен, иллюстрации и 3D — там, где раньше был плейсхолдер.</p>
+          <p>Итог: клиент платит не за часы, а за результат — продукт уровня, который окупает вложение с первого запуска.</p>
+        </div>
+      </div>
+
+      <div class="ai-cta reveal">
+        <h3>Готовы собрать продукт, который <em>выглядит на два уровня выше</em> рынка?</h3>
+        <a class="ai-cta-btn" href="brief.html">Обсудить <img class="icon-arrow-up light" src="Icons/Arrow Right Up.svg" alt=""></a>
+      </div>
+    </section>
+
   </main>
 
   <footer>
     <div>© 2026 anestiiz &nbsp; Designed with intention.</div>
     <a class="top" href="#top">Back to top ↑</a>
-    <a class="ai" href="ai.html">✳ How I use AI in design <img class="icon-arrow-up light" src="Icons/Arrow Right Up.svg" alt=""></a>
+    <a class="ai" href="#ai">✳ Как я использую AI в дизайне <img class="icon-arrow-up light" src="Icons/Arrow Right Up.svg" alt=""></a>
   </footer>
 
   <script>
@@ -562,6 +414,7 @@ const navBars = [
       const sectionIds = ['ai','apps','websites','presentations'];
       const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
       const heroForTabs = document.querySelector('.hero');
+      const heroMenuEl = document.querySelector('.hero-menu');
       const movePill = (bar, link) => {
         const pill = bar.el.querySelector(bar.pillSel);
         if (!link || !pill) return;
@@ -574,7 +427,9 @@ const navBars = [
       const updateNav = () => {
         const vh = window.innerHeight;
         const centerY = vh / 2;
-        const heroPast = !heroForTabs || heroForTabs.getBoundingClientRect().bottom <= 80;
+        const heroPast = heroMenuEl
+          ? heroMenuEl.getBoundingClientRect().bottom < 20
+          : (!heroForTabs || heroForTabs.getBoundingClientRect().bottom <= 80);
         let bestId = null;
         let bestDist = Infinity;
         sections.forEach(s => {
