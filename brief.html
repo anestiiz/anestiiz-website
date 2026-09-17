@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Заполнить бриф — anestiiz</title>
-  <meta name="description" content="Короткий бриф на проект: AI-видео, дизайн приложения или сайта, презентация. 1–2 минуты.">
+  <meta name="description" content="Короткий бриф на проект — 30 секунд. AI-видео, дизайн приложения или сайта, презентация.">
   <link rel="icon" type="image/png" href="assets/favicon/favicon.png">
   <link rel="apple-touch-icon" href="assets/favicon/favicon.png">
   <style>
@@ -42,19 +42,14 @@
     .header-right{justify-self:end;font-size:14px;color:var(--soft)}
 
     .brief-hero{padding-top:clamp(48px,6vw,96px)}
-    .brief-eyebrow{font-size:clamp(18px,1.6vw,22px);letter-spacing:.02em;text-transform:none;color:var(--pink);margin-bottom:24px;font-weight:600}
+    .brief-eyebrow{font-size:clamp(18px,1.6vw,22px);letter-spacing:.02em;color:var(--pink);margin-bottom:24px;font-weight:600}
     .brief-hero h1{margin:0;font-size:clamp(62px,7vw,128px);line-height:.86;letter-spacing:-.05em;font-weight:400}
 
     .brief-form-wrap{padding-bottom:clamp(80px,10vw,160px);padding-top:clamp(32px,4vw,64px)}
     .brief-grid{display:grid;grid-template-columns:minmax(0,.44fr) minmax(360px,.56fr);gap:clamp(48px,6vw,96px);align-items:start}
     .brief-side{position:sticky;top:104px;display:flex;flex-direction:column;gap:32px;color:var(--muted)}
     .brief-side .reply{font-family:"AkzidenzGroteskPro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;font-size:clamp(28px,2.6vw,40px);line-height:1.05;letter-spacing:-.03em;color:var(--ink);margin:0}
-    .brief-side .steps{display:grid;gap:18px;padding-top:28px;border-top:1px solid var(--line)}
-    .brief-side .step{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline}
-    .brief-side .step-num{font-family:"AkzidenzGroteskPro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;font-size:14px;line-height:20px;color:var(--soft);font-variant-numeric:tabular-nums;letter-spacing:.08em}
-    .brief-side .step-text{font-size:17px;line-height:24px;color:var(--ink);letter-spacing:-.01em}
-    .brief-side .step-text small{display:block;color:var(--soft);font-size:14px;line-height:20px;margin-top:4px}
-    .alt-contact{display:flex;flex-direction:column;gap:12px;padding-top:24px;border-top:1px solid var(--line)}
+    .alt-contact{display:flex;flex-direction:column;gap:12px;padding-top:28px;border-top:1px solid var(--line)}
     .alt-contact .alt-note{margin:0;color:var(--soft);font-size:14px;line-height:20px;letter-spacing:-.01em}
     .alt-contact .alt-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.20);background:rgba(255,255,255,.05);color:var(--ink);font-size:14px;line-height:20px;font-weight:600;letter-spacing:-.15px;transition:.2s ease}
     .alt-contact .alt-btn:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.34);transform:translateY(-1px)}
@@ -62,49 +57,41 @@
 
     .icon-arrow-up{display:inline-block;width:1em;height:1em;object-fit:contain;vertical-align:-.13em;flex:0 0 auto}
 
-    .request-form{display:grid;gap:28px;padding:32px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));box-shadow:0 24px 80px rgba(0,0,0,.28),0 0 0 1px rgba(255,255,255,.03) inset}
-    .form-group{display:grid;gap:12px}
+    .request-form{display:grid;gap:22px;padding:28px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));box-shadow:0 24px 80px rgba(0,0,0,.28),0 0 0 1px rgba(255,255,255,.03) inset}
+    .form-group{display:grid;gap:10px}
+    .form-group[hidden]{display:none}
     .form-label{font-size:12px;line-height:20px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
     .form-label em{font-style:normal;color:var(--pink);font-weight:700;margin-left:4px}
-    .form-hint{margin:0;font-size:13px;line-height:18px;color:var(--soft);letter-spacing:-.01em}
-    .form-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-    .form-options.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .form-options.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .form-options.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-    .form-options.cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}
-    .option-pill{position:relative;min-width:0}
+
+    .form-options{display:flex;flex-wrap:wrap;gap:8px}
+    .option-pill{position:relative;flex:1 1 auto;min-width:0}
     .option-pill input{position:absolute;opacity:0;pointer-events:none}
-    .option-pill span{display:flex;align-items:center;justify-content:center;min-height:44px;padding:11px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.025);color:var(--muted);font-size:14px;line-height:20px;font-weight:600;letter-spacing:-.2px;text-align:center;cursor:pointer;transition:color .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease,transform .2s ease}
+    .option-pill span{display:flex;align-items:center;justify-content:center;min-height:44px;padding:11px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.025);color:var(--muted);font-size:14px;line-height:20px;font-weight:600;letter-spacing:-.2px;text-align:center;cursor:pointer;transition:color .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease,transform .18s ease;white-space:nowrap}
     .option-pill span:hover{color:var(--ink);border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.05)}
     .option-pill input:focus-visible + span{outline:2px solid rgba(255,0,106,.7);outline-offset:2px}
-    .option-pill input:checked + span{color:#fff;border-color:rgba(255,255,255,.34);background:var(--pill-bg);box-shadow:var(--pill-shadow)}
+    .option-pill input:checked + span{color:#fff;border-color:rgba(255,255,255,.34);background:var(--pill-bg);box-shadow:var(--pill-shadow);transform:translateY(-1px)}
 
-    .form-field{display:grid;gap:10px}
+    .form-field{display:grid;gap:8px}
     .form-field[hidden]{display:none}
-    .form-field > span{font-size:12px;line-height:20px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
-    .form-field > span em{font-style:normal;color:var(--pink);font-weight:700;margin-left:4px}
     .form-field input,.form-field textarea{width:100%;border:1px solid rgba(255,255,255,.14);border-radius:12px;background:rgba(255,255,255,.035);color:var(--ink);font-family:"Manrope",sans-serif;font-size:17px;line-height:24px;letter-spacing:-.2px;padding:14px 16px;outline:0;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
-    .form-field textarea{min-height:140px;resize:vertical}
-    .form-field textarea.is-short{min-height:96px}
+    .form-field textarea{min-height:96px;resize:vertical}
     .form-field input::placeholder,.form-field textarea::placeholder{color:rgba(187,174,180,.58)}
     .form-field input:focus,.form-field textarea:focus{border-color:rgba(255,0,106,.62);background:rgba(255,255,255,.05);box-shadow:0 0 0 3px rgba(255,0,106,.12)}
     .form-field.is-invalid input,.form-field.is-invalid textarea{border-color:rgba(255,128,152,.55);background:rgba(255,128,152,.06)}
-    .form-error{display:none;font-size:13px;line-height:18px;color:#ff8098;letter-spacing:-.01em;margin-top:-2px}
-    .form-error.is-visible{display:block}
+    .form-error{display:none;font-size:13px;line-height:18px;color:#ff8098;letter-spacing:-.01em}
     .form-group.is-invalid .form-error,.form-field.is-invalid .form-error{display:block}
 
-    .details-group{display:none;flex-direction:column;gap:22px;padding:22px;border:1px solid rgba(255,0,106,.18);border-radius:14px;background:rgba(255,0,106,.04)}
-    .details-group.is-visible{display:flex}
-    .details-group .details-label{font-size:12px;line-height:20px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:0 0 -6px}
-    .details-group .form-field > span{color:var(--muted)}
-
-    .budget-timeline{display:grid;grid-template-columns:1fr;gap:22px}
+    .details-toggle-wrap{display:grid;gap:10px}
+    .details-toggle{justify-self:start;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px dashed rgba(255,255,255,.18);background:transparent;color:var(--soft);font-family:"Manrope",sans-serif;font-size:13px;line-height:18px;font-weight:500;letter-spacing:-.1px;cursor:pointer;transition:.2s ease}
+    .details-toggle:hover{color:var(--ink);border-color:rgba(255,255,255,.34)}
+    .details-toggle-icon{display:inline-block;font-size:16px;line-height:1;transition:transform .2s ease}
+    .details-toggle[aria-expanded="true"] .details-toggle-icon{transform:rotate(45deg)}
 
     .form-submit{justify-self:start;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 26px;border-radius:999px;border:var(--pill-border);background:var(--pill-bg);box-shadow:var(--pill-shadow);color:#fff;font-family:"Manrope",sans-serif;font-size:16px;line-height:20px;font-weight:600;letter-spacing:-.2px;cursor:pointer;transition:transform .2s ease,filter .2s ease,box-shadow .2s ease}
     .form-submit:hover{transform:translateY(-1px);filter:brightness(1.06);box-shadow:0 20px 46px rgba(255,0,106,.42)}
     .form-submit .icon-arrow-up{width:18px;height:18px;filter:brightness(0) invert(1)}
     .form-submit[disabled]{opacity:.6;cursor:progress;transform:none}
-    .form-note{margin:0;color:var(--soft);font-size:14px;line-height:20px;letter-spacing:-.01em}
+    .form-note{margin:0;color:var(--soft);font-size:13px;line-height:18px;letter-spacing:-.01em}
     .form-status{font-size:14px;line-height:20px;color:var(--soft);min-height:20px;letter-spacing:-.1px}
     .form-status.is-error{color:#ff8098}
 
@@ -126,10 +113,9 @@
     @media(max-width:640px){
       .header-row{height:64px}
       .brief-hero h1{font-size:52px}
-      .form-options,.form-options.cols-3,.form-options.cols-4,.form-options.cols-5{grid-template-columns:1fr 1fr}
-      .form-options.cols-2{grid-template-columns:1fr}
-      .request-form{padding:22px;gap:22px}
-      .details-group{padding:18px}
+      .option-pill{flex:1 1 calc(50% - 4px)}
+      .option-pill span{padding:11px 14px}
+      .request-form{padding:22px;gap:20px}
     }
   </style>
   <script defer src="assets/js/analytics.js"></script>
@@ -151,85 +137,58 @@
     <section class="wrap brief-form-wrap">
       <div class="brief-grid">
         <aside class="brief-side">
-          <p class="reply">Расскажи, что задумал. Помогу определиться с форматом, объёмом и следующим шагом.</p>
-          <div class="steps">
-            <div class="step"><span class="step-num">01</span><span class="step-text">Заполнишь бриф<small>1–2 минуты — расскажешь об идее</small></span></div>
-            <div class="step"><span class="step-num">02</span><span class="step-text">Свяжусь с тобой<small>По указанному контакту — обсудим детали</small></span></div>
-            <div class="step"><span class="step-num">03</span><span class="step-text">Согласуем формат<small>Договоримся о сроках и стоимости</small></span></div>
-          </div>
+          <p class="reply">Пара кликов — и обсудим твой проект.</p>
           <div class="alt-contact">
-            <p class="alt-note">Удобнее обсудить в переписке?</p>
-            <a class="alt-btn" href="https://t.me/anestiiz" target="_blank" rel="noopener">Напиши в Telegram <img class="icon-arrow-up" src="Icons/Arrow Right Up.svg" alt=""></a>
+            <p class="alt-note">Или напиши мне в Telegram</p>
+            <a class="alt-btn" href="https://t.me/anestiiz" target="_blank" rel="noopener">@anestiiz <img class="icon-arrow-up" src="Icons/Arrow Right Up.svg" alt=""></a>
           </div>
         </aside>
 
         <form class="request-form" id="requestForm" novalidate>
-          <!-- 1. Project type -->
+          <!-- 1. Что создаём -->
           <div class="form-group" data-field="projectType">
             <div class="form-label">Что создаём?<em>*</em></div>
-            <div class="form-options cols-3" role="radiogroup" aria-label="Что создаём">
+            <div class="form-options" role="radiogroup" aria-label="Что создаём">
               <label class="option-pill"><input type="radio" name="projectType" value="AI-видео"><span>AI-видео</span></label>
               <label class="option-pill"><input type="radio" name="projectType" value="Нейрофотосессия"><span>Нейрофотосессия</span></label>
-              <label class="option-pill"><input type="radio" name="projectType" value="Дизайн приложения"><span>Дизайн приложения</span></label>
-              <label class="option-pill"><input type="radio" name="projectType" value="Дизайн сайта"><span>Дизайн сайта</span></label>
+              <label class="option-pill"><input type="radio" name="projectType" value="Приложение"><span>Приложение</span></label>
+              <label class="option-pill"><input type="radio" name="projectType" value="Сайт"><span>Сайт</span></label>
               <label class="option-pill"><input type="radio" name="projectType" value="Презентация"><span>Презентация</span></label>
               <label class="option-pill"><input type="radio" name="projectType" value="Другое"><span>Другое</span></label>
             </div>
             <div class="form-error">Выбери, что создаём.</div>
           </div>
 
-          <!-- 2. Idea -->
-          <label class="form-field" data-field="idea">
-            <span>Расскажи об идее<em>*</em></span>
-            <textarea name="idea" required rows="4" placeholder="Что нужно сделать, для кого и какой результат ты хочешь получить? Можно своими словами — помогу разобраться в деталях."></textarea>
-            <div class="form-error">Опиши идею — хотя бы пару предложений.</div>
-          </label>
+          <!-- 2. Уточнение по услуге (динамический) -->
+          <div class="form-group" id="detailsGroup" aria-live="polite" hidden></div>
 
-          <!-- 3. Service-specific details (rendered dynamically) -->
-          <div class="details-group" id="detailsGroup" aria-live="polite"></div>
-
-          <!-- 4. Materials -->
-          <label class="form-field">
-            <span>Есть примеры или материалы?</span>
-            <textarea name="materials" class="is-short" rows="3" placeholder="Ссылки на референсы, файлы, текущий проект — если что-то уже есть."></textarea>
-          </label>
-
-          <!-- 5. Budget + Timeline -->
-          <div class="budget-timeline">
-            <div class="form-group">
-              <div class="form-label">Бюджет</div>
-              <div class="form-options cols-5" role="radiogroup" aria-label="Бюджет">
-                <label class="option-pill"><input type="radio" name="budget" value="до $1 000"><span>до $1K</span></label>
-                <label class="option-pill"><input type="radio" name="budget" value="$1 000 – $3 000"><span>$1–3K</span></label>
-                <label class="option-pill"><input type="radio" name="budget" value="$3 000 – $10 000"><span>$3–10K</span></label>
-                <label class="option-pill"><input type="radio" name="budget" value="$10 000+"><span>$10K+</span></label>
-                <label class="option-pill"><input type="radio" name="budget" value="Нужна оценка"><span>Нужна оценка</span></label>
-              </div>
+          <!-- 3. Бюджет -->
+          <div class="form-group">
+            <div class="form-label">Бюджет</div>
+            <div class="form-options" role="radiogroup" aria-label="Бюджет">
+              <label class="option-pill"><input type="radio" name="budget" value="до $1 000"><span>до $1K</span></label>
+              <label class="option-pill"><input type="radio" name="budget" value="$1 000 – $3 000"><span>$1–3K</span></label>
+              <label class="option-pill"><input type="radio" name="budget" value="$3 000 – $10 000"><span>$3–10K</span></label>
+              <label class="option-pill"><input type="radio" name="budget" value="$10 000+"><span>$10K+</span></label>
+              <label class="option-pill"><input type="radio" name="budget" value="Нужна оценка"><span>Нужна оценка</span></label>
             </div>
-            <div class="form-group">
-              <div class="form-label">Когда нужен результат?</div>
-              <div class="form-options cols-3" role="radiogroup" aria-label="Когда нужен результат">
-                <label class="option-pill"><input type="radio" name="timeline" value="Срочно"><span>Срочно</span></label>
-                <label class="option-pill"><input type="radio" name="timeline" value="Есть дата"><span>Есть дата</span></label>
-                <label class="option-pill"><input type="radio" name="timeline" value="Гибко"><span>Гибко</span></label>
-              </div>
-            </div>
-            <label class="form-field" id="deadlineField" hidden>
-              <span>Дата</span>
-              <input name="deadline" type="date">
-            </label>
           </div>
 
-          <!-- 6. Contact -->
-          <label class="form-field" data-field="name">
-            <span>Как к тебе обращаться?<em>*</em></span>
-            <input name="name" type="text" autocomplete="given-name" required placeholder="Имя">
-            <div class="form-error">Напиши, как к тебе обращаться.</div>
-          </label>
+          <!-- 4. Когда нужно -->
+          <div class="form-group">
+            <div class="form-label">Когда нужно?</div>
+            <div class="form-options" role="radiogroup" aria-label="Когда нужно">
+              <label class="option-pill"><input type="radio" name="timeline" value="Срочно"><span>Срочно</span></label>
+              <label class="option-pill"><input type="radio" name="timeline" value="За 1–2 недели"><span>1–2 недели</span></label>
+              <label class="option-pill"><input type="radio" name="timeline" value="В течение месяца"><span>В течение месяца</span></label>
+              <label class="option-pill"><input type="radio" name="timeline" value="Гибко"><span>Гибко</span></label>
+            </div>
+          </div>
 
+          <!-- 5. Куда ответить + контакт -->
           <div class="form-group" data-field="contactMethod">
             <div class="form-label">Куда ответить?<em>*</em></div>
-            <div class="form-options cols-2" role="radiogroup" aria-label="Способ связи">
+            <div class="form-options" role="radiogroup" aria-label="Куда ответить">
               <label class="option-pill"><input type="radio" name="contactMethod" value="Telegram"><span>Telegram</span></label>
               <label class="option-pill"><input type="radio" name="contactMethod" value="Email"><span>Email</span></label>
             </div>
@@ -237,13 +196,23 @@
           </div>
 
           <label class="form-field" data-field="contact" id="contactField" hidden>
-            <span id="contactLabel">Контакт<em>*</em></span>
-            <input id="contactInput" name="contact" type="text" required placeholder="@username или name@example.com" autocomplete="off">
+            <input id="contactInput" name="contact" type="text" required placeholder="@username" autocomplete="off" aria-label="Контакт">
             <div class="form-error" id="contactError">Оставь контакт, чтобы я могла ответить.</div>
           </label>
 
+          <!-- Добавить детали (тумблер) -->
+          <div class="details-toggle-wrap">
+            <button type="button" class="details-toggle" id="detailsToggle" aria-expanded="false" aria-controls="notesField">
+              <span class="details-toggle-icon">+</span>
+              Добавить детали или референс
+            </button>
+            <label class="form-field" id="notesField" hidden>
+              <textarea name="notes" rows="3" placeholder="Комментарий, ссылка на референс, что уже есть…"></textarea>
+            </label>
+          </div>
+
           <button class="form-submit" type="submit">Отправить бриф <img class='icon-arrow-up' src='Icons/Arrow Right Up.svg' alt=''></button>
-          <p class="form-note">Посмотрю задачу и свяжусь с тобой, чтобы обсудить детали.</p>
+          <p class="form-note">Обязательны только тип проекта и контакт. Остальное можно пропустить.</p>
           <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
         </form>
 
@@ -265,122 +234,79 @@
   <script>
     const TELEGRAM_BOT_TOKEN = '8493465630:AAGq14a_MWpJ9nlTQnn4M6eZo3JfeELdTRY';
     const TELEGRAM_CHAT_ID   = '5631116037';
-    const STORAGE_KEY        = 'anestiiz_brief_draft_v2';
+    const STORAGE_KEY        = 'anestiiz_brief_draft_v3';
 
-    const requestForm    = document.getElementById('requestForm');
-    const formStatus     = document.getElementById('formStatus');
-    const formSuccess    = document.getElementById('formSuccess');
-    const submitBtn      = requestForm ? requestForm.querySelector('.form-submit') : null;
-    const detailsGroup   = document.getElementById('detailsGroup');
-    const deadlineField  = document.getElementById('deadlineField');
-    const contactField   = document.getElementById('contactField');
-    const contactInput   = document.getElementById('contactInput');
-    const contactLabel   = document.getElementById('contactLabel');
-    const contactError   = document.getElementById('contactError');
+    const requestForm   = document.getElementById('requestForm');
+    const formStatus    = document.getElementById('formStatus');
+    const formSuccess   = document.getElementById('formSuccess');
+    const submitBtn     = requestForm ? requestForm.querySelector('.form-submit') : null;
+    const detailsGroup  = document.getElementById('detailsGroup');
+    const contactField  = document.getElementById('contactField');
+    const contactInput  = document.getElementById('contactInput');
+    const contactError  = document.getElementById('contactError');
+    const detailsToggle = document.getElementById('detailsToggle');
+    const notesField    = document.getElementById('notesField');
 
-    // --- Details schema per project type ---
+    // Один добавочный вопрос на услугу — только кнопки.
     const detailsSchemas = {
-      'AI-видео': [
-        { name: 'aiVideoDuration', label: 'Длительность', kind: 'pills', cols: 4, options: ['до 15 сек', '15–30 сек', '30–60 сек', 'дольше'] },
-        { name: 'aiVideoFormat',   label: 'Формат',       kind: 'pills', cols: 3, options: ['9:16 (вертикальный)', '16:9 (горизонтальный)', '1:1 (квадрат)'] }
-      ],
-      'Нейрофотосессия': [
-        { name: 'photoCount', label: 'Сколько фото?', kind: 'pills', cols: 4, options: ['до 10', '10–30', '30–60', '60+'] },
-        { name: 'photoStyle', label: 'Желаемый стиль', kind: 'text',  placeholder: 'Например: минимализм, ретро, глянец…' }
-      ],
-      'Дизайн приложения': [
-        { name: 'appScreens', label: 'Какие экраны нужны?', kind: 'textarea', placeholder: 'Онбординг, главная, профиль, оплата…' },
-        { name: 'appExists',  label: 'Есть готовый продукт?', kind: 'pills', cols: 3, options: ['Да', 'Нет', 'Обсудим'] }
-      ],
-      'Дизайн сайта': [
-        { name: 'sitePages', label: 'Какие страницы нужны?', kind: 'textarea', placeholder: 'Главная, о нас, кейсы, контакты…' },
-        { name: 'siteExists', label: 'Есть готовый продукт?', kind: 'pills', cols: 3, options: ['Да', 'Нет', 'Обсудим'] }
-      ],
-      'Презентация': [
-        { name: 'deckTopic',  label: 'Тема презентации', kind: 'text', placeholder: 'О чём презентация?' },
-        { name: 'deckSlides', label: 'Примерное количество слайдов', kind: 'pills', cols: 4, options: ['до 10', '10–20', '20–40', '40+'] }
-      ]
+      'AI-видео':        { label: 'Для чего?',     options: ['Реклама', 'Соцсети', 'Клип', 'Другое', 'Нужна помощь'] },
+      'Нейрофотосессия': { label: 'Для кого?',     options: ['Для себя', 'Для бренда', 'Для товара', 'Другое'] },
+      'Приложение':      { label: 'Какая задача?', options: ['С нуля', 'Редизайн', 'Доработка', 'Нужна помощь'] },
+      'Сайт':            { label: 'Какая задача?', options: ['С нуля', 'Редизайн', 'Доработка', 'Нужна помощь'] },
+      'Презентация':     { label: 'Что нужно?',    options: ['Создать с нуля', 'Оформить готовое', 'Обновить дизайн', 'Нужна помощь'] }
     };
 
     const contactPresets = {
-      'Telegram': { label: 'Твой @username', placeholder: '@username',        type: 'text',  autocomplete: 'username', error: 'Оставь свой @username в Telegram.' },
-      'Email':    { label: 'Твой email',      placeholder: 'name@example.com', type: 'email', autocomplete: 'email',    error: 'Оставь email, чтобы я могла ответить.' }
+      'Telegram': { placeholder: '@username',        type: 'text',  autocomplete: 'username', error: 'Оставь свой @username в Telegram.' },
+      'Email':    { placeholder: 'name@example.com', type: 'email', autocomplete: 'email',    error: 'Оставь email, чтобы я могла ответить.' }
     };
 
-    // --- Render service-specific details ---
+    // --- Рендер добавочного вопроса ---
     function renderDetails(projectType, draft) {
       if (!detailsGroup) return;
       detailsGroup.innerHTML = '';
       const schema = detailsSchemas[projectType];
-      if (!schema) {
-        detailsGroup.classList.remove('is-visible');
-        return;
-      }
-      const label = document.createElement('p');
-      label.className = 'details-label';
-      label.textContent = 'Уточнения по услуге — необязательно';
-      detailsGroup.appendChild(label);
+      if (!schema) { detailsGroup.hidden = true; return; }
 
-      schema.forEach(field => {
-        if (field.kind === 'pills') {
-          const wrap = document.createElement('div');
-          wrap.className = 'form-group';
-          const lbl = document.createElement('div');
-          lbl.className = 'form-label';
-          lbl.textContent = field.label;
-          wrap.appendChild(lbl);
-          const opts = document.createElement('div');
-          opts.className = 'form-options cols-' + (field.cols || 3);
-          opts.setAttribute('role', 'radiogroup');
-          opts.setAttribute('aria-label', field.label);
-          field.options.forEach(opt => {
-            const l = document.createElement('label');
-            l.className = 'option-pill';
-            const i = document.createElement('input');
-            i.type = 'radio';
-            i.name = field.name;
-            i.value = opt;
-            if (draft && draft[field.name] === opt) i.checked = true;
-            i.addEventListener('change', saveDraft);
-            const s = document.createElement('span');
-            s.textContent = opt;
-            l.appendChild(i); l.appendChild(s);
-            opts.appendChild(l);
-          });
-          wrap.appendChild(opts);
-          detailsGroup.appendChild(wrap);
-        } else {
-          const l = document.createElement('label');
-          l.className = 'form-field';
-          const s = document.createElement('span');
-          s.textContent = field.label;
-          l.appendChild(s);
-          const el = document.createElement(field.kind === 'textarea' ? 'textarea' : 'input');
-          el.name = field.name;
-          el.placeholder = field.placeholder || '';
-          if (field.kind === 'textarea') { el.rows = 3; el.classList.add('is-short'); }
-          else el.type = field.kind === 'text' ? 'text' : field.kind;
-          if (draft && draft[field.name]) el.value = draft[field.name];
-          el.addEventListener('input', saveDraft);
-          l.appendChild(el);
-          detailsGroup.appendChild(l);
-        }
+      const lbl = document.createElement('div');
+      lbl.className = 'form-label';
+      lbl.textContent = schema.label;
+      detailsGroup.appendChild(lbl);
+
+      const opts = document.createElement('div');
+      opts.className = 'form-options';
+      opts.setAttribute('role', 'radiogroup');
+      opts.setAttribute('aria-label', schema.label);
+      schema.options.forEach(opt => {
+        const l = document.createElement('label');
+        l.className = 'option-pill';
+        const i = document.createElement('input');
+        i.type = 'radio';
+        i.name = 'serviceDetail';
+        i.value = opt;
+        if (draft && draft.serviceDetail === opt && schema.options.includes(draft.serviceDetail)) i.checked = true;
+        i.addEventListener('change', saveDraft);
+        const s = document.createElement('span');
+        s.textContent = opt;
+        l.appendChild(i); l.appendChild(s);
+        opts.appendChild(l);
       });
-      detailsGroup.classList.add('is-visible');
+      detailsGroup.appendChild(opts);
+      detailsGroup.hidden = false;
     }
 
-    // --- Contact method → contact field ---
+    // --- Способ связи → плейсхолдер контактного поля ---
     function updateContactField() {
       if (!requestForm || !contactField) return;
       const selected = requestForm.querySelector('input[name="contactMethod"]:checked');
       if (!selected) {
         contactField.hidden = true;
         contactInput.removeAttribute('required');
+        contactInput.value = contactInput.value; // keep entered value
         return;
       }
       const preset = contactPresets[selected.value];
       contactField.hidden = false;
-      contactLabel.innerHTML = preset.label + '<em>*</em>';
       contactInput.type = preset.type;
       contactInput.placeholder = preset.placeholder;
       contactInput.autocomplete = preset.autocomplete;
@@ -388,37 +314,47 @@
       if (contactError) contactError.textContent = preset.error;
     }
 
-    // --- Timeline → deadline ---
-    function updateDeadline() {
-      if (!requestForm || !deadlineField) return;
-      const selected = requestForm.querySelector('input[name="timeline"]:checked');
-      const show = selected && selected.value === 'Есть дата';
-      deadlineField.hidden = !show;
-      const input = deadlineField.querySelector('input');
-      if (input && !show) input.value = '';
+    // --- Тумблер деталей ---
+    if (detailsToggle && notesField) {
+      detailsToggle.addEventListener('click', () => {
+        const expanded = detailsToggle.getAttribute('aria-expanded') === 'true';
+        detailsToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        notesField.hidden = expanded;
+        if (!expanded) {
+          const t = notesField.querySelector('textarea');
+          if (t) setTimeout(() => t.focus({ preventScroll: false }), 20);
+        }
+      });
     }
 
-    // --- Draft: save/restore ---
+    // --- Черновик ---
     function saveDraft() {
       if (!requestForm) return;
       const data = new FormData(requestForm);
       const obj = {};
       for (const [k, v] of data.entries()) obj[k] = v;
+      // Всегда сохраняем состояние тумблера деталей
+      if (detailsToggle) obj.__detailsOpen = detailsToggle.getAttribute('aria-expanded') === 'true' ? '1' : '';
       try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {}
     }
-
     function readDraft() {
       try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); } catch (e) { return null; }
     }
-
     function clearDraft() {
       try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
     }
-
     function restoreDraft() {
       const draft = readDraft();
       if (!draft || !requestForm) return;
+      // сначала прожать projectType, чтобы отрендерить детали
+      if (draft.projectType) {
+        const r = requestForm.querySelector(`input[name="projectType"][value="${draft.projectType}"]`);
+        if (r) r.checked = true;
+        renderDetails(draft.projectType, draft);
+      }
+      // остальные поля
       Object.keys(draft).forEach(name => {
+        if (name === 'projectType' || name === '__detailsOpen') return;
         const els = requestForm.querySelectorAll(`[name="${name}"]`);
         if (!els.length) return;
         if (els[0].type === 'radio') {
@@ -427,52 +363,47 @@
           els[0].value = draft[name];
         }
       });
-      if (draft.projectType) renderDetails(draft.projectType, draft);
+      // тумблер деталей
+      if (draft.__detailsOpen === '1' && detailsToggle && notesField) {
+        detailsToggle.setAttribute('aria-expanded', 'true');
+        notesField.hidden = false;
+      }
       updateContactField();
-      updateDeadline();
     }
 
-    // --- Validation ---
+    // --- Валидация (только обязательные: projectType, contactMethod, contact) ---
     function clearErrors() {
       requestForm.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
     }
-
     function markInvalid(fieldName, focus) {
       const wrap = requestForm.querySelector(`[data-field="${fieldName}"]`);
       if (wrap) wrap.classList.add('is-invalid');
       if (focus) {
         const target = requestForm.querySelector(`[name="${fieldName}"]`);
         if (target) {
-          if (target.type === 'radio') {
-            (wrap || target).scrollIntoView({ behavior: 'smooth', block: 'center' });
-          } else {
-            target.focus({ preventScroll: false });
-          }
+          if (target.type === 'radio') (wrap || target).scrollIntoView({ behavior: 'smooth', block: 'center' });
+          else { target.focus({ preventScroll: false }); }
         }
       }
     }
-
     function validate() {
       clearErrors();
       const data = new FormData(requestForm);
       const errors = [];
       if (!data.get('projectType')) errors.push('projectType');
-      if (!(data.get('idea') || '').trim()) errors.push('idea');
-      if (!(data.get('name') || '').trim()) errors.push('name');
       if (!data.get('contactMethod')) errors.push('contactMethod');
       else if (!(data.get('contact') || '').trim()) errors.push('contact');
       errors.forEach((name, i) => markInvalid(name, i === 0));
       return errors.length === 0;
     }
 
-    // --- Status + success ---
+    // --- Статус + успех ---
     function setStatus(msg, kind) {
       if (!formStatus) return;
       formStatus.textContent = msg || '';
       formStatus.classList.remove('is-error');
       if (kind === 'error') formStatus.classList.add('is-error');
     }
-
     function showSuccess() {
       if (!formSuccess || !requestForm) return;
       requestForm.classList.add('is-hidden');
@@ -480,71 +411,65 @@
       formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
-    // --- Build Telegram message ---
+    // --- Сообщение в Telegram ---
     function buildMessage(data) {
-      const method   = data.get('contactMethod') || '—';
-      const timeline = data.get('timeline') || '—';
-      const budget   = data.get('budget')   || '—';
-      const type     = data.get('projectType') || '—';
+      const type   = data.get('projectType') || '—';
+      const detail = data.get('serviceDetail');
+      const method = data.get('contactMethod') || '—';
       const lines = [
         '📩 <b>Новый бриф с anestiiz.ru</b>',
         '',
-        `<b>Что создаём:</b> ${type}`,
-        `<b>Идея:</b> ${(data.get('idea') || '').trim() || '—'}`
+        `<b>Что создаём:</b> ${type}`
       ];
-      const schema = detailsSchemas[type];
-      if (schema) {
-        const details = schema
-          .map(f => {
-            const v = (data.get(f.name) || '').trim();
-            return v ? `<b>${f.label}:</b> ${v}` : null;
-          })
-          .filter(Boolean);
-        if (details.length) lines.push('', ...details);
+      if (detail && detailsSchemas[type]) {
+        lines.push(`<b>${detailsSchemas[type].label}</b> ${detail}`);
       }
-      const materials = (data.get('materials') || '').trim();
-      if (materials) lines.push('', `<b>Материалы:</b> ${materials}`);
-      lines.push('', `<b>Бюджет:</b> ${budget}`);
-      let tl = timeline;
-      if (timeline === 'Есть дата' && data.get('deadline')) tl += ` — ${data.get('deadline')}`;
-      lines.push(`<b>Сроки:</b> ${tl}`);
-      lines.push('', `<b>Имя:</b> ${(data.get('name') || '').trim() || '—'}`);
-      lines.push(`<b>Способ связи:</b> ${method}`);
+      const budget   = data.get('budget');
+      const timeline = data.get('timeline');
+      if (budget)   lines.push(`<b>Бюджет:</b> ${budget}`);
+      if (timeline) lines.push(`<b>Сроки:</b> ${timeline}`);
+      const notes = (data.get('notes') || '').trim();
+      if (notes) lines.push('', `<b>Детали:</b> ${notes}`);
+      lines.push('', `<b>Способ связи:</b> ${method}`);
       lines.push(`<b>Контакт:</b> ${(data.get('contact') || '').trim() || '—'}`);
       lines.push('', `<i>${new Date().toLocaleString('ru-RU')}</i>`);
       return lines.join('\n');
     }
 
-    // --- Wire everything ---
+    // --- Wire ---
     if (requestForm) {
-      // Auto-save on any change / input
       requestForm.addEventListener('input', saveDraft);
       requestForm.addEventListener('change', saveDraft);
 
-      // Project type → details
       requestForm.querySelectorAll('input[name="projectType"]').forEach(r => {
         r.addEventListener('change', () => {
-          renderDetails(r.value, readDraft());
+          // сбрасываем ответы предыдущей услуги
+          renderDetails(r.value, null);
           saveDraft();
         });
       });
 
-      // Contact method → contact field
       requestForm.querySelectorAll('input[name="contactMethod"]').forEach(r => {
         r.addEventListener('change', () => { updateContactField(); saveDraft(); });
       });
 
-      // Timeline → deadline picker
-      requestForm.querySelectorAll('input[name="timeline"]').forEach(r => {
-        r.addEventListener('change', () => { updateDeadline(); saveDraft(); });
-      });
-
-      // Restore draft on load
       restoreDraft();
       updateContactField();
-      updateDeadline();
 
-      // Submit
+      // Снимаем ошибки при первом же изменении помеченных полей
+      ['projectType', 'contactMethod', 'contact'].forEach(name => {
+        requestForm.querySelectorAll(`[name="${name}"]`).forEach(el => {
+          el.addEventListener('input', () => {
+            const wrap = requestForm.querySelector(`[data-field="${name}"]`);
+            if (wrap) wrap.classList.remove('is-invalid');
+          });
+          el.addEventListener('change', () => {
+            const wrap = requestForm.querySelector(`[data-field="${name}"]`);
+            if (wrap) wrap.classList.remove('is-invalid');
+          });
+        });
+      });
+
       requestForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         if (!validate()) {
@@ -554,12 +479,11 @@
         setStatus('', null);
 
         if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
-          setStatus('Форма пока не подключена. Напиши в Telegram @anestiiz.', 'error');
+          setStatus('Отправка пока не подключена — напиши в Telegram @anestiiz.', 'error');
           return;
         }
 
         const data = new FormData(requestForm);
-        const method = data.get('contactMethod') || 'Email';
         const text = buildMessage(data);
 
         if (submitBtn) submitBtn.disabled = true;
@@ -573,14 +497,15 @@
           });
           const json = await res.json();
           if (!res.ok || !json.ok) throw new Error(json.description || 'sendMessage failed');
-          // Real success only:
+          // Реальный успех:
           clearDraft();
           setStatus('', null);
           showSuccess();
           if (window.ym) window.ym(window.__ymId, 'reachGoal', 'brief_submitted');
         } catch (err) {
           console.error(err);
-          setStatus('Не удалось отправить. Попробуй ещё раз или напиши в Telegram @anestiiz — данные не потеряются.', 'error');
+          // Ошибка: черновик остаётся, форма видима — можно повторить
+          setStatus('Не удалось отправить. Попробуй ещё раз — ответы сохранены.', 'error');
         } finally {
           if (submitBtn) submitBtn.disabled = false;
         }
