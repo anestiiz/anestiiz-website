@@ -379,4 +379,29 @@
       html[lang="ru"] main .work{padding-top:48px !important}
     }
 
-  
+  /* Content-first homepage */
+  .ai-manifesto[hidden],.ai-notes[hidden],.services[hidden],.tools-total[hidden]{display:none!important}
+  .hero:after{display:none}
+  .hero .hero-bg{filter:none}
+  .hero-copy{position:absolute;z-index:6;inset-inline:0;top:clamp(104px,12vw,180px);transform:none;pointer-events:none;color:#fff}
+  .hero-copy h1{margin:0;max-width:980px;font-family:"AkzidenzGroteskPro",Helvetica,sans-serif;font-size:clamp(56px,6.2vw,112px);line-height:.9;font-weight:500;letter-spacing:-.045em;text-shadow:0 4px 28px rgba(0,0,0,.5)}
+  .hero-copy h1 em,.content-head h2 em{font-family:"FreeSerif",Georgia,serif;font-style:italic;font-weight:400;color:var(--pink)}
+  .hero-copy p{max-width:700px;margin:28px 0 0;font-size:20px;line-height:28px;color:#e4dce3;text-shadow:0 3px 18px rgba(0,0,0,.7)}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;pointer-events:auto}.hero-actions a,.contact-actions a{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(12,9,14,.52);backdrop-filter:blur(16px);font:600 14px/20px "Manrope",sans-serif;color:#fff}.hero-actions .primary,.contact-actions .primary{background:var(--pill-bg);border:var(--pill-border);box-shadow:var(--pill-shadow);transition:transform .2s ease,filter .2s ease,box-shadow .2s ease}.hero-actions .primary:hover,.contact-actions .primary:hover{transform:translateY(-1px);filter:brightness(1.06);box-shadow:0 16px 40px rgba(255,0,106,.42)}
+  .featured,.offer,.process,.contact-main{padding-top:128px;padding-bottom:128px}.content-head{max-width:980px;margin-bottom:56px}.content-head h2{margin:12px 0 0;font-family:"AkzidenzGroteskPro",Helvetica,sans-serif;font-size:72px;line-height:.94;letter-spacing:-.04em;font-weight:500}.content-head>p{max-width:620px;margin:24px 0 0;color:var(--muted);font-size:20px;line-height:28px}
+  .featured-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.featured-card{display:flex;flex-direction:column;border-top:1px solid var(--line);padding-top:16px}.featured-card img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px}.featured-card>div{padding:20px 0}.featured-card span,.offer-item>span,.process-grid span{font:600 12px/20px "Manrope",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--pink)}.featured-card h3,.offer-item h3,.process-grid h3{margin:8px 0 12px;font:500 36px/40px "AkzidenzGroteskPro",Helvetica,sans-serif}.featured-card p,.offer-item p,.process-grid p{margin:0;color:var(--muted);font-size:16px;line-height:24px}.featured-card strong{display:block;margin-top:20px;font:600 14px/20px "Manrope",sans-serif}.portfolio-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px}.portfolio-links a{padding:10px 16px;border:1px solid var(--line);border-radius:999px;font:600 14px/20px "Manrope",sans-serif}
+  .offer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.offer-item{padding:32px;border:1px solid var(--line);border-radius:8px}.offer-item ul{margin:28px 0 0;padding:0;list-style:none;color:var(--ink);font-size:15px;line-height:24px}.offer-item li{padding:10px 0;border-top:1px solid var(--card-line)}.offer-note{margin:24px 0 0;color:var(--soft);font-size:14px;line-height:20px}
+  .process-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.process-grid li{padding:24px 0;border-top:1px solid var(--line)}
+  .contact-main{border-top:1px solid var(--line);padding-bottom:180px}.contact-actions{display:flex;flex-wrap:wrap;gap:8px}.contact-actions a{background:rgba(255,255,255,.04)}
+  @media(max-width:900px){.featured-grid{grid-template-columns:1fr}.offer-grid{grid-template-columns:1fr}.process-grid{grid-template-columns:repeat(2,1fr)}.hero-copy p{font-size:17px;line-height:24px}.content-head h2{font-size:56px}}
+  @media(max-width:640px){.featured,.offer,.process,.contact-main{padding-top:64px;padding-bottom:64px}.content-head{margin-bottom:32px}.content-head h2{font-size:44px;line-height:44px}.featured-card h3,.offer-item h3,.process-grid h3{font-size:28px;line-height:32px}.offer-item{padding:24px 20px}.process-grid{grid-template-columns:1fr}.contact-main{padding-bottom:96px}}
+
+  /* App store buttons from Figma */
+  .store-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .store-button{width:169px;height:55px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 24px;border-radius:20px;font:700 16px/18px "Manrope",sans-serif;letter-spacing:0;white-space:nowrap;overflow:hidden;transition:transform .18s ease,filter .18s ease}
+  .store-button:hover{transform:translateY(-1px);filter:brightness(1.04)}
+  .store-button img{width:24px;height:24px;object-fit:contain;flex:0 0 24px}
+  .store-button.apple{color:#fff;border:0;border-bottom:4px solid #343434;background:radial-gradient(ellipse 110% 240% at 50% 0%,#646464 0%,#4a4a4a 100%)}
+  .store-button.google{color:#2f2f2f;border:0;border-bottom:4px solid #e6e6e6;background:radial-gradient(ellipse 110% 240% at 50% 0%,#fff 0%,#f1f1f1 100%)}
+  .meta .store-buttons{margin-top:16px}
+  @media(max-width:420px){.store-buttons{display:grid;grid-template-columns:1fr}.store-button{width:100%;max-width:220px}}
