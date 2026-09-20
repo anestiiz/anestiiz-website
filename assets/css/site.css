@@ -398,6 +398,9 @@
   @media(max-width:900px){.featured-grid{grid-template-columns:1fr}.offer-grid{grid-template-columns:1fr}.process-grid{grid-template-columns:repeat(2,1fr)}.hero-copy p{font-size:17px;line-height:24px}.content-head h2{font-size:56px}}
   @media(max-width:640px){.featured,.offer,.process,.contact-main{padding-top:64px;padding-bottom:64px}.content-head{margin-bottom:32px}.content-head h2{font-size:44px;line-height:44px}.featured-card h3,.offer-item h3,.process-grid h3{font-size:28px;line-height:32px}.offer-item{padding:24px 20px}.process-grid{grid-template-columns:1fr}.contact-main{padding-bottom:96px}}
 
+  .featured-collage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;aspect-ratio:1/1;overflow:hidden;border-radius:8px;background:#111}
+  .featured-card .featured-collage img{width:100%;height:100%;min-width:0;aspect-ratio:auto;object-fit:cover;border-radius:0}
+
   /* App store buttons from Figma */
   .store-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
   .store-button{width:169px;height:55px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 24px;border-radius:20px;font:700 16px/18px "Manrope",sans-serif;letter-spacing:0;white-space:nowrap;overflow:hidden;transition:transform .18s ease,filter .18s ease}
