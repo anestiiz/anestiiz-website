@@ -81,11 +81,21 @@
     .form-error{display:none;font-size:13px;line-height:18px;color:#ff8098;letter-spacing:-.01em}
     .form-group.is-invalid .form-error,.form-field.is-invalid .form-error{display:block}
 
-    .details-toggle-wrap{display:grid;gap:10px}
-    .details-toggle{justify-self:start;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px dashed rgba(255,255,255,.18);background:transparent;color:var(--soft);font-family:"Manrope",sans-serif;font-size:13px;line-height:18px;font-weight:500;letter-spacing:-.1px;cursor:pointer;transition:.2s ease}
-    .details-toggle:hover{color:var(--ink);border-color:rgba(255,255,255,.34)}
-    .details-toggle-icon{display:inline-block;font-size:16px;line-height:1;transition:transform .2s ease}
-    .details-toggle[aria-expanded="true"] .details-toggle-icon{transform:rotate(45deg)}
+    .optional-details{display:grid;gap:12px}
+    .optional-label{font-size:13px;line-height:18px;color:var(--soft)}
+    .optional-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(220px,.95fr);gap:12px;align-items:stretch}
+    .optional-grid .form-field textarea{height:100%;min-height:190px}
+    .photo-drop{position:relative;display:flex;min-height:190px;align-items:center;justify-content:center;padding:20px;border:1px dashed rgba(255,255,255,.24);border-radius:12px;background:rgba(255,255,255,.025);text-align:center;cursor:pointer;transition:border-color .2s ease,background .2s ease}
+    .photo-drop:hover,.photo-drop.is-dragging{border-color:rgba(255,255,255,.48);background:rgba(255,255,255,.055)}
+    .photo-drop input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+    .photo-drop-copy{display:grid;justify-items:center;gap:8px;color:var(--soft);font-size:14px;line-height:20px}
+    .photo-drop-plus{font-size:32px;line-height:32px;color:var(--ink);font-weight:300}
+    .photo-drop-copy small{font-size:12px;line-height:18px;color:var(--soft)}
+    .photo-previews{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
+    .photo-previews:empty{display:none}
+    .photo-preview{position:relative;flex:0 0 62px;width:62px;height:62px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#151217}
+    .photo-preview img{width:100%;height:100%;display:block;object-fit:cover}
+    .photo-preview button{position:absolute;top:3px;right:3px;width:20px;height:20px;padding:0;border:0;border-radius:50%;background:rgba(0,0,0,.72);color:#fff;font:16px/20px Arial,sans-serif;cursor:pointer}
 
     .form-submit{justify-self:start;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 26px;border-radius:999px;border:var(--pill-border);background:var(--pill-bg);box-shadow:var(--pill-shadow);color:#fff;font-family:"Manrope",sans-serif;font-size:16px;line-height:20px;font-weight:600;letter-spacing:-.2px;cursor:pointer;transition:transform .2s ease,filter .2s ease,box-shadow .2s ease}
     .form-submit:hover{transform:translateY(-1px);filter:brightness(1.06);box-shadow:0 20px 46px rgba(255,0,106,.42)}
@@ -120,6 +130,8 @@
       .request-form{padding:22px;gap:20px}
       .brief-done-title{font-size:44px}
       .brief-done{padding:64px var(--pad)}
+      .optional-grid{grid-template-columns:1fr}
+      .optional-grid .form-field textarea,.photo-drop{min-height:150px}
     }
   </style>
   <script defer src="assets/js/analytics.js"></script>
@@ -205,15 +217,16 @@
             <div class="form-error" id="contactError">Оставь контакт, чтобы я могла ответить.</div>
           </label>
 
-          <!-- Добавить детали (тумблер) -->
-          <div class="details-toggle-wrap">
-            <button type="button" class="details-toggle" id="detailsToggle" aria-expanded="false" aria-controls="notesField">
-              <span class="details-toggle-icon">+</span>
-              Добавить детали или референс
-            </button>
-            <label class="form-field" id="notesField" hidden>
-              <textarea name="notes" rows="3" placeholder="Комментарий, ссылка на референс, что уже есть…"></textarea>
-            </label>
+          <div class="optional-details">
+            <div class="optional-label">Необязательно</div>
+            <div class="optional-grid">
+              <label class="form-field"><textarea name="notes" rows="5" placeholder="Комментарий, ссылка на референс, что уже есть…"></textarea></label>
+              <label class="photo-drop" id="photoDrop">
+                <input id="photoInput" type="file" accept="image/png,image/jpeg,image/webp" multiple>
+                <span class="photo-drop-copy"><span class="photo-drop-plus">+</span><span>Добавить фото<br>или перетащить сюда</span><small>PNG, JPG, WEBP · до 10 МБ</small></span>
+              </label>
+            </div>
+            <div class="photo-previews" id="photoPreviews" aria-live="polite"></div>
           </div>
 
           <button class="form-submit" type="submit">Отправить бриф <img class='icon-arrow-up' src='Icons/Arrow Right Up.svg' alt=''></button>
@@ -259,8 +272,10 @@
     const contactField  = document.getElementById('contactField');
     const contactInput  = document.getElementById('contactInput');
     const contactError  = document.getElementById('contactError');
-    const detailsToggle = document.getElementById('detailsToggle');
-    const notesField    = document.getElementById('notesField');
+    const photoDrop     = document.getElementById('photoDrop');
+    const photoInput    = document.getElementById('photoInput');
+    const photoPreviews = document.getElementById('photoPreviews');
+    let selectedPhotos  = [];
 
     // Один добавочный вопрос на услугу — только кнопки.
     const detailsSchemas = {
@@ -330,16 +345,28 @@
     }
 
     // --- Тумблер деталей ---
-    if (detailsToggle && notesField) {
-      detailsToggle.addEventListener('click', () => {
-        const expanded = detailsToggle.getAttribute('aria-expanded') === 'true';
-        detailsToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        notesField.hidden = expanded;
-        if (!expanded) {
-          const t = notesField.querySelector('textarea');
-          if (t) setTimeout(() => t.focus({ preventScroll: false }), 20);
-        }
+    function renderPhotoPreviews() {
+      if (!photoPreviews) return;
+      photoPreviews.innerHTML = '';
+      selectedPhotos.forEach((file, index) => {
+        const item = document.createElement('div'); item.className = 'photo-preview';
+        const img = document.createElement('img'); img.alt = file.name;
+        const url = URL.createObjectURL(file); img.src = url; img.onload = () => URL.revokeObjectURL(url);
+        const remove = document.createElement('button'); remove.type = 'button'; remove.setAttribute('aria-label', `Удалить ${file.name}`); remove.textContent = '×';
+        remove.addEventListener('click', () => { selectedPhotos.splice(index, 1); renderPhotoPreviews(); });
+        item.append(img, remove); photoPreviews.appendChild(item);
       });
+    }
+    function addPhotos(files) {
+      const valid = Array.from(files).filter(file => /^image\/(png|jpeg|webp)$/.test(file.type) && file.size <= 10 * 1024 * 1024);
+      selectedPhotos.push(...valid); renderPhotoPreviews();
+      if (valid.length !== files.length) setStatus('Некоторые файлы не добавлены: используйте PNG, JPG или WEBP до 10 МБ.', 'error'); else setStatus('', null);
+    }
+    if (photoInput && photoDrop) {
+      photoInput.addEventListener('change', () => { addPhotos(photoInput.files); photoInput.value = ''; });
+      ['dragenter', 'dragover'].forEach(type => photoDrop.addEventListener(type, event => { event.preventDefault(); photoDrop.classList.add('is-dragging'); }));
+      ['dragleave', 'drop'].forEach(type => photoDrop.addEventListener(type, event => { event.preventDefault(); photoDrop.classList.remove('is-dragging'); }));
+      photoDrop.addEventListener('drop', event => addPhotos(event.dataTransfer.files));
     }
 
     // --- Черновик ---
@@ -349,7 +376,6 @@
       const obj = {};
       for (const [k, v] of data.entries()) obj[k] = v;
       // Всегда сохраняем состояние тумблера деталей
-      if (detailsToggle) obj.__detailsOpen = detailsToggle.getAttribute('aria-expanded') === 'true' ? '1' : '';
       try { localStorage.setItem(STORAGE_KEY, JSON.stringify(obj)); } catch (e) {}
     }
     function readDraft() {
@@ -369,7 +395,7 @@
       }
       // остальные поля
       Object.keys(draft).forEach(name => {
-        if (name === 'projectType' || name === '__detailsOpen') return;
+        if (name === 'projectType') return;
         const els = requestForm.querySelectorAll(`[name="${name}"]`);
         if (!els.length) return;
         if (els[0].type === 'radio') {
@@ -379,10 +405,6 @@
         }
       });
       // тумблер деталей
-      if (draft.__detailsOpen === '1' && detailsToggle && notesField) {
-        detailsToggle.setAttribute('aria-expanded', 'true');
-        notesField.hidden = false;
-      }
       updateContactField();
     }
 
@@ -515,8 +537,15 @@
           });
           const json = await res.json();
           if (!res.ok || !json.ok) throw new Error(json.description || 'sendMessage failed');
+          for (const photo of selectedPhotos) {
+            const photoData = new FormData(); photoData.append('chat_id', TELEGRAM_CHAT_ID); photoData.append('photo', photo, photo.name);
+            const photoRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, { method: 'POST', body: photoData });
+            const photoJson = await photoRes.json();
+            if (!photoRes.ok || !photoJson.ok) throw new Error(photoJson.description || 'sendPhoto failed');
+          }
           // Реальный успех:
           clearDraft();
+          selectedPhotos = []; renderPhotoPreviews();
           setStatus('', null);
           showSuccess();
           if (window.ym) window.ym(window.__ymId, 'reachGoal', 'brief_submitted');
