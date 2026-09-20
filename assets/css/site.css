@@ -101,7 +101,9 @@
     .projects-section{padding-top:120px;padding-bottom:60px}
     .projects-section:first-of-type{padding-top:120px}
     .projects-section:last-of-type{padding-bottom:300px}
-    .hero-menu{position:absolute;left:0;right:0;bottom:clamp(12px,2vw,28px);display:flex;justify-content:center;z-index:5;padding:0;pointer-events:none}
+    @media(min-width:761px){.hero{padding-bottom:140px}}
+    .hero-menu{position:absolute;left:0;right:0;top:auto;bottom:26px;display:flex;justify-content:center;z-index:5;padding:0;pointer-events:none}
+    .hero-menu.reveal{opacity:1;transform:none}
     .hero-menu-inner{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;padding-inline:var(--pad);max-width:100%;pointer-events:auto}
     .hero-menu-eyebrow{font-family:"Manrope",sans-serif;font-size:14px;line-height:28px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
     .hero-tabs{position:relative;display:inline-flex;align-items:center;gap:2px;padding:8px;border-radius:999px;background:rgba(18,15,22,.62);border:1px solid rgba(255,255,255,.10);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04) inset,0 1px 0 rgba(255,255,255,.12) inset;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);max-width:100%}
@@ -109,7 +111,7 @@
     .hero-tabs a:hover{color:#fff}
     .hero-tabs a.active{color:#fff}
     .hero-tabs-pill{position:absolute;top:8px;bottom:8px;left:8px;width:120px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.30),rgba(255,255,255,.12));box-shadow:0 12px 26px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(0,0,0,.20);transition:transform .38s cubic-bezier(.4,.0,.2,1),width .38s cubic-bezier(.4,.0,.2,1);z-index:1}
-    @media(max-width:760px){.hero-menu{bottom:clamp(10px,2vw,20px)}.hero-tabs{padding:6px;gap:0}.hero-tabs a{padding:10px 14px;font-size:14px;line-height:20px}.hero-tabs-pill{top:6px;bottom:6px;left:6px}}
+    @media(max-width:760px){.hero-menu{top:auto;bottom:clamp(10px,2vw,20px)}.hero-tabs{padding:6px;gap:0}.hero-tabs a{padding:10px 14px;font-size:14px;line-height:20px}.hero-tabs-pill{top:6px;bottom:6px;left:6px}}
     @media(max-width:560px){
       .hero-tabs{gap:0;padding:5px;max-width:calc(100vw - 24px)}
       .hero-tabs a{padding:9px 10px;font-size:12px;line-height:16px}
