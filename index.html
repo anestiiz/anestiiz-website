@@ -430,6 +430,14 @@
 
   </main>
 
+  <nav class="tabs-nav" aria-label="Разделы работ">
+    <a href="ai-creative.html" class="active" data-target="ai"><span class="lbl">AI-креатив</span></a>
+    <a href="apps.html" data-target="apps"><span class="lbl">Приложения</span></a>
+    <a href="websites.html" data-target="websites"><span class="lbl">Сайты</span></a>
+    <a href="presentations.html" data-target="presentations"><span class="lbl">Презентации</span></a>
+    <span class="tabs-pill" aria-hidden="true"></span>
+  </nav>
+
   <footer>
     <div>© 2026 anestiiz &nbsp; Designed with intention.</div>
     <a class="top" href="#top">Back to top ↑</a>
@@ -480,7 +488,7 @@ const navBars = [
         navBars.forEach(bar => {
           if (bar.isFixed) bar.el.classList.toggle('is-visible', heroPast);
           const links = Array.from(bar.el.querySelectorAll('a[data-target]'));
-          const activeId = bestId || (bar.isFixed ? null : 'ai');
+          const activeId = bestId || 'ai';
           if (activeId) {
             links.forEach(l => l.classList.toggle('active', l.dataset.target === activeId));
             movePill(bar, links.find(l => l.dataset.target === activeId));
