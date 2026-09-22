@@ -81,6 +81,7 @@
         <a class="featured-card reveal" href="greekly.html"><img src="assets/greekly/Cover.webp" alt="Greekly"><div><span>Приложение · UX/UI</span><h3>Greekly</h3><p>Изучение греческого через новости: чтение, перевод слов в контексте и короткие квизы.</p><strong>Смотреть кейс →</strong></div></a>
         <a class="featured-card reveal" href="neuro.html"><picture class="featured-collage"><img src="assets/neuro/main/1.png" alt="Нейрофотосессия в синем образе"><img src="assets/neuro/1/4.png" alt="Тёплый AI-портрет"><img src="assets/neuro/2/2.png" alt="Светлый editorial AI-портрет"></picture><div><span>AI-фотография</span><h3>Нейрофотосессии</h3><p>Серия AI-фотосессий: портреты, стилизация и работа со светом.</p><strong>Смотреть кейс →</strong></div></a>
         <a class="featured-card reveal" href="sites/raduga-detskiy-center/index.html" target="_blank" rel="noopener"><img src="sites/raduga-detskiy-center/hero.webp" alt="Сайт детского центра «Радуга»"><div><span>Сайт · UX/UI</span><h3>Радуга</h3><p>Лендинг детского центра с понятной структурой, доверием и быстрой записью.</p><strong>Открыть сайт →</strong></div></a>
+        <a class="featured-card reveal" href="presentations/116-trophy-cyprus.html"><img src="assets/media/presentations/116-trophy-cyprus/1.png" alt="Презентация 116 Trophy Cyprus LTD"><div><span>Презентация</span><h3>116 Trophy Cyprus</h3><p>Презентация бренда с выразительной визуальной системой и ясной подачей ключевых смыслов.</p><strong>Смотреть кейс →</strong></div></a>
       </div>
       <nav class="portfolio-links" aria-label="Все категории портфолио"><a href="ai-creative.html">AI-креатив</a><a href="apps.html">Приложения</a><a href="websites.html">Сайты</a><a href="presentations.html">Презентации</a></nav>
     </section>
@@ -459,8 +460,7 @@ const navBars = [
     if (navBars.length) {
       const sectionIds = ['ai','apps','websites','presentations'];
       const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-      const heroForTabs = document.querySelector('.hero');
-      const heroMenuEl = document.querySelector('.hero-menu');
+      const featuredForTabs = document.querySelector('.featured');
       const movePill = (bar, link) => {
         const pill = bar.el.querySelector(bar.pillSel);
         if (!link || !pill) return;
@@ -473,9 +473,7 @@ const navBars = [
       const updateNav = () => {
         const vh = window.innerHeight;
         const centerY = vh / 2;
-        const heroPast = heroMenuEl
-          ? heroMenuEl.getBoundingClientRect().bottom < 20
-          : (!heroForTabs || heroForTabs.getBoundingClientRect().bottom <= 80);
+        const featuredPast = !featuredForTabs || featuredForTabs.getBoundingClientRect().bottom < 20;
         let bestId = null;
         let bestDist = Infinity;
         sections.forEach(s => {
@@ -486,7 +484,7 @@ const navBars = [
           if (dist < bestDist) { bestDist = dist; bestId = s.id; }
         });
         navBars.forEach(bar => {
-          if (bar.isFixed) bar.el.classList.toggle('is-visible', heroPast);
+          if (bar.isFixed) bar.el.classList.toggle('is-visible', featuredPast);
           const links = Array.from(bar.el.querySelectorAll('a[data-target]'));
           const activeId = bestId || 'ai';
           if (activeId) {
