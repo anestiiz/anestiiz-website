@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Специальные проекты — anestiiz</title>
+  <meta name="description" content="Специальные проекты и промолендинги МТС в портфолио anestiiz.">
+  <link rel="icon" type="image/png" href="assets/favicon/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon/favicon.png">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script defer src="assets/js/analytics.js"></script>
+</head>
+<body>
+  <header>
+    <div class="wrap header-row">
+      <a class="logo" href="index.html"><span class="logo-text">anestiiz</span><img class="logo-a" src="assets/anestiiz-mark.svg" alt=""></a>
+      <nav aria-label="Основная навигация"><a href="index.html#about">Обо мне</a><a href="ai.html">Я и AI</a></nav>
+      <div class="header-right"><a class="talk-link" href="brief.html">Заполнить бриф <img class="icon-arrow-up light" src="Icons/Arrow Right Up.svg" alt=""></a><button class="hamburger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mobileDrawer"><span></span><span></span></button></div>
+    </div>
+  </header>
+  <div class="drawer" id="mobileDrawer" hidden>
+    <div class="drawer-scrim" data-drawer-close></div>
+    <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Меню">
+      <button class="drawer-close" type="button" aria-label="Закрыть меню" data-drawer-close>×</button>
+      <div class="drawer-group-label">Работы</div>
+      <a href="ai-creative.html" data-drawer-link>AI-креатив</a><a href="apps.html" data-drawer-link>Приложения</a><a href="websites.html" data-drawer-link>Сайты</a><a href="presentations.html" data-drawer-link>Презентации</a><a href="mts-projects.html" data-drawer-link>Специальные проекты</a>
+      <div class="drawer-group-label">Ещё</div><a href="index.html#about" data-drawer-link>Обо мне</a><a href="brief.html" data-drawer-link>Заполнить бриф</a><a href="ai.html" class="drawer-ai" data-drawer-link><span>✳</span>Как я использую AI в дизайне</a>
+    </aside>
+  </div>
+  <main id="top">
+    <section class="wrap" style="padding-top:140px;padding-bottom:56px">
+      <div class="reveal"><div class="hero-menu-eyebrow" style="margin-bottom:16px">Работы · Раздел 05</div><h1 style="margin:0"><em>Специальные проекты</em></h1></div>
+    </section>
+    <section class="wrap projects-section" style="padding-top:0;padding-bottom:220px">
+      <div class="projects">
+        <article class="project reveal" data-type="special">
+          <a class="project-card" href="mts-runner-seasons.html" aria-label="Открыть специальный проект МТС Premium: Игра Runner — Сезоны года">
+            <div class="media project-slot runner-seasons-cover"><span class="project-badge">Специальный проект</span><img src="assets/mts/runner-seasons/spring-cover.webp" alt="Весенний лендинг игры Runner"><img src="assets/mts/runner-seasons/summer-cover.webp" alt="Летний лендинг игры Runner"><img src="assets/mts/runner-seasons/autumn-cover.webp" alt="Осенний лендинг игры Runner"><img src="assets/mts/runner-seasons/winter-cover.webp" alt="Зимний лендинг игры Runner"></div>
+          </a>
+          <div class="meta"><div><div class="meta-title">Игра Runner — Сезоны года</div><div class="meta-sub">МТС Premium · Игровой промолендинг · Четыре сезонные версии</div></div><div class="meta-num">01</div></div>
+          <p class="special-project-description">Серия промолендингов для игровой механики МТС Premium: пользователь проходит дистанцию, собирает бонусы и получает шанс выиграть подписку. Визуальная среда меняется вместе с сезонами года.</p>
+        </article>
+      </div>
+    </section>
+    <div class="marquee" aria-hidden="true"><div class="track"><span>AI VIDEO. MOBILE APPS. WEBSITES. <b>✳</b></span><span>AI VIDEO. MOBILE APPS. WEBSITES. <b>✳</b></span><span>AI VIDEO. MOBILE APPS. WEBSITES. <b>✳</b></span></div></div>
+  </main>
+  <nav class="tabs-nav" aria-label="Разделы работ"><a href="ai-creative.html"><span class="lbl">AI-креатив</span></a><a href="apps.html"><span class="lbl">Приложения</span></a><a href="websites.html"><span class="lbl">Сайты</span></a><a href="presentations.html"><span class="lbl">Презентации</span></a><a href="mts-projects.html" class="active"><span class="lbl">Спецпроекты</span></a><span class="tabs-pill" aria-hidden="true"></span></nav>
+  <footer><div>© 2026 anestiiz &nbsp; Designed with intention.</div><a class="top" href="#top">Наверх ↑</a><a class="ai" href="ai.html">✳ Как я использую AI в дизайне <img class="icon-arrow-up light" src="Icons/Arrow Right Up.svg" alt=""></a></footer>
+  <script>
+    const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}}),{threshold:0,rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+    const posTabsPill=()=>{const bar=document.querySelector('.tabs-nav'),pill=bar?.querySelector('.tabs-pill'),active=bar?.querySelector('a.active');if(!bar||!pill||!active)return;const nav=bar.getBoundingClientRect(),r=active.getBoundingClientRect(),pad=parseFloat(getComputedStyle(bar).paddingLeft)||8;pill.style.width=r.width+'px';pill.style.transform='translateX('+(r.left-nav.left-pad)+'px)'};
+    const updateTabsVisibility=()=>{const bar=document.querySelector('.tabs-nav');if(!bar)return;const show=window.scrollY>Math.max(640,window.innerHeight*.7);bar.classList.toggle('is-visible',show);if(show)posTabsPill()};window.addEventListener('scroll',updateTabsVisibility,{passive:true});window.addEventListener('resize',()=>{posTabsPill();updateTabsVisibility()});window.addEventListener('load',()=>{posTabsPill();updateTabsVisibility()});
+    const drawer=document.getElementById('mobileDrawer'),hamburger=document.querySelector('.hamburger');if(drawer&&hamburger){const close=()=>{drawer.classList.remove('is-open');hamburger.classList.remove('is-open');hamburger.setAttribute('aria-expanded','false');document.body.classList.remove('is-drawer-open');setTimeout(()=>drawer.hidden=true,350)};hamburger.addEventListener('click',()=>{if(drawer.classList.contains('is-open'))return close();drawer.hidden=false;requestAnimationFrame(()=>drawer.classList.add('is-open'));hamburger.classList.add('is-open');hamburger.setAttribute('aria-expanded','true');document.body.classList.add('is-drawer-open')});drawer.querySelectorAll('[data-drawer-close],[data-drawer-link]').forEach(el=>el.addEventListener('click',close))}
+  </script>
+</body>
+</html>
