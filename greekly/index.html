@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Greekly — греческий через новости · anestiiz</title>
+  <meta name="description" content="Кейс мобильного приложения Greekly: изучение греческого через новости, перевод слов в контексте и короткие квизы.">
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon.png"><link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
+  <style>
+    @font-face{font-family:"AkzidenzGroteskPro";src:url("assets/fonts/akzidenzgroteskpro-regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+    @font-face{font-family:"AkzidenzGroteskPro";src:url("assets/fonts/akzidenzgroteskpro-md.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+    @font-face{font-family:"AkzidenzGroteskPro";src:url("assets/fonts/akzidenzgroteskpro-bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+    @font-face{font-family:"FreeSerif";src:url("assets/fonts/FreeSerifItalic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+    @font-face{font-family:"Manrope";src:url("assets/fonts/Manrope-Light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
+    @font-face{font-family:"Manrope";src:url("assets/fonts/Manrope-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+    @font-face{font-family:"Manrope";src:url("assets/fonts/Manrope-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+    @font-face{font-family:"Manrope";src:url("assets/fonts/Manrope-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+    @font-face{font-family:"Manrope";src:url("assets/fonts/Manrope-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+    @font-face{font-family:"Manrope";src:url("assets/fonts/Manrope-ExtraBold.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+
+    :root{
+      --bg:#09070d; --ink:#f4edf2; --muted:#bbaeb4; --soft:#8d8090;
+      --line:rgba(255,255,255,.14); --pink:#ff006a; --pink-2:#d30058;
+      --pad:clamp(20px,3.8vw,64px); --max:1680px;
+      --case-accent:#ef9200; --case-surface:#f7eddb; --case-line:rgba(239,146,0,.30);
+      --pill-shadow:
+        inset -4px -4px 4px rgba(0,0,0,.16),
+        inset 4px 4px 4px rgba(255,255,255,.25),
+        0 1px 1px rgba(255,0,106,.12),
+        0 4px 2px rgba(255,0,106,.10),
+        0 8px 2.5px rgba(255,0,106,.06),
+        0 15px 3px rgba(255,0,106,.02);
+      --pill-bg:radial-gradient(ellipse 110% 240% at 50% 50%, #ff006a 0%, #d30058 100%);
+      --pill-border:1px solid rgba(255,255,255,.32);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:radial-gradient(circle at 12% 8%, rgba(255,0,106,.05), transparent 18%), radial-gradient(circle at 78% 74%, rgba(255,156,0,.05), transparent 16%), var(--bg)}
+    body{margin:0;color:var(--ink);font-family:"Manrope","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden;color-scheme:dark}
+    body:before{content:"";position:fixed;inset:-20% -10%;pointer-events:none;background:radial-gradient(circle at 13% 12%, rgba(255,0,106,.05), transparent 20%), radial-gradient(circle at 84% 88%, rgba(255,156,0,.05), transparent 18%);z-index:-1}
+    a{color:inherit;text-decoration:none}
+    h1,h2,h3,h4,.case-head h2,.case-note h3{font-family:"AkzidenzGroteskPro","Helvetica Neue",Helvetica,Arial,sans-serif}
+    h1 em,h2 em,h3 em,.orange,.accent-serif{font-family:"FreeSerif",Georgia,serif;font-style:italic;font-weight:400}
+    .wrap{width:min(100%,var(--max));margin:auto;padding-inline:var(--pad)}
+    html,body{width:100%;max-width:100%;overflow-x:clip}
+    ::selection{background:var(--pink);color:#1b0610}
+
+    header{position:sticky;top:0;z-index:60;background:linear-gradient(180deg, rgba(9,7,13,.96), rgba(9,7,13,.78) 72%, rgba(9,7,13,0));backdrop-filter:blur(10px)}
+    .header-row{height:86px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px}
+    .logo{font-size:24px;font-weight:700;letter-spacing:-.05em;display:inline-flex;align-items:center;gap:12px}
+    .logo-text{line-height:1;color:var(--ink)}
+    .logo-a{display:inline-block;height:22px;width:auto;filter:drop-shadow(0 0 8px rgba(255,0,106,.9)) drop-shadow(0 0 20px rgba(255,0,106,.72)) drop-shadow(0 0 48px rgba(255,0,106,.48)) drop-shadow(0 0 96px rgba(255,0,106,.28));transform:translateY(-1px)}
+    .back-link{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.20);background:rgba(255,255,255,.05);font-size:14px;line-height:20px;font-weight:600;letter-spacing:-.02em;color:var(--ink);transition:.2s ease}
+    .back-link:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.34);transform:translateX(-2px)}
+    .back-link .icon-arrow-left{opacity:1;width:18px;height:18px;filter:brightness(0) invert(1)}
+    .icon-arrow-left{display:inline-block;width:18px;height:18px;object-fit:contain;vertical-align:-4px;flex:0 0 auto;filter:invert(98%) sepia(8%) saturate(530%) hue-rotate(283deg) brightness(102%) contrast(92%);opacity:.78}
+    .header-right{justify-self:end;font-size:14px;color:var(--soft)}
+
+    .case-hero{padding-top:clamp(48px,7vw,110px);padding-bottom:clamp(42px,5vw,74px)}
+    .case-index{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--case-accent);margin-bottom:24px}
+    .case-head{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(42px,7vw,110px);align-items:start;margin-bottom:clamp(42px,6vw,84px)}
+    .case-head h2{margin:0;font-size:clamp(62px,7vw,128px);line-height:.86;letter-spacing:-.05em;font-weight:400}
+    .case-head h2 .orange{color:var(--case-accent)}
+    .case-side{display:flex;flex-direction:column;align-items:flex-start;gap:24px}
+    .case-logo{width:min(220px,42%);aspect-ratio:1/1;display:block;object-fit:cover;border-radius:32px;background:var(--case-surface);box-shadow:0 0 0 1px rgba(239,146,0,.24), 0 12px 28px rgba(239,146,0,.28), 0 32px 80px rgba(239,146,0,.42), 0 18px 60px rgba(0,0,0,.22)}
+    .case-lead{font-size:20px;line-height:24px;color:var(--muted);letter-spacing:-.02em;max-width:560px}
+    .case-facts{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+    .case-facts span{border:1px solid rgba(255,255,255,.26);border-radius:999px;padding:10px 16px;font-size:14px;line-height:20px;color:var(--ink);background:rgba(255,255,255,.05);font-weight:500}
+
+    .sequence{--gs-gap:clamp(16px,1.6vw,24px);width:100%;margin:0;display:flex;flex-direction:row;justify-content:flex-start;align-items:flex-start;gap:var(--gs-gap);background:transparent;padding:8px 0 20px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+    .sequence img{flex:0 0 calc((100% - var(--gs-gap) * 4) / 5);min-width:0;display:block;width:100%;height:auto;object-fit:contain;border-radius:32px;background:var(--case-surface);box-shadow:0 26px 70px rgba(0,0,0,.32), 0 0 0 1px rgba(255,255,255,.05);scroll-snap-align:start}
+
+    .case-notes{counter-reset:note;margin-top:clamp(80px,8vw,124px);display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(48px,6vw,96px);row-gap:clamp(48px,5.4vw,80px)}
+    .case-notes > div{counter-increment:note;position:relative;padding-top:clamp(24px,2vw,32px);border-top:1px solid var(--case-line)}
+    .case-notes > div::before{content:counter(note,decimal-leading-zero);display:inline-block;font-family:"Manrope",sans-serif;font-weight:700;font-size:12px;line-height:16px;letter-spacing:2px;color:var(--case-accent);margin-bottom:20px}
+    .case-notes h3{margin:0 0 16px;font-size:clamp(24px,2.1vw,34px);line-height:1.06;letter-spacing:-.025em;font-weight:500;max-width:520px}
+    .case-notes p{margin:0;color:var(--muted);font-family:"Manrope",sans-serif;font-size:16px;line-height:1.55;letter-spacing:-.2px;max-width:520px}
+
+    .case-cta{margin-top:clamp(80px,9vw,140px);padding-top:42px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+    .case-cta h3{margin:0;font-size:clamp(32px,4vw,66px);line-height:.94;letter-spacing:-.035em;font-weight:500;max-width:820px}
+    .case-cta h3 em{color:var(--case-accent)}
+    .case-cta .cta-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.36);background:radial-gradient(ellipse 110% 240% at 50% 50%, #ffa51f 0%, var(--case-accent) 100%);box-shadow:inset -4px -4px 4px rgba(0,0,0,.12), inset 4px 4px 4px rgba(255,255,255,.26), 0 1px 1px rgba(239,146,0,.16), 0 8px 18px rgba(239,146,0,.20), 0 16px 34px rgba(239,146,0,.12);color:#fff;font-family:"Manrope",sans-serif;font-size:14px;line-height:18px;font-weight:600;letter-spacing:-.5px;transition:transform .2s ease}
+    .icon-arrow-up{display:inline-block;width:1em;height:1em;object-fit:contain;vertical-align:-.13em;flex:0 0 auto}
+    .icon-arrow-up.light{filter:invert(98%) sepia(8%) saturate(530%) hue-rotate(283deg) brightness(102%) contrast(92%)}
+    .case-cta .cta-btn .icon-arrow-up{width:16px;height:16px;filter:brightness(0) invert(1)}
+    .case-cta .cta-btn:hover{transform:translateY(-1px)}
+
+    footer{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;padding:20px var(--pad) 24px;font-size:11px;border-top:1px solid var(--line);color:var(--soft);margin-top:clamp(64px,7vw,110px)}
+    footer .top{justify-self:center;display:inline-flex;align-items:center;gap:6px}
+    footer .top .icon-arrow-left{width:13px;height:13px;vertical-align:-2px}
+    footer .ai{justify-self:end}
+    footer .ai .icon-arrow-up{width:13px;height:13px;margin-left:2px;vertical-align:-2px}
+
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:1120px){.case-head{grid-template-columns:1fr}.case-side{align-items:flex-start}.case-logo{width:160px}.case-notes{grid-template-columns:1fr;gap:32px}.case-cta{grid-template-columns:1fr}}
+    @media(max-width:900px){.header-row{grid-template-columns:auto 1fr}.header-right{display:none}footer{grid-template-columns:1fr 1fr}footer .top{display:none}}
+    @media(max-width:640px){
+      .logo{font-size:20px;gap:8px}.logo-a{height:22px}.header-row{height:74px}
+      .case-hero{padding-top:42px}.case-head h2{font-size:52px}.case-lead{font-size:17px}
+      .case-logo{width:132px;border-radius:20px}
+      .sequence{--gs-gap:12px;padding:6px 0 16px}
+      .sequence img{flex:0 0 78%;border-radius:24px}
+      .case-cta h3{font-size:34px}
+    }
+
+    html[lang="ru"] .case-head h2{font-size:clamp(52px,6.5vw,104px)}
+    html[lang="ru"] .case-cta h3{font-size:clamp(28px,3.4vw,56px)}
+    @media(max-width:640px){html[lang="ru"] .case-head h2{font-size:44px}}
+
+    /* Expanded Greekly case */
+    .gk-section{padding-block:clamp(76px,10vw,160px);border-top:1px solid var(--line)}
+    .gk-hero{padding-top:clamp(56px,8vw,128px);padding-bottom:clamp(72px,9vw,144px)}
+    .gk-hero-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(420px,1.1fr);gap:clamp(48px,7vw,112px);align-items:center}
+    .gk-eyebrow{font-size:12px;line-height:20px;letter-spacing:.16em;text-transform:uppercase;color:var(--case-accent);font-weight:700}
+    .gk-hero h1{margin:24px 0 28px;font-size:clamp(64px,7.6vw,132px);line-height:.86;font-weight:500;letter-spacing:-.05em}
+    .gk-lead{margin:0;max-width:690px;color:var(--muted);font-size:clamp(18px,1.5vw,24px);line-height:1.45}
+    .gk-hero-art{position:relative;aspect-ratio:1;overflow:hidden;border-radius:32px;background:var(--case-surface);box-shadow:0 32px 100px rgba(239,146,0,.16)}
+    .gk-hero-art img{width:100%;height:100%;object-fit:cover;display:block}
+    .gk-section-head{display:grid;grid-template-columns:.65fr 1.35fr;gap:clamp(36px,7vw,120px);align-items:start;margin-bottom:clamp(42px,6vw,88px)}
+    .gk-section h2{margin:0;font-size:clamp(48px,5.8vw,96px);line-height:.92}
+    .gk-copy{max-width:720px}.gk-copy p{margin:24px 0 0;color:var(--muted);font-size:18px;line-height:1.55}
+    .gk-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+    .gk-flow-card{min-width:0}.gk-flow-media{aspect-ratio:3/4;border-radius:24px;overflow:hidden;background:var(--case-surface)}
+    .gk-flow-media img{width:100%;height:100%;object-fit:cover;display:block}.gk-flow-card:nth-child(1) img{object-position:50% 38%}.gk-flow-card:nth-child(2) img{object-position:50% 22%}.gk-flow-card:nth-child(3) img{object-position:50% 70%}.gk-flow-card:nth-child(4) img{object-position:50% 22%}
+    .gk-flow-num{display:block;margin-top:22px;color:var(--case-accent);font-size:12px;letter-spacing:.14em}.gk-flow-card h3{margin:10px 0;font-size:28px;line-height:1}.gk-flow-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+    .gk-feature{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(340px,.98fr);gap:clamp(40px,7vw,112px);align-items:center}.gk-feature.reverse{grid-template-columns:minmax(340px,.98fr) minmax(0,1.02fr)}.gk-feature.reverse .gk-media{order:2}
+    .gk-media{aspect-ratio:4/5;border-radius:32px;overflow:hidden;background:var(--case-surface)}.gk-media img{width:100%;height:100%;object-fit:cover;display:block}.gk-media.translation img{object-position:50% 55%}.gk-media.quiz img{object-position:50% 22%}
+    .gk-feature h2,.gk-character h2{margin:20px 0 24px;font-size:clamp(48px,5.2vw,84px);line-height:.92}.gk-feature p,.gk-character p{margin:0;color:var(--muted);font-size:18px;line-height:1.55}
+    .gk-annotations{display:grid;gap:12px;margin-top:28px}.gk-note{padding:16px;border-left:2px solid var(--case-accent);background:rgba(255,255,255,.035);color:var(--muted);font-size:14px;line-height:1.45}.gk-note strong{display:block;color:var(--ink);margin-bottom:4px}
+    .gk-character{display:grid;grid-template-columns:minmax(300px,.8fr) 1.2fr;gap:clamp(40px,7vw,112px);align-items:center}.gk-character-image{border-radius:32px;overflow:hidden;background:var(--case-surface)}.gk-character-image img{display:block;width:100%;height:auto}
+    .gk-kit{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,7vw,112px)}.gk-palette{display:flex;gap:12px;margin-top:32px}.gk-swatch{width:72px;aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.16)}.gk-swatch:nth-child(1){background:#ef9200}.gk-swatch:nth-child(2){background:#fff7e9}.gk-swatch:nth-child(3){background:#222}.gk-kit-list{display:grid;border-top:1px solid var(--line)}.gk-kit-row{display:grid;grid-template-columns:48px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}.gk-kit-row span{color:var(--case-accent);font-size:12px}.gk-kit-row strong{font-size:20px}.gk-kit-row p{margin:8px 0 0;color:var(--muted);font-size:15px;line-height:1.5}
+    .gk-promo{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;padding:clamp(36px,4vw,64px);border:1px solid rgba(239,146,0,.25);border-radius:24px;background:linear-gradient(120deg,rgba(239,146,0,.12),rgba(255,255,255,.025))}.gk-promo h2{margin:18px 0 20px;font-size:clamp(42px,4.8vw,76px);line-height:.94}.gk-promo p{margin:0;max-width:720px;color:var(--muted);font-size:18px;line-height:1.5}.gk-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:999px;border:var(--pill-border);background:var(--pill-bg);box-shadow:var(--pill-shadow);color:#fff;font-size:14px;font-weight:600;white-space:nowrap;transition:transform .2s ease,filter .2s ease,box-shadow .2s ease}.gk-btn:hover{transform:translateY(-1px);filter:brightness(1.06);box-shadow:0 16px 40px rgba(255,0,106,.42)}.gk-btn img{width:16px;height:16px;filter:brightness(0) invert(1)}
+    .gk-final{text-align:center;padding-block:clamp(96px,12vw,190px)}.gk-final h2{margin:0 auto 28px;max-width:980px;font-size:clamp(56px,7vw,112px);line-height:.9}.gk-final p{margin:0 auto 32px;max-width:700px;color:var(--muted);font-size:18px;line-height:1.55}
+    @media(max-width:1000px){.gk-hero-grid,.gk-section-head,.gk-feature,.gk-feature.reverse,.gk-character,.gk-kit{grid-template-columns:1fr}.gk-feature.reverse .gk-media{order:0}.gk-flow{grid-template-columns:repeat(2,1fr)}.gk-promo{grid-template-columns:1fr;align-items:start}.gk-section-head{gap:24px}}
+    @media(max-width:640px){.gk-hero{padding-top:48px}.gk-hero-grid{gap:40px}.gk-hero h1{font-size:52px;line-height:.94}.gk-hero-art,.gk-media,.gk-character-image{border-radius:20px}.gk-section{padding-block:72px}.gk-section h2,.gk-feature h2,.gk-character h2{font-size:44px;line-height:.96}.gk-copy p,.gk-feature p,.gk-character p,.gk-promo p{font-size:16px}.gk-flow{grid-template-columns:1fr}.gk-flow-media{aspect-ratio:4/5}.gk-promo{padding:24px;border-radius:16px}.gk-promo h2{font-size:40px}.gk-btn{white-space:normal}.gk-final h2{font-size:48px}}
+    .store-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.store-button{width:169px;height:55px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 24px;border-radius:20px;font:700 16px/18px "Manrope",sans-serif;letter-spacing:0;white-space:nowrap;overflow:hidden;transition:transform .18s ease,filter .18s ease}.store-button:hover{transform:translateY(-1px);filter:brightness(1.04)}.store-button img{width:24px;height:24px;object-fit:contain;flex:0 0 24px}.store-button.apple{color:#fff;border:0;border-bottom:4px solid #343434;background:radial-gradient(ellipse 110% 240% at 50% 0%,#646464 0%,#4a4a4a 100%)}.store-button.google{color:#2f2f2f;border:0;border-bottom:4px solid #e6e6e6;background:radial-gradient(ellipse 110% 240% at 50% 0%,#fff 0%,#f1f1f1 100%)}@media(max-width:420px){.store-buttons{display:grid;grid-template-columns:1fr}.store-button{width:100%;max-width:220px}}
+  </style>
+  <script defer src="/assets/js/analytics.js"></script>
+</head>
+<body>
+  <header>
+    <div class="wrap header-row">
+      <a class="back-link" href="/#work"><img class='icon-arrow-left' src='Icons/Arrow Left.svg' alt=''> Все работы</a>
+      <div class="header-right">Кейс 03 / Мобильный дизайн</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="gk-hero wrap">
+      <div class="gk-hero-grid">
+        <div class="reveal">
+          <div class="gk-eyebrow">UX/UI-дизайн · EdTech · Мобильное приложение</div>
+          <h1>Greekly.<br><em>Греческий через новости.</em></h1>
+          <p class="gk-lead">Приложение для изучения греческого на реальных новостях. Чтение, перевод незнакомых слов и короткие квизы объединены в один сценарий, чтобы пользователь мог разбирать язык в контексте.</p>
+          <div class="store-buttons" aria-label="Скачать Greekly"><a class="store-button apple" href="https://apps.apple.com/hn/app/greekly-language-learning/id6747726049?l=en-GB&amp;platform=ipad" target="_blank" rel="noopener noreferrer"><img src="/Icons/apple-store.svg" alt="">App Store</a><a class="store-button google" href="https://play.google.com/store/apps/details?id=com.codeaxolot.langtutor" target="_blank" rel="noopener noreferrer"><img src="/Icons/google-play.svg" alt="">Google Play</a></div>
+        </div>
+        <figure class="gk-hero-art reveal"><img src="/assets/greekly/Cover.webp" alt="Greekly — мобильное приложение для изучения греческого"></figure>
+      </div>
+      <!-- Роль, объём работы и статус добавляются после подтверждения фактов владельцем проекта. -->
+    </section>
+
+    <section class="gk-section wrap">
+      <div class="gk-section-head reveal">
+        <div class="gk-eyebrow">Задача</div>
+        <div class="gk-copy"><h2>От интересной новости — <em>к языковой практике.</em></h2><p>В основе Greekly — обучение через материалы, которые хочется читать. Задача интерфейса — связать выбор статьи, понимание незнакомой лексики и закрепление прочитанного в последовательный сценарий.</p><p>Пользователь должен понимать, с чего начать, как получить помощь во время чтения и что делать после статьи.</p></div>
+      </div>
+    </section>
+
+    <section class="gk-section wrap">
+      <div class="gk-section-head reveal"><div class="gk-eyebrow">Основной сценарий</div><h2>Выбрать. Прочитать. Разобраться. <em>Закрепить.</em></h2></div>
+      <div class="gk-flow">
+        <article class="gk-flow-card reveal"><div class="gk-flow-media"><img src="/assets/greekly/2.png" alt="Экран новости в Greekly"></div><span class="gk-flow-num">01</span><h3>Найти материал</h3><p>Пользователь открывает выбранную новость и переходит к чтению.</p></article>
+        <article class="gk-flow-card reveal"><div class="gk-flow-media"><img src="/assets/greekly/2.png" alt="Чтение новости на греческом языке"></div><span class="gk-flow-num">02</span><h3>Прочитать в контексте</h3><p>Новые слова встречаются внутри истории, где смысл связан с происходящим.</p></article>
+        <article class="gk-flow-card reveal"><div class="gk-flow-media"><img src="/assets/greekly/3.png" alt="Перевод слова внутри статьи Greekly"></div><span class="gk-flow-num">03</span><h3>Разобрать незнакомое</h3><p>Перевод и произношение помогают понять слово и продолжить чтение.</p></article>
+        <article class="gk-flow-card reveal"><div class="gk-flow-media"><img src="/assets/greekly/5.png" alt="Квиз после статьи в Greekly"></div><span class="gk-flow-num">04</span><h3>Проверить понимание</h3><p>Короткий квиз завершает сценарий и возвращает к изученному материалу.</p></article>
+      </div>
+    </section>
+
+    <section class="gk-section wrap">
+      <div class="gk-feature">
+        <div class="gk-media translation reveal"><img src="/assets/greekly/3.png" alt="Открытая карточка перевода слова в статье"></div>
+        <div class="reveal"><div class="gk-eyebrow">Чтение и перевод</div><h2>Помощь в тот момент, <em>когда она нужна.</em></h2><p>В сценарии чтения важно сохранить связь между словом и предложением. Пользователь может обратиться к переводу незнакомой лексики, а затем продолжить знакомство с новостью. Это ключевой момент интерфейса: здесь чтение становится языковой практикой.</p><div class="gk-annotations"><div class="gk-note"><strong>Слово остаётся в контексте</strong>Выбранное слово выделяется прямо в тексте статьи.</div><div class="gk-note"><strong>Подсказка рядом с действием</strong>Карточка показывает перевод, транскрипцию и произношение.</div></div></div>
+      </div>
+    </section>
+
+    <section class="gk-section wrap">
+      <div class="gk-feature reverse">
+        <div class="gk-media quiz reveal"><img src="/assets/greekly/5.png" alt="Вопрос и варианты ответа в квизе Greekly"></div>
+        <div class="reveal"><div class="gk-eyebrow">Закрепление</div><h2>У статьи есть <em>продолжение.</em></h2><p>После чтения пользователь переходит к короткому квизу. Он связывает знакомство с материалом и проверку усвоенного в рамках одного сценария. В доступном макете показаны вопрос, варианты ответа и возможность открыть пояснение.</p><div class="gk-annotations"><div class="gk-note"><strong>Понятный прогресс</strong>Номер вопроса и шкала показывают место пользователя в квизе.</div><div class="gk-note"><strong>Ответ и пояснение</strong>Пользователь выбирает вариант и при необходимости раскрывает объяснение.</div></div></div>
+      </div>
+    </section>
+
+    <section class="gk-section wrap">
+      <div class="gk-character">
+        <div class="gk-character-image reveal"><img src="/assets/greekly/1.png" alt="Персонажи Greekly рядом с отзывами пользователей"></div>
+        <div class="reveal"><div class="gk-eyebrow">Персонаж и характер</div><h2>Язык <em>с характером.</em></h2><p>Мемные персонажи задают Greekly узнаваемый тон. Они связывают визуальный образ приложения с коммуникацией и делают подачу менее формальной. В доступных материалах персонажи поддерживают сообщение о продукте и сопровождают объяснение функций.</p></div>
+      </div>
+    </section>
+
+    <section class="gk-section wrap">
+      <div class="gk-kit">
+        <div class="reveal"><div class="gk-eyebrow">Визуальный язык</div><h2>Один характер <em>во всём интерфейсе.</em></h2><p class="gk-lead">Тёплый оранжевый акцент, светлая поверхность, крупная типографика и мягкие формы связывают продуктовые экраны и коммуникацию Greekly.</p><div class="gk-palette" aria-label="Основные цвета Greekly"><span class="gk-swatch" title="Оранжевый"></span><span class="gk-swatch" title="Светлая поверхность"></span><span class="gk-swatch" title="Основной текст"></span></div></div>
+        <div class="gk-kit-list reveal"><div class="gk-kit-row"><span>01</span><div><strong>Типографика и акцент</strong><p>Крупные заголовки и оранжевые выделения направляют внимание.</p></div></div><div class="gk-kit-row"><span>02</span><div><strong>Карточки и поверхности</strong><p>Светлые карточки с мягкими углами отделяют управление от контента.</p></div></div><div class="gk-kit-row"><span>03</span><div><strong>Состояния обучения</strong><p>Прогресс, перевод слова, настройка сложности и квиз используют общий визуальный ритм.</p></div></div></div>
+      </div>
+    </section>
+
+    <!-- Блок «Мой вклад и итог» добавляется после подтверждения роли, объёма и статуса проекта. -->
+    <section class="gk-section wrap"><div class="gk-promo reveal"><div><div class="gk-eyebrow">AI-видео</div><h2>Greekly за пределами интерфейса.</h2><p>Для Greekly я также создала серию AI-промороликов. Посмотреть, как характер приложения раскрывается в видео, можно в отдельном кейсе.</p></div><a class="gk-btn" href="/greekly-promo/">Смотреть проморолики Greekly <img src="/Icons/Arrow Right Up.svg" alt=""></a></div></section>
+    <section class="gk-final wrap reveal"><h2>Создаёте <em>приложение?</em></h2><p>Помогу продумать пользовательские сценарии и собрать выразительный интерфейс под задачи вашего продукта.</p><a class="gk-btn" href="/brief/">Обсудить проект <img src="/Icons/Arrow Right Up.svg" alt=""></a></section>
+  </main>
+
+  <footer>
+    <div>© 2026 anestiiz &nbsp; Дизайн с намерением.</div>
+    <a class="top" href="/"><img class="icon-arrow-left" src="/Icons/Arrow Left.svg" alt=""> На главную</a>
+    <a class="ai" href="/ai/">✳ Как я использую AI <img class="icon-arrow-up light" src="/Icons/Arrow Right Up.svg" alt=""></a>
+  </footer>
+
+  <script>
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, {threshold:0, rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>

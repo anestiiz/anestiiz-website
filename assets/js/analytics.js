@@ -45,7 +45,7 @@ if (YANDEX_METRIKA_ID) {
     else if (/^mailto:/i.test(href)) goal = "email_click";
     else if (/apps\.apple\.com/i.test(href)) goal = "app_store_click";
     else if (/play\.google\.com/i.test(href)) goal = "google_play_click";
-    else if (/brief\.html/i.test(href)) goal = "brief_open";
+    else if (/\/brief(?:\/|\.html)(?:[?#]|$)/i.test(href)) goal = "brief_open";
     else if (target.matches(".project-card, .card-link") || target.closest(".project-card, .card-link")) goal = "project_open";
 
     if (goal) window.trackPortfolioGoal(goal, { label: label });
