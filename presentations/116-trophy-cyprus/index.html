@@ -3,85 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>116 Trophy Cyprus LTD — Презентация · anestiiz</title>
-  <meta name="description" content="Презентация клуба 116 Trophy Cyprus LTD — гонки, тренировки и партнёрская программа на Achna Speedway.">
+  <title>116 Trophy Cyprus LTD — Интерактивная презентация · anestiiz</title>
+  <meta name="description" content="Интерактивная презентация клуба 116 Trophy Cyprus LTD — гонки, тренировки и партнёрская программа на Achna Speedway.">
   <link rel="icon" type="image/png" href="/assets/favicon/favicon.png">
-  <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
   <style>
-    @font-face{font-family:"AkzidenzGroteskPro";src:url("/assets/fonts/akzidenzgroteskpro-regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
-    @font-face{font-family:"AkzidenzGroteskPro";src:url("/assets/fonts/akzidenzgroteskpro-md.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
-    @font-face{font-family:"AkzidenzGroteskPro";src:url("/assets/fonts/akzidenzgroteskpro-bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
-    @font-face{font-family:"Manrope";src:url("/assets/fonts/Manrope-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
-    @font-face{font-family:"Manrope";src:url("/assets/fonts/Manrope-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
-    @font-face{font-family:"Manrope";src:url("/assets/fonts/Manrope-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
-    @font-face{font-family:"Manrope";src:url("/assets/fonts/Manrope-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
-
-    :root{--bg:#000;--ink:#f4edf2;--muted:#bbaeb4;--soft:#8d8090;--line:rgba(255,255,255,.14);--pink:#ff006a;--pad:clamp(20px,3.8vw,64px);--max:1680px}
-    *{box-sizing:border-box}
-    html,body{width:100%;max-width:100%;overflow-x:clip}
-    html{scroll-behavior:smooth;background:var(--bg)}
-    body{margin:0;background:#000;color:var(--ink);font-family:"Manrope","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;color-scheme:dark}
-    a{color:inherit;text-decoration:none}
-    h1,h2{font-family:"AkzidenzGroteskPro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:500}
-    .wrap{width:min(100%,var(--max));margin:auto;padding-inline:var(--pad)}
-
-    header{position:sticky;top:0;z-index:60;background:rgba(0,0,0,.6);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .header-row{height:74px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px}
-    .back-link{justify-self:start;display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.20);background:rgba(255,255,255,.05);font-size:14px;line-height:20px;font-weight:600;letter-spacing:-.02em;color:var(--ink);transition:.2s ease}
-    .back-link:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.34);transform:translateX(-2px)}
-    .back-link .icon-arrow-left{width:18px;height:18px;filter:brightness(0) invert(1);opacity:1}
-    .logo{justify-self:center;font-size:20px;font-weight:700;letter-spacing:-.04em}
-    .header-right{justify-self:end;font-size:14px;color:var(--soft)}
-
-    .case-hero{padding-top:clamp(48px,6vw,96px);padding-bottom:clamp(32px,4vw,64px)}
-    .case-eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#c084fc;margin-bottom:20px}
-    .case-hero h1{margin:0;font-size:clamp(62px,7vw,128px);line-height:.86;letter-spacing:-.05em;font-weight:400}
-    .case-lead{margin-top:24px;max-width:680px;font-size:clamp(17px,1.6vw,22px);line-height:1.4;color:var(--muted);letter-spacing:-.02em}
-
-    .slides{display:flex;flex-direction:column;gap:clamp(20px,3vw,40px);padding-bottom:clamp(60px,8vw,120px)}
-    .slide-frame{display:block;width:100%;border-radius:clamp(12px,1.4vw,24px);overflow:hidden;background:#0a0410;box-shadow:0 30px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.04)}
-    .slide-frame img{display:block;width:100%;height:auto}
-
-    footer{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;padding:20px var(--pad) 24px;font-size:12px;border-top:1px solid var(--line);color:var(--soft)}
-    footer .top{justify-self:center}
-
-    @media(max-width:640px){
-      .header-row{grid-template-columns:auto 1fr auto;height:64px}
-      .logo{font-size:17px}
-      .header-right{display:none}
-    }
+    @font-face{font-family:"AkzidenzGroteskPro";src:url("/assets/fonts/akzidenzgroteskpro-md.ttf") format("truetype");font-weight:500;font-display:swap}
+    @font-face{font-family:"Manrope";src:url("/assets/fonts/Manrope-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+    @font-face{font-family:"Manrope";src:url("/assets/fonts/Manrope-SemiBold.ttf") format("truetype");font-weight:600;font-display:swap}
+    :root{--pink:#ff0878;--lime:#c7ff00;--cyan:#39d9ff;--ink:#f8f5f8;--muted:#a9a1ad;--line:rgba(255,255,255,.16)}
+    *{box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:#020207}body{margin:0;color:var(--ink);font-family:"Manrope",Arial,sans-serif;-webkit-font-smoothing:antialiased}button,a{color:inherit;font:inherit}a{text-decoration:none}button{cursor:pointer}
+    .topbar{position:fixed;z-index:20;inset:0 0 auto;height:76px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 clamp(18px,3vw,46px);border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(2,2,7,.94),rgba(2,2,7,.7));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+    .back{justify-self:start;display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.02em}.back span{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;transition:.25s ease}.back:hover span{transform:translateX(-4px);border-color:var(--pink);box-shadow:0 0 22px rgba(255,8,120,.3)}
+    .brand{justify-self:center;font:500 15px/1 "AkzidenzGroteskPro",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}.brand b{color:var(--lime);font-weight:500}.counter{justify-self:end;color:var(--muted);font-size:12px;letter-spacing:.14em}.counter strong{color:#fff;font-size:15px}
+    .deck{position:fixed;inset:76px 0 0;overflow:hidden;touch-action:pan-y}.track{display:flex;width:100%;height:100%;transition:transform .72s cubic-bezier(.16,1,.3,1);will-change:transform}.slide{position:relative;flex:0 0 100%;width:100%;height:100%;display:grid;place-items:center;padding:clamp(18px,3vw,48px) clamp(18px,5vw,86px) clamp(76px,8vh,104px)}
+    .slide::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 48%,rgba(67,24,85,.28),transparent 56%),linear-gradient(135deg,rgba(255,8,120,.035),transparent 30%,rgba(57,217,255,.025));pointer-events:none}
+    .slide-card{position:relative;width:min(100%,calc((100dvh - 206px)*1.7778));max-height:calc(100dvh - 206px);aspect-ratio:16/9;overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:clamp(10px,1.4vw,22px);background:#080511;box-shadow:0 30px 100px rgba(0,0,0,.68),0 0 60px rgba(255,8,120,.07);transform:scale(.93);opacity:.28;transition:transform .72s cubic-bezier(.16,1,.3,1),opacity .55s ease,box-shadow .55s ease}.slide.is-active .slide-card{transform:scale(1);opacity:1;box-shadow:0 34px 110px rgba(0,0,0,.74),0 0 72px rgba(255,8,120,.13)}.slide-card img{display:block;width:100%;height:100%;object-fit:contain;background:#000}
+    .rail{position:fixed;z-index:22;left:clamp(18px,3vw,46px);bottom:25px;display:flex;align-items:center;gap:9px}.rail button{width:34px;height:34px;padding:0;border:1px solid var(--line);border-radius:50%;background:rgba(8,5,17,.64);color:var(--muted);font-size:10px;transition:.25s ease;backdrop-filter:blur(12px)}.rail button:hover{border-color:rgba(255,255,255,.38);color:#fff}.rail button.is-active{width:46px;border-color:var(--pink);background:var(--pink);color:#fff;box-shadow:0 0 24px rgba(255,8,120,.4)}
+    .controls{position:fixed;z-index:22;right:clamp(18px,3vw,46px);bottom:22px;display:flex;gap:10px}.control{width:48px;height:48px;padding:0;border:1px solid var(--line);border-radius:50%;background:rgba(8,5,17,.72);font-size:22px;line-height:1;backdrop-filter:blur(14px);transition:.25s ease}.control:hover:not(:disabled){transform:scale(1.07);border-color:var(--pink);box-shadow:0 0 26px rgba(255,8,120,.28)}.control:disabled{opacity:.3;cursor:default}
+    .hint{position:fixed;z-index:21;left:50%;bottom:35px;transform:translateX(-50%);color:var(--muted);font-size:10px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}.progress{position:fixed;z-index:24;left:0;bottom:0;height:3px;width:20%;background:linear-gradient(90deg,var(--pink),var(--lime),var(--cyan));box-shadow:0 0 18px rgba(255,8,120,.7);transition:width .65s cubic-bezier(.16,1,.3,1)}
+    @media(max-width:720px){.topbar{height:62px;padding-inline:14px}.deck{inset:62px 0 0}.back{font-size:0}.back span{font-size:14px}.brand{font-size:11px;letter-spacing:.08em}.counter{font-size:9px}.counter strong{font-size:12px}.slide{padding:18px 12px 88px}.slide-card{width:100%;max-height:calc(100dvh - 186px);border-radius:8px}.rail{left:12px;bottom:28px;gap:5px}.rail button{width:28px;height:28px;font-size:9px}.rail button.is-active{width:36px}.controls{right:12px;bottom:23px}.control{width:40px;height:40px}.hint{display:none}}@media(prefers-reduced-motion:reduce){.track,.slide-card,.progress{transition-duration:.01ms!important}}
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap header-row">
-      <a class="back-link" href="/#presentations"><img class="icon-arrow-left" src="/Icons/Arrow Down.svg" alt="" style="transform:rotate(90deg)">К работам</a>
-      <div class="header-right">Презентация</div>
-    </div>
-  </header>
-
-  <main>
-    <section class="case-hero wrap">
-      <div class="case-eyebrow">Презентация · 2026</div>
-      <h1>116 Trophy Cyprus LTD</h1>
-      <p class="case-lead">Гоночный клуб на Achna Speedway: тренировки, соревнования и партнёрская программа на 6 месяцев.</p>
-    </section>
-
-    <section class="wrap">
-      <div class="slides">
-        <div class="slide-frame"><img src="/assets/media/presentations/116-trophy-cyprus/1.png" alt="Слайд 1" loading="lazy"></div>
-        <div class="slide-frame"><img src="/assets/media/presentations/116-trophy-cyprus/2.png" alt="Слайд 2" loading="lazy"></div>
-        <div class="slide-frame"><img src="/assets/media/presentations/116-trophy-cyprus/3.png" alt="Слайд 3" loading="lazy"></div>
-        <div class="slide-frame"><img src="/assets/media/presentations/116-trophy-cyprus/4.png" alt="Слайд 4" loading="lazy"></div>
-        <div class="slide-frame"><img src="/assets/media/presentations/116-trophy-cyprus/5.png" alt="Слайд 5" loading="lazy"></div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div>© 2026 anestiiz</div>
-    <a class="top" href="#top">Наверх ↑</a>
-    <div></div>
-  </footer>
+  <header class="topbar"><a class="back" href="/presentations/"><span aria-hidden="true">←</span>Все презентации</a><div class="brand">116 <b>TROPHY</b> · CYPRUS LTD</div><div class="counter"><strong id="currentNumber">01</strong> / 05</div></header>
+  <main class="deck" aria-label="Презентация 116 Trophy Cyprus LTD"><div class="track" id="track">
+    <section class="slide is-active" aria-label="Слайд 1 из 5"><div class="slide-card"><img src="/assets/media/presentations/116-trophy-cyprus/1.png" alt="Обложка бизнес-презентации 116 Trophy Cyprus LTD"></div></section>
+    <section class="slide" aria-label="Слайд 2 из 5"><div class="slide-card"><img src="/assets/media/presentations/116-trophy-cyprus/2.png" alt="Слайд 2 презентации 116 Trophy Cyprus LTD" loading="lazy"></div></section>
+    <section class="slide" aria-label="Слайд 3 из 5"><div class="slide-card"><img src="/assets/media/presentations/116-trophy-cyprus/3.png" alt="Слайд 3 презентации 116 Trophy Cyprus LTD" loading="lazy"></div></section>
+    <section class="slide" aria-label="Слайд 4 из 5"><div class="slide-card"><img src="/assets/media/presentations/116-trophy-cyprus/4.png" alt="Слайд 4 презентации 116 Trophy Cyprus LTD" loading="lazy"></div></section>
+    <section class="slide" aria-label="Слайд 5 из 5"><div class="slide-card"><img src="/assets/media/presentations/116-trophy-cyprus/5.png" alt="Слайд 5 презентации 116 Trophy Cyprus LTD" loading="lazy"></div></section>
+  </div></main>
+  <nav class="rail" aria-label="Номера слайдов"><button class="is-active" type="button" aria-label="Слайд 1" aria-current="step">01</button><button type="button" aria-label="Слайд 2">02</button><button type="button" aria-label="Слайд 3">03</button><button type="button" aria-label="Слайд 4">04</button><button type="button" aria-label="Слайд 5">05</button></nav>
+  <div class="hint">Листайте вправо · используйте стрелки</div><div class="controls" aria-label="Переключение слайдов"><button class="control" id="prev" type="button" aria-label="Предыдущий слайд" disabled>←</button><button class="control" id="next" type="button" aria-label="Следующий слайд">→</button></div><div class="progress" id="progress" aria-hidden="true"></div>
+  <script>
+    (() => {
+      const track=document.getElementById('track'),slides=[...document.querySelectorAll('.slide')],dots=[...document.querySelectorAll('.rail button')],prev=document.getElementById('prev'),next=document.getElementById('next'),progress=document.getElementById('progress'),currentNumber=document.getElementById('currentNumber');let current=0,startX=0,startY=0;
+      const go=index=>{const target=Math.max(0,Math.min(slides.length-1,index));current=target;track.style.transform=`translate3d(${-target*100}%,0,0)`;slides.forEach((slide,i)=>slide.classList.toggle('is-active',i===target));dots.forEach((dot,i)=>{dot.classList.toggle('is-active',i===target);if(i===target)dot.setAttribute('aria-current','step');else dot.removeAttribute('aria-current')});prev.disabled=target===0;next.disabled=target===slides.length-1;progress.style.width=`${(target+1)/slides.length*100}%`;currentNumber.textContent=String(target+1).padStart(2,'0');history.replaceState(null,'',`#slide-${target+1}`)};
+      prev.addEventListener('click',()=>go(current-1));next.addEventListener('click',()=>go(current+1));dots.forEach((dot,index)=>dot.addEventListener('click',()=>go(index)));
+      addEventListener('keydown',event=>{if(['ArrowRight','PageDown',' '].includes(event.key)){event.preventDefault();go(current+1)}if(['ArrowLeft','PageUp'].includes(event.key)){event.preventDefault();go(current-1)}if(event.key==='Home')go(0);if(event.key==='End')go(slides.length-1)});
+      track.addEventListener('touchstart',event=>{startX=event.changedTouches[0].clientX;startY=event.changedTouches[0].clientY},{passive:true});track.addEventListener('touchend',event=>{const dx=event.changedTouches[0].clientX-startX,dy=event.changedTouches[0].clientY-startY;if(Math.abs(dx)>48&&Math.abs(dx)>Math.abs(dy))go(current+(dx<0?1:-1))},{passive:true});
+      const initial=Number((location.hash.match(/slide-(\d+)/)||[])[1])-1;go(Number.isFinite(initial)&&initial>=0?initial:0);
+    })();
+  </script>
 </body>
 </html>
