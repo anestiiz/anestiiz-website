@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Баннеры — anestiiz</title>
+  <meta name="description" content="Постеры и баннеры anestiiz.">
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon.png">
+  <link rel="stylesheet" href="/assets/css/site.css?v=banners3">
+  <link rel="stylesheet" href="/assets/css/buttons.css?v=1">
+  <script defer src="/assets/js/analytics.js"></script>
+</head>
+<body>
+  <header><div class="wrap header-row"><a class="logo" href="/"><span class="logo-text">anestiiz</span><img class="logo-a" src="/assets/anestiiz-mark.svg" alt=""></a><nav aria-label="Основная навигация"><a href="/#experience">Мой опыт</a><a href="/#about">Обо мне</a><a href="/#ai">Я и AI</a></nav><div class="header-right"><a class="talk-link" href="/brief/">Обсудить проект <img class="icon-arrow-up light" src="/Icons/Arrow Right Up.svg" alt=""></a></div></div></header>
+  <main id="top">
+    <section class="wrap banners-heading reveal"><div class="hero-menu-eyebrow">Работы · Баннеры</div><h1>Визуальные <em>истории</em></h1></section>
+    <section class="wrap banners-list">
+      <article class="banner-project reveal">
+        <a class="banner-project-cover" href="/banners/feast-no-tomorrow/" aria-label="Открыть проект Пир без завтра"><img src="/assets/banners/feast-no-tomorrow/invitation.webp" alt="Постер Приглашение из серии Пир без завтра"></a>
+        <div class="banner-project-meta"><h2>ПИР БЕЗ ЗАВТРА</h2><span>Серия постеров · 2026</span></div>
+      </article>
+      <div class="banner-single-grid" aria-label="Отдельные постеры">
+        <article class="banner-single-card reveal"><button class="poster-open" type="button"><img src="/assets/banners/worlds/moonbloom.webp" alt="Moonbloom — цветущий сад внутри Луны"></button><h2>Moonbloom</h2><p>Цветущий сад внутри Луны.</p></article>
+        <article class="banner-single-card reveal"><button class="poster-open" type="button"><img src="/assets/banners/worlds/skyward.webp" alt="Skyward — город среди облаков"></button><h2>Skyward</h2><p>Город среди облаков.</p></article>
+        <article class="banner-single-card reveal"><button class="poster-open" type="button"><img src="/assets/banners/worlds/tideline.webp" alt="Tideline — город под океаном, парящим в небе"></button><h2>Tideline</h2><p>Город под океаном, парящим в небе.</p></article>
+        <article class="banner-single-card reveal"><button class="poster-open" type="button"><img src="/assets/banners/worlds/mirage.webp" alt="Mirage — пустыня из стекла и зеркал"></button><h2>Mirage</h2><p>Пустыня из стекла и зеркал.</p></article>
+        <article class="banner-single-card reveal"><button class="poster-open" type="button"><img src="/assets/banners/typographic/high-voltage.webp" alt="High Voltage — буквы подхватывают направление прыжка"></button><h2>High Voltage</h2><p>Буквы подхватывают направление прыжка.</p></article>
+        <article class="banner-single-card reveal"><button class="poster-open" type="button"><img src="/assets/banners/typographic/out-of-frame.webp" alt="Out of Frame — название и героиня выходят за границы рамы"></button><h2>Out of Frame</h2><p>Название и героиня выходят за границы рамы.</p></article>
+        <article class="banner-single-card reveal"><button class="poster-open" type="button"><img src="/assets/banners/typographic/paper-tiger.webp" alt="Paper Tiger — заголовок из рваной бумаги пересекает фигуру"></button><h2>Paper Tiger</h2><p>Заголовок из рваной бумаги пересекает фигуру.</p></article>
+        <article class="banner-single-card reveal"><button class="poster-open" type="button"><img src="/assets/banners/typographic/soft-armor.webp" alt="Soft Armor — слова идут вертикально вдоль края и проходят сквозь ткань"></button><h2>Soft Armor</h2><p>Слова идут вертикально вдоль края и проходят сквозь ткань.</p></article>
+      </div>
+    </section>
+    <dialog class="poster-lightbox"><button class="poster-lightbox-close" type="button" aria-label="Закрыть">×</button><img src="" alt=""></dialog>
+  </main>
+  <footer><div>© 2026 anestiiz &nbsp; Designed with intention.</div><a class="top" href="#top">Наверх ↑</a><a class="ai" href="/brief/">Обсудить проект →</a></footer>
+  <script>const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:0,rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));const lightbox=document.querySelector('.poster-lightbox');const lightboxImage=lightbox.querySelector('img');document.querySelectorAll('.poster-open').forEach(button=>button.addEventListener('click',()=>{const image=button.querySelector('img');lightboxImage.src=image.src;lightboxImage.alt=image.alt;lightbox.showModal()}));lightbox.querySelector('.poster-lightbox-close').addEventListener('click',()=>lightbox.close());lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.close()});</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+:is(.talk-link,.hero-v2-cta,.ai-cta-btn,.form-submit,.cta-btn,.gk-btn,.hero-actions .primary,.contact-actions .primary){
+  border:1px solid rgba(255,255,255,.48)!important;
+  background:linear-gradient(180deg,#ff3188 0%,#ff006a 34%,#ec0063 100%)!important;
+  box-shadow:inset 0 2px 1px rgba(255,255,255,.42),inset 0 -4px 9px rgba(124,0,49,.24),0 0 0 1px rgba(255,255,255,.08),0 9px 20px rgba(255,0,106,.32),0 0 36px rgba(255,0,106,.24)!important;
+  color:#fff!important;
+  text-shadow:0 1px 12px rgba(119,0,47,.2);
+  transition:transform .22s ease,filter .22s ease,box-shadow .22s ease!important;
+}
+:is(.talk-link,.hero-v2-cta,.ai-cta-btn,.form-submit,.cta-btn,.gk-btn,.hero-actions .primary,.contact-actions .primary):hover{
+  transform:translateY(-2px)!important;
+  filter:brightness(1.07) saturate(1.04)!important;
+  box-shadow:inset 0 2px 1px rgba(255,255,255,.5),inset 0 -4px 9px rgba(124,0,49,.2),0 0 0 1px rgba(255,255,255,.12),0 13px 28px rgba(255,0,106,.4),0 0 48px rgba(255,0,106,.34)!important;
+}
+:is(.talk-link,.hero-v2-cta,.ai-cta-btn,.form-submit,.cta-btn,.gk-btn,.hero-actions .primary,.contact-actions .primary):active{transform:translateY(0) scale(.985)!important}
+:is(.talk-link,.hero-v2-cta,.ai-cta-btn,.form-submit,.cta-btn,.gk-btn) .icon-arrow-up,
+:is(.talk-link,.hero-v2-cta,.ai-cta-btn,.form-submit,.cta-btn,.gk-btn) img{filter:brightness(0) invert(1)!important}
+@media(prefers-reduced-motion:reduce){:is(.talk-link,.hero-v2-cta,.ai-cta-btn,.form-submit,.cta-btn,.gk-btn,.hero-actions .primary,.contact-actions .primary){transition:none!important}}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ПИР БЕЗ ЗАВТРА — anestiiz</title>
+  <meta name="description" content="Серия из четырёх постеров, вдохновлённая Красной свадьбой.">
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon.png">
+  <link rel="stylesheet" href="/assets/css/site.css?v=banners5">
+  <link rel="stylesheet" href="/assets/css/buttons.css?v=1">
+  <script defer src="/assets/js/analytics.js"></script>
+</head>
+<body>
+  <header><div class="wrap header-row"><a class="logo" href="/"><span class="logo-text">anestiiz</span><img class="logo-a" src="/assets/anestiiz-mark.svg" alt=""></a><nav aria-label="Основная навигация"><a href="/#experience">Мой опыт</a><a href="/#about">Обо мне</a><a href="/#ai">Я и AI</a></nav><div class="header-right"><a class="talk-link" href="/brief/">Обсудить проект <img class="icon-arrow-up light" src="/Icons/Arrow Right Up.svg" alt=""></a></div></div></header>
+  <main id="top" class="banner-case">
+    <section class="wrap banner-case-intro reveal">
+      <a class="runner-back" href="/banners/">← Все баннеры</a>
+      <div class="hero-menu-eyebrow">Серия постеров · 2026</div>
+      <h1>ПИР БЕЗ <em>ЗАВТРА</em></h1>
+      <div class="banner-case-copy"><p>Серия из четырёх постеров, вдохновлённая «Красной свадьбой». Праздник здесь становится ловушкой: приглашение обещает безопасность, доверие рушится, будущее обрывается, а в конце остаётся мать среди погасших свечей.</p><p>Красная нить проходит через все четыре работы. Она связывает тех, кто пришёл на праздник вместе, и обрывается в тот момент, когда уже ничего нельзя вернуть.</p></div>
+    </section>
+    <section class="wrap banner-poster-grid" aria-label="Постеры серии Пир без завтра">
+      <figure class="reveal"><button class="poster-open" type="button"><img src="/assets/banners/feast-no-tomorrow/invitation.webp" alt="Приглашение — они назвали это праздником" loading="eager"></button><figcaption>Приглашение</figcaption></figure>
+      <figure class="reveal"><button class="poster-open" type="button"><img src="/assets/banners/feast-no-tomorrow/trust.webp" alt="Доверие — предательство сидело рядом" loading="lazy"></button><figcaption>Доверие</figcaption></figure>
+      <figure class="reveal"><button class="poster-open" type="button"><img src="/assets/banners/feast-no-tomorrow/tomorrow.webp" alt="Завтра — этому будущему не дали имени" loading="lazy"></button><figcaption>Завтра</figcaption></figure>
+      <figure class="reveal"><button class="poster-open" type="button"><img src="/assets/banners/feast-no-tomorrow/silence.webp" alt="Тишина — ей оставили только смотреть" loading="lazy"></button><figcaption>Тишина</figcaption></figure>
+    </section>
+    <dialog class="poster-lightbox"><button class="poster-lightbox-close" type="button" aria-label="Закрыть">×</button><img src="" alt=""></dialog>
+  </main>
+  <footer><div>© 2026 anestiiz &nbsp; Designed with intention.</div><a class="top" href="#top">Наверх ↑</a><a class="ai" href="/banners/">Все баннеры →</a></footer>
+  <script>const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:0,rootMargin:'0px 0px -6% 0px'});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));const lightbox=document.querySelector('.poster-lightbox');const lightboxImage=lightbox.querySelector('img');document.querySelectorAll('.poster-open').forEach(button=>button.addEventListener('click',()=>{const image=button.querySelector('img');lightboxImage.src=image.src;lightboxImage.alt=image.alt;lightbox.showModal()}));lightbox.querySelector('.poster-lightbox-close').addEventListener('click',()=>lightbox.close());lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.close()});</script>
+</body>
+</html>

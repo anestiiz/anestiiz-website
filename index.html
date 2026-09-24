@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/assets/css/buttons.css?v=1">
   <title>anestiiz — Portfolio</title>
   <meta name="description" content="anestiiz portfolio — independent designer and AI creator.">
   <link rel="icon" type="image/png" href="assets/favicon/favicon.png"><link rel="apple-touch-icon" href="assets/favicon/favicon.png">
-  <link rel="stylesheet" href="assets/css/site.css?v=tools9">
+  <link rel="stylesheet" href="assets/css/site.css?v=banners-cover-1">
   <script defer src="assets/js/analytics.js"></script>
 </head>
-<body>
+<body class="home-page">
   <header>
     <div class="wrap header-row">
       <a class="logo" href="#top"><span class="logo-text">anestiiz</span><img class="logo-a" src="assets/anestiiz-mark.svg" alt=""></a>
@@ -34,6 +35,7 @@
       <a href="/apps/" data-drawer-link>Приложения</a>
       <a href="/websites/" data-drawer-link>Сайты</a>
       <a href="/presentations/" data-drawer-link>Презентации</a>
+      <a href="/banners/" data-drawer-link>Баннеры</a>
       <a href="/mts-projects/" data-drawer-link>Специальные проекты МТС</a>
       <div class="drawer-group-label">Ещё</div>
       <a href="#experience" data-drawer-link>Мой опыт</a>
@@ -45,7 +47,20 @@
 
   <main id="top">
     <section class="hero">
-      <picture class="hero-picture">
+      <div class="hero-v2" data-hero-v2 aria-label="anestiiz — независимый дизайнер и AI-креатор">
+        <img class="hero-v2-bg" src="assets/media/hero-v2-bg.webp" alt="" aria-hidden="true">
+        <div class="hero-v2-title" aria-hidden="true">
+          <span>независимый</span>
+          <span>дизайнер и AI-креатор</span>
+        </div>
+        <div class="hero-v2-portrait-wrap" aria-hidden="true">
+          <img class="hero-v2-portrait" src="assets/media/hero-v2-portrait.webp" alt="">
+        </div>
+        <p class="hero-v2-copy">Проектирую цифровые продукты<br>и создаю AI-визуалы — от идеи<br>до финального кадра.</p>
+        <a class="hero-v2-cta" href="/brief/">Связаться со мной <img class="icon-arrow-up light" src="Icons/Arrow Right Up.svg" alt=""></a>
+        <div class="hero-v2-shade" aria-hidden="true"></div>
+      </div>
+      <picture class="hero-picture hero-mobile">
         <source media="(max-width: 1024px)" srcset="assets/media/hero-first-screen-mobile.webp">
         <img class="hero-bg" src="assets/media/hero-first-screen.webp" alt="Проектирую интерфейсы. Генерирую невозможное. anestiiz — независимый дизайнер и AI-креатор">
       </picture>
@@ -79,12 +94,13 @@
 
     <section id="work" class="featured wrap">
       <div class="content-head reveal"><div class="hero-menu-eyebrow">Категории портфолио</div><h2>Выберите направление, чтобы посмотреть <em>работы</em>.</h2></div>
-      <div class="featured-grid">
-        <a class="featured-card reveal" href="/mts-projects/"><div class="mts-category-cover"><img src="assets/mts/logo.webp" alt="МТС"></div><div class="featured-copy"><span>Категория 01</span><h3>Специальные проекты МТС</h3><p>Промолендинги, игровые механики и цифровые коммуникации для МТС.</p><strong>Смотреть все работы →</strong></div></a>
-        <a class="featured-card reveal" href="/ai-creative/"><picture class="featured-collage"><img src="assets/neuro/main/1-cover.webp" alt="Нейрофотосессия в синем образе" loading="lazy"><img src="assets/neuro/1/4-cover.webp" alt="Тёплый AI-портрет" loading="lazy"><img src="assets/neuro/2/2-cover.webp" alt="Светлый editorial AI-портрет" loading="lazy"></picture><div class="featured-copy"><span>Категория 02</span><h3>AI-креатив</h3><p>AI-видео, визуальные концепции, рекламные материалы и нейрофотосессии.</p><strong>Смотреть все работы →</strong></div></a>
-        <a class="featured-card reveal" href="/apps/"><img src="assets/greekly/Cover.webp" alt="Дизайн мобильных приложений"><div class="featured-copy"><span>Категория 03</span><h3>Приложения</h3><p>Мобильные продукты, пользовательские сценарии и UX/UI-дизайн интерфейсов.</p><strong>Смотреть все работы →</strong></div></a>
-        <a class="featured-card reveal" href="/websites/"><img src="sites/raduga-detskiy-center/hero.webp" alt="Дизайн сайтов"><div class="featured-copy"><span>Категория 04</span><h3>Сайты</h3><p>Лендинги, сервисы и интерактивные веб-концепты для разных сфер.</p><strong>Смотреть все работы →</strong></div></a>
-        <a class="featured-card reveal" href="/presentations/"><img src="assets/media/presentations/116-trophy-cyprus/1-cover.webp" alt="Дизайн презентаций" loading="lazy"><div class="featured-copy"><span>Категория 05</span><h3>Презентации</h3><p>Структура, визуальная система и ясная подача ключевых смыслов.</p><strong>Смотреть все работы →</strong></div></a>
+      <div class="featured-grid category-grid">
+        <a class="category-card category-mts reveal" href="/mts-projects/"><h3>Проекты МТС</h3></a>
+        <a class="category-card category-ai reveal" href="/ai-creative/"><h3>AI-креатив</h3></a>
+        <a class="category-card category-apps reveal" href="/apps/"><h3>Приложения</h3></a>
+        <a class="category-card category-sites reveal" href="/websites/"><h3>Сайты</h3></a>
+        <a class="category-card category-presentations reveal" href="/presentations/"><h3>Презентации</h3></a>
+        <a class="category-card category-banners reveal" href="/banners/" aria-label="Баннеры"></a>
       </div>
     </section>
 
@@ -637,6 +653,41 @@ const navBars = [
       }, { threshold: 0.25 });
       io.observe(car);
     });
+  </script>
+  <script>
+    (() => {
+      const hero = document.querySelector('[data-hero-v2]');
+      if (!hero) return;
+
+      requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add('is-ready')));
+
+      const canParallax = matchMedia('(min-width: 1025px) and (pointer: fine)').matches
+        && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!canParallax) return;
+
+      let frame = 0;
+      hero.addEventListener('pointermove', event => {
+        if (frame) cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(() => {
+          const rect = hero.getBoundingClientRect();
+          const x = ((event.clientX - rect.left) / rect.width - .5) * 2;
+          const y = ((event.clientY - rect.top) / rect.height - .5) * 2;
+          hero.style.setProperty('--mx', x.toFixed(3));
+          hero.style.setProperty('--my', y.toFixed(3));
+        });
+      });
+      hero.addEventListener('pointerleave', () => {
+        hero.style.setProperty('--mx', 0);
+        hero.style.setProperty('--my', 0);
+      });
+
+      const syncScroll = () => {
+        const progress = Math.min(1, Math.max(0, scrollY / hero.offsetHeight));
+        hero.style.setProperty('--hero-scroll', progress.toFixed(3));
+      };
+      addEventListener('scroll', syncScroll, { passive: true });
+      syncScroll();
+    })();
   </script>
 </body>
 </html>

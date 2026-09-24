@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/assets/css/buttons.css?v=1">
   <title>Bloat Down — Digestive health companion · anestiiz</title>
   <meta name="description" content="Bloat Down mobile app case study — digestive health tracking with a bright, supportive app identity.">
   <link rel="icon" type="image/png" href="/assets/favicon/favicon.png"><link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
@@ -165,17 +166,6 @@
   </footer>
 
   <script>
-    const langButtons = document.querySelectorAll('[data-lang]');
-    function applyLang(lang){
-      document.documentElement.lang = lang;
-      document.querySelectorAll('[data-en][data-ru]').forEach(el => { el.innerHTML = el.dataset[lang]; });
-      langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
-      localStorage.setItem('anestiiz-lang', lang);
-    }
-    const savedLang = localStorage.getItem('anestiiz-lang') || 'ru';
-    applyLang(savedLang);
-    langButtons.forEach(btn => btn.addEventListener('click', () => applyLang(btn.dataset.lang)));
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
