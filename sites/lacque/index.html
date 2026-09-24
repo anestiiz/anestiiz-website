@@ -1,9 +1,76 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LACQUÉ — Маникюр как маленький ритуал</title><meta name="description" content="LACQUÉ — камерный кабинет маникюра Алины Морозовой. Вымышленный мастер, коллекция образов и демонстрационная запись."><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23721731'/%3E%3Ctext x='19' y='47' font-size='44' font-family='Georgia' fill='%23fff8ee'%3EL%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="style.css"></head>
-<body><header><a href="#top" class="logo">lacqué<span>NAIL ATELIER</span></a><nav aria-label="Основная навигация"><a href="#collection">Маникюр</a><a href="#services">Цены</a></nav><button class="header-book" data-book>Записаться <span>↗</span></button></header>
-<main id="top"><section class="hero"><div class="hero-left"><p class="eyebrow">АЛИНА МОРОЗОВА · МАСТЕР МАНИКЮРА</p><h1>Красота<br>в ваших<br><em>руках.</em></h1><button class="primary" data-book>Записаться <span>↗</span></button></div><div class="hero-right"><img src="burgundy.webp" alt="Глянцевый вишнёвый маникюр на изящных руках" fetchpriority="high"></div></section>
-<section class="collection section" id="collection"><div class="section-head"><div><h2>Выберите <em>настроение.</em></h2></div></div><div class="gallery"><button class="look look-first" data-look="Вишнёвый глянец"><div class="image-box"><img src="burgundy.webp" alt="Образ: вишнёвый глянец" loading="lazy"><span class="image-button">Рассмотреть ↗</span></div><div class="look-caption"><h3>Вишнёвый глянец</h3></div></button><button class="look look-second" data-look="Молочный френч"><div class="image-box"><img src="french.webp" alt="Образ: нежный молочный френч" loading="lazy"><span class="image-button">Рассмотреть ↗</span></div><div class="look-caption"><h3>Молочный френч</h3></div></button></div></section>
-<section class="services section" id="services"><div class="service-intro"><h2>Услуги<br><em>и цены.</em></h2></div><div class="service-list"><button class="service" data-service="0"><div><h3>Маникюр без покрытия</h3><span class="duration">60 минут</span></div><div class="service-price">1 800 ₽<span>↗</span></div></button><button class="service" data-service="1"><div><h3>Маникюр + гель-лак</h3><span class="duration">90 минут</span></div><div class="service-price">2 800 ₽<span>↗</span></div></button><button class="service" data-service="2"><div><h3>Маникюр + френч</h3><span class="duration">120 минут</span></div><div class="service-price">3 300 ₽<span>↗</span></div></button><p class="small-note">Снятие покрытия включено.</p></div></section>
-<footer><a class="logo" href="#top">lacqué<span>NAIL ATELIER</span></a><p>Вымышленный мастер · Фото созданы ИИ<br>Демозапись без отправки заявки.</p><a href="#top">Наверх ↑</a></footer></main>
-<dialog id="bookingDialog" aria-labelledby="bookingTitle"><button class="close" data-close aria-label="Закрыть">×</button><h2 id="bookingTitle">Запись <em>на маникюр.</em></h2><p class="dialog-note">Демозапись. Выберите услугу, дату и время.</p><form id="bookingForm"><label for="serviceSelect">Процедура</label><select id="serviceSelect"><option value="0">Маникюр без покрытия · 1 800 ₽</option><option value="1" selected>Маникюр + гель-лак · 2 800 ₽</option><option value="2">Маникюр + френч · 3 300 ₽</option></select><label for="dateInput">Дата</label><input id="dateInput" type="date" required><fieldset><legend>Время <span>· пример расписания</span></legend><div class="times"><label><input type="radio" name="time" value="10:00" required><span>10:00</span></label><label><input type="radio" name="time" value="12:00"><span>12:00</span></label><label><input type="radio" name="time" value="15:00"><span>15:00</span></label><label><input type="radio" name="time" value="18:00"><span>18:00</span></label></div></fieldset><label class="quiet"><input id="quiet" type="checkbox">Хочу провести встречу в тишине</label><div class="booking-total"><span id="durationText">90 минут</span><strong id="priceText">2 800 ₽</strong></div><button class="primary" type="submit">Посмотреть мою запись ↗</button></form><div id="confirmation" hidden><p class="eyebrow">ВАШ ВЫБОР</p><h3 id="confirmService"></h3><p id="confirmDate"></p><p id="confirmQuiet"></p><p class="dialog-note">Это пример записи. Время не забронировано, данные никуда не отправлены.</p><button id="editBooking" class="primary">Изменить выбор</button></div></dialog>
-<dialog id="lookDialog" class="look-dialog" aria-labelledby="lookTitle"><button class="close" data-close aria-label="Закрыть">×</button><img id="lookImage" alt=""><div><h2 id="lookTitle"></h2><button class="primary" id="bookLook">Хочу такой маникюр ↗</button></div></dialog><script src="app.js"></script></body></html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LACQUÉ — Маникюр с характером</title>
+  <meta name="description" content="LACQUÉ — визуальная витрина маникюрного ателье: образы, услуги, цены и демонстрационная запись.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23f52288'/%3E%3Cpath d='M18 15v34h26' fill='none' stroke='white' stroke-width='9' stroke-linecap='round'/%3E%3Ccircle cx='43' cy='20' r='5' fill='%23d4fa48'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Golos+Text:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="site-shell" id="top">
+  <header class="site-header">
+    <a class="logo" href="#top" aria-label="LACQUÉ — наверх"><strong>LACQUÉ<span>✦</span></strong><small>NAIL ATELIER</small></a>
+    <nav aria-label="Основная навигация"><a href="#collection">Образы</a><a href="#services">Услуги и цены</a></nav>
+    <button class="pill header-book" data-book>Записаться <span aria-hidden="true">✦</span></button>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <div class="hero-kicker"><span class="kicker-spark" aria-hidden="true">✦</span><span>АЛИНА МОРОЗОВА · ТОП-МАСТЕР</span></div>
+        <h1 id="heroTitle">МАНИКЮР,<br><span>КОТОРЫЙ</span><br><em>про тебя.</em></h1>
+        <p class="hero-description">От спокойного френча до цвета, который собирает комплименты. Выбирай настроение — остальное за мной.</p>
+        <div class="hero-actions"><button class="pill primary" data-book>Записаться онлайн <span aria-hidden="true">✦</span></button><a class="pill outline" href="#collection">Смотреть образы <span aria-hidden="true">↘</span></a></div>
+        <div class="hero-signature"><span class="tiny-star" aria-hidden="true">✳</span><span>ТВОИ РУКИ.<br>ТВОИ ПРАВИЛА.</span></div>
+      </div>
+      <div class="hero-art">
+        <span class="vertical-word" aria-hidden="true">LACQUÉ</span>
+        <span class="lime-orbit" aria-hidden="true"></span>
+        <img src="hero-pink.webp" alt="Девушка в ярко-розовом жакете показывает розовый маникюр" fetchpriority="high" width="1000" height="1250">
+        <span class="art-spark spark-one" aria-hidden="true">✦</span><span class="art-spark spark-two" aria-hidden="true">✦</span>
+        <div class="round-label"><span>NAIL<br>MOOD</span><strong>01</strong></div>
+      </div>
+    </section>
+    <div class="service-teasers" aria-label="Популярные услуги">
+      <a href="#services"><span class="teaser-num">01</span><strong>Без покрытия</strong><span>от 1 800 ₽ <b aria-hidden="true">↗</b></span></a>
+      <a href="#services"><span class="teaser-num">02</span><strong>Гель-лак</strong><span>от 2 800 ₽ <b aria-hidden="true">↗</b></span></a>
+      <a href="#services"><span class="teaser-num">03</span><strong>Френч</strong><span>от 3 300 ₽ <b aria-hidden="true">↗</b></span></a>
+    </div>
+    <section class="collection section" id="collection" aria-labelledby="collectionTitle">
+      <div class="section-heading">
+        <div><span class="section-index">01 / КОЛЛЕКЦИЯ</span><h2 id="collectionTitle">СЕГОДНЯ ТЫ <em>какая?</em></h2></div>
+        <div class="gallery-intro"><p>Пять ярких образов. Листай и выбирай свой.</p><div class="carousel-controls"><span class="carousel-count" id="worksCount" aria-live="polite">01–02 / 05</span><button class="carousel-nav" id="prevWork" type="button" aria-label="Предыдущий образ" aria-controls="worksCarousel" disabled>←</button><button class="carousel-nav" id="nextWork" type="button" aria-label="Следующий образ" aria-controls="worksCarousel">→</button></div></div>
+      </div>
+      <div class="gallery" id="worksCarousel" role="region" aria-roledescription="карусель" aria-label="Примеры яркого маникюра" tabindex="0">
+        <div class="carousel-slide"><button class="look" data-look="Неоновый лайм" data-service="1"><span class="look-image"><img src="nails-lime.webp" alt="Неоновые лаймовые ногти на синем атласе" loading="lazy" width="1200" height="900"><span class="image-arrow" aria-hidden="true">↗</span></span><span class="look-caption"><span><small>LOOK 01 / НЕОН</small><strong>Неоновый лайм</strong></span><span class="look-tag">ЯРКО</span></span></button></div>
+        <div class="carousel-slide"><button class="look" data-look="Розовая аура" data-service="1"><span class="look-image"><img src="nails-pink.webp" alt="Розовый градиентный маникюр со звёздочками" loading="lazy" width="1200" height="900"><span class="image-arrow" aria-hidden="true">↗</span></span><span class="look-caption"><span><small>LOOK 02 / ГРАДИЕНТ</small><strong>Розовая аура</strong></span><span class="look-tag">СМЕЛО</span></span></button></div>
+        <div class="carousel-slide"><button class="look" data-look="Синий электрик" data-service="1"><span class="look-image"><img src="nails-blue.webp" alt="Маникюр цвета электрик на оранжевом фоне" loading="lazy" width="1200" height="900"><span class="image-arrow" aria-hidden="true">↗</span></span><span class="look-caption"><span><small>LOOK 03 / ЦВЕТ</small><strong>Синий электрик</strong></span><span class="look-tag">ЭНЕРГИЯ</span></span></button></div>
+        <div class="carousel-slide"><button class="look" data-look="Фиолетовое сияние" data-service="1"><span class="look-image"><img src="nails-purple.webp" alt="Мерцающие фиолетовые ногти на атласе" loading="lazy" width="1200" height="900"><span class="image-arrow" aria-hidden="true">↗</span></span><span class="look-caption"><span><small>LOOK 04 / БЛЕСК</small><strong>Фиолетовое сияние</strong></span><span class="look-tag">СИЯЙ</span></span></button></div>
+        <div class="carousel-slide"><button class="look" data-look="Коралловые волны" data-service="1"><span class="look-image"><img src="nails-coral.webp" alt="Коралловые и красные волны на ногтях" loading="lazy" width="1200" height="900"><span class="image-arrow" aria-hidden="true">↗</span></span><span class="look-caption"><span><small>LOOK 05 / ГРАФИКА</small><strong>Коралловые волны</strong></span><span class="look-tag">ИГРАЙ</span></span></button></div>
+      </div>
+    </section>
+    <section class="campaign" aria-labelledby="campaignTitle">
+      <div class="campaign-copy"><span class="section-index">МАНИКЮР · LACQUÉ</span><h2 id="campaignTitle">МАЛЕНЬКАЯ<br><em>деталь.</em><br><span>БОЛЬШОЕ</span><br>НАСТРОЕНИЕ.</h2><a href="#services" class="campaign-link">Выбрать услугу <span aria-hidden="true">↗</span></a></div>
+      <img src="pink-flower.webp" alt="Объёмный сияющий розовый цветок" loading="lazy" width="1350" height="900">
+      <span class="campaign-caption">NAIL ART / YOUR WAY ✳</span>
+    </section>
+    <section class="services section" id="services" aria-labelledby="servicesTitle">
+      <div class="services-left"><span class="section-index">02 / ПРАЙС</span><h2 id="servicesTitle">ВСЁ<br>ПО <em>делу.</em></h2><p>Выбери услугу и примерное время. Стоимость и продолжительность видны до записи.</p><div class="lime-note"><span aria-hidden="true">✦</span><strong>Снятие покрытия включено.</strong></div></div>
+      <div class="service-list">
+        <button class="service" data-service="0"><span class="service-number">01</span><span class="service-info"><strong>Маникюр без покрытия</strong><small>60 минут</small></span><span class="service-price">1 800 ₽</span><span class="service-arrow" aria-hidden="true">↗</span></button>
+        <button class="service" data-service="1"><span class="service-number">02</span><span class="service-info"><strong>Маникюр + гель-лак</strong><small>90 минут</small></span><span class="service-price">2 800 ₽</span><span class="service-arrow" aria-hidden="true">↗</span></button>
+        <button class="service" data-service="2"><span class="service-number">03</span><span class="service-info"><strong>Маникюр + френч</strong><small>120 минут</small></span><span class="service-price">3 300 ₽</span><span class="service-arrow" aria-hidden="true">↗</span></button>
+      </div>
+    </section>
+    <section class="final-cta" aria-labelledby="finalTitle"><span class="final-kicker">LACQUÉ · NAIL ATELIER</span><h2 id="finalTitle">ТВОЙ СЛЕДУЮЩИЙ<br><em>любимый маникюр</em><span class="period">.</span></h2><button class="pill primary" data-book>Выбрать время <span aria-hidden="true">✦</span></button><span class="final-spark" aria-hidden="true">✳</span></section>
+  </main>
+  <footer><a class="logo footer-logo" href="#top"><strong>LACQUÉ<span>✦</span></strong><small>NAIL ATELIER</small></a><p>Вымышленный проект</p><a href="#top" class="back-top">Наверх ↑</a></footer>
+</div>
+<dialog id="bookingDialog" aria-labelledby="bookingTitle"><button class="close" data-close aria-label="Закрыть">×</button><span class="dialog-kicker">LACQUÉ · NAIL ATELIER</span><h2 id="bookingTitle">ВЫБЕРИ <em>свой момент.</em></h2><p class="dialog-note">Демозапись. Выбери услугу, дату и время — мы покажем твой выбор.</p><form id="bookingForm"><label for="serviceSelect">Услуга</label><select id="serviceSelect"><option value="0">Маникюр без покрытия · 1 800 ₽</option><option value="1" selected>Маникюр + гель-лак · 2 800 ₽</option><option value="2">Маникюр + френч · 3 300 ₽</option></select><label for="dateInput">Дата</label><input id="dateInput" type="date" required><fieldset><legend>Время <span>· пример расписания</span></legend><div class="times"><label><input type="radio" name="time" value="10:00" required><span>10:00</span></label><label><input type="radio" name="time" value="12:00"><span>12:00</span></label><label><input type="radio" name="time" value="15:00"><span>15:00</span></label><label><input type="radio" name="time" value="18:00"><span>18:00</span></label></div></fieldset><label class="quiet"><input id="quiet" type="checkbox">Хочу провести встречу в тишине</label><div class="booking-total"><span id="durationText">90 минут</span><strong id="priceText">2 800 ₽</strong></div><button class="pill primary form-submit" type="submit">Посмотреть мой выбор <span aria-hidden="true">↗</span></button></form><div id="confirmation" hidden><span class="dialog-kicker">ТВОЙ ВЫБОР</span><h3 id="confirmService"></h3><p id="confirmDate"></p><p id="confirmQuiet"></p><p class="dialog-note">Это пример записи. Время не забронировано, данные никуда не отправлены.</p><button id="editBooking" class="pill primary">Изменить выбор <span aria-hidden="true">↗</span></button></div></dialog>
+<dialog id="lookDialog" class="look-dialog" aria-labelledby="lookTitle"><button class="close" data-close aria-label="Закрыть">×</button><img id="lookImage" alt=""><div><span class="dialog-kicker">LACQUÉ / КОЛЛЕКЦИЯ</span><h2 id="lookTitle"></h2><button class="pill primary" id="bookLook">Хочу такой маникюр <span aria-hidden="true">↗</span></button></div></dialog>
+<script src="app.js"></script>
+</body></html>
