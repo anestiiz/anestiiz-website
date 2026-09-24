@@ -1,5 +1,13 @@
 const YANDEX_METRIKA_ID = 112751157;
 
+if (!document.querySelector('link[data-global-controls]')) {
+  const globalControls = document.createElement('link');
+  globalControls.rel = 'stylesheet';
+  globalControls.href = '/assets/css/global-controls.css?v=2';
+  globalControls.dataset.globalControls = '';
+  document.head.append(globalControls);
+}
+
 window.__ymId = YANDEX_METRIKA_ID;
 
 if (YANDEX_METRIKA_ID) {
@@ -64,6 +72,20 @@ if (YANDEX_METRIKA_ID) {
     });
   }, { passive: true });
 }
+
+(() => {
+  if (location.pathname === "/" || document.querySelector(".back-link,.runner-back,.back,.deck-back,[data-site-back]")) return;
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "site-back-button";
+  button.setAttribute("aria-label", "Назад");
+  button.innerHTML = '<span aria-hidden="true">←</span>Назад';
+  button.addEventListener("click", () => {
+    if (document.referrer && new URL(document.referrer).origin === location.origin) history.back();
+    else location.href = "/";
+  });
+  document.body.append(button);
+})();
 
 (() => {
   const finePointer = matchMedia("(pointer: fine)");
