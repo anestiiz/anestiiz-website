@@ -155,6 +155,7 @@
     .raduga-card-fixed{position:relative;overflow:hidden;background:#dff3ff!important;color:#14213d;border:1px solid rgba(37,71,217,.18)!important}
     .raduga-card-shot{position:absolute;inset:0;overflow:hidden}
     .raduga-card-shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+    .lacque-card-shot img{object-position:center 34%}
     .project-card:hover .raduga-card-shot img{transform:scale(1.04)}
     .lapki-card-fixed{position:relative;overflow:hidden;background:linear-gradient(145deg,#fffaf3,#f1eaff)!important;border:1px solid rgba(116,100,220,.2)!important}
     .lapki-card-fixed:before{content:"";position:absolute;width:62%;aspect-ratio:1;border-radius:50%;left:-15%;bottom:-25%;background:#ffd9bd}
