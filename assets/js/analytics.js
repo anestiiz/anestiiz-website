@@ -79,7 +79,7 @@ if (YANDEX_METRIKA_ID) {
   button.type = "button";
   button.className = "site-back-button";
   button.setAttribute("aria-label", "Назад");
-  button.innerHTML = '<span aria-hidden="true">←</span>Назад';
+  button.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path opacity=".5" d="M20 12.75a.75.75 0 0 0 0-1.5v1.5Zm0-.75v-.75H4v1.5h16V12Z" fill="white"/><path d="m10 6-6 6 6 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Назад';
   button.addEventListener("click", () => {
     if (document.referrer && new URL(document.referrer).origin === location.origin) history.back();
     else location.href = "/";
