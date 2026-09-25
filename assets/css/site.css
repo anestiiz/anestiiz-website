@@ -656,10 +656,10 @@
   .category-grid .category-mts{grid-column:1/6;grid-row:1}
   .category-grid .category-ai{grid-column:6/10;grid-row:1}
   .category-grid .category-apps{grid-column:10/13;grid-row:1/4}
-  .category-grid .category-sites{grid-column:1/4;grid-row:2}
-  .category-grid .category-presentations{grid-column:4/7;grid-row:2}
-  .category-grid .category-neuro{grid-column:7/10;grid-row:2}
-  .category-grid .category-banners{grid-column:1/10;grid-row:3}
+  .category-grid .category-sites{grid-column:1/5;grid-row:2}
+  .category-grid .category-presentations{grid-column:5/10;grid-row:2}
+  .category-grid .category-banners{grid-column:1/7;grid-row:3}
+  .category-grid .category-neuro{grid-column:7/10;grid-row:3}
   .category-grid .category-banners{background-position:center 44%}
 }
 @media(max-width:900px){
