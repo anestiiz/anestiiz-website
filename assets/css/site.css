@@ -482,7 +482,7 @@
 .category-sites{--glass-a:rgba(0,108,94,.65);--glass-b:rgba(116,191,68,.46);--glass-glow:rgba(52,211,153,.17)}
 .category-presentations{--glass-a:rgba(79,47,133,.68);--glass-b:rgba(199,65,155,.46);--glass-glow:rgba(143,92,255,.18)}
 .category-presentations h3{font-size:clamp(26px,2.15vw,34px)}
-.category-neuro{--glass-glow:rgba(77,111,255,.2);background-image:linear-gradient(180deg,rgba(4,8,22,.04),rgba(4,8,22,.58)),url("/assets/neuro/main/1-cover.webp");background-size:cover;background-position:center 24%}
+.category-neuro{--glass-glow:rgba(77,111,255,.2);background-image:linear-gradient(180deg,rgba(4,8,22,.04),rgba(4,8,22,.58)),url("/assets/portrait-stories/portrait-02.webp");background-size:cover;background-position:center 30%}
 .category-neuro::before{inset:0;background:linear-gradient(120deg,rgba(255,255,255,.1),transparent 38%,rgba(29,61,154,.22));opacity:1;animation:none}
 .category-neuro::after{display:none}
 .category-neuro h3{font-size:clamp(24px,2vw,32px);line-height:1.02;text-shadow:0 2px 18px rgba(0,0,0,.82)}
