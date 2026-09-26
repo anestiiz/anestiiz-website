@@ -757,3 +757,11 @@ html[lang="ru"] .about h2.about-title span{font-family:"FreeSerif",Georgia,serif
   .contact-main-layout{grid-template-columns:1fr}
   .contact-portrait{width:100%;margin-left:auto;position:relative;top:32px;right:auto}
 }
+
+/* Shared AI mark */
+.ai-mark{display:inline-block;width:22px;height:22px;object-fit:contain;vertical-align:-5px;flex:0 0 22px}
+.drawer-ai .ai-mark{width:24px;height:24px;flex-basis:24px}
+.track b{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle}
+.track .ai-mark{width:36px;height:36px;flex-basis:36px;vertical-align:0}
+.ai-eyebrow,.case-index{display:flex;align-items:center;gap:9px}
+footer .ai{display:inline-flex;align-items:center;gap:6px}

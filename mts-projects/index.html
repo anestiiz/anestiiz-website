@@ -8,7 +8,7 @@
   <meta name="description" content="Специальные проекты и промолендинги МТС в портфолио anestiiz.">
   <link rel="icon" type="image/png" href="/assets/favicon/favicon.png">
   <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
-  <link rel="stylesheet" href="/assets/css/site.css?v=nav-cursor-2">
+  <link rel="stylesheet" href="/assets/css/site.css?v=ai-icons-9">
   <script defer src="/assets/js/analytics.js?v=nav-cursor-2"></script>
 </head>
 <body>
@@ -25,7 +25,7 @@
       <button class="drawer-close" type="button" aria-label="Закрыть меню" data-drawer-close>×</button>
       <div class="drawer-group-label">Работы</div>
       <a href="/ai-creative/" data-drawer-link>AI-креатив</a><a href="/apps/" data-drawer-link>Приложения</a><a href="/websites/" data-drawer-link>Сайты</a><a href="/presentations/" data-drawer-link>Презентации</a><a href="/mts-projects/" data-drawer-link>Специальные проекты МТС</a>
-      <div class="drawer-group-label">Ещё</div><a href="/#about" data-drawer-link>Обо мне</a><a href="/brief/" data-drawer-link>Заполнить бриф</a><a href="/ai/" class="drawer-ai" data-drawer-link><span>✳</span>Как я использую AI в дизайне</a>
+      <div class="drawer-group-label">Ещё</div><a href="/#about" data-drawer-link>Обо мне</a><a href="/brief/" data-drawer-link>Заполнить бриф</a><a href="/ai/" class="drawer-ai" data-drawer-link><img class="ai-mark ai-mark-white" width="22" height="22" src="/assets/icons/ai-white.png" alt="">Как я использую AI в дизайне</a>
     </aside>
   </div>
   <main id="top">
@@ -57,10 +57,10 @@
         </article>
       </div>
     </section>
-    <div class="marquee" aria-hidden="true"><div class="track"><span>AI VIDEO. MOBILE APPS. WEBSITES. <b>✳</b></span><span>AI VIDEO. MOBILE APPS. WEBSITES. <b>✳</b></span><span>AI VIDEO. MOBILE APPS. WEBSITES. <b>✳</b></span></div></div>
+    <div class="marquee" aria-hidden="true"><div class="track"><span>AI VIDEO. MOBILE APPS. WEBSITES. <b><img class="ai-mark" width="22" height="22" src="/assets/icons/ai-pink.png" alt=""></b></span><span>AI VIDEO. MOBILE APPS. WEBSITES. <b><img class="ai-mark" width="22" height="22" src="/assets/icons/ai-pink.png" alt=""></b></span><span>AI VIDEO. MOBILE APPS. WEBSITES. <b><img class="ai-mark" width="22" height="22" src="/assets/icons/ai-pink.png" alt=""></b></span></div></div>
   </main>
   <nav class="tabs-nav" aria-label="Разделы работ"><a href="/ai-creative/"><span class="lbl">AI-креатив</span></a><a href="/apps/"><span class="lbl">Приложения</span></a><a href="/websites/"><span class="lbl">Сайты</span></a><a href="/presentations/"><span class="lbl">Презентации</span></a><a href="/mts-projects/" class="active"><span class="lbl">Проекты МТС</span></a><span class="tabs-pill" aria-hidden="true"></span></nav>
-  <footer><div>© 2026 anestiiz &nbsp; Designed with intention.</div><a class="top" href="#top">Наверх ↑</a><a class="ai" href="/ai/">✳ Как я использую AI в дизайне <img class="icon-arrow-up light" src="/Icons/Arrow Right Up.svg" alt=""></a></footer>
+  <footer><div>© 2026 anestiiz &nbsp; Designed with intention.</div><a class="top" href="#top">Наверх ↑</a><a class="ai" href="/ai/"><img class="ai-mark" width="22" height="22" src="/assets/icons/ai-pink.png" alt=""> Как я использую AI в дизайне <img class="icon-arrow-up light" src="/Icons/Arrow Right Up.svg" alt=""></a></footer>
   <script>
     const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}}),{threshold:0,rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
     const posTabsPill=()=>{const bar=document.querySelector('.tabs-nav'),pill=bar?.querySelector('.tabs-pill'),active=bar?.querySelector('a.active');if(!bar||!pill||!active)return;const nav=bar.getBoundingClientRect(),r=active.getBoundingClientRect(),pad=parseFloat(getComputedStyle(bar).paddingLeft)||8;pill.style.width=r.width+'px';pill.style.transform='translateX('+(r.left-nav.left-pad)+'px)'};
