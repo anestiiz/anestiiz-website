@@ -140,3 +140,19 @@ if (YANDEX_METRIKA_ID) {
 
   requestAnimationFrame(render);
 })();
+
+(() => {
+  const centerActiveTabs = () => {
+    document.querySelectorAll(".tabs-nav").forEach(tabbar => {
+      const active = tabbar.querySelector("a.active");
+      if (!active || tabbar.scrollWidth <= tabbar.clientWidth) return;
+      tabbar.scrollTo({
+        left: active.offsetLeft - (tabbar.clientWidth - active.offsetWidth) / 2,
+        behavior: "instant"
+      });
+    });
+  };
+
+  addEventListener("load", centerActiveTabs);
+  addEventListener("resize", centerActiveTabs, { passive: true });
+})();
