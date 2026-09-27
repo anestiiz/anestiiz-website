@@ -545,6 +545,7 @@
 
 /* Animated desktop hero */
 .hero-v2{display:none}
+.hero-v2-visual{display:contents}
 @media(min-width:1025px){
   .home-page header{position:fixed;top:22px;left:clamp(40px,5vw,90px);right:clamp(40px,5vw,90px);width:auto;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:linear-gradient(95deg,rgba(255,255,255,.075),rgba(255,255,255,.115),rgba(255,255,255,.075));box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 18px 50px rgba(0,0,0,.28);backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);overflow:hidden;animation:heroHeaderIn .9s .1s cubic-bezier(.2,.75,.2,1) both}
   .home-page .header-row{height:68px;grid-template-columns:auto 1fr;padding-inline:28px}
@@ -597,6 +598,7 @@
   .home-page .hero{height:calc(100svh - 70px);min-height:650px;max-height:860px;padding:0;background:#000}
   .home-page .hero-mobile,.home-page .hero-menu{display:none}
   .hero-v2{position:relative;display:block;width:100%;height:100%;overflow:hidden;isolation:isolate;background:#000}
+  .hero-v2-visual{position:absolute;z-index:2;inset:0;display:block;pointer-events:none}
   .hero-v2-bg{position:absolute;z-index:0;inset:-2%;width:104%;height:104%;object-fit:cover;object-position:center;opacity:0;transform:scale(1.08)}
   .hero-v2::before{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04),transparent 52%,rgba(0,0,0,.72) 88%,#000);pointer-events:none}
   .hero-v2::after{content:"";position:absolute;z-index:1;inset:2% -42% 8%;pointer-events:none;background:linear-gradient(118deg,transparent 0 17%,rgba(255,0,106,.58) 22%,rgba(255,114,182,.22) 27%,transparent 34% 53%,rgba(255,0,106,.42) 60%,rgba(255,137,195,.16) 65%,transparent 72%);filter:blur(32px);opacity:.72;transform:translate3d(-5%,0,0) rotate(-4deg);mix-blend-mode:screen;animation:mobileHeroLights 6.5s ease-in-out infinite alternate}
