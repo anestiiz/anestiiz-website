@@ -4,7 +4,7 @@ let globalControlsLink = document.querySelector('link[data-global-controls]');
 if (!globalControlsLink) {
   const globalControls = document.createElement('link');
   globalControls.rel = 'stylesheet';
-  globalControls.href = '/assets/css/global-controls.css?v=3';
+  globalControls.href = '/assets/css/global-controls.css?v=4';
   globalControls.dataset.globalControls = '';
   document.head.append(globalControls);
   globalControlsLink = globalControls;

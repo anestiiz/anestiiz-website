@@ -7,7 +7,7 @@
   <title>anestiiz — Portfolio</title>
   <meta name="description" content="anestiiz portfolio — independent designer and AI creator.">
   <link rel="icon" type="image/png" href="assets/favicon/favicon.png"><link rel="apple-touch-icon" href="assets/favicon/favicon.png">
-  <link rel="stylesheet" href="assets/css/site.css?v=services-mobile-5">
+  <link rel="stylesheet" href="assets/css/site.css?v=deploy-20260927">
   <script defer src="assets/js/analytics.js?v=nav-cursor-3"></script>
 </head>
 <body class="home-page">
@@ -67,7 +67,8 @@
         <source media="(max-width: 1024px)" srcset="assets/media/hero-first-screen-mobile.webp">
         <img class="hero-bg" src="assets/media/hero-first-screen.webp" alt="Проектирую интерфейсы. Генерирую невозможное. anestiiz — независимый дизайнер и AI-креатор">
       </picture>
-      <div class="hero-menu reveal" aria-label="Разделы работ">
+    </section>
+      <div class="hero-menu hero-menu-attached reveal" aria-label="Разделы работ">
         <div class="hero-menu-inner">
           <div class="hero-menu-eyebrow">Мои работы</div>
           <nav class="hero-tabs" aria-label="Выбор раздела">
@@ -82,7 +83,6 @@
           </nav>
         </div>
       </div>
-    </section>
 
 
 
@@ -96,33 +96,6 @@
         <span>AI VIDEO. MOBILE APPS. WEBSITES. <b><img class="ai-mark" width="22" height="22" src="/assets/icons/ai-pink.png" alt=""></b></span>
       </div>
     </div>
-
-    <section id="services" class="offer wrap">
-      <div class="content-head reveal"><div class="hero-menu-eyebrow">Услуги</div><h2>Все нужные форматы.<br><em>Один внимательный процесс.</em></h2></div>
-      <div class="services-showcase reveal" data-services-showcase>
-        <figure class="services-portrait"><picture><source media="(max-width: 640px)" srcset="assets/media/services-portrait-mobile.webp"><img src="assets/media/services-portrait.webp" alt="anestiiz предлагает выбрать направление работы" width="1518" height="1811"></picture></figure>
-        <div class="services-previews" aria-hidden="true">
-          <span class="services-preview" style="--service-preview:url('/assets/banners/feast-no-tomorrow/tomorrow.webp')"></span>
-          <span class="services-preview" style="--service-preview:url('/assets/media/categories/apps-cover.webp')"></span>
-          <span class="services-preview" style="--service-preview:url('/assets/greekly/Cover.webp')"></span>
-          <span class="services-preview" style="--service-preview:url('/assets/media/presentations/116-trophy-cyprus/1-cover.webp')"></span>
-          <span class="services-preview" style="--service-preview:url('/assets/banners/cover.webp')"></span>
-          <span class="services-preview" style="--service-preview:url('/assets/portrait-stories/portrait-02.webp')"></span>
-          <span class="services-preview" style="--service-preview:url('/assets/media/categories/mts-projects-cover.webp')"></span>
-        </div>
-        <div class="services-carousel" aria-label="Направления услуг">
-          <div class="services-carousel-track">
-            <a class="services-carousel-item" href="/ai-creative/" data-service-name>AI-креатив</a>
-            <a class="services-carousel-item" href="/apps/" data-service-name>Приложения</a>
-            <a class="services-carousel-item" href="/websites/" data-service-name>Сайты</a>
-            <a class="services-carousel-item" href="/presentations/" data-service-name>Презентации</a>
-            <a class="services-carousel-item" href="/banners/" data-service-name>Баннеры</a>
-            <a class="services-carousel-item" href="/neuro/" data-service-name>Нейрофотосессии</a>
-            <a class="services-carousel-item" href="/mts-projects/" data-service-name>Проекты МТС</a>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section id="process" class="process wrap">
       <div class="content-head reveal"><div class="hero-menu-eyebrow">Как проходит работа</div><h2>От задачи<br><em>до передачи.</em></h2><p>Четыре понятных этапа: сначала фиксируем задачу, затем выбираем направление, создаём решение и готовим результат к передаче.</p></div>
@@ -514,7 +487,7 @@ const navBars = [
     if (navBars.length) {
       const sectionIds = ['ai','apps','websites','presentations'];
       const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-      const featuredForTabs = document.querySelector('.featured');
+      const featuredForTabs = document.querySelector('.hero-menu-attached') || document.querySelector('.featured');
       const movePill = (bar, link) => {
         const pill = bar.el.querySelector(bar.pillSel);
         if (!link || !pill) return;
@@ -687,65 +660,6 @@ const navBars = [
       }, { threshold: 0.25 });
       io.observe(car);
     });
-  </script>
-  <script>
-    (() => {
-      const showcase = document.querySelector('[data-services-showcase]');
-      if (!showcase) return;
-
-      const items = [...showcase.querySelectorAll('[data-service-name]')];
-      const previews = [...showcase.querySelectorAll('.services-preview')];
-      const carousel = showcase.querySelector('.services-carousel');
-      const mobileLayout = matchMedia('(max-width: 640px)');
-      const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-      let activeIndex = 0;
-      let timer = 0;
-
-      const positionMobileItem = () => {
-        if (!mobileLayout.matches || !carousel) return;
-        const item = items[activeIndex];
-        carousel.scrollTo({
-          left: item.offsetLeft - (carousel.clientWidth - item.offsetWidth) / 2,
-          behavior: reducedMotion.matches ? 'auto' : 'smooth'
-        });
-      };
-
-      const activate = index => {
-        activeIndex = (index + items.length) % items.length;
-        items.forEach((item, itemIndex) => {
-          const distance = itemIndex - activeIndex;
-          item.classList.toggle('is-active', itemIndex === activeIndex);
-          item.setAttribute('aria-current', itemIndex === activeIndex ? 'true' : 'false');
-          item.style.setProperty('--service-distance', distance);
-        });
-        previews.forEach((preview, previewIndex) => preview.classList.toggle('is-active', previewIndex === activeIndex));
-        showcase.style.setProperty('--service-index', activeIndex);
-        requestAnimationFrame(positionMobileItem);
-      };
-
-      const stop = () => clearInterval(timer);
-      const start = () => {
-        stop();
-        if (!reducedMotion.matches) timer = setInterval(() => activate(activeIndex + 1), mobileLayout.matches ? 1900 : 1350);
-      };
-
-      items.forEach((item, index) => {
-        item.addEventListener('focus', () => activate(index));
-        item.addEventListener('click', () => activate(index));
-      });
-      showcase.addEventListener('focusin', stop);
-      showcase.addEventListener('focusout', event => {
-        if (!showcase.contains(event.relatedTarget)) start();
-      });
-      reducedMotion.addEventListener('change', start);
-      mobileLayout.addEventListener('change', () => {
-        start();
-        requestAnimationFrame(positionMobileItem);
-      });
-      addEventListener('resize', () => requestAnimationFrame(positionMobileItem), { passive: true });
-      activate(0);
-      start();
-    })();
   </script>
   <script>
     (() => {
