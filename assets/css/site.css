@@ -437,6 +437,8 @@
   .store-button.apple{color:#fff;border:0;border-bottom:4px solid #343434;background:radial-gradient(ellipse 110% 240% at 50% 0%,#646464 0%,#4a4a4a 100%)}
   .store-button.google{color:#2f2f2f;border:0;border-bottom:4px solid #e6e6e6;background:radial-gradient(ellipse 110% 240% at 50% 0%,#fff 0%,#f1f1f1 100%)}
   .meta .store-buttons{margin-top:16px}
+  .app-meta-row{display:flex;align-items:center;justify-content:space-between;gap:18px;min-width:0}.app-meta-row .meta-title{flex:0 0 auto}.app-meta-row .store-buttons{flex:0 0 auto;margin-top:0}
+  @media(max-width:640px){.app-meta-row{display:block}.app-meta-row .store-buttons{margin-top:16px}}
   @media(max-width:420px){.store-buttons{display:grid;grid-template-columns:1fr}.store-button{width:100%;max-width:220px}}
 /* MTS portfolio category */
 .featured-grid{grid-template-columns:repeat(5,minmax(0,1fr))}

@@ -1,12 +1,83 @@
 const YANDEX_METRIKA_ID = 112751157;
 
-if (!document.querySelector('link[data-global-controls]')) {
+let globalControlsLink = document.querySelector('link[data-global-controls]');
+if (!globalControlsLink) {
   const globalControls = document.createElement('link');
   globalControls.rel = 'stylesheet';
-  globalControls.href = '/assets/css/global-controls.css?v=2';
+  globalControls.href = '/assets/css/global-controls.css?v=3';
   globalControls.dataset.globalControls = '';
   document.head.append(globalControls);
+  globalControlsLink = globalControls;
 }
+
+(() => {
+  const path = location.pathname;
+  const isStandaloneExperience = path.startsWith("/sites/") ||
+    path.startsWith("/presentations/116-trophy-cyprus/") ||
+    path.startsWith("/presentations/frame/");
+  if (isStandaloneExperience || !document.body) return;
+
+  document.body.querySelector(":scope > header")?.remove();
+  document.body.querySelectorAll(":scope > #mobileDrawer, :scope > .drawer").forEach(element => element.remove());
+
+  const header = document.createElement("header");
+  header.className = "portfolio-global-header";
+  header.innerHTML = `
+    <div class="portfolio-header-inner">
+      <a class="portfolio-brand" href="/" aria-label="anestiiz — на главную">
+        <span>anestiiz</span><img src="/assets/anestiiz-mark.svg" alt="">
+      </a>
+      <nav class="portfolio-main-nav" aria-label="Основная навигация">
+        <a href="/#experience">Мой опыт</a>
+        <a href="/#about">Обо мне</a>
+        <a href="/#ai">Я и AI</a>
+      </nav>
+      <div class="portfolio-header-actions">
+        <a class="portfolio-brief-link" href="/brief/">Заполнить бриф <img src="/Icons/Arrow Right Up.svg" alt=""></a>
+        <button class="portfolio-menu-button" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="portfolioGlobalDrawer"><span></span><span></span></button>
+      </div>
+    </div>`;
+
+  const drawer = document.createElement("div");
+  drawer.className = "portfolio-global-drawer";
+  drawer.id = "portfolioGlobalDrawer";
+  drawer.hidden = true;
+  drawer.innerHTML = `
+    <button class="portfolio-drawer-scrim" type="button" aria-label="Закрыть меню"></button>
+    <div class="portfolio-drawer-panel" role="dialog" aria-modal="true" aria-label="Меню">
+      <button class="portfolio-drawer-close" type="button" aria-label="Закрыть меню">×</button>
+      <span>РАБОТЫ</span>
+      <a href="/ai-creative/">AI-креатив</a><a href="/apps/">Приложения</a><a href="/websites/">Сайты</a><a href="/presentations/">Презентации</a><a href="/mts-projects/">Проекты МТС</a>
+      <span>ЕЩЁ</span>
+      <a href="/#experience">Мой опыт</a><a href="/#about">Обо мне</a><a href="/#ai">Я и AI</a><a class="portfolio-drawer-brief" href="/brief/">Заполнить бриф</a>
+    </div>`;
+
+  document.body.prepend(drawer);
+  document.body.prepend(header);
+  const revealHeader = () => header.classList.add("is-ready");
+  if (globalControlsLink.sheet) revealHeader();
+  else globalControlsLink.addEventListener("load", revealHeader, { once: true });
+
+  const menuButton = header.querySelector(".portfolio-menu-button");
+  const closeDrawer = () => {
+    drawer.hidden = true;
+    menuButton.setAttribute("aria-expanded", "false");
+    document.documentElement.classList.remove("portfolio-menu-open");
+  };
+  const openDrawer = () => {
+    drawer.hidden = false;
+    menuButton.setAttribute("aria-expanded", "true");
+    document.documentElement.classList.add("portfolio-menu-open");
+    drawer.querySelector(".portfolio-drawer-close").focus();
+  };
+
+  menuButton.addEventListener("click", openDrawer);
+  drawer.querySelectorAll(".portfolio-drawer-close,.portfolio-drawer-scrim").forEach(button => button.addEventListener("click", closeDrawer));
+  drawer.querySelectorAll("a").forEach(link => link.addEventListener("click", closeDrawer));
+  addEventListener("keydown", event => {
+    if (event.key === "Escape" && !drawer.hidden) closeDrawer();
+  });
+})();
 
 window.__ymId = YANDEX_METRIKA_ID;
 
