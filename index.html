@@ -101,24 +101,20 @@
         <figure class="services-portrait"><picture><source media="(max-width: 640px)" srcset="assets/media/services-portrait-mobile.webp"><img src="assets/media/services-portrait.webp" alt="anestiiz предлагает выбрать направление работы" width="1518" height="1811"></picture></figure>
         <div class="services-previews" aria-hidden="true">
           <span class="services-preview" style="--service-preview:url('/assets/banners/feast-no-tomorrow/tomorrow.webp')"></span>
-          <span class="services-preview" style="--service-preview:url('/assets/bloat-down/Cover.webp')"></span>
           <span class="services-preview" style="--service-preview:url('/assets/media/categories/apps-cover.webp')"></span>
           <span class="services-preview" style="--service-preview:url('/assets/greekly/Cover.webp')"></span>
           <span class="services-preview" style="--service-preview:url('/assets/media/presentations/116-trophy-cyprus/1-cover.webp')"></span>
           <span class="services-preview" style="--service-preview:url('/assets/banners/cover.webp')"></span>
-          <span class="services-preview" style="--service-preview:url('/assets/portrait-stories/portrait-10.webp')"></span>
           <span class="services-preview" style="--service-preview:url('/assets/portrait-stories/portrait-02.webp')"></span>
           <span class="services-preview" style="--service-preview:url('/assets/media/categories/mts-projects-cover.webp')"></span>
         </div>
         <div class="services-carousel" aria-label="Направления услуг">
           <div class="services-carousel-track">
-            <a class="services-carousel-item" href="/ai-creative/" data-service-name>AI-видео</a>
-            <a class="services-carousel-item" href="/apps/" data-service-name>UX/UI-дизайн</a>
-            <a class="services-carousel-item" href="/apps/" data-service-name>Мобильные приложения</a>
+            <a class="services-carousel-item" href="/ai-creative/" data-service-name>AI-креатив</a>
+            <a class="services-carousel-item" href="/apps/" data-service-name>Приложения</a>
             <a class="services-carousel-item" href="/websites/" data-service-name>Сайты</a>
             <a class="services-carousel-item" href="/presentations/" data-service-name>Презентации</a>
             <a class="services-carousel-item" href="/banners/" data-service-name>Баннеры</a>
-            <a class="services-carousel-item" href="/ai-creative/" data-service-name>Генерация изображений</a>
             <a class="services-carousel-item" href="/neuro/" data-service-name>Нейрофотосессии</a>
             <a class="services-carousel-item" href="/mts-projects/" data-service-name>Проекты МТС</a>
           </div>
@@ -728,7 +724,7 @@ const navBars = [
       const stop = () => clearInterval(timer);
       const start = () => {
         stop();
-        if (!mobileLayout.matches && !reducedMotion.matches) timer = setInterval(() => activate(activeIndex + 1), 1350);
+        if (!reducedMotion.matches) timer = setInterval(() => activate(activeIndex + 1), mobileLayout.matches ? 1900 : 1350);
       };
 
       items.forEach((item, index) => {
