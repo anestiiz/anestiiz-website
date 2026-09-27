@@ -735,8 +735,6 @@ const navBars = [
         item.addEventListener('focus', () => activate(index));
         item.addEventListener('click', () => activate(index));
       });
-      showcase.addEventListener('pointerenter', stop);
-      showcase.addEventListener('pointerleave', start);
       showcase.addEventListener('focusin', stop);
       showcase.addEventListener('focusout', event => {
         if (!showcase.contains(event.relatedTarget)) start();
