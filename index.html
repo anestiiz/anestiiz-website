@@ -7,8 +7,8 @@
   <title>anestiiz — Portfolio</title>
   <meta name="description" content="anestiiz portfolio — independent designer and AI creator.">
   <link rel="icon" type="image/png" href="assets/favicon/favicon.png"><link rel="apple-touch-icon" href="assets/favicon/favicon.png">
-  <link rel="stylesheet" href="assets/css/site.css?v=category-active-2">
-  <script defer src="assets/js/analytics.js?v=tabs-active-1"></script>
+  <link rel="stylesheet" href="assets/css/site.css?v=services-mobile-5">
+  <script defer src="assets/js/analytics.js?v=nav-cursor-3"></script>
 </head>
 <body class="home-page">
   <header>
@@ -98,7 +98,7 @@
     <section id="services" class="offer wrap">
       <div class="content-head reveal"><div class="hero-menu-eyebrow">Услуги</div><h2>Все нужные форматы.<br><em>Один внимательный процесс.</em></h2></div>
       <div class="services-showcase reveal" data-services-showcase>
-        <figure class="services-portrait"><img src="assets/media/services-portrait.webp" alt="anestiiz предлагает выбрать направление работы" width="1518" height="1811"></figure>
+        <figure class="services-portrait"><picture><source media="(max-width: 640px)" srcset="assets/media/services-portrait-mobile.webp"><img src="assets/media/services-portrait.webp" alt="anestiiz предлагает выбрать направление работы" width="1518" height="1811"></picture></figure>
         <div class="services-previews" aria-hidden="true">
           <span class="services-preview" style="--service-preview:url('/assets/banners/feast-no-tomorrow/tomorrow.webp')"></span>
           <span class="services-preview" style="--service-preview:url('/assets/bloat-down/Cover.webp')"></span>
@@ -697,9 +697,20 @@ const navBars = [
 
       const items = [...showcase.querySelectorAll('[data-service-name]')];
       const previews = [...showcase.querySelectorAll('.services-preview')];
+      const carousel = showcase.querySelector('.services-carousel');
+      const mobileLayout = matchMedia('(max-width: 640px)');
       const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
       let activeIndex = 0;
       let timer = 0;
+
+      const positionMobileItem = () => {
+        if (!mobileLayout.matches || !carousel) return;
+        const item = items[activeIndex];
+        carousel.scrollTo({
+          left: item.offsetLeft - (carousel.clientWidth - item.offsetWidth) / 2,
+          behavior: reducedMotion.matches ? 'auto' : 'smooth'
+        });
+      };
 
       const activate = index => {
         activeIndex = (index + items.length) % items.length;
@@ -711,16 +722,16 @@ const navBars = [
         });
         previews.forEach((preview, previewIndex) => preview.classList.toggle('is-active', previewIndex === activeIndex));
         showcase.style.setProperty('--service-index', activeIndex);
+        requestAnimationFrame(positionMobileItem);
       };
 
       const stop = () => clearInterval(timer);
       const start = () => {
         stop();
-        if (!reducedMotion.matches) timer = setInterval(() => activate(activeIndex + 1), 1350);
+        if (!mobileLayout.matches && !reducedMotion.matches) timer = setInterval(() => activate(activeIndex + 1), 1350);
       };
 
       items.forEach((item, index) => {
-        item.addEventListener('pointerenter', () => activate(index));
         item.addEventListener('focus', () => activate(index));
         item.addEventListener('click', () => activate(index));
       });
@@ -731,6 +742,11 @@ const navBars = [
         if (!showcase.contains(event.relatedTarget)) start();
       });
       reducedMotion.addEventListener('change', start);
+      mobileLayout.addEventListener('change', () => {
+        start();
+        requestAnimationFrame(positionMobileItem);
+      });
+      addEventListener('resize', () => requestAnimationFrame(positionMobileItem), { passive: true });
       activate(0);
       start();
     })();
