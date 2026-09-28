@@ -809,6 +809,6 @@ html[lang="ru"] .about h2.about-title span{font-family:"FreeSerif",Georgia,serif
 .ai-eyebrow,.case-index{display:flex;align-items:center;gap:9px}
 footer .ai{display:inline-flex;align-items:center;gap:6px}
 
-/* The section divider belongs to Experience, not the portfolio marquee. */
-.home-page .marquee{border:0}
-.home-page .experience{border-top:1px solid var(--line)}
+/* The portfolio marquee separates Process from Experience. */
+.home-page .process + .marquee{margin-top:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.home-page .experience{border-top:0}
