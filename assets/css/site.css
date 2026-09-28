@@ -579,7 +579,7 @@
   .home-page .hero-mobile,.home-page .hero-menu{display:none}
   .hero-v2{position:relative;display:block;width:100%;height:100%;overflow:hidden;isolation:isolate;background:#000}
   .hero-v2-visual{position:absolute;z-index:2;inset:0;display:block;pointer-events:none}
-  .hero-v2-bg{position:absolute;z-index:0;inset:-2%;width:104%;height:104%;object-fit:cover;object-position:center;opacity:0;transform:scale(1.08)}
+  .hero-v2-bg{position:absolute;z-index:0;inset:-2%;width:104%;height:104%;object-fit:cover;object-position:center;opacity:1;transform:scale(1.08)}
   .hero-v2::before{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04),transparent 52%,rgba(0,0,0,.72) 88%,#000);pointer-events:none}
   .hero-v2::after{content:"";position:absolute;z-index:1;inset:2% -42% 8%;pointer-events:none;background:linear-gradient(118deg,transparent 0 17%,rgba(255,0,106,.58) 22%,rgba(255,114,182,.22) 27%,transparent 34% 53%,rgba(255,0,106,.42) 60%,rgba(255,137,195,.16) 65%,transparent 72%);filter:blur(32px);opacity:.72;transform:translate3d(-5%,0,0) rotate(-4deg);mix-blend-mode:screen;animation:mobileHeroLights 6.5s ease-in-out infinite alternate}
   .hero-v2-title{position:absolute;z-index:2;top:32px;left:16px;right:16px;color:#fff;font-family:"AkzidenzGroteskPro",Helvetica,sans-serif;font-size:48px;line-height:.88;font-weight:500;letter-spacing:0;text-shadow:0 8px 28px rgba(0,0,0,.48);pointer-events:none;opacity:0;transform:translateY(24px);will-change:transform,opacity,text-shadow}
@@ -591,7 +591,7 @@
   .hero-v2-cta{position:absolute;z-index:5;left:16px;right:16px;bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px;width:auto;min-height:64px;padding:14px 20px;border:var(--pill-border);border-radius:999px;background:var(--pill-bg);box-shadow:var(--pill-shadow),0 0 36px rgba(255,0,106,.28);color:#fff;font:700 15px/20px "Manrope",sans-serif;letter-spacing:0;opacity:0;transform:translateY(24px)}
   .hero-v2-cta .icon-arrow-up{width:20px;height:20px;filter:brightness(0) invert(1)}
   .hero-v2-shade{position:absolute;z-index:4;left:-12%;right:-12%;bottom:-90px;height:210px;background:#000;filter:blur(30px);pointer-events:none}
-  .hero-v2.is-ready .hero-v2-bg{animation:mobileHeroBgIn 1.25s cubic-bezier(.2,.75,.2,1) forwards,mobileBgDrift 9s 1.25s ease-in-out infinite alternate}
+  .hero-v2.is-ready .hero-v2-bg{animation:mobileBgDrift 9s ease-in-out infinite alternate}
   .hero-v2.is-ready .hero-v2-title{animation:mobileTitleIn .9s .18s cubic-bezier(.16,1,.3,1) forwards,mobileTitleFloat 4.8s 1.3s ease-in-out infinite alternate}
   .hero-v2.is-ready .hero-v2-portrait{animation:mobilePortraitIn 1.12s .42s cubic-bezier(.16,1,.3,1) forwards,mobilePortraitFloat 4.8s 1.6s ease-in-out infinite alternate}
   .hero-v2.is-ready .hero-v2-cta{animation:mobileCtaIn .72s .9s cubic-bezier(.2,.75,.2,1) forwards,mobileCtaPulse 3.2s 1.7s ease-in-out infinite}
@@ -635,9 +635,10 @@
 .home-page .hero-menu-attached .hero-tabs::-webkit-scrollbar{display:none}
 .home-page .hero-menu-attached+.marquee{margin-top:0}
 @media(max-width:760px){
-  .home-page .hero-menu-attached{padding:12px}
-  .home-page .hero-menu-attached .hero-tabs{justify-content:flex-start;scroll-snap-type:x proximity}
-  .home-page .hero-menu-attached .hero-tabs a{flex:0 0 auto;min-width:max-content;padding:11px 18px;scroll-snap-align:start}
+  .home-page .hero-menu-attached{min-height:132px;padding:28px 12px 32px;align-items:center}
+  .home-page .hero-menu-attached .hero-tabs{min-height:72px;padding:8px;justify-content:flex-start;scroll-padding-inline:8px;scroll-snap-type:x proximity}
+  .home-page .hero-menu-attached .hero-tabs a{flex:0 0 auto;min-width:max-content;padding:18px 24px;font-size:15px;line-height:20px;scroll-snap-align:start}
+  .home-page .hero-menu-attached .hero-tabs-pill{top:8px;bottom:8px;left:8px}
 }
 @keyframes heroHeaderIn{from{opacity:0;transform:translateY(-22px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes heroBgIn{from{opacity:0;filter:blur(10px);transform:scale(1.12)}to{opacity:1;filter:none}}
