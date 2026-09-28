@@ -639,7 +639,7 @@
   .home-page .hero-menu-attached .hero-tabs{min-height:88px;padding:10px;justify-content:flex-start;scroll-padding-inline:10px;scroll-snap-type:x proximity}
   .home-page .hero-menu-attached .hero-tabs a{flex:0 0 auto;min-width:max-content;padding:22px 28px;font-size:16px;line-height:22px;scroll-snap-align:start}
   .home-page .hero-menu-attached .hero-tabs-pill{top:10px;bottom:10px;left:10px}
-  .home-page .hero-menu-attached+.marquee{border-top:0}
+  .home-page .marquee{border-top:0;border-bottom:1px solid var(--line)}
 }
 @keyframes heroHeaderIn{from{opacity:0;transform:translateY(-22px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes heroBgIn{from{opacity:0;filter:blur(10px);transform:scale(1.12)}to{opacity:1;filter:none}}
