@@ -808,3 +808,7 @@ html[lang="ru"] .about h2.about-title span{font-family:"FreeSerif",Georgia,serif
 .track .ai-mark{width:36px;height:36px;flex-basis:36px;vertical-align:0}
 .ai-eyebrow,.case-index{display:flex;align-items:center;gap:9px}
 footer .ai{display:inline-flex;align-items:center;gap:6px}
+
+/* The section divider belongs to Experience, not the portfolio marquee. */
+.home-page .marquee{border:0}
+.home-page .experience{border-top:1px solid var(--line)}
