@@ -635,10 +635,11 @@
 .home-page .hero-menu-attached .hero-tabs::-webkit-scrollbar{display:none}
 .home-page .hero-menu-attached+.marquee{margin-top:0}
 @media(max-width:760px){
-  .home-page .hero-menu-attached{min-height:132px;padding:28px 12px 32px;align-items:center}
-  .home-page .hero-menu-attached .hero-tabs{min-height:72px;padding:8px;justify-content:flex-start;scroll-padding-inline:8px;scroll-snap-type:x proximity}
-  .home-page .hero-menu-attached .hero-tabs a{flex:0 0 auto;min-width:max-content;padding:18px 24px;font-size:15px;line-height:20px;scroll-snap-align:start}
-  .home-page .hero-menu-attached .hero-tabs-pill{top:8px;bottom:8px;left:8px}
+  .home-page .hero-menu-attached{min-height:160px;padding:32px 12px 38px;align-items:center;border-bottom:0}
+  .home-page .hero-menu-attached .hero-tabs{min-height:88px;padding:10px;justify-content:flex-start;scroll-padding-inline:10px;scroll-snap-type:x proximity}
+  .home-page .hero-menu-attached .hero-tabs a{flex:0 0 auto;min-width:max-content;padding:22px 28px;font-size:16px;line-height:22px;scroll-snap-align:start}
+  .home-page .hero-menu-attached .hero-tabs-pill{top:10px;bottom:10px;left:10px}
+  .home-page .hero-menu-attached+.marquee{border-top:0}
 }
 @keyframes heroHeaderIn{from{opacity:0;transform:translateY(-22px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes heroBgIn{from{opacity:0;filter:blur(10px);transform:scale(1.12)}to{opacity:1;filter:none}}
