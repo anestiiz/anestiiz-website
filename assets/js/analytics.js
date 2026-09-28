@@ -12,9 +12,7 @@ if (!globalControlsLink) {
 
 (() => {
   const path = location.pathname;
-  const isStandaloneExperience = path.startsWith("/sites/") ||
-    path.startsWith("/presentations/116-trophy-cyprus/") ||
-    path.startsWith("/presentations/frame/");
+  const isStandaloneExperience = path.startsWith("/sites/");
   if (isStandaloneExperience || !document.body) return;
 
   document.body.querySelector(":scope > header")?.remove();
