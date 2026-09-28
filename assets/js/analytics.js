@@ -4,7 +4,7 @@ let globalControlsLink = document.querySelector('link[data-global-controls]');
 if (!globalControlsLink) {
   const globalControls = document.createElement('link');
   globalControls.rel = 'stylesheet';
-  globalControls.href = '/assets/css/global-controls.css?v=4';
+  globalControls.href = '/assets/css/global-controls.css?v=5';
   globalControls.dataset.globalControls = '';
   document.head.append(globalControls);
   globalControlsLink = globalControls;
@@ -13,10 +13,18 @@ if (!globalControlsLink) {
 (() => {
   const path = location.pathname;
   const isStandaloneExperience = path.startsWith("/sites/");
+  const isPortfolioCase = /^\/(?:bloat-down|fluxframe|greekly|greekly-promo|lume|mts-runner-seasons|mts-summer-advent|mts-valentines)(?:\/|\.html|$)/.test(path) ||
+    /^\/banners\/feast-no-tomorrow(?:\/|$)/.test(path) ||
+    /^\/presentations\/(?:116-trophy-cyprus|frame|sloy)(?:\/|\.html|$)/.test(path);
   if (isStandaloneExperience || !document.body) return;
 
   document.body.querySelector(":scope > header")?.remove();
   document.body.querySelectorAll(":scope > #mobileDrawer, :scope > .drawer").forEach(element => element.remove());
+  if (isPortfolioCase) {
+    document.documentElement.classList.add("portfolio-case-page");
+    document.querySelectorAll(".topbar .back,.deck-back").forEach(element => element.remove());
+    return;
+  }
 
   const header = document.createElement("header");
   header.className = "portfolio-global-header";
@@ -143,12 +151,14 @@ if (YANDEX_METRIKA_ID) {
 }
 
 (() => {
-  if (location.pathname === "/" || document.querySelector(".back-link,.runner-back,.back,.deck-back,[data-site-back]")) return;
+  const isPortfolioCase = document.documentElement.classList.contains("portfolio-case-page");
+  if (!isPortfolioCase) return;
   const button = document.createElement("button");
   button.type = "button";
   button.className = "site-back-button";
-  button.setAttribute("aria-label", "Назад");
-  button.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path opacity=".5" d="M20 12.75a.75.75 0 0 0 0-1.5v1.5Zm0-.75v-.75H4v1.5h16V12Z" fill="white"/><path d="m10 6-6 6 6 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Назад';
+  const backLabel = document.documentElement.lang === "en" ? "Back" : "Назад";
+  button.setAttribute("aria-label", backLabel);
+  button.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path opacity=".5" d="M20 12.75a.75.75 0 0 0 0-1.5v1.5Zm0-.75v-.75H4v1.5h16V12Z" fill="white"/><path d="m10 6-6 6 6 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' + backLabel;
   button.addEventListener("click", () => {
     if (document.referrer && new URL(document.referrer).origin === location.origin) history.back();
     else location.href = "/";
