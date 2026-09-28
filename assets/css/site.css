@@ -809,6 +809,8 @@ html[lang="ru"] .about h2.about-title span{font-family:"FreeSerif",Georgia,serif
 .ai-eyebrow,.case-index{display:flex;align-items:center;gap:9px}
 footer .ai{display:inline-flex;align-items:center;gap:6px}
 
-/* The portfolio marquee separates Process from Experience. */
-.home-page .process + .marquee{margin-top:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.home-page .experience{border-top:0}
+/* The portfolio marquee is the opening row of Experience. */
+.home-page .experience{padding-top:0;border-top:0;overflow:hidden}
+.home-page .experience > .marquee{margin-top:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.home-page .experience > .marquee + .exp-head{padding-top:200px}
+@media(max-width:760px){.home-page .experience > .marquee + .exp-head{padding-top:80px}}
