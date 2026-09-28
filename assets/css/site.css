@@ -581,7 +581,7 @@
   .hero-v2-visual{position:absolute;z-index:2;inset:0;display:block;pointer-events:none}
   .hero-v2-bg{position:absolute;z-index:0;inset:-2%;width:104%;height:104%;object-fit:cover;object-position:center;opacity:1;transform:scale(1.08)}
   .hero-v2::before{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04),transparent 52%,rgba(0,0,0,.72) 88%,#000);pointer-events:none}
-  .hero-v2::after{content:"";position:absolute;z-index:1;inset:2% -42% 8%;pointer-events:none;background:linear-gradient(118deg,transparent 0 17%,rgba(255,0,106,.58) 22%,rgba(255,114,182,.22) 27%,transparent 34% 53%,rgba(255,0,106,.42) 60%,rgba(255,137,195,.16) 65%,transparent 72%);filter:blur(32px);opacity:.72;transform:translate3d(-5%,0,0) rotate(-4deg);mix-blend-mode:screen;animation:mobileHeroLights 6.5s ease-in-out infinite alternate}
+  .hero-v2::after{content:"";position:absolute;z-index:1;inset:-8% -55% 4%;pointer-events:none;background:radial-gradient(ellipse at 18% 28%,rgba(255,0,106,.82),transparent 34%),radial-gradient(ellipse at 82% 68%,rgba(255,46,148,.68),transparent 38%),linear-gradient(118deg,transparent 14%,rgba(255,0,106,.7) 23%,transparent 34% 55%,rgba(255,113,188,.55) 65%,transparent 75%);filter:blur(38px);opacity:.88;transform:translate3d(-12%,-3%,0) rotate(-6deg) scale(1.04);mix-blend-mode:screen;will-change:transform,opacity;animation:mobileHeroLights 4.6s ease-in-out infinite alternate}
   .hero-v2-title{position:absolute;z-index:2;top:32px;left:16px;right:16px;color:#fff;font-family:"AkzidenzGroteskPro",Helvetica,sans-serif;font-size:48px;line-height:.88;font-weight:500;letter-spacing:0;text-shadow:0 8px 28px rgba(0,0,0,.48);pointer-events:none;opacity:0;transform:translateY(24px);will-change:transform,opacity,text-shadow}
   .hero-v2-title span{display:inline;width:auto;max-width:none;padding:0;margin:0;white-space:normal;clip-path:none;transform:none}
   .hero-v2-title span+span{margin:0;font-size:inherit}
@@ -653,7 +653,7 @@
 @keyframes mobileBgDrift{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.035) translate3d(-1.2%,.6%,0)}}
 @keyframes mobilePortraitFloat{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,-7px,0)}}
 @keyframes mobileCtaPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.1)}}
-@keyframes mobileHeroLights{0%{transform:translate3d(-9%,-3%,0) rotate(-6deg) scale(1);opacity:.58}48%{opacity:.82}100%{transform:translate3d(10%,4%,0) rotate(4deg) scale(1.08);opacity:.68}}
+@keyframes mobileHeroLights{0%{transform:translate3d(-12%,-5%,0) rotate(-7deg) scale(1.02);opacity:.72}48%{opacity:1}100%{transform:translate3d(14%,6%,0) rotate(6deg) scale(1.14);opacity:.84}}
 @keyframes mobileTitleFloat{from{transform:translate3d(0,0,0);text-shadow:0 8px 28px rgba(0,0,0,.48)}to{transform:translate3d(3px,-3px,0);text-shadow:0 8px 28px rgba(0,0,0,.48),0 0 22px rgba(255,0,106,.16)}}
 @keyframes mobileTitleFloatAlt{from{transform:translate3d(0,0,0);text-shadow:0 8px 28px rgba(0,0,0,.48)}to{transform:translate3d(-3px,2px,0);text-shadow:0 8px 28px rgba(0,0,0,.48),0 0 20px rgba(255,0,106,.14)}}
 @media(prefers-reduced-motion:reduce){
