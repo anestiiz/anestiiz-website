@@ -850,7 +850,7 @@ footer .ai{display:inline-flex;align-items:center;gap:6px}
   .ai-creative-page .ai-creative-action{margin-top:14px}
 }
 /* Circular portfolio category gallery */
-.portfolio-orbit{padding-top:clamp(42px,5vw,76px);padding-bottom:28px;overflow:hidden}
+.portfolio-orbit{position:relative;z-index:6;margin-top:clamp(-230px,-15vw,-150px);padding-top:clamp(42px,5vw,76px);padding-bottom:28px;overflow:hidden}
 .orbit-controls{position:absolute;z-index:8;left:0;right:0;top:48%;display:flex;justify-content:space-between;gap:10px;pointer-events:none}
 .orbit-controls button{display:grid;place-items:center;width:58px;height:58px;padding:0;border:1px solid rgba(255,255,255,.22);border-radius:50%;background:rgba(255,255,255,.055);color:#fff;font-size:24px;cursor:pointer;backdrop-filter:blur(14px);transition:transform .25s ease,border-color .25s ease,background .25s ease}
 .orbit-controls button{pointer-events:auto}
@@ -877,7 +877,7 @@ footer .ai{display:inline-flex;align-items:center;gap:6px}
 .orbit-tabs button{flex:0 0 auto;padding:8px 12px;border:0;border-radius:999px;background:transparent;color:var(--soft);font:600 12px/18px "Manrope",sans-serif;cursor:pointer;transition:color .2s ease,background .2s ease}
 .orbit-tabs button.is-active{background:rgba(255,255,255,.12);color:#fff}
 @media(max-width:760px){
-  .portfolio-orbit{padding-top:34px;padding-bottom:22px}
+  .portfolio-orbit{margin-top:-82px;padding-top:34px;padding-bottom:22px}
   .orbit-controls button{width:46px;height:46px;font-size:20px}
   .orbit-stage{height:490px;margin-top:18px}
   .orbit-stage::before{width:150%;height:40%;bottom:5%}
