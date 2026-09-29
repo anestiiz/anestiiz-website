@@ -154,6 +154,8 @@ if (YANDEX_METRIKA_ID) {
 (() => {
   const isPortfolioCase = document.documentElement.classList.contains("portfolio-case-page");
   if (!isPortfolioCase) return;
+  const existingBack = document.querySelector(".portfolio-back, .back-link, .deck-back, a.back, .topbar .back");
+  if (existingBack) return;
   const button = document.createElement("button");
   button.type = "button";
   button.className = "site-back-button";
