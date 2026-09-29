@@ -669,17 +669,14 @@
 .promo-card-portrait>video{object-fit:contain}
 @media(max-width:640px){.promo-project-portrait{width:100%}}
 
-/* Banner index: featured series beside the poster grid */
-@media(min-width:901px){
-  .banners-list{display:grid;grid-template-columns:minmax(280px,360px) minmax(0,1fr);gap:clamp(28px,3vw,52px);align-items:start}
-  .banners-list .banner-project{position:sticky;top:110px}
-  .banners-list .banner-single-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 18px;margin-top:0}
-}
-@media(min-width:1400px){
-  .banners-list{grid-template-columns:minmax(320px,420px) minmax(0,1fr);gap:clamp(40px,4vw,72px)}
-  .banners-list .banner-single-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-@media(max-width:900px){.banners-list .banner-single-grid{margin-top:72px}}
+/* Banner index: two featured cases, followed by the poster collection */
+.banners-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:72px 24px;align-items:start}
+.banners-list .banner-project{position:relative;top:auto;width:100%;min-width:0}
+.banners-list .banner-single-grid{grid-column:1/-1;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 18px;margin-top:12px}
+.banner-project-cover img.cover-fill{object-fit:cover}
+@media(max-width:1100px){.banners-list .banner-single-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:900px){.banners-list{grid-template-columns:1fr;gap:52px}.banners-list .banner-single-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:20px}}
+@media(max-width:640px){.banners-list .banner-single-grid{grid-template-columns:1fr;gap:36px}}
 
 /* Services stack */
 @media(min-width:901px){
