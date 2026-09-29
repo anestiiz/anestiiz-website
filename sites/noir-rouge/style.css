@@ -6,8 +6,6 @@
 .header-cta{border-color:#d8aa5980;background:linear-gradient(145deg,#d8aa591c,transparent)}
 .header-cta:hover,.final-action:hover{background:var(--gold);color:#180507;border-color:var(--gold)}
 .eyebrow .line{background:var(--gold)}
-.round-link{border-color:var(--gold);color:var(--gold)}
-.round-link:hover{background:var(--gold);color:#190507}
 .ticker{background:linear-gradient(100deg,#a97a35,#ebc77b 36%,#bb8c46 70%,#f0d699);color:#1a0808}
 .intro{background:radial-gradient(circle at 80% 23%,#47200c 0%,transparent 31%),#160507}
 .intro h2 em,.details h2 em{color:var(--gold-light)}
