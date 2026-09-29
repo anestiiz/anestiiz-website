@@ -496,6 +496,18 @@ const navBars = [
         pill.style.width = r.width + 'px';
         pill.style.transform = 'translateX(' + (r.left - nav.left - pad) + 'px)';
       };
+      navBars.forEach(bar => {
+        const links = Array.from(bar.el.querySelectorAll('a[data-target]'));
+        links.forEach(link => {
+          link.addEventListener('pointerenter', () => movePill(bar, link));
+          link.addEventListener('focus', () => movePill(bar, link));
+        });
+        const restoreActive = () => movePill(bar, bar.el.querySelector('a.active'));
+        bar.el.addEventListener('pointerleave', restoreActive);
+        bar.el.addEventListener('focusout', event => {
+          if (!bar.el.contains(event.relatedTarget)) restoreActive();
+        });
+      });
       const updateNav = () => {
         const vh = window.innerHeight;
         const centerY = vh / 2;
