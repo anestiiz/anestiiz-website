@@ -9,7 +9,7 @@
     var startX=0;
     var dragging=false;
     var autoplayTimer;
-    var autoplayDelay=30000;
+    var autoplayDelay=10000;
 
     function scheduleAutoplay(){
       window.clearTimeout(autoplayTimer);
