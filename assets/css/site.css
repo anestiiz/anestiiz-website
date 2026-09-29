@@ -850,22 +850,20 @@ footer .ai{display:inline-flex;align-items:center;gap:6px}
   .ai-creative-page .ai-creative-action{margin-top:14px}
 }
 /* Circular portfolio category gallery */
-.portfolio-orbit{padding-top:clamp(110px,12vw,190px);padding-bottom:clamp(110px,13vw,210px);overflow:hidden}
-.orbit-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:32px}
-.orbit-heading h2{margin:14px 0 0;font:500 clamp(52px,6vw,88px)/.95 "AkzidenzGroteskPro",Helvetica,sans-serif;letter-spacing:0}
-.orbit-heading h2 em{font-family:"FreeSerif",Georgia,serif;font-weight:400}
-.orbit-controls{display:flex;gap:10px}
+.portfolio-orbit{padding-top:clamp(42px,5vw,76px);padding-bottom:28px;overflow:hidden}
+.orbit-controls{position:absolute;z-index:8;left:0;right:0;top:48%;display:flex;justify-content:space-between;gap:10px;pointer-events:none}
 .orbit-controls button{display:grid;place-items:center;width:58px;height:58px;padding:0;border:1px solid rgba(255,255,255,.22);border-radius:50%;background:rgba(255,255,255,.055);color:#fff;font-size:24px;cursor:pointer;backdrop-filter:blur(14px);transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.orbit-controls button{pointer-events:auto}
 .orbit-controls button:hover{transform:scale(1.06);border-color:rgba(255,0,106,.7);background:rgba(255,0,106,.14)}
-.orbit-stage{position:relative;height:clamp(520px,51vw,760px);margin-top:34px;perspective:1500px}
+.orbit-stage{position:relative;height:clamp(520px,51vw,760px);perspective:1500px}
 .orbit-stage::before{content:"";position:absolute;left:50%;bottom:3%;width:min(1000px,88vw);height:46%;border:1px solid rgba(255,255,255,.12);border-bottom:0;border-radius:50% 50% 0 0/100% 100% 0 0;transform:translateX(-50%);box-shadow:0 -22px 80px rgba(255,0,106,.08);pointer-events:none}
 .orbit-panel{position:absolute;inset:0;opacity:0;visibility:hidden;transform:rotate(-7deg) scale(.88);transition:opacity .42s ease,transform .65s cubic-bezier(.16,1,.3,1),visibility .42s;pointer-events:none}
 .orbit-panel.is-active{opacity:1;visibility:visible;transform:none;pointer-events:auto}
 .orbit-fan{position:absolute;inset:0}
 .orbit-fan figure{position:absolute;left:50%;bottom:7%;width:clamp(210px,25vw,370px);aspect-ratio:3/4;margin:0;overflow:hidden;border:1px solid rgba(255,255,255,.22);border-radius:8px;background:#100d12;box-shadow:0 30px 90px rgba(0,0,0,.58);transform-origin:50% 115%;transition:transform .65s cubic-bezier(.16,1,.3,1),filter .4s ease}
-.orbit-fan figure:nth-child(1){z-index:1;transform:translateX(-112%) translateY(9%) rotate(-22deg) scale(.88);filter:brightness(.72)}
+.orbit-fan figure:nth-child(1){z-index:1;transform:translateX(-90%) translateY(7%) rotate(-15deg) scale(.92);filter:brightness(.72)}
 .orbit-fan figure:nth-child(2){z-index:3;transform:translateX(-50%) translateY(-4%) rotate(0) scale(1.08)}
-.orbit-fan figure:nth-child(3){z-index:2;transform:translateX(12%) translateY(9%) rotate(22deg) scale(.88);filter:brightness(.72)}
+.orbit-fan figure:nth-child(3){z-index:2;transform:translateX(-10%) translateY(7%) rotate(15deg) scale(.92);filter:brightness(.72)}
 .orbit-panel:not(.is-active) .orbit-fan figure:nth-child(1){transform:translateX(-150%) translateY(26%) rotate(-38deg) scale(.72)}
 .orbit-panel:not(.is-active) .orbit-fan figure:nth-child(2){transform:translateX(-50%) translateY(26%) rotate(8deg) scale(.78)}
 .orbit-panel:not(.is-active) .orbit-fan figure:nth-child(3){transform:translateX(50%) translateY(26%) rotate(38deg) scale(.72)}
@@ -880,22 +878,20 @@ footer .ai{display:inline-flex;align-items:center;gap:6px}
 .orbit-tabs button{flex:0 0 auto;padding:8px 12px;border:0;border-radius:999px;background:transparent;color:var(--soft);font:600 12px/18px "Manrope",sans-serif;cursor:pointer;transition:color .2s ease,background .2s ease}
 .orbit-tabs button.is-active{background:rgba(255,255,255,.12);color:#fff}
 @media(max-width:760px){
-  .portfolio-orbit{padding-top:88px;padding-bottom:110px}
-  .orbit-heading{align-items:flex-end}.orbit-heading h2{font-size:46px}
+  .portfolio-orbit{padding-top:34px;padding-bottom:22px}
   .orbit-controls button{width:46px;height:46px;font-size:20px}
   .orbit-stage{height:490px;margin-top:18px}
   .orbit-stage::before{width:150%;height:40%;bottom:5%}
   .orbit-fan figure{width:min(58vw,270px);bottom:9%}
-  .orbit-fan figure:nth-child(1){transform:translateX(-102%) translateY(13%) rotate(-19deg) scale(.78)}
+  .orbit-fan figure:nth-child(1){transform:translateX(-86%) translateY(10%) rotate(-14deg) scale(.82)}
   .orbit-fan figure:nth-child(2){transform:translateX(-50%) translateY(-2%) scale(1)}
-  .orbit-fan figure:nth-child(3){transform:translateX(2%) translateY(13%) rotate(19deg) scale(.78)}
+  .orbit-fan figure:nth-child(3){transform:translateX(-14%) translateY(10%) rotate(14deg) scale(.82)}
   .orbit-footer{align-items:flex-start;margin-top:-12px}
   .orbit-footer h3{font-size:36px}
   .orbit-link{min-height:46px;padding:10px 15px;font-size:12px}
   .orbit-tabs{margin-top:22px}
 }
 @media(max-width:460px){
-  .orbit-heading h2{font-size:40px}.orbit-heading .hero-menu-eyebrow{font-size:10px}
   .orbit-stage{height:420px}
   .orbit-fan figure{width:58vw}
   .orbit-footer{display:grid}.orbit-link{justify-self:start}
