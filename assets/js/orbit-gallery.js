@@ -8,13 +8,29 @@
     var index=0;
     var startX=0;
     var dragging=false;
+    var autoplayTimer;
+    var autoplayDelay=30000;
+
+    function scheduleAutoplay(){
+      window.clearTimeout(autoplayTimer);
+      if(document.hidden||panels.length<2)return;
+      autoplayTimer=window.setTimeout(function(){
+        show(index+1);
+        scheduleAutoplay();
+      },autoplayDelay);
+    }
+
+    function showFromUser(next){
+      show(next);
+      scheduleAutoplay();
+    }
 
     if(tabs) panels.forEach(function(panel,i){
       var button=document.createElement('button');
       button.type='button';
       button.setAttribute('role','tab');
       button.textContent=panel.dataset.title;
-      button.addEventListener('click',function(){show(i);});
+      button.addEventListener('click',function(){showFromUser(i);});
       tabs.appendChild(button);
     });
 
@@ -37,19 +53,21 @@
       if(tabButtons[index])tabButtons[index].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
     }
 
-    gallery.querySelector('[data-orbit-prev]').addEventListener('click',function(){show(index-1);});
-    gallery.querySelector('[data-orbit-next]').addEventListener('click',function(){show(index+1);});
+    gallery.querySelector('[data-orbit-prev]').addEventListener('click',function(){showFromUser(index-1);});
+    gallery.querySelector('[data-orbit-next]').addEventListener('click',function(){showFromUser(index+1);});
     gallery.querySelector('.orbit-stage').addEventListener('pointerdown',function(event){startX=event.clientX;dragging=true;});
     gallery.querySelector('.orbit-stage').addEventListener('pointerup',function(event){
       if(!dragging)return;
       var distance=event.clientX-startX;
       dragging=false;
-      if(Math.abs(distance)>45)show(index+(distance<0?1:-1));
+      if(Math.abs(distance)>45)showFromUser(index+(distance<0?1:-1));
     });
     gallery.addEventListener('keydown',function(event){
-      if(event.key==='ArrowLeft')show(index-1);
-      if(event.key==='ArrowRight')show(index+1);
+      if(event.key==='ArrowLeft')showFromUser(index-1);
+      if(event.key==='ArrowRight')showFromUser(index+1);
     });
+    document.addEventListener('visibilitychange',scheduleAutoplay);
     show(0);
+    scheduleAutoplay();
   });
 })();
