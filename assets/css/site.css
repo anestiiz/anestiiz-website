@@ -896,3 +896,15 @@ footer .ai{display:inline-flex;align-items:center;gap:6px}
   .orbit-count{display:none}
 }
 @media(prefers-reduced-motion:reduce){.orbit-panel,.orbit-fan figure{transition:none}}
+
+/* Animated service preview in the first screen */
+.hero-v2-services{position:absolute;z-index:5;top:51%;right:5%;width:min(430px,34vw);display:grid;gap:9px;overflow:hidden;opacity:0;pointer-events:none;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.hero-services-track{display:flex;width:max-content;gap:8px;animation:heroServicesFlow 24s linear infinite}
+.hero-services-track.reverse{transform:translateX(-25%);animation-direction:reverse;animation-duration:29s}
+.hero-services-track span{display:inline-flex;align-items:center;min-height:38px;padding:8px 15px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(18,15,22,.48);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 10px 28px rgba(0,0,0,.24);color:#fff;font:600 12px/18px "Manrope",sans-serif;white-space:nowrap;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.hero-services-track span:nth-child(3n+1){border-color:rgba(255,54,142,.62);background:rgba(255,0,106,.16)}
+.hero-v2.is-ready .hero-v2-services{animation:heroElementIn .8s 1.02s cubic-bezier(.2,.75,.2,1) forwards}
+@keyframes heroServicesFlow{to{transform:translateX(-50%)}}
+@media(max-width:1024px){.hero-v2-services{top:auto;right:16px;bottom:16px;left:16px;width:auto;gap:7px}.hero-services-track span{min-height:34px;padding:6px 12px;font-size:11px}}
+@media(max-width:640px){.home-page .hero-v2-services{position:relative;inset:auto;grid-row:2;width:100%;margin-top:8px;padding-block:2px}.hero-services-track.reverse{display:none}}
+@media(prefers-reduced-motion:reduce){.hero-services-track{animation:none}.hero-v2-services{opacity:1}}

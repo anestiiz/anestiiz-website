@@ -40,7 +40,7 @@ globalControlsLink.href = '/assets/css/global-controls.css?v=6';
         <a href="/#ai">Я и AI</a>
       </nav>
       <div class="portfolio-header-actions">
-        <a class="portfolio-brief-link" href="/brief/">Заполнить бриф <img src="/Icons/Arrow Right Up.svg" alt=""></a>
+        <a class="portfolio-brief-link" href="/brief/">Связаться со мной <img src="/Icons/Arrow Right Up.svg" alt=""></a>
         <button class="portfolio-menu-button" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="portfolioGlobalDrawer"><span></span><span></span></button>
       </div>
     </div>`;
@@ -56,7 +56,7 @@ globalControlsLink.href = '/assets/css/global-controls.css?v=6';
       <span>РАБОТЫ</span>
       <a href="/ai-creative/">AI-креатив</a><a href="/apps/">Приложения</a><a href="/websites/">Сайты</a><a href="/presentations/">Презентации</a><a href="/mts-projects/">Проекты МТС</a>
       <span>ЕЩЁ</span>
-      <a href="/#experience">Мой опыт</a><a href="/#about">Обо мне</a><a href="/#ai">Я и AI</a><a class="portfolio-drawer-brief" href="/brief/">Заполнить бриф <img src="/Icons/Arrow Right Up.svg" alt=""></a>
+      <a href="/#experience">Мой опыт</a><a href="/#about">Обо мне</a><a href="/#ai">Я и AI</a><a class="portfolio-drawer-brief" href="/brief/">Связаться со мной <img src="/Icons/Arrow Right Up.svg" alt=""></a>
     </div>`;
 
   document.body.prepend(drawer);
