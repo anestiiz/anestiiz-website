@@ -54,7 +54,7 @@ globalControlsLink.href = '/assets/css/global-controls.css?v=6';
     <div class="portfolio-drawer-panel" role="dialog" aria-modal="true" aria-label="Меню">
       <button class="portfolio-drawer-close" type="button" aria-label="Закрыть меню">×</button>
       <span>РАБОТЫ</span>
-      <a href="/ai-creative/">AI-креатив</a><a href="/apps/">Приложения</a><a href="/websites/">Сайты</a><a href="/presentations/">Презентации</a><a href="/mts-projects/">Проекты МТС</a>
+      <a href="/ai-creative/">AI-Креативы</a><a href="/apps/">Приложения</a><a href="/websites/">Сайты</a><a href="/presentations/">Презентации</a><a href="/mts-projects/">Проекты МТС</a>
       <span>ЕЩЁ</span>
       <a href="/#experience">Мой опыт</a><a href="/#about">Обо мне</a><a href="/#ai">Я и AI</a><a class="portfolio-drawer-brief" href="/brief/">Связаться со мной <img src="/Icons/Arrow Right Up.svg" alt=""></a>
     </div>`;
