@@ -898,7 +898,7 @@ footer .ai{display:inline-flex;align-items:center;gap:6px}
 @media(prefers-reduced-motion:reduce){.orbit-panel,.orbit-fan figure{transition:none}}
 
 /* Animated service preview in the first screen */
-.hero-v2-services{position:absolute;z-index:5;top:51%;right:5%;width:min(430px,34vw);display:grid;gap:9px;overflow:hidden;opacity:0;pointer-events:none;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.hero-v2-services{position:absolute;z-index:2;top:49%;right:3%;width:min(760px,62vw);display:grid;gap:9px;overflow:hidden;opacity:0;pointer-events:none;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
 .hero-services-track{display:flex;width:max-content;gap:8px;animation:heroServicesFlow 24s linear infinite}
 .hero-services-track.reverse{transform:translateX(-25%);animation-direction:reverse;animation-duration:29s}
 .hero-services-track span{display:inline-flex;align-items:center;min-height:38px;padding:8px 15px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:rgba(18,15,22,.48);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 10px 28px rgba(0,0,0,.24);color:#fff;font:600 12px/18px "Manrope",sans-serif;white-space:nowrap;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
