@@ -1,4 +1,5 @@
 const YANDEX_METRIKA_ID = 112751157;
+const TELEGRAM_ACTIVITY_ENDPOINT = "https://anestiiz-telegram-events.palkina-anastasii.workers.dev/event";
 
 let globalControlsLink = document.querySelector('link[data-global-controls]');
 if (!globalControlsLink) {
@@ -113,10 +114,44 @@ if (YANDEX_METRIKA_ID) {
     portfolio_site: eventContext()
   });
 
+  const activitySessionId = (() => {
+    const key = "anestiiz_activity_session";
+    try {
+      const saved = sessionStorage.getItem(key);
+      if (saved) return saved;
+      const created = Math.random().toString(36).slice(2, 8).toUpperCase();
+      sessionStorage.setItem(key, created);
+      return created;
+    } catch (error) {
+      return Math.random().toString(36).slice(2, 8).toUpperCase();
+    }
+  })();
+
+  const notifyTelegramActivity = (goal, params) => {
+    if (!TELEGRAM_ACTIVITY_ENDPOINT || !["page_view", "ui_click", "content_view", "section_view"].includes(goal)) return;
+    if (/^(?:localhost|127\.0\.0\.1)$/.test(location.hostname)) return;
+    fetch(TELEGRAM_ACTIVITY_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        type: goal,
+        site: siteVersion,
+        page: location.pathname + location.hash,
+        label: params.label || "",
+        element: params.element || "",
+        destination: params.destination || "",
+        section: params.section || "",
+        session: activitySessionId
+      }),
+      keepalive: true
+    }).catch(() => {});
+  };
+
   window.trackPortfolioGoal = function(goal, details) {
     const params = Object.assign(eventContext(), details || {});
     window.ym(YANDEX_METRIKA_ID, "reachGoal", goal, params);
     window.ym(YANDEX_METRIKA_ID, "params", { portfolio_event: Object.assign({ type: goal }, params) });
+    notifyTelegramActivity(goal, params);
   };
 
   const compactText = value => String(value || "").trim().replace(/\s+/g, " ").slice(0, 100);

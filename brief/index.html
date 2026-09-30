@@ -260,8 +260,7 @@
   </footer>
 
   <script>
-    const TELEGRAM_BOT_TOKEN = '8493465630:AAGq14a_MWpJ9nlTQnn4M6eZo3JfeELdTRY';
-    const TELEGRAM_CHAT_ID   = '5631116037';
+    const TELEGRAM_BRIEF_ENDPOINT = 'https://anestiiz-telegram-events.palkina-anastasii.workers.dev/brief';
     const STORAGE_KEY        = 'anestiiz_brief_draft_v3';
 
     const requestForm   = document.getElementById('requestForm');
@@ -452,6 +451,13 @@
       }, 300);
     }
 
+    function escapeTelegramHtml(value) {
+      return String(value || '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;');
+    }
+
     // --- Сообщение в Telegram ---
     function buildMessage(data) {
       const type   = data.get('projectType') || '—';
@@ -460,19 +466,19 @@
       const lines = [
         '📩 <b>Новый бриф с anestiiz.ru</b>',
         '',
-        `<b>Что создаём:</b> ${type}`
+        `<b>Что создаём:</b> ${escapeTelegramHtml(type)}`
       ];
       if (detail && detailsSchemas[type]) {
-        lines.push(`<b>${detailsSchemas[type].label}</b> ${detail}`);
+        lines.push(`<b>${escapeTelegramHtml(detailsSchemas[type].label)}</b> ${escapeTelegramHtml(detail)}`);
       }
       const budget   = data.get('budget');
       const timeline = data.get('timeline');
-      if (budget)   lines.push(`<b>Бюджет:</b> ${budget}`);
-      if (timeline) lines.push(`<b>Сроки:</b> ${timeline}`);
+      if (budget)   lines.push(`<b>Бюджет:</b> ${escapeTelegramHtml(budget)}`);
+      if (timeline) lines.push(`<b>Сроки:</b> ${escapeTelegramHtml(timeline)}`);
       const notes = (data.get('notes') || '').trim();
-      if (notes) lines.push('', `<b>Детали:</b> ${notes}`);
-      lines.push('', `<b>Способ связи:</b> ${method}`);
-      lines.push(`<b>Контакт:</b> ${(data.get('contact') || '').trim() || '—'}`);
+      if (notes) lines.push('', `<b>Детали:</b> ${escapeTelegramHtml(notes)}`);
+      lines.push('', `<b>Способ связи:</b> ${escapeTelegramHtml(method)}`);
+      lines.push(`<b>Контакт:</b> ${escapeTelegramHtml((data.get('contact') || '').trim() || '—')}`);
       lines.push('', `<i>${new Date().toLocaleString('ru-RU')}</i>`);
       return lines.join('\n');
     }
@@ -519,31 +525,24 @@
         }
         setStatus('', null);
 
-        if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+        if (!TELEGRAM_BRIEF_ENDPOINT) {
           setStatus('Отправка пока не подключена — напиши в Telegram @anestiiz.', 'error');
           return;
         }
 
         const data = new FormData(requestForm);
         const text = buildMessage(data);
+        const payload = new FormData();
+        payload.append('text', text);
+        selectedPhotos.forEach(photo => payload.append('photos', photo, photo.name));
 
         if (submitBtn) submitBtn.disabled = true;
         setStatus('Отправляю…', null);
 
         try {
-          const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text, parse_mode: 'HTML', disable_web_page_preview: true })
-          });
+          const res = await fetch(TELEGRAM_BRIEF_ENDPOINT, { method: 'POST', body: payload });
           const json = await res.json();
-          if (!res.ok || !json.ok) throw new Error(json.description || 'sendMessage failed');
-          for (const photo of selectedPhotos) {
-            const photoData = new FormData(); photoData.append('chat_id', TELEGRAM_CHAT_ID); photoData.append('photo', photo, photo.name);
-            const photoRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, { method: 'POST', body: photoData });
-            const photoJson = await photoRes.json();
-            if (!photoRes.ok || !photoJson.ok) throw new Error(photoJson.description || 'sendPhoto failed');
-          }
+          if (!res.ok || !json.ok) throw new Error(json.error || 'Brief delivery failed');
           // Реальный успех:
           clearDraft();
           selectedPhotos = []; renderPhotoPreviews();
