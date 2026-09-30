@@ -119,23 +119,80 @@ if (YANDEX_METRIKA_ID) {
     window.ym(YANDEX_METRIKA_ID, "params", { portfolio_event: Object.assign({ type: goal }, params) });
   };
 
+  const compactText = value => String(value || "").trim().replace(/\s+/g, " ").slice(0, 100);
+  const safeDestination = href => {
+    if (!href) return "";
+    try {
+      const url = new URL(href, location.href);
+      return url.origin === location.origin ? url.pathname + url.hash : url.protocol + "//" + url.hostname;
+    } catch (error) {
+      return compactText(href);
+    }
+  };
+  const elementName = element => {
+    if (!element) return "unknown";
+    const id = element.id ? "#" + element.id : "";
+    const classes = typeof element.className === "string"
+      ? element.className.trim().split(/\s+/).filter(Boolean).slice(0, 3).map(name => "." + name).join("")
+      : "";
+    return (element.tagName.toLowerCase() + id + classes).slice(0, 120);
+  };
+
+  window.trackPortfolioGoal("page_view", {
+    title: compactText(document.title),
+    referrer_domain: document.referrer ? new URL(document.referrer).hostname : ""
+  });
+
   document.addEventListener("click", function(event) {
+    const clicked = event.target.closest("a, button, input, select, textarea, summary, [role='button'], [data-analytics-click]") || event.target;
     const target = event.target.closest("a, button");
+    const href = clicked.tagName === "A" ? (clicked.getAttribute("href") || "") : "";
+    const label = compactText(clicked.getAttribute("aria-label") || clicked.getAttribute("title") || clicked.textContent);
+
+    window.trackPortfolioGoal("ui_click", {
+      element: elementName(clicked),
+      label: label,
+      destination: safeDestination(href)
+    });
+
     if (!target) return;
 
-    const href = target.tagName === "A" ? (target.getAttribute("href") || "") : "";
-    const label = (target.getAttribute("aria-label") || target.textContent || "").trim().replace(/\s+/g, " ").slice(0, 80);
+    const targetHref = target.tagName === "A" ? (target.getAttribute("href") || "") : "";
+    const targetLabel = compactText(target.getAttribute("aria-label") || target.textContent);
     let goal = "";
 
-    if (/t\.me\//i.test(href)) goal = "telegram_click";
-    else if (/^mailto:/i.test(href)) goal = "email_click";
-    else if (/apps\.apple\.com/i.test(href)) goal = "app_store_click";
-    else if (/play\.google\.com/i.test(href)) goal = "google_play_click";
-    else if (/\/brief(?:\/|\.html)(?:[?#]|$)/i.test(href)) goal = "brief_open";
+    if (/t\.me\//i.test(targetHref)) goal = "telegram_click";
+    else if (/^mailto:/i.test(targetHref)) goal = "email_click";
+    else if (/apps\.apple\.com/i.test(targetHref)) goal = "app_store_click";
+    else if (/play\.google\.com/i.test(targetHref)) goal = "google_play_click";
+    else if (/\/brief(?:\/|\.html)(?:[?#]|$)/i.test(targetHref)) goal = "brief_open";
     else if (target.matches(".project-card, .card-link") || target.closest(".project-card, .card-link")) goal = "project_open";
 
-    if (goal) window.trackPortfolioGoal(goal, { label: label });
+    if (goal) window.trackPortfolioGoal(goal, { label: targetLabel, destination: safeDestination(targetHref) });
   }, { passive: true });
+
+  window.addEventListener("hashchange", function() {
+    window.ym(YANDEX_METRIKA_ID, "hit", location.pathname + location.search + location.hash, {
+      title: document.title
+    });
+    window.trackPortfolioGoal("section_view", { section: location.hash.slice(1) || "top" });
+  });
+
+  if ("IntersectionObserver" in window) {
+    const viewed = new WeakSet();
+    const viewObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.5 || viewed.has(entry.target)) return;
+        viewed.add(entry.target);
+        window.trackPortfolioGoal("content_view", {
+          element: elementName(entry.target),
+          label: compactText(entry.target.getAttribute("aria-label") || entry.target.querySelector("h1, h2, h3, [data-title]")?.textContent)
+        });
+        viewObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll("article, .project-card, .orbit-card, [data-analytics-view]").forEach(element => viewObserver.observe(element));
+  }
 
   const reachedDepths = new Set();
   window.addEventListener("scroll", function() {
