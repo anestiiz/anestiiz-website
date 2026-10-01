@@ -247,17 +247,29 @@ if (YANDEX_METRIKA_ID) {
   const bars = Array.from(document.querySelectorAll(".tabs-nav"));
   if (!bars.length) return;
 
-  const positionPill = (bar, centerActive = false) => {
+  const positionPill = (bar, target = bar.querySelector("a.active"), centerTarget = false) => {
     const pill = bar.querySelector(".tabs-pill");
-    const active = bar.querySelector("a.active");
-    if (!pill || !active) return;
-    if (centerActive && bar.scrollWidth > bar.clientWidth) {
-      bar.scrollTo({ left: active.offsetLeft - (bar.clientWidth - active.offsetWidth) / 2, behavior: "auto" });
+    if (!pill || !target) return;
+    if (centerTarget && bar.scrollWidth > bar.clientWidth) {
+      bar.scrollTo({ left: target.offsetLeft - (bar.clientWidth - target.offsetWidth) / 2, behavior: "auto" });
     }
     const padding = parseFloat(getComputedStyle(bar).paddingLeft) || 0;
-    pill.style.width = `${active.offsetWidth}px`;
-    pill.style.transform = `translateX(${active.offsetLeft - padding}px)`;
+    pill.style.width = `${target.offsetWidth}px`;
+    pill.style.transform = `translateX(${target.offsetLeft - padding}px)`;
   };
+
+  bars.forEach(bar => {
+    const active = () => bar.querySelector("a.active");
+    bar.querySelectorAll("a").forEach(link => {
+      link.addEventListener("pointerenter", () => positionPill(bar, link));
+      link.addEventListener("focus", () => positionPill(bar, link));
+      link.addEventListener("pointerdown", () => positionPill(bar, link));
+    });
+    bar.addEventListener("pointerleave", () => positionPill(bar, active()));
+    bar.addEventListener("focusout", event => {
+      if (!bar.contains(event.relatedTarget)) positionPill(bar, active());
+    });
+  });
 
   const updateTabs = () => bars.forEach(bar => {
     const maxScroll = document.documentElement.scrollHeight - innerHeight;
@@ -266,8 +278,8 @@ if (YANDEX_METRIKA_ID) {
     positionPill(bar);
   });
 
-  requestAnimationFrame(() => bars.forEach(bar => positionPill(bar, true)));
-  addEventListener("load", () => bars.forEach(bar => positionPill(bar, true)), { once: true });
+  requestAnimationFrame(() => bars.forEach(bar => positionPill(bar, bar.querySelector("a.active"), true)));
+  addEventListener("load", () => bars.forEach(bar => positionPill(bar, bar.querySelector("a.active"), true)), { once: true });
   addEventListener("resize", updateTabs, { passive: true });
   addEventListener("scroll", updateTabs, { passive: true });
   document.fonts?.ready.then(() => bars.forEach(bar => positionPill(bar)));
