@@ -81,7 +81,15 @@
     });
   };
 
-  if (!incomingLanguage) {
+  const navigationType = performance.getEntriesByType('navigation')[0]?.type;
+  const cameFromThisSite = (() => {
+    if (!document.referrer) return false;
+    try { return new URL(document.referrer).origin === location.origin; }
+    catch { return false; }
+  })();
+  const shouldOpenPicker = !incomingLanguage && (navigationType === 'reload' || !cameFromThisSite);
+
+  if (shouldOpenPicker) {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', openLanguagePicker, { once: true });
     } else {
