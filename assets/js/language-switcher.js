@@ -58,7 +58,8 @@
 
     const style = document.createElement('style');
     style.textContent = `
-      .language-picker{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;padding:20px;font-family:Arial,sans-serif;color:#fff}
+      .language-picker{position:fixed;inset:0;z-index:2147483600;display:grid;place-items:center;padding:20px;font-family:Arial,sans-serif;color:#fff}
+      .fluffy-cursor{z-index:2147483647!important}.fluffy-cursor-trail{z-index:2147483646!important}
       .language-picker__backdrop{position:absolute;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(18px)}
       .language-picker__dialog{position:relative;width:min(520px,100%);padding:38px;background:#0b090c;border:1px solid rgba(255,255,255,.22);border-radius:8px;box-shadow:0 30px 90px rgba(0,0,0,.55);text-align:center}
       .language-picker__eyebrow{margin:0 0 20px;color:#ff1680;font-size:12px;font-weight:700;letter-spacing:2px}
