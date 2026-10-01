@@ -244,6 +244,37 @@ if (YANDEX_METRIKA_ID) {
 }
 
 (() => {
+  const bars = Array.from(document.querySelectorAll(".tabs-nav"));
+  if (!bars.length) return;
+
+  const positionPill = (bar, centerActive = false) => {
+    const pill = bar.querySelector(".tabs-pill");
+    const active = bar.querySelector("a.active");
+    if (!pill || !active) return;
+    if (centerActive && bar.scrollWidth > bar.clientWidth) {
+      bar.scrollTo({ left: active.offsetLeft - (bar.clientWidth - active.offsetWidth) / 2, behavior: "auto" });
+    }
+    const padding = parseFloat(getComputedStyle(bar).paddingLeft) || 0;
+    pill.style.width = `${active.offsetWidth}px`;
+    pill.style.transform = `translateX(${active.offsetLeft - padding}px)`;
+  };
+
+  const updateTabs = () => bars.forEach(bar => {
+    const maxScroll = document.documentElement.scrollHeight - innerHeight;
+    const showAfter = Math.min(640, Math.max(120, maxScroll * .45));
+    bar.classList.toggle("is-visible", scrollY > showAfter);
+    positionPill(bar);
+  });
+
+  requestAnimationFrame(() => bars.forEach(bar => positionPill(bar, true)));
+  addEventListener("load", () => bars.forEach(bar => positionPill(bar, true)), { once: true });
+  addEventListener("resize", updateTabs, { passive: true });
+  addEventListener("scroll", updateTabs, { passive: true });
+  document.fonts?.ready.then(() => bars.forEach(bar => positionPill(bar)));
+  updateTabs();
+})();
+
+(() => {
   const isPortfolioCase = document.documentElement.classList.contains("portfolio-case-page");
   if (!isPortfolioCase) return;
   const existingBack = document.querySelector(".portfolio-back, .back-link, .deck-back, a.back, .topbar .back");
