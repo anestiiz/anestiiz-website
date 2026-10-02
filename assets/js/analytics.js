@@ -141,6 +141,7 @@ if (YANDEX_METRIKA_ID) {
         element: params.element || "",
         destination: params.destination || "",
         section: params.section || "",
+        title: params.title || document.title,
         session: activitySessionId
       }),
       keepalive: true
@@ -172,6 +173,14 @@ if (YANDEX_METRIKA_ID) {
       : "";
     return (element.tagName.toLowerCase() + id + classes).slice(0, 120);
   };
+  const readableLabel = element => compactText(
+    element?.getAttribute("aria-label") ||
+    element?.getAttribute("title") ||
+    element?.dataset?.title ||
+    element?.querySelector?.(".meta-title, [data-title], h1, h2, h3")?.textContent ||
+    element?.querySelector?.("img[alt]")?.alt ||
+    element?.textContent
+  );
 
   window.trackPortfolioGoal("page_view", {
     title: compactText(document.title),
@@ -182,7 +191,7 @@ if (YANDEX_METRIKA_ID) {
     const clicked = event.target.closest("a, button, input, select, textarea, summary, [role='button'], [data-analytics-click]") || event.target;
     const target = event.target.closest("a, button");
     const href = clicked.tagName === "A" ? (clicked.getAttribute("href") || "") : "";
-    const label = compactText(clicked.getAttribute("aria-label") || clicked.getAttribute("title") || clicked.textContent);
+    const label = readableLabel(clicked);
 
     window.trackPortfolioGoal("ui_click", {
       element: elementName(clicked),
@@ -221,7 +230,8 @@ if (YANDEX_METRIKA_ID) {
         viewed.add(entry.target);
         window.trackPortfolioGoal("content_view", {
           element: elementName(entry.target),
-          label: compactText(entry.target.getAttribute("aria-label") || entry.target.querySelector("h1, h2, h3, [data-title]")?.textContent)
+          label: readableLabel(entry.target),
+          destination: safeDestination(entry.target.matches("a[href]") ? entry.target.getAttribute("href") : entry.target.querySelector("a[href]")?.getAttribute("href"))
         });
         viewObserver.unobserve(entry.target);
       });
