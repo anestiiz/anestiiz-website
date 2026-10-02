@@ -39,6 +39,7 @@ globalControlsLink.href = '/assets/css/global-controls.css?v=8';
         <a href="/#experience">Мой опыт</a>
         <a href="/#about">Обо мне</a>
         <a href="/#ai">Я и AI</a>
+        <a href="/pricing/">Цены</a>
       </nav>
       <div class="portfolio-header-actions">
         <a class="portfolio-brief-link" href="/brief/">Связаться со мной <img src="/Icons/Arrow Right Up.svg" alt=""></a>
@@ -57,7 +58,7 @@ globalControlsLink.href = '/assets/css/global-controls.css?v=8';
       <span>РАБОТЫ</span>
       <a href="/websites/">Веб-дизайн</a><a href="/apps/">Дизайн приложений</a><a href="/branding/">Брендинг</a><a href="/ai-creative/">AI-Креативы</a><a href="/presentations/">Презентации</a><a href="/banners/">Социальные сети</a>
       <span>ЕЩЁ</span>
-      <a href="/#experience">Мой опыт</a><a href="/#about">Обо мне</a><a href="/#ai">Я и AI</a><a class="portfolio-drawer-brief" href="/brief/">Связаться со мной <img src="/Icons/Arrow Right Up.svg" alt=""></a>
+      <a href="/#experience">Мой опыт</a><a href="/#about">Обо мне</a><a href="/#ai">Я и AI</a><a href="/pricing/">Цены</a><a class="portfolio-drawer-brief" href="/brief/">Связаться со мной <img src="/Icons/Arrow Right Up.svg" alt=""></a>
     </div>`;
 
   document.body.prepend(drawer);

@@ -9,13 +9,15 @@
     '/bloat-down/', '/greekly.html', '/greekly/', '/greekly-promo.html',
     '/greekly-promo/', '/sites/lacque/', '/sites/noir-rouge/', '/sites/sera/',
     '/presentations/frame/', '/presentations/sloy/',
+    '/pricing/',
     '/presentations/116-trophy-cyprus/', '/presentations/116-trophy-cyprus.html'
   ]);
   const routeOverrides = {
     '/banners/shum/': '/shum/',
     '/banners/feast-no-tomorrow/': '/a-feast-without-tomorrow.html',
     '/banners/': '/banners.html',
-    '/branding/': '/branding.html'
+    '/branding/': '/branding.html',
+    '/pricing/': '/pricing.html'
   };
 
   const routeFor = (language) => {
