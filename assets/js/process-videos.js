@@ -10,11 +10,19 @@
     try{video.currentTime=0;}catch(error){}
   }
 
+  function hydrate(video){
+    if(!video.dataset.src)return;
+    video.src=video.dataset.src;
+    video.removeAttribute('data-src');
+    video.load();
+  }
+
   function play(index){
     activeIndex=index%videos.length;
     videos.forEach(function(video,videoIndex){
       if(videoIndex!==activeIndex)reset(video);
     });
+    hydrate(videos[activeIndex]);
     if(isVisible)videos[activeIndex].play().catch(function(){});
   }
 

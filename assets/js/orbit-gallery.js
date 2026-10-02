@@ -11,6 +11,23 @@
     var autoplayTimer;
     var autoplayDelay=10000;
 
+    function hydrate(panel){
+      panel.querySelectorAll('[data-src]').forEach(function(media){
+        media.src=media.dataset.src;
+        media.removeAttribute('data-src');
+        if(media.tagName==='VIDEO')media.load();
+      });
+    }
+
+    function syncVideos(activePanel){
+      panels.forEach(function(panel){
+        panel.querySelectorAll('video').forEach(function(video){
+          if(panel===activePanel)video.play().catch(function(){});
+          else video.pause();
+        });
+      });
+    }
+
     function scheduleAutoplay(){
       window.clearTimeout(autoplayTimer);
       if(document.hidden||panels.length<2)return;
@@ -47,6 +64,8 @@
         }
       });
       var activePanel=panels[index];
+      hydrate(activePanel);
+      syncVideos(activePanel);
       title.textContent=activePanel.dataset.title;
       link.href=activePanel.dataset.href;
       count.textContent=String(index+1).padStart(2,'0')+' / '+String(panels.length).padStart(2,'0');
