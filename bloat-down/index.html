@@ -28,7 +28,7 @@
     body{margin:0;color:var(--ink);font-family:"Manrope","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden;color-scheme:dark}
     body:before{content:"";position:fixed;inset:-20% -10%;pointer-events:none;background:radial-gradient(circle at 13% 12%, rgba(127,190,255,.08), transparent 20%), radial-gradient(circle at 84% 88%, rgba(43,141,255,.10), transparent 18%);z-index:-1}
     a{color:inherit;text-decoration:none}
-    h1,h2,h3,h4,.case-head h2,.case-notes h3{font-family:"AkzidenzGroteskPro","Helvetica Neue",Helvetica,Arial,sans-serif}
+    h1,h2,h3,h4,.case-head h1,.case-notes h3{font-family:"AkzidenzGroteskPro","Helvetica Neue",Helvetica,Arial,sans-serif}
     h1 em,h2 em,h3 em,.pink-serif,.accent-serif{font-family:"FreeSerif",Georgia,serif;font-style:italic;font-weight:400}
     .wrap{width:min(100%,var(--max));margin:auto;padding-inline:var(--pad)}
     html,body{width:100%;max-width:100%;overflow-x:clip}
@@ -48,8 +48,8 @@
     .case-hero{padding-top:clamp(48px,7vw,110px);padding-bottom:clamp(42px,5vw,74px)}
     .case-index{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--case-accent);margin-bottom:24px}
     .case-head{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(42px,7vw,110px);align-items:start;margin-bottom:clamp(42px,6vw,84px)}
-    .case-head h2{margin:0;font-size:clamp(62px,7vw,128px);line-height:.86;letter-spacing:-.05em;font-weight:400}
-    .case-head h2 .pink-serif{color:var(--case-accent)}
+    .case-head h1{margin:0;font-size:clamp(62px,7vw,128px);line-height:.86;letter-spacing:-.05em;font-weight:400}
+    .case-head h1 .pink-serif{color:var(--case-accent)}
     .case-side{display:flex;flex-direction:column;align-items:flex-start;gap:24px}
     .case-logo{width:min(480px,90%);aspect-ratio:1/1;display:block;object-fit:contain;margin-top:clamp(40px,6vw,110px);filter:drop-shadow(0 12px 28px rgba(43,141,255,.35)) drop-shadow(0 32px 80px rgba(43,141,255,.28))}
     .case-lead{font-size:20px;line-height:24px;color:var(--muted);letter-spacing:-.02em;max-width:560px}
@@ -86,19 +86,39 @@
     @media(max-width:900px){.header-row{grid-template-columns:auto 1fr}.header-right{display:none}footer{grid-template-columns:1fr 1fr}footer .top{display:none}}
     @media(max-width:640px){
       .logo{font-size:20px;gap:8px}.logo-a{height:22px}.header-row{height:74px}
-      .case-hero{padding-top:42px}.case-head h2{font-size:52px}.case-lead{font-size:17px}
+      .case-hero{padding-top:42px}.case-head h1{font-size:52px}.case-lead{font-size:17px}
       .case-logo{width:180px}
       .sequence{--gs-gap:12px;padding:6px 0 16px}
       .sequence img{flex:0 0 78%;border-radius:24px}
       .case-cta h3{font-size:34px}
     }
 
-    html[lang="ru"] .case-head h2{font-size:clamp(52px,6.5vw,104px)}
+    html[lang="ru"] .case-head h1{font-size:clamp(52px,6.5vw,104px)}
     html[lang="ru"] .case-cta h3{font-size:clamp(28px,3.4vw,56px)}
-    @media(max-width:640px){html[lang="ru"] .case-head h2{font-size:44px}}
+    @media(max-width:640px){html[lang="ru"] .case-head h1{font-size:44px}}
     .store-buttons{display:flex;gap:10px;margin-top:18px;flex-direction:row}.store-button{width:169px;height:55px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 24px;border-radius:20px;font:700 16px/18px "Manrope",sans-serif;letter-spacing:0;white-space:nowrap;overflow:hidden;transition:transform .18s ease,filter .18s ease}.store-button:hover{transform:translateY(-1px);filter:brightness(1.04)}.store-button img{width:24px;height:24px;object-fit:contain;flex:0 0 24px}.store-button.apple{color:#fff;border:0;border-bottom:4px solid #343434;background:radial-gradient(ellipse 110% 240% at 50% 0%,#646464 0%,#4a4a4a 100%)}.store-button.google{color:#2f2f2f;border:0;border-bottom:4px solid #e6e6e6;background:radial-gradient(ellipse 110% 240% at 50% 0%,#fff 0%,#f1f1f1 100%)}@media(max-width:420px){.store-button{width:min(169px,calc(50vw - 30px));padding-inline:12px}}
   </style>
   <script defer src="/assets/js/analytics.js?v=instagram-20261003"></script>
+
+  <!-- SEO:START -->
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://anestiiz.ru/bloat-down/">
+  <link rel="alternate" hreflang="ru" href="https://anestiiz.ru/bloat-down/">
+  <link rel="alternate" hreflang="en" href="https://anestiiz.com/bloat-down/">
+  <link rel="alternate" hreflang="x-default" href="https://anestiiz.com/bloat-down/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="anestiiz">
+  <meta property="og:title" content="Bloat Down — Digestive health companion · anestiiz">
+  <meta property="og:description" content="Bloat Down mobile app case study — digestive health tracking with a bright, supportive app identity.">
+  <meta property="og:url" content="https://anestiiz.ru/bloat-down/">
+  <meta property="og:image" content="https://anestiiz.ru/assets/bloat-down/1.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bloat Down — Digestive health companion · anestiiz">
+  <meta name="twitter:description" content="Bloat Down mobile app case study — digestive health tracking with a bright, supportive app identity.">
+  <meta name="twitter:image" content="https://anestiiz.ru/assets/bloat-down/1.webp">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Bloat Down — Digestive health companion · anestiiz","description":"Bloat Down mobile app case study — digestive health tracking with a bright, supportive app identity.","url":"https://anestiiz.ru/bloat-down/","creator":{"@type":"Person","name":"Anastasiia Palkina","alternateName":"anestiiz"},"image":"https://anestiiz.ru/assets/bloat-down/1.webp"}</script>
+  <!-- SEO:END -->
 </head>
 <body>
   <header>
@@ -113,7 +133,7 @@
       <div class="case-head reveal">
         <div>
           <div class="case-index">05 / Мобильный дизайн</div>
-          <h2>Bloat Down.<br><span class='pink-serif'>Легче,</span><br>каждый день.</h2>
+          <h1>Bloat Down.<br><span class='pink-serif'>Легче,</span><br>каждый день.</h1>
         </div>
         <div class="case-side">
           <img class="case-logo" src="/assets/bloat-down/Logo.webp" alt="Bloat Down app icon">

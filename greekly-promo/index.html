@@ -30,7 +30,7 @@
     body{margin:0;color:var(--ink);font-family:"Manrope","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden;color-scheme:dark}
     body:before{content:"";position:fixed;inset:-20% -10%;pointer-events:none;background:radial-gradient(circle at 13% 12%, rgba(255,0,106,.05), transparent 20%), radial-gradient(circle at 84% 88%, rgba(239,146,0,.06), transparent 18%);z-index:-1}
     a{color:inherit;text-decoration:none}
-    h1,h2,h3,h4,.case-head h2,.case-note h3{font-family:"AkzidenzGroteskPro","Helvetica Neue",Helvetica,Arial,sans-serif}
+    h1,h2,h3,h4,.case-head h1,.case-note h3{font-family:"AkzidenzGroteskPro","Helvetica Neue",Helvetica,Arial,sans-serif}
     h1 em,h2 em,h3 em,.orange,.accent-serif{font-family:"FreeSerif",Georgia,serif;font-style:italic;font-weight:400}
     .wrap{width:min(100%,var(--max));margin:auto;padding-inline:var(--pad)}
     html,body{width:100%;max-width:100%;overflow-x:clip}
@@ -50,8 +50,8 @@
     .case-hero{padding-top:clamp(48px,7vw,110px);padding-bottom:clamp(42px,5vw,74px)}
     .case-index{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--case-accent);margin-bottom:24px}
     .case-head{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(42px,7vw,110px);align-items:start;margin-bottom:clamp(42px,6vw,84px)}
-    .case-head h2{margin:0;font-size:clamp(62px,7vw,128px);line-height:.86;letter-spacing:-.05em;font-weight:400}
-    .case-head h2 .orange{color:var(--case-accent)}
+    .case-head h1{margin:0;font-size:clamp(62px,7vw,128px);line-height:.86;letter-spacing:-.05em;font-weight:400}
+    .case-head h1 .orange{color:var(--case-accent)}
     .case-side{display:flex;flex-direction:column;align-items:flex-start;gap:24px}
     .case-logo{width:min(220px,42%);aspect-ratio:1/1;display:block;object-fit:cover;border-radius:32px;background:var(--case-surface);box-shadow:0 0 0 1px rgba(239,146,0,.24), 0 12px 28px rgba(239,146,0,.28), 0 32px 80px rgba(239,146,0,.42), 0 18px 60px rgba(0,0,0,.22)}
     .case-lead{font-size:20px;line-height:24px;color:var(--muted);letter-spacing:-.02em;max-width:560px}
@@ -103,7 +103,7 @@
     @media(max-width:1120px){.case-head{grid-template-columns:1fr}.case-side{align-items:flex-start}.case-logo{width:160px}.case-notes{grid-template-columns:1fr;gap:32px}.case-cta{grid-template-columns:1fr}.promo-grid{grid-template-columns:repeat(2,1fr);gap:16px}.promo-tile{max-width:calc(48vh * 9 / 16)}}
     @media(max-width:900px){.header-row{grid-template-columns:auto 1fr}.header-right{display:none}footer{grid-template-columns:1fr 1fr}footer .top{display:none}.logo{font-size:20px;gap:8px}.logo-a{height:22px}.header-row{height:74px}}
     @media(max-width:640px){
-      .case-hero{padding-top:42px}.case-head h2{font-size:48px}.case-lead{font-size:17px}
+      .case-hero{padding-top:42px}.case-head h1{font-size:48px}.case-lead{font-size:17px}
       .case-logo{width:132px;border-radius:20px}
       .promo-grid{grid-template-columns:repeat(2,1fr);gap:12px}
       .promo-tile{border-radius:16px;max-width:100%}
@@ -114,11 +114,31 @@
       .case-cta h3{font-size:34px}
     }
 
-    html[lang="ru"] .case-head h2{font-size:clamp(48px,6vw,96px)}
+    html[lang="ru"] .case-head h1{font-size:clamp(48px,6vw,96px)}
     html[lang="ru"] .case-cta h3{font-size:clamp(28px,3.4vw,56px)}
-    @media(max-width:640px){html[lang="ru"] .case-head h2{font-size:40px}}
+    @media(max-width:640px){html[lang="ru"] .case-head h1{font-size:40px}}
   </style>
   <script defer src="/assets/js/analytics.js?v=instagram-20261003"></script>
+
+  <!-- SEO:START -->
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://anestiiz.ru/greekly-promo/">
+  <link rel="alternate" hreflang="ru" href="https://anestiiz.ru/greekly-promo/">
+  <link rel="alternate" hreflang="en" href="https://anestiiz.com/greekly-promo.html">
+  <link rel="alternate" hreflang="x-default" href="https://anestiiz.com/greekly-promo.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="anestiiz">
+  <meta property="og:title" content="Greekly Promo Pack — App marketing videos · anestiiz">
+  <meta property="og:description" content="Greekly promo video pack — AI-driven marketing shorts made to promote the Greekly language-learning app across socials and ads.">
+  <meta property="og:url" content="https://anestiiz.ru/greekly-promo/">
+  <meta property="og:image" content="https://anestiiz.ru/assets/greekly-promo/1.mp4">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Greekly Promo Pack — App marketing videos · anestiiz">
+  <meta name="twitter:description" content="Greekly promo video pack — AI-driven marketing shorts made to promote the Greekly language-learning app across socials and ads.">
+  <meta name="twitter:image" content="https://anestiiz.ru/assets/greekly-promo/1.mp4">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Greekly Promo Pack — App marketing videos · anestiiz","description":"Greekly promo video pack — AI-driven marketing shorts made to promote the Greekly language-learning app across socials and ads.","url":"https://anestiiz.ru/greekly-promo/","creator":{"@type":"Person","name":"Anastasiia Palkina","alternateName":"anestiiz"},"image":"https://anestiiz.ru/assets/greekly-promo/1.mp4"}</script>
+  <!-- SEO:END -->
 </head>
 <body>
   <header>
@@ -133,7 +153,7 @@
       <div class="case-head reveal">
         <div>
           <div class="case-index">01 / AI-промо пак</div>
-          <h2>Greekly.<br><span class='orange'>Промо-пак,</span><br>который <em>продаёт приложение.</em></h2>
+          <h1>Greekly.<br><span class='orange'>Промо-пак,</span><br>который <em>продаёт приложение.</em></h1>
         </div>
         <div class="case-side">
           <img class="case-logo" src="/assets/greekly/Logo.webp" alt="Greekly visual identity character logo">
