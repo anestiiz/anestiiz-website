@@ -20,12 +20,12 @@ let globalControlsLink = document.querySelector('link[data-global-controls]');
 if (!globalControlsLink) {
   const globalControls = document.createElement('link');
   globalControls.rel = 'stylesheet';
-  globalControls.href = '/assets/css/global-controls.css?v=9';
+  globalControls.href = '/assets/css/global-controls.css?v=10';
   globalControls.dataset.globalControls = '';
   document.head.append(globalControls);
   globalControlsLink = globalControls;
 }
-globalControlsLink.href = '/assets/css/global-controls.css?v=9';
+globalControlsLink.href = '/assets/css/global-controls.css?v=10';
 
 (() => {
   const path = location.pathname;
