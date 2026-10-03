@@ -4,7 +4,7 @@
   const englishRoutes = new Set([
     '/', '/index.html', '/apps.html', '/apps/', '/websites.html', '/websites/', '/branding/',
     '/presentations.html', '/presentations/', '/banners/', '/ai.html', '/ai/',
-    '/ai-creative.html', '/ai-creative/', '/brief.html', '/brief/', '/neuro.html',
+    '/ai-creative.html', '/ai-creative/', '/neuro.html',
     '/fluxframe.html', '/fluxframe/', '/lume.html', '/lume/', '/bloat-down.html',
     '/bloat-down/', '/greekly.html', '/greekly/', '/greekly-promo.html',
     '/greekly-promo/', '/sites/lacque/', '/sites/noir-rouge/', '/sites/sera/',
@@ -36,6 +36,7 @@
 
   const openLanguagePicker = () => {
     if (document.querySelector('.language-picker')) return;
+    document.documentElement.classList.add('language-picker-open');
 
     const modal = document.createElement('div');
     modal.className = 'language-picker';
@@ -53,8 +54,10 @@
 
     const style = document.createElement('style');
     style.textContent = `
-      .language-picker{position:fixed;inset:0;z-index:2147483600;display:grid;place-items:center;padding:20px;font-family:Arial,sans-serif;color:#fff}
-      .fluffy-cursor{z-index:2147483647!important}.fluffy-cursor-trail{z-index:2147483646!important}
+      .language-picker{position:fixed;inset:0;z-index:2147483600;display:grid;place-items:center;padding:20px;font-family:Arial,sans-serif;color:#fff;cursor:default!important}
+      html.language-picker-open .language-picker,html.language-picker-open .language-picker *{cursor:default!important}
+      html.language-picker-open .language-picker button{cursor:pointer!important}
+      html.language-picker-open .fluffy-cursor,html.language-picker-open .fluffy-cursor-trail{display:none!important}
       .language-picker__backdrop{position:absolute;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(18px)}
       .language-picker__dialog{position:relative;width:min(520px,100%);padding:38px;background:#0b090c;border:1px solid rgba(255,255,255,.22);border-radius:8px;box-shadow:0 30px 90px rgba(0,0,0,.55);text-align:center}
       .language-picker__eyebrow{margin:0 0 20px;color:#ff1680;font-size:12px;font-weight:700;letter-spacing:2px}
@@ -76,6 +79,7 @@
         if (language === currentLanguage) {
           modal.remove();
           style.remove();
+          document.documentElement.classList.remove('language-picker-open');
         } else {
           location.href = routeFor(language);
         }

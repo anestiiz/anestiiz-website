@@ -9,14 +9,14 @@
   <link rel="icon" type="image/png" href="/assets/favicon/favicon.png">
   <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
   <link rel="stylesheet" href="/assets/css/site.css?v=deploy-20260927">
-  <script defer src="/assets/js/analytics.js?v=activity-routes-20261002"></script>
+  <script defer src="/assets/js/analytics.js?v=owner-device-20261002"></script>
 </head>
 <body>
   <header>
     <div class="wrap header-row">
       <a class="logo" href="/"><span class="logo-text">anestiiz</span><img class="logo-a" src="/assets/anestiiz-mark.svg" alt=""></a>
       <nav aria-label="Основная навигация"><a href="/#about">Обо мне</a><a href="/ai/">Я и AI</a></nav>
-      <div class="header-right"><a class="talk-link" href="/brief/">Заполнить бриф <img class="icon-arrow-up light" src="/Icons/Arrow Right Up.svg" alt=""></a><button class="hamburger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mobileDrawer"><span></span><span></span></button></div>
+      <div class="header-right"><a class="talk-link" href="https://t.me/anestiiz" target="_blank" rel="noopener">Написать в Telegram <img class="icon-arrow-up light" src="/Icons/Arrow Right Up.svg" alt=""></a><button class="hamburger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mobileDrawer"><span></span><span></span></button></div>
     </div>
   </header>
   <div class="drawer" id="mobileDrawer" hidden>
@@ -25,7 +25,7 @@
       <button class="drawer-close" type="button" aria-label="Закрыть меню" data-drawer-close>×</button>
       <div class="drawer-group-label">Работы</div>
       <a href="/ai-creative/" data-drawer-link>AI-Креативы</a><a href="/apps/" data-drawer-link>Приложения</a><a href="/websites/" data-drawer-link>Сайты</a><a href="/presentations/" data-drawer-link>Презентации</a><a href="/mts-projects/" data-drawer-link>Специальные проекты МТС</a>
-      <div class="drawer-group-label">Ещё</div><a href="/#about" data-drawer-link>Обо мне</a><a href="/brief/" data-drawer-link>Заполнить бриф</a><a href="/ai/" class="drawer-ai" data-drawer-link><img class="ai-mark ai-mark-white" width="22" height="22" src="/assets/icons/ai-white.png" alt="">Как я использую AI в дизайне</a>
+      <div class="drawer-group-label">Ещё</div><a href="/#about" data-drawer-link>Обо мне</a><a href="https://t.me/anestiiz" target="_blank" rel="noopener" data-drawer-link>Написать в Telegram</a><a href="/ai/" class="drawer-ai" data-drawer-link><img class="ai-mark ai-mark-white" width="22" height="22" src="/assets/icons/ai-white.png" alt="">Как я использую AI в дизайне</a>
     </aside>
   </div>
   <main id="top">
@@ -75,6 +75,6 @@
     const updateTabsVisibility=()=>{const bar=document.querySelector('.tabs-nav');if(!bar)return;const show=window.scrollY>Math.max(640,window.innerHeight*.7);bar.classList.toggle('is-visible',show);if(show)posTabsPill()};window.addEventListener('scroll',updateTabsVisibility,{passive:true});window.addEventListener('resize',()=>{posTabsPill();updateTabsVisibility()});window.addEventListener('load',()=>{posTabsPill();updateTabsVisibility()});
     const drawer=document.getElementById('mobileDrawer'),hamburger=document.querySelector('.hamburger');if(drawer&&hamburger){const close=()=>{drawer.classList.remove('is-open');hamburger.classList.remove('is-open');hamburger.setAttribute('aria-expanded','false');document.body.classList.remove('is-drawer-open');setTimeout(()=>drawer.hidden=true,350)};hamburger.addEventListener('click',()=>{if(drawer.classList.contains('is-open'))return close();drawer.hidden=false;requestAnimationFrame(()=>drawer.classList.add('is-open'));hamburger.classList.add('is-open');hamburger.setAttribute('aria-expanded','true');document.body.classList.add('is-drawer-open')});drawer.querySelectorAll('[data-drawer-close],[data-drawer-link]').forEach(el=>el.addEventListener('click',close))}
   </script>
-  <script src="/assets/js/language-switcher.js?v=20261001-5"></script>
+  <script src="/assets/js/language-switcher.js?v=system-cursor-20261002"></script>
 </body>
 </html>

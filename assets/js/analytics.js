@@ -1,5 +1,20 @@
 const YANDEX_METRIKA_ID = 112751157;
 const TELEGRAM_ACTIVITY_ENDPOINT = "https://anestiiz-telegram-events.palkina-anastasii.workers.dev/event";
+const TELEGRAM_OWNER_MODE_KEY = "anestiiz_owner_device";
+
+const telegramOwnerMode = (() => {
+  try {
+    const url = new URL(location.href);
+    if (url.searchParams.get("owner") === "anestiiz") {
+      localStorage.setItem(TELEGRAM_OWNER_MODE_KEY, "1");
+      url.searchParams.delete("owner");
+      history.replaceState(history.state, "", url.pathname + url.search + url.hash);
+    }
+    return localStorage.getItem(TELEGRAM_OWNER_MODE_KEY) === "1";
+  } catch (error) {
+    return false;
+  }
+})();
 
 let globalControlsLink = document.querySelector('link[data-global-controls]');
 if (!globalControlsLink) {
@@ -42,7 +57,10 @@ globalControlsLink.href = '/assets/css/global-controls.css?v=8';
         <a href="/pricing/">Цены</a>
       </nav>
       <div class="portfolio-header-actions">
-        <a class="portfolio-brief-link" href="/brief/">Связаться со мной <img src="/Icons/Arrow Right Up.svg" alt=""></a>
+        <div class="portfolio-social-links" aria-label="Социальные сети">
+          <a href="https://t.me/anestiiz" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.7 3.2 18.5 20c-.2 1.2-.9 1.5-1.9.9l-4.8-3.6-2.3 2.3c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.2 13.9l-4.7-1.5c-1-.3-1-1 .2-1.5L20 3.8c.9-.3 1.9.2 1.7-.6Z"/></svg></a>
+          <a href="https://www.behance.net/anestiiz" target="_blank" rel="noopener" aria-label="Behance"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5h7.1c3 0 4.8 1 4.8 3.7 0 1.4-.7 2.4-1.9 3 1.7.5 2.6 1.8 2.6 3.6 0 2.9-2.5 4.2-5.1 4.2H3V5.5Zm3.2 5.9h3.4c1.2 0 2.1-.5 2.1-1.8 0-1.5-1.1-1.7-2.4-1.7H6.2v3.5Zm0 6.1h3.6c1.4 0 2.6-.4 2.6-2 0-1.6-1-2.2-2.5-2.2H6.2v4.2ZM17.1 7h5v1.7h-5V7Zm5.9 8.5h-7.5c.1 1.8 1 2.6 2.6 2.6 1.2 0 2.1-.7 2.3-1.4h2.5c-.8 2.5-2.5 3.6-4.9 3.6-3.3 0-5.4-2.3-5.4-5.5 0-3.1 2.2-5.5 5.4-5.5 3.6 0 5.3 3 5.1 6.2Zm-7.5-1.8h4.7c-.3-1.5-.9-2.2-2.3-2.2-1.8 0-2.3 1.4-2.4 2.2Z"/></svg></a>
+        </div>
         <button class="portfolio-menu-button" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="portfolioGlobalDrawer"><span></span><span></span></button>
       </div>
     </div>`;
@@ -58,7 +76,7 @@ globalControlsLink.href = '/assets/css/global-controls.css?v=8';
       <span>РАБОТЫ</span>
       <a href="/websites/">Веб-дизайн</a><a href="/apps/">Дизайн приложений</a><a href="/branding/">Брендинг</a><a href="/ai-creative/">AI-Креативы</a><a href="/presentations/">Презентации</a><a href="/banners/">Социальные сети</a>
       <span>ЕЩЁ</span>
-      <a href="/#experience">Мой опыт</a><a href="/#about">Обо мне</a><a href="/#ai">Я и AI</a><a href="/pricing/">Цены</a><a class="portfolio-drawer-brief" href="/brief/">Связаться со мной <img src="/Icons/Arrow Right Up.svg" alt=""></a>
+      <a href="/#experience">Мой опыт</a><a href="/#about">Обо мне</a><a href="/#ai">Я и AI</a><a href="/pricing/">Цены</a><div class="portfolio-drawer-socials"><a href="https://t.me/anestiiz" target="_blank" rel="noopener">Telegram</a><a href="https://www.behance.net/anestiiz" target="_blank" rel="noopener">Behance</a></div>
     </div>`;
 
   document.body.prepend(drawer);
@@ -129,6 +147,7 @@ if (YANDEX_METRIKA_ID) {
   })();
 
   const notifyTelegramActivity = (goal, params) => {
+    if (telegramOwnerMode) return;
     if (!TELEGRAM_ACTIVITY_ENDPOINT || !["page_view", "ui_click", "content_view", "section_view"].includes(goal)) return;
     if (/^(?:localhost|127\.0\.0\.1)$/.test(location.hostname)) return;
     fetch(TELEGRAM_ACTIVITY_ENDPOINT, {

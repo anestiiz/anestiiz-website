@@ -3,6 +3,16 @@
   const tabs = document.querySelector('[data-pricing-tabs]');
   const stage = document.querySelector('[data-pricing-stage]');
   if (!data || !tabs || !stage) return;
+  const syncPackageHeights = () => {
+    const cards = [...stage.querySelectorAll('.pricing-package')];
+    cards.forEach(card => {
+      card.style.boxSizing = 'border-box';
+      card.style.height = 'auto';
+      card.style.minHeight = '0';
+    });
+    const height = Math.max(0, ...cards.map(card => card.offsetHeight));
+    cards.forEach(card => card.style.height = `${height}px`);
+  };
   const render = (category, updateHash = true) => {
     tabs.querySelectorAll('button').forEach(button => {
       const active = button.dataset.category === category.id;
@@ -11,7 +21,10 @@
     });
     stage.classList.remove('is-visible');
     stage.innerHTML = `<div class="pricing-category-heading"><p>${category.index}</p><div><h2>${category.title}</h2><p>${category.description}</p></div></div><div class="pricing-packages">${category.packages.map(pkg => `<article class="pricing-package${pkg.featured ? ' is-featured' : ''}"><div class="pricing-package-top"><p class="pricing-tier">${pkg.id}</p>${pkg.badge ? `<span class="pricing-badge">${pkg.badge}</span>` : ''}</div><h3>${pkg.title}</h3><p class="pricing-package-price">${pkg.price}</p>${pkg.timeline ? `<p class="pricing-timeline">${pkg.timeline}</p>` : ''}${pkg.description ? `<p class="pricing-package-description">${pkg.description}</p>` : ''}<ul>${pkg.features.map(feature => `<li>${feature}</li>`).join('')}</ul><button class="pricing-package-cta" type="button" data-select-package data-category="${category.title}" data-tier="${pkg.id}" data-title="${pkg.title}" data-price="${pkg.price}">${data.cta}${pkg.featured ? ' ↗' : ''}</button></article>`).join('')}</div>`;
-    requestAnimationFrame(() => stage.classList.add('is-visible'));
+    requestAnimationFrame(() => {
+      syncPackageHeights();
+      stage.classList.add('is-visible');
+    });
     if (updateHash) history.replaceState(null, '', `#${category.id}`);
   };
   data.categories.forEach(category => {
@@ -32,6 +45,12 @@
     modal.querySelector('form').addEventListener('submit',async event=>{event.preventDefault();const form=event.currentTarget,submit=form.querySelector('button[type="submit"]'),status=form.querySelector('.pricing-selection-status'),contact=form.elements.contact.value.trim(),notes=form.elements.notes.value.trim();submit.disabled=true;submit.textContent=copy.sending;const text=locale==='ru'?`📩 <b>Выбран пакет на anestiiz.ru</b>\n\n<b>Категория:</b> ${escapeHtml(selection.category)}\n<b>Пакет:</b> ${escapeHtml(selection.tier)} · ${escapeHtml(selection.title)}\n<b>Цена:</b> ${escapeHtml(selection.price)}\n<b>Контакт:</b> ${escapeHtml(contact)}${notes?`\n<b>Комментарий:</b> ${escapeHtml(notes)}`:''}`:`📩 <b>Package selected on anestiiz.com</b>\n\n<b>Category:</b> ${escapeHtml(selection.category)}\n<b>Package:</b> ${escapeHtml(selection.tier)} · ${escapeHtml(selection.title)}\n<b>Price:</b> ${escapeHtml(selection.price)}\n<b>Contact:</b> ${escapeHtml(contact)}${notes?`\n<b>Note:</b> ${escapeHtml(notes)}`:''}`;const payload=new FormData();payload.append('text',text);try{const response=await fetch('https://anestiiz-telegram-events.palkina-anastasii.workers.dev/brief',{method:'POST',body:payload});const json=await response.json();if(!response.ok||!json.ok)throw new Error('Delivery failed');modal.querySelector('.pricing-selection-dialog').innerHTML=`<div class="pricing-selection-success"><span>✓</span><h2>${copy.success}</h2><p>${copy.successNote}</p><button type="button">${copy.close}</button></div>`;modal.querySelector('.pricing-selection-success button').addEventListener('click',()=>closeModal(modal));if(window.ym)window.ym(window.__ymId,'reachGoal','pricing_package_submitted');}catch(error){status.textContent=copy.error;submit.disabled=false;submit.textContent=`${copy.send} ↗`;}});
   };
   stage.addEventListener('click',event=>{const button=event.target.closest('[data-select-package]');if(button)openModal(button);});
+  let resizeFrame = 0;
+  addEventListener('resize', () => {
+    cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(syncPackageHeights);
+  });
+  document.fonts?.ready.then(syncPackageHeights);
   addEventListener('keydown',event=>{if(event.key==='Escape'){const modal=document.querySelector('.pricing-selection');if(modal)closeModal(modal);}});
   render(data.categories.find(category => `#${category.id}` === location.hash) || data.categories[0], false);
 })();
