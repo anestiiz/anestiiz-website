@@ -30,7 +30,7 @@ globalControlsLink.href = '/assets/css/global-controls.css?v=10';
 (() => {
   const path = location.pathname;
   const isStandaloneExperience = path.startsWith("/sites/");
-  const isPortfolioCase = /^\/(?:bloat-down|fluxframe|greekly|greekly-promo|lume|mts-runner-seasons|mts-summer-advent|mts-valentines)(?:\/|\.html|$)/.test(path) ||
+  const isPortfolioCase = /^\/(?:bloat-down|fluxframe|greekly|greekly-promo|lume|safesupp|mts-runner-seasons|mts-summer-advent|mts-valentines)(?:\/|\.html|$)/.test(path) ||
     /^\/banners\/feast-no-tomorrow(?:\/|$)/.test(path) ||
     /^\/presentations\/(?:116-trophy-cyprus|frame|sloy)(?:\/|\.html|$)/.test(path);
   if (isStandaloneExperience || !document.body) return;
