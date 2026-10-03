@@ -86,7 +86,8 @@
       if(event.key==='ArrowRight')showFromUser(index+1);
     });
     document.addEventListener('visibilitychange',scheduleAutoplay);
-    show(0);
+    var initialIndex=panels.findIndex(function(panel){return panel.dataset.title==='Социальные сети';});
+    show(initialIndex>=0?initialIndex:0);
     scheduleAutoplay();
   });
 })();
