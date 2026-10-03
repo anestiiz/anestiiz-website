@@ -1,0 +1,12 @@
+:is(a, button, span):has(> :is(.icon-arrow-up, img[src*="Arrow Right Up"])),
+.orbit-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  column-gap: 8px !important;
+}
+
+:is(a, button, span) > :is(.icon-arrow-up, img[src*="Arrow Right Up"]),
+.orbit-link > span:has(> .icon-arrow-up) {
+  margin-inline: 0 !important;
+  flex-shrink: 0;
+}

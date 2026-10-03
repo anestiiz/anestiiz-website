@@ -1,0 +1,2 @@
+const progress=document.querySelector('.reading-progress');let scheduled=false;function update(){const height=document.documentElement.scrollHeight-innerHeight;progress.style.width=(height>0?scrollY/height*100:0)+'%';scheduled=false}addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(update)}},{passive:true});addEventListener('resize',update);update();
+function fitFigma(){document.documentElement.style.setProperty('--figma-scale',String(innerWidth/1440))}fitFigma();addEventListener('resize',fitFigma);

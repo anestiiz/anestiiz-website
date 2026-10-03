@@ -26,11 +26,15 @@ if (!globalControlsLink) {
   globalControlsLink = globalControls;
 }
 globalControlsLink.href = '/assets/css/global-controls.css?v=10';
+const arrowSpacingLink = document.createElement('link');
+arrowSpacingLink.rel = 'stylesheet';
+arrowSpacingLink.href = '/assets/css/arrow-spacing.css?v=20261003-1';
+document.head.append(arrowSpacingLink);
 
 (() => {
   const path = location.pathname;
   const isStandaloneExperience = path.startsWith("/sites/");
-  const isPortfolioCase = /^\/(?:bloat-down|fluxframe|greekly|greekly-promo|lume|safesupp|mts-runner-seasons|mts-summer-advent|mts-valentines)(?:\/|\.html|$)/.test(path) ||
+  const isPortfolioCase = /^\/(?:bloat-down|fluxframe|greekly|greekly-promo|lume|safesupp|how-are-you|mts-runner-seasons|mts-summer-advent|mts-valentines)(?:\/|\.html|$)/.test(path) ||
     /^\/banners\/feast-no-tomorrow(?:\/|$)/.test(path) ||
     /^\/presentations\/(?:116-trophy-cyprus|frame|sloy)(?:\/|\.html|$)/.test(path);
   if (isStandaloneExperience || !document.body) return;
