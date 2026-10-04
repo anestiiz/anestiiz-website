@@ -7,7 +7,9 @@
     var tabs=gallery.querySelector('.orbit-tabs');
     var index=0;
     var startX=0;
+    var startY=0;
     var dragging=false;
+    var swiped=false;
     var autoplayTimer;
     var autoplayDelay=10000;
 
@@ -58,6 +60,8 @@
         var active=i===index;
         panel.classList.toggle('is-active',active);
         panel.setAttribute('aria-hidden',active?'false':'true');
+        var panelLink=panel.querySelector('a.orbit-fan');
+        if(panelLink)panelLink.tabIndex=active?0:-1;
         if(tabButtons[i]){
           tabButtons[i].classList.toggle('is-active',active);
           tabButtons[i].setAttribute('aria-selected',active?'true':'false');
@@ -74,13 +78,23 @@
 
     gallery.querySelector('[data-orbit-prev]').addEventListener('click',function(){showFromUser(index-1);});
     gallery.querySelector('[data-orbit-next]').addEventListener('click',function(){showFromUser(index+1);});
-    gallery.querySelector('.orbit-stage').addEventListener('pointerdown',function(event){startX=event.clientX;dragging=true;});
-    gallery.querySelector('.orbit-stage').addEventListener('pointerup',function(event){
+    var stage=gallery.querySelector('.orbit-stage');
+    stage.addEventListener('pointerdown',function(event){
+      if(event.button!==0||event.target.closest('button'))return;
+      startX=event.clientX;startY=event.clientY;dragging=true;swiped=false;
+    });
+    stage.addEventListener('pointerup',function(event){
       if(!dragging)return;
       var distance=event.clientX-startX;
       dragging=false;
+      swiped=Math.abs(distance)>45||Math.abs(event.clientY-startY)>45;
       if(Math.abs(distance)>45)showFromUser(index+(distance<0?1:-1));
     });
+    stage.addEventListener('pointercancel',function(){dragging=false;swiped=false;});
+    stage.addEventListener('click',function(event){
+      if(swiped&&event.detail!==0){event.preventDefault();swiped=false;}
+    },true);
+    stage.addEventListener('dragstart',function(event){event.preventDefault();});
     gallery.addEventListener('keydown',function(event){
       if(event.key==='ArrowLeft')showFromUser(index-1);
       if(event.key==='ArrowRight')showFromUser(index+1);
