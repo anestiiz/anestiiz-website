@@ -36,7 +36,7 @@ document.head.append(arrowSpacingLink);
   const isStandaloneExperience = path.startsWith("/sites/");
   const isPortfolioCase = /^\/(?:bloat-down|fluxframe|greekly|greekly-promo|lume|safesupp|how-are-you|mts-runner-seasons|mts-summer-advent|mts-valentines)(?:\/|\.html|$)/.test(path) ||
     /^\/banners\/feast-no-tomorrow(?:\/|$)/.test(path) ||
-    /^\/presentations\/(?:116-trophy-cyprus|frame|sloy)(?:\/|\.html|$)/.test(path);
+    /^\/presentations\/(?:116-trophy-cyprus|frame|sloy|loop)(?:\/|\.html|$)/.test(path);
   if (isStandaloneExperience || !document.body) return;
 
   document.body.querySelector(":scope > header")?.remove();
