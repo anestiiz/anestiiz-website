@@ -5,10 +5,9 @@
   const prev = document.querySelector('#deck-prev');
   const next = document.querySelector('#deck-next');
   const count = document.querySelector('#deck-count');
-  const ru = document.documentElement.lang === 'ru';
   let current = 0;
   slides.forEach((slide, index) => {
-    select.add(new Option(`${ru ? 'Слайд' : 'Slide'} ${index + 1} / ${slides.length}`, index));
+    select.add(new Option(`${index + 1} / ${slides.length}`, index));
   });
   const go = index => {
     current = Math.max(0, Math.min(slides.length - 1, index));

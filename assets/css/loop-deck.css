@@ -14,9 +14,12 @@ a{text-decoration:none}
 .loop-track{height:100%;display:flex;transition:transform .3s ease}
 .loop-track img{flex:0 0 100%;width:100%;height:100%;object-fit:contain;padding:16px}
 .deck-controls{display:flex;justify-content:center;align-items:center;gap:12px}
-.deck-controls button{display:grid;place-items:center;width:44px;height:44px;border:1px solid #ffffff40;border-radius:50%;background:#171719;font-size:24px;cursor:pointer}
+.deck-controls :is(button,select){box-sizing:border-box;flex:0 0 56px;width:56px;height:56px;margin:0;padding:0;border:1px solid #ffffff40;border-radius:50%;background:#171719;cursor:pointer}
+.deck-controls button{display:grid;place-items:center}
+.deck-controls button img{display:block;width:24px;height:24px;filter:brightness(0) invert(1)}
+#deck-next img{transform:rotate(180deg)}
 .deck-controls button:disabled{opacity:.3;cursor:default}
-.deck-controls select{max-width:calc(100vw - 144px);height:44px;padding:0 12px;background:#171719;border:1px solid #ffffff40;border-radius:6px;font-size:14px}
+.deck-controls select{appearance:none;-webkit-appearance:none;text-align:center;text-align-last:center;font-size:13px;line-height:normal}
 .deck-controls button:hover:not(:disabled){border-color:#ff936d}
 :is(a,button,select):focus-visible{outline:2px solid #ff936d;outline-offset:4px}
 @media(max-width:600px){body{grid-template-rows:60px minmax(0,1fr) 72px}.deck-toolbar{padding:12px}.loop-back span:last-child{display:none}.loop-track img{padding:0}}
