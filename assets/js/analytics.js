@@ -59,6 +59,7 @@ document.head.append(arrowSpacingLink);
         <a href="/#experience">Мой опыт</a>
         <a href="/#about">Обо мне</a>
         <a href="/#ai">Я и AI</a>
+        <a href="/mts-projects/" aria-label="Специальные проекты МТС">МТС</a>
         <a href="/pricing/">Цены</a>
       </nav>
       <div class="portfolio-header-actions">
@@ -81,6 +82,7 @@ document.head.append(arrowSpacingLink);
       <button class="portfolio-drawer-close" type="button" aria-label="Закрыть меню">×</button>
       <span>РАБОТЫ</span>
       <a href="/websites/">Веб-дизайн</a><a href="/apps/">Дизайн приложений</a><a href="/ai-creative/">AI-Креативы</a><a href="/presentations/">Презентации</a><a href="/banners/">Социальные сети</a>
+      <a href="/mts-projects/">Специальные проекты МТС</a>
       <span>ЕЩЁ</span>
       <a href="/#experience">Мой опыт</a><a href="/#about">Обо мне</a><a href="/#ai">Я и AI</a><a href="/pricing/">Цены</a><div class="portfolio-drawer-socials"></div>
     </div>`;
