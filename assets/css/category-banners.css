@@ -19,7 +19,8 @@
 .category-banner-link img{width:20px;height:20px;filter:brightness(0) invert(1)}
 .category-banner-link::after{content:"";position:absolute;inset:0;z-index:1;cursor:pointer}
 .category-banner:focus-within{outline:2px solid #ff0879;outline-offset:-4px}
-.category-banner-tabs{display:flex;align-items:stretch;width:100%;margin:0;overflow-x:auto;background:#17171b;border-bottom:1px solid #ffffff20;scrollbar-width:thin}
+.category-banner-tabs{display:flex;align-items:stretch;width:100%;margin:0;overflow-x:auto;background:#17171b;border-bottom:1px solid #ffffff20;scrollbar-width:none}
+.category-banner-tabs::-webkit-scrollbar{display:none}
 .category-banner-tabs button{flex:1 0 auto;padding:22px 20px;background:transparent;border:0;border-bottom:3px solid transparent;color:#bdb6c0;white-space:nowrap;font:500 14px/1.4 Manrope,Arial,sans-serif;cursor:pointer}
 .category-banner-tabs button[aria-selected="true"]{color:#fff;background:#292128;border-bottom-color:#ff0879}
 .category-banner-tabs button:hover{color:#fff}
