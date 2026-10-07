@@ -21,12 +21,12 @@ let globalControlsLink = document.querySelector('link[data-global-controls]');
 if (!globalControlsLink) {
   const globalControls = document.createElement('link');
   globalControls.rel = 'stylesheet';
-  globalControls.href = '/assets/css/global-controls.css?v=social-buttons-20261004';
+  globalControls.href = '/assets/css/global-controls.css?v=drawer-socials-20261007';
   globalControls.dataset.globalControls = '';
   document.head.append(globalControls);
   globalControlsLink = globalControls;
 }
-globalControlsLink.href = '/assets/css/global-controls.css?v=social-buttons-20261004';
+globalControlsLink.href = '/assets/css/global-controls.css?v=drawer-socials-20261007';
 const arrowSpacingLink = document.createElement('link');
 arrowSpacingLink.rel = 'stylesheet';
 arrowSpacingLink.href = '/assets/css/arrow-spacing.css?v=20261003-1';
@@ -80,10 +80,14 @@ document.head.append(arrowSpacingLink);
     <div class="portfolio-drawer-panel" role="dialog" aria-modal="true" aria-label="Меню">
       <button class="portfolio-drawer-close" type="button" aria-label="Закрыть меню">×</button>
       <span>РАБОТЫ</span>
-      <a href="/websites/">Веб-дизайн</a><a href="/apps/">Дизайн приложений</a><a href="/branding/">Брендинг</a><a href="/ai-creative/">AI-Креативы</a><a href="/presentations/">Презентации</a><a href="/banners/">Социальные сети</a>
+      <a href="/websites/">Веб-дизайн</a><a href="/apps/">Дизайн приложений</a><a href="/ai-creative/">AI-Креативы</a><a href="/presentations/">Презентации</a><a href="/banners/">Социальные сети</a>
       <span>ЕЩЁ</span>
-      <a href="/#experience">Мой опыт</a><a href="/#about">Обо мне</a><a href="/#ai">Я и AI</a><a href="/pricing/">Цены</a><div class="portfolio-drawer-socials"><a href="https://t.me/anestiiz" target="_blank" rel="noopener">Telegram</a><a href="https://www.behance.net/anestiiz" target="_blank" rel="noopener">Behance</a><a href="https://www.instagram.com/anestiiiz" target="_blank" rel="noopener">Instagram</a></div>
+      <a href="/#experience">Мой опыт</a><a href="/#about">Обо мне</a><a href="/#ai">Я и AI</a><a href="/pricing/">Цены</a><div class="portfolio-drawer-socials"></div>
     </div>`;
+
+  drawer.querySelector(".portfolio-drawer-socials").replaceChildren(
+    ...Array.from(header.querySelector(".portfolio-social-links").children, link => link.cloneNode(true))
+  );
 
   document.body.prepend(drawer);
   document.body.prepend(header);

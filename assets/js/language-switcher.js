@@ -2,7 +2,7 @@
   const currentLanguage = 'ru';
   const domains = { en: 'https://anestiiz.com', ru: 'https://anestiiz.ru' };
   const englishRoutes = new Set([
-    '/', '/index.html', '/apps.html', '/apps/', '/websites.html', '/websites/', '/branding/',
+    '/', '/index.html', '/apps.html', '/apps/', '/websites.html', '/websites/',
     '/presentations.html', '/presentations/', '/banners/', '/ai.html', '/ai/',
     '/ai-creative.html', '/ai-creative/', '/neuro.html',
     '/fluxframe.html', '/fluxframe/', '/lume.html', '/lume/', '/bloat-down.html',
@@ -16,7 +16,6 @@
     '/banners/shum/': '/shum/',
     '/banners/feast-no-tomorrow/': '/a-feast-without-tomorrow.html',
     '/banners/': '/banners.html',
-    '/branding/': '/branding.html',
     '/pricing/': '/pricing.html'
   };
 

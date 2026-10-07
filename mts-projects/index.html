@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" href="/assets/favicon/favicon.png">
   <link rel="apple-touch-icon" href="/assets/favicon/favicon.png">
   <link rel="stylesheet" href="/assets/css/site.css?v=deploy-20260927">
-  <script defer src="/assets/js/analytics.js?v=social-buttons-20261004"></script>
+  <script defer src="/assets/js/analytics.js?v=drawer-20261007"></script>
 
   <!-- SEO:START -->
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
@@ -79,7 +79,6 @@
   <nav class="tabs-nav" aria-label="Разделы работ">
     <a href="/websites/"><span class="lbl">Веб-дизайн</span></a>
     <a href="/apps/"><span class="lbl">Дизайн приложений</span></a>
-    <a href="/branding/"><span class="lbl">Брендинг</span></a>
     <a href="/ai-creative/"><span class="lbl">AI-Креативы</span></a>
     <a href="/presentations/"><span class="lbl">Презентации</span></a>
     <a href="/banners/"><span class="lbl">Социальные сети</span></a>
@@ -92,6 +91,6 @@
     const updateTabsVisibility=()=>{const bar=document.querySelector('.tabs-nav');if(!bar)return;const show=window.scrollY>Math.max(640,window.innerHeight*.7);bar.classList.toggle('is-visible',show);if(show)posTabsPill()};window.addEventListener('scroll',updateTabsVisibility,{passive:true});window.addEventListener('resize',()=>{posTabsPill();updateTabsVisibility()});window.addEventListener('load',()=>{posTabsPill();updateTabsVisibility()});
     const drawer=document.getElementById('mobileDrawer'),hamburger=document.querySelector('.hamburger');if(drawer&&hamburger){const close=()=>{drawer.classList.remove('is-open');hamburger.classList.remove('is-open');hamburger.setAttribute('aria-expanded','false');document.body.classList.remove('is-drawer-open');setTimeout(()=>drawer.hidden=true,350)};hamburger.addEventListener('click',()=>{if(drawer.classList.contains('is-open'))return close();drawer.hidden=false;requestAnimationFrame(()=>drawer.classList.add('is-open'));hamburger.classList.add('is-open');hamburger.setAttribute('aria-expanded','true');document.body.classList.add('is-drawer-open')});drawer.querySelectorAll('[data-drawer-close],[data-drawer-link]').forEach(el=>el.addEventListener('click',close))}
   </script>
-  <script src="/assets/js/language-switcher.js?v=system-cursor-20261002"></script>
+  <script src="/assets/js/language-switcher.js?v=drawer-20261007"></script>
 </body>
 </html>

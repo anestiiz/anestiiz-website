@@ -31,30 +31,6 @@
   .portfolio-global-header .portfolio-main-nav { display: none !important; }
   .portfolio-global-header .portfolio-menu-button { display: block; }
 }
-@media(max-width:600px) {
-  .portfolio-global-header .portfolio-header-inner.portfolio-header-inner {
-    flex-wrap: wrap !important;
-    gap: 12px !important;
-    padding: 12px !important;
-  }
-  .portfolio-global-header .portfolio-header-actions { display: contents; }
-  .portfolio-global-header .portfolio-brand { order: 0; }
-  .portfolio-global-header .portfolio-menu-button { order: 1; margin-left: auto; }
-  .portfolio-global-header .portfolio-social-links {
-    order: 2;
-    width: 100%;
-    margin-left: 0;
-    justify-content: center;
-    gap: 6px;
-  }
-  .portfolio-global-header .portfolio-social-links a {
-    height: 38px !important;
-    padding: 0 8px !important;
-  }
-  .portfolio-social-label { font-size: 12px; }
-  .portfolio-social-icon { width: 19px; height: 19px; flex-basis: 19px; }
-  .portfolio-global-header { border-radius: 28px !important; }
-}
 
 @media (pointer:fine) and (prefers-reduced-motion:no-preference){
   html.fluffy-cursor-enabled,html.fluffy-cursor-enabled body,html.fluffy-cursor-enabled a,html.fluffy-cursor-enabled button,html.fluffy-cursor-enabled input,html.fluffy-cursor-enabled textarea,html.fluffy-cursor-enabled select,html.fluffy-cursor-enabled summary{cursor:none!important}
@@ -95,3 +71,24 @@
 .portfolio-menu-button{border:1px solid rgba(255,255,255,.13);background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));box-shadow:inset 0 1px rgba(255,255,255,.1),0 8px 22px rgba(0,0,0,.24)}
 @media(max-width:900px){.portfolio-global-header{top:12px!important;width:calc(100% - 24px)!important;margin:0 12px 12px!important;border:1px solid rgba(255,255,255,.14)!important;border-radius:999px!important;overflow:hidden!important;background:linear-gradient(100deg,rgba(73,25,49,.78),rgba(24,22,28,.84) 42%,rgba(18,17,22,.88))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.11),0 14px 38px rgba(0,0,0,.42),0 0 28px rgba(255,0,106,.12)!important}.portfolio-menu-button{width:40px;height:40px}.portfolio-menu-button span{left:10px}.portfolio-menu-button span:first-child{top:15px}.portfolio-menu-button span:last-child{top:23px}}
 .portfolio-social-links{display:flex;align-items:center;gap:9px}.portfolio-social-links a{display:grid!important;place-items:center!important;width:42px!important;height:42px!important;padding:0!important;border:1px solid rgba(255,255,255,.2)!important;border-radius:50%!important;background:rgba(255,255,255,.055)!important;color:#fff!important;transition:transform .2s ease,border-color .2s ease,background .2s ease!important}.portfolio-social-links a:hover,.portfolio-social-links a:focus-visible{transform:translateY(-2px);border-color:rgba(255,0,106,.7)!important;background:rgba(255,0,106,.18)!important;outline:none}.portfolio-social-links svg{display:block;width:21px;height:21px;fill:currentColor}.portfolio-drawer-socials{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.portfolio-drawer-panel .portfolio-drawer-socials a{display:flex!important;align-items:center;justify-content:center;padding:12px!important;border:1px solid rgba(255,255,255,.18)!important;border-radius:999px!important;font-size:14px!important;line-height:20px!important}.portfolio-drawer-panel .portfolio-drawer-socials a:hover{border-color:rgba(255,0,106,.6)!important;background:rgba(255,0,106,.12)}@media(max-width:900px){.portfolio-social-links{margin-left:auto}.portfolio-social-links a{width:38px!important;height:38px!important}.portfolio-social-links svg{width:19px;height:19px}}
+
+.portfolio-drawer-panel .portfolio-drawer-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.portfolio-drawer-panel .portfolio-drawer-socials a {
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 12px !important;
+  background: rgba(255,255,255,.055);
+}
+.portfolio-drawer-socials svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+  fill: currentColor;
+}
+@media (max-width: 900px) {
+  .portfolio-global-header .portfolio-social-links { display: none !important; }
+}

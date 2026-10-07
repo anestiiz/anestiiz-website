@@ -11,6 +11,12 @@
     });
     const image = panels[index].querySelector('img[data-src]');
     if (image) { image.src = image.dataset.src; delete image.dataset.src; }
+    const strip = tabs[index].parentElement;
+    if (strip.scrollWidth > strip.clientWidth) {
+      const tab = tabs[index].getBoundingClientRect();
+      const track = strip.getBoundingClientRect();
+      strip.scrollTo({left:strip.scrollLeft + tab.left - track.left - (track.width - tab.width) / 2});
+    }
   };
   tabs.forEach((tab,index) => {
     tab.addEventListener('click',() => show(index));
