@@ -1,4 +1,5 @@
 const YANDEX_METRIKA_ID = 112751157;
+try { localStorage.removeItem("anestiiz_theme"); } catch (_) {}
 const TELEGRAM_ACTIVITY_ENDPOINT = "https://anestiiz-telegram-events.palkina-anastasii.workers.dev/event";
 const TELEGRAM_OWNER_MODE_KEY = "anestiiz_owner_device";
 

@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="assets/css/site.css?v=orbit-link-auto-20260929">
   <link rel="preload" as="image" href="/assets/banners/shum-duo.webp">
   <script defer src="assets/js/analytics.js?v=social-buttons-20261004"></script>
-  <script defer src="assets/js/orbit-gallery.js?v=clickable-area-20261004"></script>
+  <link rel="stylesheet" href="assets/css/category-banners.css?v=20261007-7">
+  <script defer src="assets/js/category-banners.js?v=20261006-1"></script>
   <script defer src="assets/js/process-videos.js?v=2"></script>
 
   <!-- SEO:START -->
@@ -96,17 +97,68 @@
         <img class="hero-bg" src="assets/media/hero-first-screen.webp" alt="Проектирую интерфейсы. Генерирую невозможное. anestiiz — независимый дизайнер и AI-креатор">
       </picture>
     </section>
-    <section id="portfolio-orbit" class="portfolio-orbit wrap" aria-label="Портфолио по категориям" data-orbit-gallery>
-      <div class="orbit-stage">
-        <div class="orbit-controls"><button type="button" data-orbit-prev aria-label="Предыдущая категория">←</button><button type="button" data-orbit-next aria-label="Следующая категория">→</button></div>
-        <article class="orbit-panel is-active" data-orbit-panel data-title="Социальные сети" data-href="/banners/"><a class="orbit-fan" href="/banners/" aria-label="Открыть категорию: Социальные сети"><figure><img src="/assets/banners/shum-duo.webp" alt="Кампания SHUM" loading="eager" decoding="sync" fetchpriority="high"></figure><figure><img data-src="/assets/banners/feast-no-tomorrow/invitation.webp" alt="Пир без завтра" decoding="async"></figure><figure><img data-src="/assets/banners/worlds/moonbloom.webp" alt="Постер Moonbloom" decoding="async"></figure></a></article>
-        <article class="orbit-panel" data-orbit-panel data-title="Веб-дизайн" data-href="/websites/"><a class="orbit-fan" href="/websites/" aria-label="Открыть категорию: Веб-дизайн"><figure><img data-src="/sites/lacque/hero-pink.webp" alt="Сайт LACQUÉ" decoding="async"></figure><figure><img data-src="/sites/noir-rouge/hero.webp" alt="Сайт NOIR ROUGE"></figure><figure><img data-src="/sites/altero-clinic/cover.webp" alt="Сайт Altero"></figure></a></article>
-        <article class="orbit-panel" data-orbit-panel data-title="Дизайн приложений" data-href="/apps/"><a class="orbit-fan" href="/apps/" aria-label="Открыть категорию: Дизайн приложений"><figure><img data-src="/assets/how-are-you/cover.webp" alt="How are you?" decoding="async"></figure><figure><img data-src="/assets/greekly/Cover.webp" alt="Приложение Greekly" decoding="async"></figure><figure><img data-src="/assets/lume/Cover.webp" alt="Приложение Lumé" decoding="async"></figure></a></article>
-        <article class="orbit-panel" data-orbit-panel data-title="Брендинг" data-href="/branding/"><a class="orbit-fan" href="/branding/" aria-label="Открыть категорию: Брендинг"><figure><img data-src="/assets/branding/sera/cover.webp" alt="Аромасистема SERA" decoding="async"></figure><figure><img data-src="/sites/sera/assets/sera-kit.webp" alt="Айдентика и упаковка SERA" decoding="async"></figure><figure><img data-src="/sites/sera/assets/sera-lifestyle.webp" alt="Кампания SERA" decoding="async"></figure></a></article>
-        <article class="orbit-panel" data-orbit-panel data-title="AI-Креативы" data-href="/ai-creative/"><a class="orbit-fan" href="/ai-creative/" aria-label="Открыть категорию: AI-Креативы"><figure><video data-src="/assets/greekly-promo/2.mp4" autoplay muted loop playsinline preload="none" poster="/assets/greekly-promo/2-poster.webp" aria-label="Greekly AI-видео"></video></figure><figure><video data-src="/assets/bruschetta-recipe/video.mp4" autoplay muted loop playsinline preload="none" poster="/assets/bruschetta-recipe/poster.webp" aria-label="AI-видео с готовкой"></video></figure><figure><img data-src="/assets/portrait-stories/portrait-02.webp" alt="AI-фотосессия" decoding="async"></figure></a></article>
-        <article class="orbit-panel" data-orbit-panel data-title="Презентации" data-href="/presentations/"><a class="orbit-fan" href="/presentations/" aria-label="Открыть категорию: Презентации"><figure><img data-src="/assets/media/presentations/116-trophy-cyprus/1.webp" alt="Презентация 116 Trophy Cyprus" decoding="async"></figure><figure><img data-src="/presentations/sloy/assets/hero.webp" alt="Презентация СЛОЙ" decoding="async"></figure><figure><img data-src="/assets/media/presentations/116-trophy-cyprus/3.webp" alt="Слайд презентации" decoding="async"></figure></a></article>
+    <section id="portfolio-orbit" class="portfolio-banners wrap" aria-label="Портфолио по категориям" data-category-banners>
+      <div class="category-banner-tabs" role="tablist" aria-label="Категории">
+        <button type="button" role="tab" id="category-tab-social" aria-controls="category-social" aria-selected="true" tabindex="0">Социальные сети</button>
+        <button type="button" role="tab" id="category-tab-web" aria-controls="category-web" aria-selected="false" tabindex="-1">Веб-дизайн</button>
+        <button type="button" role="tab" id="category-tab-apps" aria-controls="category-apps" aria-selected="false" tabindex="-1">Дизайн приложений</button>
+        <button type="button" role="tab" id="category-tab-ai" aria-controls="category-ai" aria-selected="false" tabindex="-1">AI-Креативы</button>
+        <button type="button" role="tab" id="category-tab-slides" aria-controls="category-slides" aria-selected="false" tabindex="-1">Презентации</button>
       </div>
-      <div class="orbit-footer"><span class="orbit-count">01 / 06</span><a class="orbit-link" data-orbit-link href="/banners/"><span data-orbit-title>Социальные сети</span><span><svg class="icon-arrow-up" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" style="width:1em;height:1em;flex-shrink:0;vertical-align:middle" xmlns="http://www.w3.org/2000/svg"><path opacity="0.5" d="M5.46967 17.4697C5.17678 17.7626 5.17678 18.2374 5.46967 18.5303C5.76256 18.8232 6.23744 18.8232 6.53033 18.5303L5.46967 17.4697ZM6.53033 18.5303L18.5303 6.53033L17.4697 5.46967L5.46967 17.4697L6.53033 18.5303Z" fill="currentColor"/><path d="M9 6H18V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
+      <div class="category-banner-panels">
+        <article class="category-banner" id="category-social" role="tabpanel" aria-labelledby="category-tab-social">
+          <img class="category-banner-image" src="/assets/banners/shum-duo.webp" alt="" width="1600" height="900" decoding="async">
+          <div class="category-banner-copy">
+            <h2>Социальные сети</h2>
+            <p class="category-banner-subtitle">Баннеры и постеры с выразительным визуальным характером.</p>
+            <dl class="category-banner-metrics"><div><dt>10</dt><dd>проектов в портфолио</dd></div><div><dt>18</dt><dd>макетов баннеров и постеров</dd></div></dl>
+            <p class="category-banner-description">Разрабатываю визуальные концепции, композицию и типографику. Создаю отдельные креативы и серии, объединённые общей идеей и стилем.</p>
+            <a class="category-banner-link" href="/banners/">Смотреть работы<img src="/Icons/Arrow Right Up.svg" alt=""></a>
+          </div>
+        </article>
+        <article class="category-banner" id="category-web" role="tabpanel" aria-labelledby="category-tab-web" hidden>
+          <img class="category-banner-image" data-src="/sites/lacque/hero-pink.webp" alt="" width="1600" height="900" decoding="async">
+          <div class="category-banner-copy">
+            <h2>Веб-дизайн</h2>
+            <p class="category-banner-subtitle">Сайты с понятной структурой и выразительным дизайном.</p>
+            <dl class="category-banner-metrics"><div><dt>100+</dt><dd>спроектированных сайтов и лендингов</dd></div><div><dt>80+</dt><dd>проектов запущено с моим дизайном</dd></div></dl>
+            <p class="category-banner-description">С 2021 года проектирую лендинги и многостраничные сайты. Продумываю навигацию, визуальную подачу и адаптацию интерфейса для компьютеров и смартфонов.</p>
+            <a class="category-banner-link" href="/websites/">Смотреть кейсы<img src="/Icons/Arrow Right Up.svg" alt=""></a>
+          </div>
+        </article>
+        <article class="category-banner" id="category-apps" role="tabpanel" aria-labelledby="category-tab-apps" hidden>
+          <img class="category-banner-image" data-src="/assets/safesupp/cover.webp" alt="" width="1600" height="900" decoding="async">
+          <div class="category-banner-copy">
+            <h2>Дизайн приложений</h2>
+            <p class="category-banner-subtitle">UX/UI от пользовательского сценария до монетизации.</p>
+            <dl class="category-banner-metrics"><div><dt>100 <span>тыс.+</span></dt><dd>суммарных скачиваний</dd></div><div><dt>4,8<span>/5</span></dt><dd>средняя оценка приложений</dd></div></dl>
+            <p class="category-banner-description">Проектирую пользовательские потоки, онбординг, основные экраны и пейволлы. Разрабатываю компоненты интерфейса и готовлю макеты к передаче в разработку.</p>
+            <a class="category-banner-link" href="/apps/">Смотреть кейсы<img src="/Icons/Arrow Right Up.svg" alt=""></a>
+          </div>
+        </article>
+        <article class="category-banner" id="category-ai" role="tabpanel" aria-labelledby="category-tab-ai" hidden>
+          <img class="category-banner-image" data-src="/assets/portrait-stories/portrait-02.webp" alt="" width="1600" height="900" decoding="async">
+          <div class="category-banner-copy">
+            <h2>AI-креативы</h2>
+            <p class="category-banner-subtitle">Рекламные ролики, анимация и авторские истории — от сценария до готового видео.</p>
+            <dl class="category-banner-metrics"><div><dt class="category-banner-long-number">≈27,8 <span>тыс.</span></dt><dd>просмотров в Instagram,<br>TikTok и YouTube*</dd></div><div><dt>88</dt><dd>новых подписчиков<br>в Instagram за 30 дней</dd></div></dl>
+            <p class="category-banner-description">Разрабатываю сценарии и визуальные образы, создаю персонажей и анимацию. Собираю видео с монтажом, озвучкой и музыкой для рекламы и социальных сетей.</p>
+            <a class="category-banner-link" href="/ai-creative/">Смотреть работы<img src="/Icons/Arrow Right Up.svg" alt=""></a>
+            <p class="category-banner-footnote">*Статистика авторских аккаунтов: Instagram — 06.09–05.10, YouTube — 08.09–05.10, TikTok — 07.09–04.10.2026.</p>
+          </div>
+        </article>
+        <article class="category-banner" id="category-slides" role="tabpanel" aria-labelledby="category-tab-slides" hidden>
+          <img class="category-banner-image" data-src="/assets/media/presentations/loop/1.webp" alt="" width="1600" height="900" decoding="async">
+          <div class="category-banner-copy">
+            <h2>Презентации</h2>
+            <p class="category-banner-subtitle">Для защиты продуктов, бизнес-идей и проектных решений.</p>
+            <dl class="category-banner-metrics"><div><dt>50+</dt><dd>разработанных презентаций</dd></div><div><dt>≈1–1,5 <span>тыс.</span></dt><dd>оформленных слайдов суммарно*</dd></div></dl>
+            <p class="category-banner-description">Мои презентации помогали командам успешно защищать продукты и бизнес-инициативы. Выстраиваю логику рассказа, выделяю ключевые аргументы и оформляю сложные материалы в понятные, выразительные слайды.</p>
+            <a class="category-banner-link" href="/presentations/">Смотреть работы<img src="/Icons/Arrow Right Up.svg" alt=""></a>
+            <p class="category-banner-footnote">*Примерная оценка общего объёма выполненных работ.</p>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section id="process" class="process wrap">
@@ -475,15 +527,6 @@
 
   </main>
 
-  <nav class="tabs-nav" aria-label="Разделы работ">
-    <a href="/websites/"><span class="lbl">Веб-дизайн</span></a>
-    <a href="/apps/"><span class="lbl">Дизайн приложений</span></a>
-    <a href="/branding/"><span class="lbl">Брендинг</span></a>
-    <a href="/ai-creative/"><span class="lbl">AI-Креативы</span></a>
-    <a href="/presentations/"><span class="lbl">Презентации</span></a>
-    <a href="/banners/"><span class="lbl">Социальные сети</span></a>
-    <span class="tabs-pill" aria-hidden="true"></span>
-  </nav>
 
   <footer>
     <div>© 2026 anestiiz &nbsp; Дизайн с вниманием к деталям.</div>
