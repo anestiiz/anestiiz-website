@@ -64,17 +64,37 @@
     'social-media':['What social media materials do you need?','Platforms, formats, number of creatives, and topic']
   };
   const escapeHtml = value => String(value || '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+  const projectOptions = locale === 'ru' ? {
+    'web-design':['Лендинг','Многостраничный сайт','Интернет-магазин','Редизайн сайта'],
+    'app-design':['iOS','Android','iOS и Android','Веб-приложение'],
+    'ai-creative':['Изображения','Рекламное видео','Анимация','Авторская история'],
+    presentations:['Продуктовая','Для инвесторов','Для выступления','Коммерческое предложение'],
+    'social-media':['Баннеры','Постеры','Посты','Сторис']
+  } : {
+    'web-design':['Landing page','Multi-page website','Online store','Website redesign'],
+    'app-design':['iOS','Android','iOS and Android','Web app'],
+    'ai-creative':['Images','Advertising video','Animation','Original story'],
+    presentations:['Product presentation','Investor pitch','Talk or event','Sales proposal'],
+    'social-media':['Banners','Posters','Posts','Stories']
+  };
+  const extraOptions = locale === 'ru' ? ['Другое','Пока не знаю'] : ['Other','Not sure yet'];
+  const audienceOptions = locale === 'ru'
+    ? ['Частные клиенты','Бизнес-клиенты','Команда компании','Широкая аудитория']
+    : ['Consumers','Business customers','Company team','General audience'];
+  const goalOptions = locale === 'ru'
+    ? ['Заявки','Продажи','Подписки','Запуск продукта','Узнаваемость']
+    : ['Leads','Sales','Subscriptions','Product launch','Brand awareness'];
   const closeModal = modal => { modal.remove(); document.documentElement.classList.remove('pricing-modal-open'); };
   const openModal = button => {
     const selection = {category:button.dataset.category,tier:button.dataset.tier,title:button.dataset.title,price:button.dataset.price};
     const categoryId = data.categories.find(category => category.title === selection.category)?.id;
-    const [taskLabel,taskPlaceholder] = taskQuestions[categoryId] || taskQuestions['web-design'];
+    const [taskLabel] = taskQuestions[categoryId] || taskQuestions['web-design'];
     const questions = [
-      {name:'project',label:taskLabel,placeholder:taskPlaceholder},
-      {name:'audience',label:copy.audience,placeholder:copy.audiencePlaceholder},
-      {name:'goal',label:copy.goal,placeholder:copy.goalPlaceholder}
+      {name:'project',label:taskLabel,options:projectOptions[categoryId] || projectOptions['web-design']},
+      {name:'audience',label:copy.audience,options:audienceOptions},
+      {name:'goal',label:copy.goal,options:goalOptions}
     ];
-    const questionFields = questions.map(question => `<label>${question.label}<textarea name="${question.name}" rows="2" maxlength="1000" required placeholder="${question.placeholder}"></textarea></label>`).join('');
+    const questionFields = questions.map(question => `<fieldset class="pricing-question"><legend>${question.label}</legend><div class="pricing-question-options">${[...question.options,...extraOptions].map((option,index) => `<label class="pricing-choice"><input type="radio" name="${question.name}" value="${option}" required><span>${option}</span></label>`).join('')}</div></fieldset>`).join('');
     const modal = document.createElement('div'); modal.className='pricing-selection';
     modal.innerHTML=`<button class="pricing-selection-backdrop" type="button" aria-label="${copy.close}"></button><section class="pricing-selection-dialog" role="dialog" aria-modal="true"><button class="pricing-selection-close" type="button" aria-label="${copy.close}">×</button><p class="pricing-kicker">${copy.title}</p><h2>${selection.category}</h2><div class="pricing-selection-summary"><span>${selection.tier} · ${selection.title}</span><strong>${selection.price}</strong></div><form><label>${copy.contact}<input name="contact" required maxlength="254" autocomplete="email" placeholder="${copy.placeholder}"></label>${questionFields}<label>${copy.notes}<textarea name="notes" rows="3" maxlength="1000" placeholder="${copy.notesPlaceholder}"></textarea></label><button class="pricing-selection-submit" type="submit">${copy.send} <svg class="icon-arrow-up" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" style="width:1em;height:1em;flex-shrink:0;vertical-align:middle" xmlns="http://www.w3.org/2000/svg"><path opacity="0.5" d="M5.46967 17.4697C5.17678 17.7626 5.17678 18.2374 5.46967 18.5303C5.76256 18.8232 6.23744 18.8232 6.53033 18.5303L5.46967 17.4697ZM6.53033 18.5303L18.5303 6.53033L17.4697 5.46967L5.46967 17.4697L6.53033 18.5303Z" fill="currentColor"/><path d="M9 6H18V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><p class="pricing-selection-status" role="status"></p></form></section>`;
     document.body.append(modal); document.documentElement.classList.add('pricing-modal-open'); modal.querySelector('input').focus();
@@ -90,10 +110,6 @@
         label: question.label,
         value: form.elements[question.name].value.trim()
       }));
-      for (let index = 0; index < questions.length; index++) {
-        const input = form.elements[questions[index].name];
-        input.setCustomValidity(answers[index].value ? '' : copy.required);
-      }
       const contact = form.elements.contact.value.trim();
       form.elements.contact.setCustomValidity(contact ? '' : copy.required);
       if (!form.reportValidity()) return;
