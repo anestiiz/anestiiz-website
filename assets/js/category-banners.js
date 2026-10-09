@@ -9,8 +9,9 @@
       tab.tabIndex = i === index ? 0 : -1;
       panels[i].hidden = i !== index;
     });
-    const image = panels[index].querySelector('img[data-src]');
-    if (image) { image.src = image.dataset.src; delete image.dataset.src; }
+    panels[index].querySelectorAll('img[data-src]').forEach(image => {
+      image.src = image.dataset.src; delete image.dataset.src;
+    });
     const strip = tabs[index].parentElement;
     if (strip.scrollWidth > strip.clientWidth) {
       const tab = tabs[index].getBoundingClientRect();
