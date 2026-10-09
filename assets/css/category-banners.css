@@ -31,6 +31,7 @@
 @media(max-width:800px){.category-banner-metrics dt{font-size:64px}.category-banner-metrics dt span{font-size:22px}}
 @media(max-width:480px){.portfolio-banners{padding-top:20px;padding-bottom:48px;scroll-margin-top:150px}.category-banner{gap:24px;padding:24px 0}.category-banner-copy{padding:8px 12px}.category-banner h2{font-size:32px}.category-banner-description{font-size:14px;margin-top:12px}.category-banner-metrics{display:flex;flex-direction:row;align-items:center;gap:24px;margin:28px 0}.category-banner-metrics>div{flex:1;min-width:0}.category-banner-metrics dt{font-size:32px}.category-banner-metrics dt span{display:inline;font-size:18px;line-height:1.4}.category-banner-metrics dd{font-size:13px;margin-top:8px}.category-banner-tabs{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}.category-banner-tabs button{flex:0 0 auto;white-space:nowrap;padding:18px 20px;font-size:13px;scroll-snap-align:start}}
 @media(max-width:360px){.category-banner-metrics dt{font-size:28px}}
+@media(max-width:480px){#category-mts .category-banner-metrics>div:first-child{flex:1.4}}
 @media(min-width:1101px){
   .portfolio-banners{padding-top:16px;padding-bottom:16px;scroll-margin-top:104px}
   .category-banner{height:calc(100svh - 204px);min-height:0;grid-template-rows:minmax(0,1fr);padding:16px 0;box-sizing:border-box}

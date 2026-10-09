@@ -59,7 +59,6 @@ document.head.append(arrowSpacingLink);
         <a href="/#experience">Мой опыт</a>
         <a href="/#about">Обо мне</a>
         <a href="/#ai">Я и AI</a>
-        <a href="/mts-projects/" aria-label="Специальные проекты МТС">МТС</a>
         <a href="/pricing/">Цены</a>
       </nav>
       <div class="portfolio-header-actions">
