@@ -922,3 +922,6 @@ footer .ai{display:inline-flex;align-items:center;gap:6px}
 @media(max-width:1024px){.hero-v2-services{top:auto;right:16px;bottom:16px;left:16px;width:auto;gap:7px}.hero-services-track span{min-height:34px;padding:6px 12px;font-size:11px}}
 @media(max-width:640px){.home-page .hero-v2-services{position:relative;inset:auto;grid-row:2;width:100%;margin-top:8px;padding-block:2px}.hero-services-track.reverse{display:none}}
 @media(prefers-reduced-motion:reduce){.hero-services-track{animation:none}.hero-v2-services{opacity:1}}
+.category-service-intro{max-width:720px;margin:24px 0 0;color:#c9c1c7;font-size:17px;line-height:1.55}
+.category-service-intro a{color:#fff;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:640px){.category-service-intro{font-size:15px}}
